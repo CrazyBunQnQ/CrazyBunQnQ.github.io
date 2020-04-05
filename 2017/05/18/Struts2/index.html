@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>struts2 | CrazyBunQnQ&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Struts2 前身是 weborek 框架，优点是封装、重用、代码简洁、编码速度快、准确度高。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="struts2">
+<meta property="og:url" content="http://blog.crazybunqnq.com/2017/05/18/Struts2/index.html">
+<meta property="og:site_name" content="CrazyBunQnQ&#39;s Blog">
+<meta property="og:description" content="Struts2 前身是 weborek 框架，优点是封装、重用、代码简洁、编码速度快、准确度高。">
+<meta property="article:published_time" content="2017-05-18T06:19:04.000Z">
+<meta property="article:modified_time" content="2020-04-05T03:48:17.217Z">
+<meta property="article:author" content="CrazyBunQnQ">
+<meta property="article:tag" content="struts2">
+<meta property="article:tag" content="框架">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="CrazyBunQnQ&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CrazyBunQnQ&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">The quieter you become, the more you are able to hear!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.crazybunqnq.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Struts2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/18/Struts2/" class="article-date">
+  <time datetime="2017-05-18T06:19:04.000Z" itemprop="datePublished">2017-05-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>►<a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      struts2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Struts2 前身是 weborek 框架，优点是封装、重用、代码简洁、编码速度快、准确度高。</p>
+<a id="more"></a>
+
+<h2 id="Struts2"><a href="#Struts2" class="headerlink" title="Struts2"></a>Struts2</h2><p>Struts2 是个 Web MVC 框架</p>
+<h3 id="MVC："><a href="#MVC：" class="headerlink" title="MVC："></a>MVC：</h3><ul>
+<li>Controller 控制层<ul>
+<li>DispatcherServlet 总控制器（继承 HttpServlet），分发请求。</li>
+<li>XXXController 分控制器，接受请求数据、调用业务模型、页面跳转（转发重定向）。</li>
+</ul>
+</li>
+<li>Model 业务模型层<ul>
+<li>Service 业务逻辑，处理棘突业务逻辑的。</li>
+<li>DAO（数据持久层）</li>
+</ul>
+</li>
+<li>View 视图层<ul>
+<li>呈现数据，用户交互</li>
+</ul>
+</li>
+</ul>
+<p>View → 发出请求 → 总控制器 → 分发请求 → 分控制器 → 接收数据 ←→ 调用 Service ←→ 调用 DAO （CRUD）→ DB<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>                                    页面跳转</p>
+<h2 id="Struts2-入门开发"><a href="#Struts2-入门开发" class="headerlink" title="Struts2 入门开发"></a><strong>Struts2 入门开发</strong></h2><p>首先要<a href="">下载 struets2 资源包</a>（jar 包、源码、示例代码）</p>
+<ol>
+<li><p>创建 web 项目</p>
+</li>
+<li><p>引入 jar 包 </p>
+<ol>
+<li>commons-fileupload 上传</li>
+<li>commons-io 下载</li>
+<li>commons-lang </li>
+<li>freemarker 模板</li>
+<li>javassist 改变字节码</li>
+<li>ognl 一种表达式</li>
+<li>struts2-core 核心包</li>
+<li>xwork-core webwork 核心包</li>
+</ol>
+</li>
+<li><p>配置 Struts2 的总控制器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>StrutsFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span></span></span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>StrutsFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 默认后缀名为 .action 或者无后缀 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写处理请求的 Action 类（分控制器）<strong>继承 ActionSupport 类</strong></p>
+</li>
+</ol>
+<p><strong>方法一定是无参的，并且返回 String 类型</strong> 返回的字符串和页面是一一对应的.</p>
+<ol start="5">
+<li>在类路径创建一个 <strong>struts.xml</strong> 文件<br>配置请求 url 地址和 Action 的对应关系<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">配置文件头从 struts2-core 包中拷贝 struts-default.xml 过来即可</span><br><span class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 配置包</span></span><br><span class="line"><span class="comment">	name:包名</span></span><br><span class="line"><span class="comment">	extends:继承</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.crazybunqnq.action"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 配置 url 请求和哪个 Action 对应</span></span><br><span class="line"><span class="comment">		name:配置的请求 url</span></span><br><span class="line"><span class="comment">		class:action 类的全路径</span></span><br><span class="line"><span class="comment">		method:方法名，默认为 execute</span></span><br><span class="line"><span class="comment">		--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"login"</span> <span class="attr">class</span>=<span class="string">"com.crazybunqnq.LoginAction"</span> <span class="attr">method</span>=<span class="string">"doLogin"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 配置 Action 类返回的结果对应的页面</span></span><br><span class="line"><span class="comment">			name:方法返回的字符串</span></span><br><span class="line"><span class="comment">			type:响应类型，默认为转发 "dispatcher"，改为 "redirect" 则变为重定向跳转，</span></span><br><span class="line"><span class="comment">改为 redirectAction 则重定向到另一个 Action ...</span></span><br><span class="line"><span class="comment">			--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/main.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">package</span>&gt;</span>	</span><br><span class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><!--全局 result-->
+<global-results>
+    <result name="error" >/error.jsp</result>
+</global-results>
+<!--全局异常-->
+<global-exception-mappings>
+    <exception-mapping result="error" exception="java.lang"></exception-mapping>
+</global-exception-mappings>
+
+
+
+<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><p>url-发出请求-  action-方法-result-jsp</p>
+<h3 id="页面到-action-的传值和-action-到页面的传值"><a href="#页面到-action-的传值和-action-到页面的传值" class="headerlink" title="页面到 action 的传值和 action 到页面的传值"></a>页面到 action 的传值和 action 到页面的传值</h3><p>Action 中的属性与页面请求的参数名相同，并设置好 get 和 set 方法即可。</p>
+<p>发送请求时会先获取请求参数值并调用 set 方法，再调用 action 的方法。</p>
+<p>//底层请求参数 设置给 set 方法的形参，再给属性赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;.....&#x2F;login?name&#x3D;xxx&amp;age&#x3D;5&amp;interest&#x3D;eat&amp;interest&#x3D;play</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> age</span><br><span class="line"><span class="keyword">private</span> String[] interest;</span><br><span class="line"><span class="keyword">private</span> User user;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>el 表达式 一次从 pageContext request action session application 中取值</p>
+<p>表单中若要传递对象，则需要这样写：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"user.username"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="namespace-命名空间"><a href="#namespace-命名空间" class="headerlink" title="namespace 命名空间"></a>namespace 命名空间</h2><p>分门别类,区分不同包的同名请求，当多个 package 的 action 冲突的时候，可以根据 namespace 区分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;package name&#x3D;&quot;com.crazybunqnq.action&quot; extends&#x3D;&quot;struts-default&quot; namespace&#x3D;&quot;&#x2F;emp&quot;&gt;</span><br><span class="line">&lt;&#x2F;package&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>默认值是”/“，但不建议用默认值</p>
+</blockquote>
+<h2 id="struts2-访问-request-response-session"><a href="#struts2-访问-request-response-session" class="headerlink" title="struts2 访问 request response session"></a>struts2 访问 request response session</h2><ol>
+<li>不推荐<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取原始类型的 request 和 response 对象一次请求 一次响应期间</span></span><br><span class="line">HttpServletRequest request = ServletActionContext.getRequest();</span><br><span class="line">HttpServletRequest response = ServletActionContext.getResponse();</span><br><span class="line"><span class="comment">//获取 session</span></span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line"><span class="comment">//获取 Servlet 上下文，对于一个应用，它是唯一的</span></span><br><span class="line">ServletContext application = ServletActionContext.getServletContext();</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>ActionContext<br>返回 Map 类型的 request response session 对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Object&gt; request = (Map&lt;String, Object&gt;)ActionContext.getContext().get(<span class="string">"request"</span>);</span><br><span class="line">Map&lt;String, Object&gt; session = ActionContext.getContext.getSession();</span><br><span class="line">Map&lt;String, Object&gt; application = (Map&lt;String, Object&gt;)ActionContext.getContext().getApplication();</span><br><span class="line"></span><br><span class="line">requset.put(<span class="string">"r"</span>, <span class="string">"requset"</span>);</span><br><span class="line">session.put(<span class="string">"s"</span>, <span class="string">"session"</span>);</span><br><span class="line">application.put(<span class="string">"a"</span>, <span class="string">"application"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注入式(推荐)<br>以上两种访问方式都是侵入式编程<br>实现接口<br>Action … implements RequestAware,SessionAware,ApplicationAware<br>实现接口方法后，参数就是 request session application 对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Map&lt;String , Object&gt; appliacation;</span><br><span class="line">setApplication(Map&lt;String, Object&gt; application) &#123;</span><br><span class="line">	<span class="keyword">this</span>.application = application;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>推荐将获取 session 等对象封装到一个基类中，例如 BaseAction.java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> <span class="keyword">implements</span> <span class="title">RequestAware</span>, <span class="title">SessionAware</span>, <span class="title">ApplicationAware</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">protected</span> Map&lt;String, Object&gt; appliacation;</span><br><span class="line">	<span class="keyword">protected</span> Map&lt;String, Object&gt; request;</span><br><span class="line">	<span class="keyword">protected</span> Map&lt;String, Object&gt; session;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplication</span><span class="params">(Map&lt;String, Object&gt; appliacation)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.application = application;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplication</span><span class="params">(Map&lt;String, Object&gt; request)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.session = request;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplication</span><span class="params">(Map&lt;String, Object&gt; session)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.session = session;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="result-type"><a href="#result-type" class="headerlink" title="result type"></a>result type</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">result</span> <span class="attr">type</span>=<span class="string">"..."</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>result name 默认为 success<br>配置文件可以使用 el 表达式</p>
+</blockquote>
+<h3 id="dispatcher"><a href="#dispatcher" class="headerlink" title="dispatcher"></a>dispatcher</h3><p>转发到页面<br><result type="dispatcher"></p>
+<h3 id="freemaker"><a href="#freemaker" class="headerlink" title="freemaker"></a>freemaker</h3><h3 id="stream"><a href="#stream" class="headerlink" title="stream"></a>stream</h3><p>流响应，服务器发送给浏览器的是 流格式的数据(byet 序列)，可以用来下载</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span> <span class="attr">type</span>=<span class="string">"stream"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"inputName"</span>&gt;</span>is<span class="tag">&lt;/<span class="name">parm</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	contentDisposition</span></span><br><span class="line"><span class="comment">	attachment:保存 另存 提示</span></span><br><span class="line"><span class="comment">	inline ： 直接在浏览器打开【默认】</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"contentDisposition"</span>&gt;</span>attachment;filename=$&#123;filename&#125;<span class="tag">&lt;/<span class="name">param</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"bufferSize"</span>&gt;</span>5*1024<span class="tag">&lt;/<span class="name">param</span>&gt;</span><span class="comment">&lt;!--5K 缓冲区，默认 1024--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"contentType"</span>&gt;</span>text/pl..<span class="tag">&lt;/<span class="name">param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadAction</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String filename;<span class="comment">//下载文件名</span></span><br><span class="line">	<span class="keyword">private</span> InputStream is;<span class="comment">//用来接收下载的文件内容	</span></span><br><span class="line"></span><br><span class="line">	set...</span><br><span class="line">	getFilename() &#123;</span><br><span class="line">		<span class="keyword">return</span> urlencoder.encode(filename, <span class="string">"utf-8"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		filename=<span class="string">"1.png"</span>;</span><br><span class="line">		<span class="comment">//根据逻辑路径“download”获取实际发布到服务器上的文件物理路径</span></span><br><span class="line">		String realPath = ServletActionContext.getServletContext().getRealPath(<span class="string">"/download"</span>);</span><br><span class="line">		String downPath = realPath + <span class="string">"/"</span> + filename;</span><br><span class="line">		<span class="comment">//将要下载的文件内容 转换为 byte by byte</span></span><br><span class="line">		is = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(downPath));</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>没有保存的下载（如验证码）：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">result</span> <span class="attr">type</span>=<span class="string">"stream"</span>&gt;</span></span><br><span class="line">	inputName&gt;inputStream</span><br><span class="line">	bufferSize&gt;5*1024</span><br><span class="line"><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;string, bufferedImage&gt; map = ImageUtil.getImage();</span><br><span class="line">String code = map.keySet().iterator().next();</span><br><span class="line">BufferedImage img = map.get(code);</span><br><span class="line"><span class="comment">//将 image 对象 转换成 InputStream 格式 发送给浏览器</span></span><br><span class="line">ByteArrayoutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream(inputStream);</span><br><span class="line">JPEGCodec jp = JPEGCodec.createJPEGEncoder(baos);</span><br><span class="line">jp.encode(image);</span><br><span class="line"><span class="comment">//转化流</span></span><br><span class="line">inputStream = <span class="keyword">new</span> ByteArrayInputStream(baos.toByteArray());</span><br><span class="line"><span class="keyword">return</span> SUCCESS;</span><br></pre></td></tr></table></figure>
+
+<h3 id="json"><a href="#json" class="headerlink" title="json"></a>json</h3><p>服务器发送给浏览器的是 json 数据</p>
+<ul>
+<li><strong>需要引入 struts-json-plugin.jar（中间件）</strong></li>
+<li><strong>需要改配置文件继承 json-default</strong></li>
+</ul>
+<result type="json" class="org.apache.struts2.json.JSONResult">
+1.如果这里什么都不写，会将 action 中所有的属性，转换成 json 格式 发送给浏览器
+2.通过 incluDEProperties 将制定的属性以 json 格式发送给浏览器
+3.如果返回的是 list，则需要加上.*
+    <param name="includeProperties">flag,sfdf</param><!--要返回的数据-->
+</result>
+
+<h3 id="jfreechart-、highchart"><a href="#jfreechart-、highchart" class="headerlink" title="jfreechart 、highchart"></a>jfreechart 、highchart</h3><p>图表响应，需要导入 jfreechart 或 highchart 包</p>
+<blockquote>
+<p>工厂设计模式<br>(20 多种涉及模式)</p>
+</blockquote>
+<h3 id="chain"><a href="#chain" class="headerlink" title="chain"></a>chain</h3><p>转发到 Action</p>
+<h3 id="redirect"><a href="#redirect" class="headerlink" title="redirect"></a>redirect</h3><p>重定向到 jsp 页面</p>
+<blockquote>
+<p>jsp 无法渠道 action 属性的值</p>
+</blockquote>
+<h3 id="redirectAction"><a href="#redirectAction" class="headerlink" title="redirectAction"></a>redirectAction</h3><p>重定向到另外一个 Action 类</p>
+<h3 id="chain-与-redirectAction-区别"><a href="#chain-与-redirectAction-区别" class="headerlink" title="chain 与 redirectAction 区别"></a>chain 与 redirectAction 区别</h3><ul>
+<li>chain 两个 Action 可以共享值</li>
+<li>redirectAction 两个 Action 无法共享值</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">setName()</span><br><span class="line"></span><br><span class="line">getName</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">excute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">sysout( <span class="string">"action1 name"</span> + name);</span><br><span class="line"><span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">setName()</span><br><span class="line"></span><br><span class="line">getName</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">excute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">sysout( <span class="string">"action2 name"</span> + name);</span><br><span class="line"><span class="keyword">return</span> SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>chain01.jsp:</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">form action chain01.action</span><br><span class="line">name=<span class="string">"name"</span></span><br><span class="line">submit</span><br><span class="line">/form</span><br></pre></td></tr></table></figure>
+
+<p>struts.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">action name= chain01</span><br><span class="line">result type = chain</span><br><span class="line">chain02</span><br><span class="line"></span><br><span class="line">action name=chain02</span><br><span class="line">result type dispatcher</span><br><span class="line">index.jsp</span><br></pre></td></tr></table></figure>
+
+<p>访问 chain01.jsp<br>action01 获取值<br>chain 转发到 action02<br>action02 也能获取 chain01.jsp 提交的值</p>
+<p>若使用 重定向 则 action02 拿不到 chain01.jsp 提交的值</p>
+<blockquote>
+<p>跨包调用 action</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">result</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"namespace"</span>&gt;</span>/aaa<span class="tag">&lt;/<span class="name">param</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"actionName"</span>&gt;</span>/chain02<span class="tag">&lt;/<span class="name">param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>Two to two,too two to two.Two two,too two to two,too1. 决定是否可以访问 action 对象<br>将 action 的共同逻辑编写在拦截器中</p>
+<h2 id="拦截器-Interceptor"><a href="#拦截器-Interceptor" class="headerlink" title="拦截器 Interceptor"></a>拦截器 Interceptor</h2><p>拦截 action 对象，其你去过来不立即走 action 二十先走 拦截器</p>
+<ol>
+<li>决定是否可以访问 action 对象</li>
+<li>将 action 的共同逻辑编写在拦截器中</li>
+<li></li>
+</ol>
+<h3 id="自定义拦截器"><a href="#自定义拦截器" class="headerlink" title="自定义拦截器"></a>自定义拦截器</h3><ol>
+<li><p>定义拦截器，实现 Interceptor 或 继承 MethodFilterInterceptor 或 AbstractInterceptor</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//public  class TimeInterceptor implements Interceptor &#123;</span></span><br><span class="line"><span class="comment">//public class TimeInterceptor extends MethodFilterInterceptor &#123;</span></span><br><span class="line"><span class="keyword">public</span>  <span class="class"><span class="keyword">class</span> <span class="title">TimeInterceptor</span> <span class="keyword">extends</span> <span class="title">AbstractInterceptor</span> </span>&#123;</span><br><span class="line">	<span class="comment">//ActionInvocation 是 action 对象的执行者</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">interept</span><span class="params">(ActionInvocation invocation)</span> thorws ... </span>&#123;</span><br><span class="line">		<span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">		String result = invocation.invoke();<span class="comment">//调用后续的拦截器或者 action 对象</span></span><br><span class="line">		<span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">		<span class="keyword">long</span> time = end - start;</span><br><span class="line">		String className = invocation.getAction().getClass().getSimpleName();</span><br><span class="line">		<span class="comment">//代理模式</span></span><br><span class="line">		String methodName = invocation.getProxy().getMethod();</span><br><span class="line">		String msg = <span class="string">"在"</span> + className + <span class="string">"类的"</span> + methodName + <span class="string">"方法上花费了"</span> + tiom <span class="string">"毫秒"</span>；</span><br><span class="line">		log.info(msg);</span><br><span class="line">		FileWriter fw = <span class="keyword">new</span> FileWriter(<span class="keyword">new</span> File(<span class="string">"D:\\2a.txt"</span>), <span class="keyword">true</span>);</span><br><span class="line">		fw.write(msg)</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 struts.xml 中声明拦截器（多个包则每个包都需要声明）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">package</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">interceptor</span> <span class="attr">name</span>=<span class="string">"timeInterceptor"</span> <span class="attr">class</span>=<span class="string">"..."</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	1. 如果一个没有配置任何的拦截器 struts 会默认提供一个 defaultStack （默认拦截器栈）</span></span><br><span class="line"><span class="comment">	2. 一旦配置了一个拦截器，则不再提供 defaultStack 拦截器</span></span><br><span class="line"><span class="comment">	3. defaultStack 是个很重要的拦截器，所以若手动配置了其他拦截器一定要加上这个默认拦截器--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">interceptor</span> <span class="attr">name</span>=<span class="string">"defaultStack"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--若配置了 default 则所有 action 都会用默认的拦截器，action 中不再需要配置--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">default-interceptor-ref</span> <span class="attr">name</span>=<span class="string">"timeInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">default-interceptor-ref</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"timeInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span></span><br><span class="line">		...</span><br><span class="line">	<span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果一个没有配置任何的拦截器 struts 会默认提供一个 defaultStack （默认拦截器栈）</p>
+</li>
+<li><p>一旦配置了一个拦截器，则不再提供 defaultStack 拦截器</p>
+</li>
+<li><p>defaultStack 是个很重要的拦截器，所以若手动配置了其他拦截器一定要加上这个默认拦截器</p>
+</li>
+</ol>
+<p>定义拦截器栈<br>参考 defaultStack</p>
+<br/>
+### 内置拦截器
+fileUpload 上传拦截器
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"fileUpload"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"maximumSize"</span>&gt;</span>1024<span class="tag">&lt;/<span class="name">param</span>&gt;</span><span class="comment">&lt;!-- 最大大小（字节） --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"allowedTypes"</span>&gt;</span>image/jpeg, image/png,image/gif<span class="tag">&lt;/<span class="name">param</span>&gt;</span><span class="comment">&lt;!-- 允许类型 --&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- &lt;param name="allowedExtensions"&gt;.jpg, .png,.gif&lt;/param&gt;允许的后缀类型 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>token/tokenSession:组织表单重复提交</p>
+<h3 id="国际化"><a href="#国际化" class="headerlink" title="国际化"></a>国际化</h3><p>图片服务器分离技术</p>
+<p>虚拟目录</p>
+<h2 id="ognl-表达式"><a href="#ognl-表达式" class="headerlink" title="ognl 表达式"></a>ognl 表达式</h2><p>对象图导航语言，提供一个对象，获取这个对象属性值，或者对属性参与加工。</p>
+<ul>
+<li>表达式没有 # 号，就去 root 区查找对应的值</li>
+<li>表达式有 # 号，就去 context 区查找对应的值</li>
+</ul>
+<p>ognl 表达式要结合 struts 标签使用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.crazybunqnq.com/2017/05/18/Struts2/" data-id="ck8mqjlxq0058kd3lfjip1tvk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/struts2/" rel="tag">struts2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/27/ThreeProxyModel/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java 的三种代理模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/13/BankPatrol%E9%A1%B9%E7%9B%AE%E6%84%9F%E6%82%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">BankPatrol 项目感悟</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/API/">API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CVS/">CVS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/Web-%E5%9F%BA%E7%A1%80/">Web 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/Web-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/">数据库编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%9C%AA%E5%AE%8C%E6%88%90/">未完成</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python-3/">Python 3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Shell/">Shell</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Some-Fun/">Some Fun</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/">Web 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/%E6%9C%AA%E5%AE%8C%E6%88%90/">未完成</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AF%95%E8%BA%AB%E6%89%8B/">小试身手</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/">开发规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/">杀虫</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/Java/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/">触类旁通</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">项目构建</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX/" rel="tag">AJAX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calendar/" rel="tag">Calendar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caps/" rel="tag">Caps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command/" rel="tag">Command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ctrl/" rel="tag">Ctrl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIV/" rel="tag">DIV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EL-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">EL 表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Error/" rel="tag">Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/" rel="tag">Exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Filter/" rel="tag">Filter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GC/" rel="tag">GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geetest/" rel="tag">Geetest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/I-O-%E6%B5%81/" rel="tag">I/O 流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellJ-IDEA/" rel="tag">IntellJ IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Issues/" rel="tag">Issues</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">Java 开发规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keyboard/" rel="tag">Keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keymap/" rel="tag">Keymap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liferay/" rel="tag">Liferay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/" rel="tag">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POI/" rel="tag">POI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portlet/" rel="tag">Portlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proxy/" rel="tag">Proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/" rel="tag">Reading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regex/" rel="tag">Regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regular-Expression/" rel="tag">Regular Expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SimplaDateFormat/" rel="tag">SimplaDateFormat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuffer/" rel="tag">StringBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuilder/" rel="tag">StringBuilder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struts-2/" rel="tag">Struts 2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-%E6%90%AD%E5%BB%BA/" rel="tag">Web 搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebService/" rel="tag">WebService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XAMPP/" rel="tag">XAMPP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/" rel="tag">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centOS/" rel="tag">centOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/download/" rel="tag">download</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/final/" rel="tag">final</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for/" rel="tag">for</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for-each/" rel="tag">for each</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash-code/" rel="tag">hash code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-%E5%8D%8F%E8%AE%AE/" rel="tag">http 协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if-else/" rel="tag">if/else</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jxl/" rel="tag">jxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scope/" rel="tag">scope</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/" rel="tag">servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struts2/" rel="tag">struts2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/" rel="tag">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synchronized/" rel="tag">synchronized</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upload/" rel="tag">upload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video/" rel="tag">video</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A0%E9%A2%98/" rel="tag">习题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" rel="tag">包装类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%82%E6%95%B0/" rel="tag">参数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" rel="tag">命令行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="tag">块作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%AF%B9%E8%B1%A1/" rel="tag">域对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E9%87%8F/" rel="tag">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/" rel="tag">拦截器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%A3%E5%88%97%E7%A0%81/" rel="tag">散列码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag">数据类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F/" rel="tag">日期</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96/" rel="tag">日期格式化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4/" rel="tag">时间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" rel="tag">未完成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" rel="tag">构造器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" rel="tag">流程控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%B1%BB/" rel="tag">测试类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" rel="tag">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%89%E4%BA%8E/" rel="tag">等于</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB/" rel="tag">类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="tag">类型转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%88%E7%AB%AF/" rel="tag">终端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">网络编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%81%E6%AF%9B%E5%AD%90/" rel="tag">老毛子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A5%E4%BD%8D/" rel="tag">补位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" rel="tag">访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%8B%E5%80%BC/" rel="tag">赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B6%85%E7%B1%BB/" rel="tag">超类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag">路由器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/" rel="tag">输入输出流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" rel="tag">运算符优先级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E5%88%B6/" rel="tag">进制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9A%E4%BF%A1/" rel="tag">通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%99%E8%AF%AF/" rel="tag">错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" rel="tag">验证码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Calendar/" style="font-size: 10px;">Calendar</a> <a href="/tags/Caps/" style="font-size: 10px;">Caps</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Command/" style="font-size: 13.33px;">Command</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Ctrl/" style="font-size: 10px;">Ctrl</a> <a href="/tags/DIV/" style="font-size: 10px;">DIV</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/Date/" style="font-size: 10px;">Date</a> <a href="/tags/Dubbo/" style="font-size: 10px;">Dubbo</a> <a href="/tags/EL-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">EL 表达式</a> <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/Excel/" style="font-size: 13.33px;">Excel</a> <a href="/tags/Exception/" style="font-size: 10px;">Exception</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GC/" style="font-size: 10px;">GC</a> <a href="/tags/Geetest/" style="font-size: 10px;">Geetest</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HashSet/" style="font-size: 10px;">HashSet</a> <a href="/tags/HashTable/" style="font-size: 10px;">HashTable</a> <a href="/tags/I-O-%E6%B5%81/" style="font-size: 13.33px;">I/O 流</a> <a href="/tags/IDEA/" style="font-size: 13.33px;">IDEA</a> <a href="/tags/IntellJ-IDEA/" style="font-size: 10px;">IntellJ IDEA</a> <a href="/tags/Issues/" style="font-size: 10px;">Issues</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/JSP/" style="font-size: 13.33px;">JSP</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" style="font-size: 10px;">Java 开发规范</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/tags/Liferay/" style="font-size: 13.33px;">Liferay</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MySQL/" style="font-size: 16.67px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Oracle/" style="font-size: 13.33px;">Oracle</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/Portlet/" style="font-size: 10px;">Portlet</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Regex/" style="font-size: 10px;">Regex</a> <a href="/tags/Regular-Expression/" style="font-size: 10px;">Regular Expression</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Selenium/" style="font-size: 13.33px;">Selenium</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Set/" style="font-size: 13.33px;">Set</a> <a href="/tags/SimplaDateFormat/" style="font-size: 10px;">SimplaDateFormat</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/StringBuffer/" style="font-size: 10px;">StringBuffer</a> <a href="/tags/StringBuilder/" style="font-size: 10px;">StringBuilder</a> <a href="/tags/Struts-2/" style="font-size: 10px;">Struts 2</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Web-%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">Web 搭建</a> <a href="/tags/WebService/" style="font-size: 10px;">WebService</a> <a href="/tags/XAMPP/" style="font-size: 10px;">XAMPP</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/Zookeeper/" style="font-size: 10px;">Zookeeper</a> <a href="/tags/bash/" style="font-size: 13.33px;">bash</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/centOS/" style="font-size: 10px;">centOS</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/download/" style="font-size: 10px;">download</a> <a href="/tags/final/" style="font-size: 10px;">final</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/for-each/" style="font-size: 10px;">for each</a> <a href="/tags/hash-code/" style="font-size: 10px;">hash code</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http-%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">http 协议</a> <a href="/tags/if-else/" style="font-size: 10px;">if/else</a> <a href="/tags/jxl/" style="font-size: 10px;">jxl</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/servlet/" style="font-size: 10px;">servlet</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/switch/" style="font-size: 10px;">switch</a> <a href="/tags/synchronized/" style="font-size: 10px;">synchronized</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/upload/" style="font-size: 10px;">upload</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/zsh/" style="font-size: 13.33px;">zsh</a> <a href="/tags/%E4%B9%A0%E9%A2%98/" style="font-size: 10px;">习题</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 10px;">修饰符</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%88%B7%E6%9C%BA/" style="font-size: 10px;">刷机</a> <a href="/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" style="font-size: 10px;">包装类</a> <a href="/tags/%E5%8F%82%E6%95%B0/" style="font-size: 13.33px;">参数</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 10px;">变量</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 13.33px;">命令行</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 10px;">哈希表</a> <a href="/tags/%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">块作用域</a> <a href="/tags/%E5%9F%9F%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">域对象</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">基础</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13.33px;">字符串</a> <a href="/tags/%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">对象</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E5%B8%B8%E9%87%8F/" style="font-size: 10px;">常量</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 13.33px;">建站</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/" style="font-size: 10px;">拦截器</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 10px;">效率</a> <a href="/tags/%E6%95%A3%E5%88%97%E7%A0%81/" style="font-size: 10px;">散列码</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 10px;">数据类型</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%97%A5%E6%9C%9F/" style="font-size: 10px;">日期</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96/" style="font-size: 10px;">日期格式化</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 10px;">时间</a> <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" style="font-size: 10px;">未完成</a> <a href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">构建工具</a> <a href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" style="font-size: 10px;">构造器</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13.33px;">正则表达式</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">流程控制</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%B1%BB/" style="font-size: 10px;">测试类</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 13.33px;">爬虫</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">版本控制</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/tags/%E7%AD%89%E4%BA%8E/" style="font-size: 10px;">等于</a> <a href="/tags/%E7%B1%BB/" style="font-size: 10px;">类</a> <a href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">类型转换</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BB%88%E7%AB%AF/" style="font-size: 10px;">终端</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">网络编程</a> <a href="/tags/%E8%80%81%E6%AF%9B%E5%AD%90/" style="font-size: 10px;">老毛子</a> <a href="/tags/%E8%A1%A5%E4%BD%8D/" style="font-size: 10px;">补位</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 10px;">表格</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" style="font-size: 10px;">访问权限</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 13.33px;">调试</a> <a href="/tags/%E8%B5%8B%E5%80%BC/" style="font-size: 10px;">赋值</a> <a href="/tags/%E8%B6%85%E7%B1%BB/" style="font-size: 10px;">超类</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 10px;">路由器</a> <a href="/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/" style="font-size: 10px;">输入输出流</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" style="font-size: 10px;">运算符</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" style="font-size: 10px;">运算符优先级</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 10px;">进制</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">进程</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">通信</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 10px;">配置文件</a> <a href="/tags/%E9%94%99%E8%AF%AF/" style="font-size: 10px;">错误</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 16.67px;">集合</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">面向对象</a> <a href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" style="font-size: 13.33px;">验证码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/29/RaspberryPi4B/">RaspberryPi4B</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/09/SpringJunitTest/">SpringJunitTest</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/04/IDEA_HTTP_Client/">使用 IDEA 自带的 HTTP Client 来测试 API</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/27/JDK7NewFeatures/">JDK 7 新特性</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/18/MarkdownNavigatorCrack/">破解 Markdown Navigator</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 CrazyBunQnQ<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

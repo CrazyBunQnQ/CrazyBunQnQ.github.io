@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HashSet 散列集 | CrazyBunQnQ&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="链表和数组可以按照人们的意愿排列元素的次序，但是如果想要查看某个指定的元素，却又忘记了它的位置，就需要访问所有元素，直到找到为止。如果集合中包含的元素很多，将会消耗很多时间。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HashSet 散列集">
+<meta property="og:url" content="http://blog.crazybunqnq.com/2017/03/19/HashSet/index.html">
+<meta property="og:site_name" content="CrazyBunQnQ&#39;s Blog">
+<meta property="og:description" content="链表和数组可以按照人们的意愿排列元素的次序，但是如果想要查看某个指定的元素，却又忘记了它的位置，就需要访问所有元素，直到找到为止。如果集合中包含的元素很多，将会消耗很多时间。">
+<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/a6e9cb00ly1fds4zpdrf5j20l10ca3zf.jpg">
+<meta property="article:published_time" content="2017-03-19T14:22:22.000Z">
+<meta property="article:modified_time" content="2020-04-05T03:48:27.449Z">
+<meta property="article:author" content="CrazyBunQnQ">
+<meta property="article:tag" content="集合">
+<meta property="article:tag" content="HashSet">
+<meta property="article:tag" content="HashTable">
+<meta property="article:tag" content="Set">
+<meta property="article:tag" content="哈希表">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wx2.sinaimg.cn/mw690/a6e9cb00ly1fds4zpdrf5j20l10ca3zf.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="CrazyBunQnQ&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CrazyBunQnQ&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">The quieter you become, the more you are able to hear!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.crazybunqnq.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HashSet" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/19/HashSet/" class="article-date">
+  <time datetime="2017-03-19T14:22:22.000Z" itemprop="datePublished">2017-03-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>►<a class="article-category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HashSet 散列集
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>链表和数组可以按照人们的意愿排列元素的次序，但是如果想要查看某个指定的元素，却又忘记了它的位置，就需要访问所有元素，直到找到为止。如果集合中包含的元素很多，将会消耗很多时间。</p>
+<a id="more"></a>
+
+<h2 id="Hash-Table-散列表"><a href="#Hash-Table-散列表" class="headerlink" title="Hash Table 散列表"></a>Hash Table 散列表</h2><p><strong>散列表（hash table）</strong>是一种以 <strong>键-值（key-indexed）</strong> 存储数据的结构，<strong>可以快速的查找所需要的对象</strong>。散列表为每个对象计算一个整数，成为[散列码（hash code）](/2017/03/18/HashCode 散列码/)。</p>
+<p>在 Java 中，散列表用链表数组（又叫<strong>桶数组</strong>…）实现。每个列表被称为<strong>桶（bucket）</strong>。</p>
+<p>桶数组其实就是一个容量为 N 的普通数组 A[0, 1, 2…N-1]，只不过在这里我们将每个单元都想象为一个“桶”，每个桶单元中可以存放一个条目。</p>
+<p>比如，倘若所有的关键码（key）都是小于 N 的非负整数，我们就可以直接将 key 为关键码的那个条目（如果存在的话）存放在桶单元 A[key]内，为了节省空间，空闲的单元都被置为 null。由于 HashSet 底层是[映射](/2017/03/19/Map 映射/)结构，所以<strong>每个桶单元中最多只能存放一个条目。</strong>如此一来，查找、插入和删除操作都可以快速完成。</p>
+<p>但是，这只是一种极为特殊的情况，通常往往不会这么碰巧。比如，这里很难确定数组的最佳容量 N，所以往往选用远大于映射实际规模 n 的某个 N：如果关键码都是 int 类型的非负整数，则至少需要 2 147 483 648 个桶单元，这远远超出了一般映射结构本身的规模，造成了空间的巨大浪费。</p>
+<p>为了解决这个问题，就需要一个方法，可以将任意关键码转换为介于 0 与 N-1 之间的整数——这个函数就是散列函数。</p>
+</br>
+## 散列函数
+- 散列函数 h 将关键码 key 映射为一个整数 h(key) ∈ [0...N-1]，并将对应的条目存放到 h(key) 号桶内，其中 N 为桶数组的容量。
+- 如果将桶数组记作 A[]，这一技术就可以总结为 “将条目 e = (key, value) 存放至 A[h(key)] 中”。
+- 反过来，为了查找关键码为 key 的条目，只需要取出桶单元 A[h(key)] 中存放的对象。
+- 因此，h(key) 也被称作 e 的散列地址。
+
+<blockquote>
+<p>好吧，这里有点乱。如图，散列函数的计算划分为两步：</p>
+</blockquote>
+<p><img src="http://wx2.sinaimg.cn/mw690/a6e9cb00ly1fds4zpdrf5j20l10ca3zf.jpg" alt="Java 计算散列函数的过程"></p>
+<ol>
+<li>首先将一般性的关键码 key 转换为一个称作 “散列码” 的整数。</li>
+<li>通过所谓的 “压缩函数” 将该整数 映射至区间 [0…N-1] 中。</li>
+</ol>
+<blockquote>
+<p>不过，若要对线上述构思，还需要满足一个条件——不同的关键码 key1 ≠ key2 必须要对应于不同的散列地址 h(key1) ≠ h(key2)。<br>但是还是可能会无法满足该条件，如果不同关键码的散列地址相同，就会发生<strong>[散列冲突（hash collision）](/2017/03/19/HashSet 散列集/#散列冲突)</strong></p>
+</blockquote>
+</br>
+### 散列码
+Java 可以帮助我们将任意类型的关键码 key 转换为一个整数，称作 key 的散列码（Hash Code）。超类 Object 提供了一个默认的散列码转换方法 [hashCode()](/2017/03/18/HashCode 散列码/)，利用它可以将任意对象实例映射为 “代表” 该对象的某个整数。
+
+<blockquote>
+<p><strong>注意:</strong>散列码距离我们最终所需的散列地址还有很大距离——它不一定落在区间 [0…N-1] 内，甚至不一定是<strong>正</strong>整数。</p>
+</blockquote>
+</br>
+### 压缩函数
+如果直接将散列码作为桶数组的胆原地址，则桶的容量将达到 2^32 = 4 G！即使能够提供如此大的空间，其利用率也是极低的。因此就需要将散列码进一步压缩至我们希望的 [0...N-1] 区间内。
+
+<p>压缩函数有两种：【模余法】和【MAD 法】</p>
+<p><strong>模余法压缩:</strong><br>最简单的压缩办法，就是<strong>取 N 为素数，并将散列码 i 映射为： <code>|i| mod N</code></strong>。</p>
+<p>之所以将 N 选为素数，是为了最大程度的将散列码均匀地映射至 [0…N-1] 区间内。若所有关键码都是在 [0…N-1]内随机均匀分布的，则其中每一对关键码发生冲突的概率都是 1/N。</p>
+<p>因此，月石能够使得这个概率接近于 1/N，我们选用的散列函数就越好。</p>
+<p><strong>MAD 法：</strong><br>模余法是一个简单易行的策略，但如果关键码的分布具有 aN + b 的模式(啊~这模式我也没懂，先了解吧，以后明白了回来补上…)，则仍然会发生不少冲突。<br>因此，可以采用另一种方法，将乘法（Mutiply）、加法（Add）和除法（Divide）结合起来的方法，该方法也因此得名。<br><strong>对于散列码 i，MAD 法会将 i 映射为 <code>|a*i + b| mod N</code></strong>。<br>其中 N 仍为素数，a &gt; 0，b &gt; 0，a mod N ≠ 0，它们都是在确定压缩函数时随机选取的常数。</p>
+</br>
+## 散列冲突
+在插入元素时，两个不同对象的散列码一样，导致不同关键码的散列地址相同，就会导致散列冲突。不管怎样，散列冲突的可能性总是存在的。
+
+<p>如果大致知道最终会有多少个元素要插入到散列表中，就可以设置桶数，一般将桶数设置为预计元素个数的 75%~150%。<br>但是，并不是总能够知道需要存储多少个元素的。也可能最初的估计过低。</p>
+<p>如果散列表太满，就需要<strong>再散列</strong>，就需要创建一个桶数更多的表，并将所有元素插入到这个新表中，然后丢弃原来的表。</p>
+<p><strong>装填因子（load factor）</strong>决定何时对散列表进行再散列。例如，如果装填因子为 0.75(默认值)，而表中超过 75% 的位置已经填入元素，这个表就会用<strong>双倍</strong>的桶数自动的进行再散列。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.crazybunqnq.com/2017/03/19/HashSet/" data-id="ck8mqjlvy000vkd3ld6ik4x4h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/20/Map/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Map 映射
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/18/HashCode/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hash Code 散列码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/API/">API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CVS/">CVS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/Web-%E5%9F%BA%E7%A1%80/">Web 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/Web-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/">数据库编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%9C%AA%E5%AE%8C%E6%88%90/">未完成</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python-3/">Python 3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Shell/">Shell</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Some-Fun/">Some Fun</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/">Web 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/%E6%9C%AA%E5%AE%8C%E6%88%90/">未完成</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AF%95%E8%BA%AB%E6%89%8B/">小试身手</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/">开发规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/">杀虫</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/Java/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/">触类旁通</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">项目构建</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX/" rel="tag">AJAX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calendar/" rel="tag">Calendar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caps/" rel="tag">Caps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command/" rel="tag">Command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ctrl/" rel="tag">Ctrl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIV/" rel="tag">DIV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EL-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">EL 表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Error/" rel="tag">Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/" rel="tag">Exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Filter/" rel="tag">Filter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GC/" rel="tag">GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geetest/" rel="tag">Geetest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/I-O-%E6%B5%81/" rel="tag">I/O 流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellJ-IDEA/" rel="tag">IntellJ IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Issues/" rel="tag">Issues</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">Java 开发规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keyboard/" rel="tag">Keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keymap/" rel="tag">Keymap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liferay/" rel="tag">Liferay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/" rel="tag">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POI/" rel="tag">POI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portlet/" rel="tag">Portlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proxy/" rel="tag">Proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/" rel="tag">Reading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regex/" rel="tag">Regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regular-Expression/" rel="tag">Regular Expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SimplaDateFormat/" rel="tag">SimplaDateFormat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuffer/" rel="tag">StringBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuilder/" rel="tag">StringBuilder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struts-2/" rel="tag">Struts 2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-%E6%90%AD%E5%BB%BA/" rel="tag">Web 搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebService/" rel="tag">WebService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XAMPP/" rel="tag">XAMPP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/" rel="tag">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centOS/" rel="tag">centOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/download/" rel="tag">download</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/final/" rel="tag">final</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for/" rel="tag">for</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for-each/" rel="tag">for each</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash-code/" rel="tag">hash code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-%E5%8D%8F%E8%AE%AE/" rel="tag">http 协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if-else/" rel="tag">if/else</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jxl/" rel="tag">jxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scope/" rel="tag">scope</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/" rel="tag">servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struts2/" rel="tag">struts2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/" rel="tag">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synchronized/" rel="tag">synchronized</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upload/" rel="tag">upload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video/" rel="tag">video</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A0%E9%A2%98/" rel="tag">习题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" rel="tag">包装类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%82%E6%95%B0/" rel="tag">参数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" rel="tag">命令行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="tag">块作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%AF%B9%E8%B1%A1/" rel="tag">域对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E9%87%8F/" rel="tag">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/" rel="tag">拦截器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%A3%E5%88%97%E7%A0%81/" rel="tag">散列码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag">数据类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F/" rel="tag">日期</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96/" rel="tag">日期格式化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4/" rel="tag">时间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" rel="tag">未完成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" rel="tag">构造器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" rel="tag">流程控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%B1%BB/" rel="tag">测试类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" rel="tag">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%89%E4%BA%8E/" rel="tag">等于</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB/" rel="tag">类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="tag">类型转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%88%E7%AB%AF/" rel="tag">终端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">网络编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%81%E6%AF%9B%E5%AD%90/" rel="tag">老毛子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A5%E4%BD%8D/" rel="tag">补位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" rel="tag">访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%8B%E5%80%BC/" rel="tag">赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B6%85%E7%B1%BB/" rel="tag">超类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag">路由器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/" rel="tag">输入输出流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" rel="tag">运算符优先级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E5%88%B6/" rel="tag">进制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9A%E4%BF%A1/" rel="tag">通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%99%E8%AF%AF/" rel="tag">错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" rel="tag">验证码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Calendar/" style="font-size: 10px;">Calendar</a> <a href="/tags/Caps/" style="font-size: 10px;">Caps</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Command/" style="font-size: 13.33px;">Command</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Ctrl/" style="font-size: 10px;">Ctrl</a> <a href="/tags/DIV/" style="font-size: 10px;">DIV</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/Date/" style="font-size: 10px;">Date</a> <a href="/tags/Dubbo/" style="font-size: 10px;">Dubbo</a> <a href="/tags/EL-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">EL 表达式</a> <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/Excel/" style="font-size: 13.33px;">Excel</a> <a href="/tags/Exception/" style="font-size: 10px;">Exception</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GC/" style="font-size: 10px;">GC</a> <a href="/tags/Geetest/" style="font-size: 10px;">Geetest</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HashSet/" style="font-size: 10px;">HashSet</a> <a href="/tags/HashTable/" style="font-size: 10px;">HashTable</a> <a href="/tags/I-O-%E6%B5%81/" style="font-size: 13.33px;">I/O 流</a> <a href="/tags/IDEA/" style="font-size: 13.33px;">IDEA</a> <a href="/tags/IntellJ-IDEA/" style="font-size: 10px;">IntellJ IDEA</a> <a href="/tags/Issues/" style="font-size: 10px;">Issues</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/JSP/" style="font-size: 13.33px;">JSP</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" style="font-size: 10px;">Java 开发规范</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/tags/Liferay/" style="font-size: 13.33px;">Liferay</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MySQL/" style="font-size: 16.67px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Oracle/" style="font-size: 13.33px;">Oracle</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/Portlet/" style="font-size: 10px;">Portlet</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Regex/" style="font-size: 10px;">Regex</a> <a href="/tags/Regular-Expression/" style="font-size: 10px;">Regular Expression</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Selenium/" style="font-size: 13.33px;">Selenium</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Set/" style="font-size: 13.33px;">Set</a> <a href="/tags/SimplaDateFormat/" style="font-size: 10px;">SimplaDateFormat</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/StringBuffer/" style="font-size: 10px;">StringBuffer</a> <a href="/tags/StringBuilder/" style="font-size: 10px;">StringBuilder</a> <a href="/tags/Struts-2/" style="font-size: 10px;">Struts 2</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Web-%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">Web 搭建</a> <a href="/tags/WebService/" style="font-size: 10px;">WebService</a> <a href="/tags/XAMPP/" style="font-size: 10px;">XAMPP</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/Zookeeper/" style="font-size: 10px;">Zookeeper</a> <a href="/tags/bash/" style="font-size: 13.33px;">bash</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/centOS/" style="font-size: 10px;">centOS</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/download/" style="font-size: 10px;">download</a> <a href="/tags/final/" style="font-size: 10px;">final</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/for-each/" style="font-size: 10px;">for each</a> <a href="/tags/hash-code/" style="font-size: 10px;">hash code</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http-%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">http 协议</a> <a href="/tags/if-else/" style="font-size: 10px;">if/else</a> <a href="/tags/jxl/" style="font-size: 10px;">jxl</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/servlet/" style="font-size: 10px;">servlet</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/switch/" style="font-size: 10px;">switch</a> <a href="/tags/synchronized/" style="font-size: 10px;">synchronized</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/upload/" style="font-size: 10px;">upload</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/zsh/" style="font-size: 13.33px;">zsh</a> <a href="/tags/%E4%B9%A0%E9%A2%98/" style="font-size: 10px;">习题</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 10px;">修饰符</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%88%B7%E6%9C%BA/" style="font-size: 10px;">刷机</a> <a href="/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" style="font-size: 10px;">包装类</a> <a href="/tags/%E5%8F%82%E6%95%B0/" style="font-size: 13.33px;">参数</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 10px;">变量</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 13.33px;">命令行</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 10px;">哈希表</a> <a href="/tags/%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">块作用域</a> <a href="/tags/%E5%9F%9F%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">域对象</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">基础</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13.33px;">字符串</a> <a href="/tags/%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">对象</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E5%B8%B8%E9%87%8F/" style="font-size: 10px;">常量</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 13.33px;">建站</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/" style="font-size: 10px;">拦截器</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 10px;">效率</a> <a href="/tags/%E6%95%A3%E5%88%97%E7%A0%81/" style="font-size: 10px;">散列码</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 10px;">数据类型</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%97%A5%E6%9C%9F/" style="font-size: 10px;">日期</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96/" style="font-size: 10px;">日期格式化</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 10px;">时间</a> <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" style="font-size: 10px;">未完成</a> <a href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">构建工具</a> <a href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" style="font-size: 10px;">构造器</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13.33px;">正则表达式</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">流程控制</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%B1%BB/" style="font-size: 10px;">测试类</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 13.33px;">爬虫</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">版本控制</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/tags/%E7%AD%89%E4%BA%8E/" style="font-size: 10px;">等于</a> <a href="/tags/%E7%B1%BB/" style="font-size: 10px;">类</a> <a href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">类型转换</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BB%88%E7%AB%AF/" style="font-size: 10px;">终端</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">网络编程</a> <a href="/tags/%E8%80%81%E6%AF%9B%E5%AD%90/" style="font-size: 10px;">老毛子</a> <a href="/tags/%E8%A1%A5%E4%BD%8D/" style="font-size: 10px;">补位</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 10px;">表格</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" style="font-size: 10px;">访问权限</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 13.33px;">调试</a> <a href="/tags/%E8%B5%8B%E5%80%BC/" style="font-size: 10px;">赋值</a> <a href="/tags/%E8%B6%85%E7%B1%BB/" style="font-size: 10px;">超类</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 10px;">路由器</a> <a href="/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/" style="font-size: 10px;">输入输出流</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" style="font-size: 10px;">运算符</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" style="font-size: 10px;">运算符优先级</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 10px;">进制</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">进程</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">通信</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 10px;">配置文件</a> <a href="/tags/%E9%94%99%E8%AF%AF/" style="font-size: 10px;">错误</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 16.67px;">集合</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">面向对象</a> <a href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" style="font-size: 13.33px;">验证码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/29/RaspberryPi4B/">RaspberryPi4B</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/09/SpringJunitTest/">SpringJunitTest</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/04/IDEA_HTTP_Client/">使用 IDEA 自带的 HTTP Client 来测试 API</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/27/JDK7NewFeatures/">JDK 7 新特性</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/18/MarkdownNavigatorCrack/">破解 Markdown Navigator</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 CrazyBunQnQ<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

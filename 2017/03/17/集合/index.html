@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>集合 | CrazyBunQnQ&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在实际开发中，经常需要将使用的对象存储于特定数据结构中。Java 提供了这样的容器：数组与集合，但是数组是定长的，操作数据过于繁琐，所以今天在这里介绍下集合。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集合">
+<meta property="og:url" content="http://blog.crazybunqnq.com/2017/03/17/%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="CrazyBunQnQ&#39;s Blog">
+<meta property="og:description" content="在实际开发中，经常需要将使用的对象存储于特定数据结构中。Java 提供了这样的容器：数组与集合，但是数组是定长的，操作数据过于繁琐，所以今天在这里介绍下集合。">
+<meta property="article:published_time" content="2017-03-17T14:22:22.000Z">
+<meta property="article:modified_time" content="2020-04-05T03:48:17.229Z">
+<meta property="article:author" content="CrazyBunQnQ">
+<meta property="article:tag" content="集合">
+<meta property="article:tag" content="Set">
+<meta property="article:tag" content="Collection">
+<meta property="article:tag" content="List">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="CrazyBunQnQ&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CrazyBunQnQ&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">The quieter you become, the more you are able to hear!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.crazybunqnq.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-集合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/17/%E9%9B%86%E5%90%88/" class="article-date">
+  <time datetime="2017-03-17T14:22:22.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      集合
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在实际开发中，经常需要将使用的对象存储于特定数据结构中。Java 提供了这样的容器：数组与集合，但是数组是定长的，操作数据过于繁琐，所以今天在这里介绍下集合。</p>
+<a id="more"></a>
+
+<h2 id="Collection-（接口）"><a href="#Collection-（接口）" class="headerlink" title="Collection （接口）"></a>Collection （接口）</h2><p>集合：不定长，集合操作相对简单。<strong>Collection 是一个接口</strong>，定义了集合的相关操作方法，它有两个子<strong>接口</strong>：List 和 Set。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Collection c = <span class="keyword">new</span> Collection();</span><br><span class="line">List list = <span class="keyword">new</span> List();</span><br><span class="line">Set set = <span class="keyword">new</span> Set();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上三行都会报错，<strong>接口不能实例化</strong></p>
+</blockquote>
+</br>
+### List
+List 是可重复元素，且有序(与放入顺序一致)的集合。
+>元素是否重复取决于元素自身的 equals 比较
+
+<p>实现 List 接口的类有两个： ArrayList 和 LinkedList。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Collection al = <span class="keyword">new</span> ArrayList();<span class="comment">//创建 ArrayList 集合，当然也可以用 List 声明</span></span><br><span class="line">List ll = <span class="keyword">new</span> LinkedList();<span class="comment">//创建 LinkedList 集合</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>List 是有序可重复的：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">al.add(<span class="string">"1"</span>);</span><br><span class="line">al.add(<span class="string">"2"</span>);</span><br><span class="line">al.add(<span class="string">"3"</span>);</span><br><span class="line">al.add(<span class="string">"2"</span>);</span><br><span class="line">al.add(<span class="string">"3"</span>);</span><br><span class="line">System.out.println(al);<span class="comment">//输出 [1,2,3,2,3]</span></span><br></pre></td></tr></table></figure>
+
+</br>
+### Set
+Set 无序且不可重复的集合，实现 Set 接口的类也有两个：HashSet 和 TreeSet。
+>因为不能重复，所以最多也只能包含一个 null。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Set hs = <span class="keyword">new</span> HashSet();<span class="comment">//创建 HashSet 集合</span></span><br><span class="line">Set ts = <span class="keyword">new</span> TreeSet();<span class="comment">//创建 TreeSet 集合</span></span><br><span class="line"></span><br><span class="line">hs.add(<span class="string">"2"</span>);</span><br><span class="line">hs.add(<span class="string">"1"</span>);</span><br><span class="line">hs.add(<span class="string">"3"</span>);</span><br><span class="line">hs.add(<span class="string">"2"</span>);</span><br><span class="line">hs.add(<span class="string">"3"</span>);</span><br><span class="line">System.out.println(hs);<span class="comment">//输出 [3,2,1]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>集合存储的元素数据类型可以不固定，但最好在使用时统一数据类型，方便后续操作</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hs.add(<span class="string">"1"</span>);<span class="comment">//字符串类型</span></span><br><span class="line">hs.add(<span class="string">'2'</span>);<span class="comment">//字符类型</span></span><br><span class="line">hs.add(<span class="number">3</span>);<span class="comment">//int 类型</span></span><br></pre></td></tr></table></figure>
+
+</br>
+## Collection 的核心方法 ##
+### add 方法
+**add(E e)方法会将给定的元素 e 添加到集合中，返回 boolean 类型值，添加成功返回 true， 否则返回 false。**
+>一般并不需要使用它的返回值
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line"><span class="keyword">boolean</span> isAdd = list.add(<span class="string">"one"</span>);</span><br><span class="line">System.out.println(<span class="string">"添加元素 one 是否成功："</span> + isAdd);<span class="comment">//true</span></span><br><span class="line">list.add(<span class="string">"two"</span>);</span><br><span class="line">list.add(<span class="string">"three"</span>);</span><br><span class="line">list.add(<span class="string">"four"</span>);</span><br><span class="line">System.out.println(<span class="string">"集合 list 为："</span> + list);<span class="comment">//输出 [one, two, three, four]</span></span><br></pre></td></tr></table></figure>
+
+</br>
+### contains 方法
+**contains(Object o)方法用于判断给定元素是否被包含在集合中，并返回 boolean 类型值，包含则返回 true，否则返回 false。（根据 equals 比较）**
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isContains = list.contains(<span class="string">"three"</span>);</span><br><span class="line">System.out.println(<span class="string">"该集合是否包含 three："</span> + isContains);<span class="comment">//true</span></span><br><span class="line">isContains = list.contains(<span class="string">"five"</span>);</span><br><span class="line">System.out.println(<span class="string">"该集合是否包含 five："</span> + isContains);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+</br>
+### remove 方法
+**remove(Objct o)方法用于从集合中删除给定元素，并返回 boolean 类型值。删除成功则返回 true，否则返回 false。**
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isRemove = list.remove(<span class="string">"two"</span>);</span><br><span class="line">System.out.println(<span class="string">"从集合中删除 two 元素是否成功："</span> + isRemove);<span class="comment">//true</span></span><br><span class="line">System.out.println(<span class="string">"集合 list 为："</span> + list);<span class="comment">//输出 [one, three, four]</span></span><br><span class="line">isRemove = list.remove(<span class="string">"five"</span>);</span><br><span class="line">System.out.println(<span class="string">"从集合中删除 five 元素是否成功："</span> + isRemove);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+</br>
+### size 方法
+集合中的 **size() 方法**与数组中的 length 方法类似，**返回当前集合中的元素个数(int 类型)**。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"集合 list 中元素的个数为："</span> + list.size());<span class="comment">//输出 3</span></span><br></pre></td></tr></table></figure>
+
+</br>
+### clear 方法
+clear() 方法可以清空集合中的所有元素。该方法没有返回值。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list.clear();</span><br><span class="line">System.out.println(<span class="string">"集合 list 为："</span> + list);<span class="comment">//输出 []</span></span><br></pre></td></tr></table></figure>
+
+</br>
+### isEmpty 方法
+**isEmpty() 方法用于判断当前集合是否为空（不包含任何元素），并返回 boolean 类型值，集合为空则返回 true，否则返回 false。**
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (list.isEmpty()) &#123;</span><br><span class="line">	System.out.println(<span class="string">"该集合不包含任何元素"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	System.out.println(<span class="string">"该集合包含元素"</span>);</span><br><span class="line">&#125;</span><br><span class="line">list.add(<span class="string">"five"</span>);</span><br><span class="line"><span class="keyword">if</span> (list.isEmpty()) &#123;</span><br><span class="line">	System.out.println(<span class="string">"该集合不包含任何元素"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	System.out.println(<span class="string">"该集合包含元素"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</br>
+### addAll 方法
+**addAll(Collection c) 方法需要传入一个集合，并将传入的集合中所有元素添加到当前元素集合，并返回 boolean 类型值，如果当前集合发生改变，则返回 true，否则返回 false。**
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">List arrayList = <span class="keyword">new</span> ArrayList();</span><br><span class="line">list.add(<span class="number">1</span>);</span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">list.add(<span class="number">3</span>);</span><br><span class="line">List linkedList = <span class="keyword">new</span> LinkedList();</span><br><span class="line">list.add(<span class="number">4</span>);</span><br><span class="line">list.add(<span class="number">5</span>);</span><br><span class="line">list.add(<span class="number">6</span>);</span><br><span class="line"><span class="keyword">boolean</span> addAll = arrayList.addAll(linkedList);</span><br><span class="line">System.out.println(<span class="string">"arrayList 中是否添加了 linkedList 中的全部元素："</span> + addAll);</span><br><span class="line">System.out.println(<span class="string">"集合 arrayList 为："</span> + arrayList);<span class="comment">//输出</span></span><br></pre></td></tr></table></figure>
+
+</br>
+### containsAll 方法
+**containsAll(Collection c) 方法需要传入一个集合，判断当前集合是否包含传入集合中的所有元素，并返回 boolean 类型值，若包含则返回 true，否则返回 false。**
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isContainsAll = arrayList.containsAll(linkedList);</span><br><span class="line">System.out.println(<span class="string">"arrayList 中是否包含 linkedList 中的全部元素"</span> + isContainsAll);<span class="comment">//true</span></span><br><span class="line">linkedList.add(<span class="number">7</span>);</span><br><span class="line">isContainsAll = arrayList.containsAll(linkedList);</span><br><span class="line">System.out.println(<span class="string">"arrayList 中是否包含 linkedList 中的全部元素"</span> + isContainsAll);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="集合与数组之间互换"><a href="#集合与数组之间互换" class="headerlink" title="集合与数组之间互换"></a>集合与数组之间互换</h3><p>collection 中定义了一个方法用于将集合转换为数组，所用集合都具备此功能</p>
+<p><strong>T[] toArray(T[] a)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] i = arrayList.toArray(<span class="keyword">new</span> Integer[]&#123;&#125;);</span><br><span class="line">System.out.println(<span class="string">"数组 i ："</span> + Arrays.toString(i));</span><br></pre></td></tr></table></figure>
+
+<p>数据转集合：Arrays 类提供了一个静态方法 asList();<br>使用该方法可以讲一个数组转换成对应的集合。<br>List<T> Arrays.asList(数组);<br>该方法会将数组转换成集合（只能是 List 集合）<br>返回的集合元素由数组类型决定。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">List&lt;String&gt; list = Arrays.asList(arr);</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>返回的集合我们不能增删元素，否则抛出异常</strong>。因为操作集合都会影响到数组，而增删元素会导致数组的扩容与缩容。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//list.add("7");//</span></span><br><span class="line"><span class="comment">//解决方法所有几何都支持一个 Collection 作为参数的构造方法，该构造方法的作用是创建当前集合的同时包含给定集合所有的元素。</span></span><br><span class="line">List&lt;String&gt; list2 = <span class="keyword">new</span> ArrayList&lt;String&gt;(list);</span><br><span class="line">System.out.println(list2);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>对集合修改会影响数组对应的元素</strong>。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list.set(<span class="number">2</span>,<span class="string">"three"</span>);</span><br><span class="line">System.out.println(list);</span><br><span class="line">System.out.println(Arrays.toString(arr));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>更多方法请自行查看 API</p>
+</blockquote>
+<br>
+## 泛型 ##
+Java 5.0 引入的新特性，定义了泛型，意味着所操作的数据类型被指定。
+Java 泛型广泛应用在集合中，所有集合类都带有泛型参数，这样在创建集合的时候可以指定存放集合元素的类型，减少错误。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建集合 List 并指定元素为 String 类型</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">list.add(<span class="string">"1"</span>);</span><br><span class="line">list.add(<span class="string">"2"</span>);</span><br><span class="line">list.add(<span class="number">3</span>);<span class="comment">//编译错误，只能放 String 类型的数据。</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>编译器会根据泛型来检查元素类型是否匹配。</p>
+</blockquote>
+</br>
+## Iterator 迭代器（接口） ##
+迭代器用于遍历集合，获取迭代器可以使用 Collection 提供的 iterator 方法。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Interator 提供一同一遍历集合元素的方式，<br>boolean hasNext():<br>用于判断当前集合是否有可迭代的元素。</p>
+<p>E next():<br>用于去除当前迭代的元素。E 代表泛型。</p>
+<p>迭代器遍历集合应遵循 <code>问，取，删</code> 规则，其中删除不是必须。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">list.add(<span class="number">1</span>);</span><br><span class="line">list.add(<span class="number">0</span>);</span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">list.add(<span class="number">0</span>);</span><br><span class="line">list.add(<span class="number">3</span>);</span><br><span class="line">list.add(<span class="number">0</span>);</span><br><span class="line">list.add(<span class="number">4</span>);</span><br><span class="line">list.add(<span class="number">0</span>);</span><br><span class="line">list.add(<span class="number">5</span>);</span><br><span class="line">System.out.println(list);<span class="comment">//输出 [1,0,2,0,3,0,4,0,5]</span></span><br><span class="line"><span class="comment">//获取迭代器</span></span><br><span class="line">Interator&lt;Integer&gt; it = list.interator();</span><br><span class="line"><span class="comment">//进行遍历</span></span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123;<span class="comment">//问，是否含有元素</span></span><br><span class="line">	<span class="keyword">int</span> i = it.next();<span class="comment">//取，获取该元素</span></span><br><span class="line">	<span class="keyword">if</span> (i == <span class="number">0</span>)&#123; <span class="comment">//非基本类型用 equals</span></span><br><span class="line">		<span class="comment">//list.remove(i);//运行异常，使用迭代器遍历集合时，不能使用集合的 remove()方法，需要使用迭代器的删除方法。</span></span><br><span class="line">		it.remove(i);<span class="comment">//删，删除该元素</span></span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用迭代器遍历集合时，不能使用集合的 remove()方法，需要使用迭代器的删除方法。<br>迭代器提供了 remove 方法，可以将调用迭代器的 next() 取出的元素删除。</p>
+</blockquote>
+</br>
+### 增强型 for 循环
+增强型 for 循环 是 Java 5.0 提供的一个新特性。该循环**不通用**与其他传统循环，一般只用于遍历集合或数组。
+语法：
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (元素数据类型 变量名 : 集合或数组) &#123;</span><br><span class="line">	<span class="comment">//循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译器在执行以上代码时，会将以上代码替换成迭代器去执行。（增强 for 循环本质上就是迭代器。）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">list.add(<span class="number">1</span>);</span><br><span class="line">list.add(<span class="keyword">new</span> Integer(<span class="number">2</span>));<span class="comment">//自动拆装箱</span></span><br><span class="line">list.add(<span class="number">3</span>);</span><br><span class="line">list.add(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">5</span>; i &lt; = <span class="number">10</span>; i++) &#123;</span><br><span class="line">	list.add(i);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(list);<span class="comment">//输出 [1,2,3,4,5,6,7,8,9,10]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用迭代器遍历</span></span><br><span class="line"><span class="keyword">for</span> (Integer i : list) &#123;</span><br><span class="line">	System.out.prinln(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</br>
+## List ##
+List 是一个**接口**，是 Collection 的子接口。可以将 List 理解成存放对象的数组，只不过元素个数不固定。
+List 接口常见的两个实现类：ArrayList，LinkedList
+分别用动态数组实现和双向链表实现。
+
+<ul>
+<li>ArrayList：底层采用数组方式实现，可以通过下标来访问元素，并且下标从 0 开始，更适合用于随即访问（查询），但插入和删除性能稍慢。</li>
+<li>LinkedList：底层采用双向链表实现，更适合于插入和删除，随机访问速度较慢，在性能要求不是特别苛刻的情况下，可以忽略。</li>
+</ul>
+</br>
+### List 特有的方法
+List 除了继承 Collection 定义的方法之外，还定义了自己特有的方法。它**可以通过下标来操作元素**（Set 不可以）
+
+<p><strong>get(int index)</strong>：返回集合中指定下标的元素。返回值为泛型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">list.add(<span class="number">1</span>);</span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">list.add(<span class="number">3</span>);</span><br><span class="line">list.add(<span class="number">4</span>);</span><br><span class="line">System.out.println(<span class="string">"list 的第二个元素是："</span> + list.get(<span class="number">1</span>));<span class="comment">//输出 2</span></span><br></pre></td></tr></table></figure>
+
+</br>
+**set(int index, E element)**：将给定的元素存入到集合中指定位置，并将原位置的元素返回。返回值为泛型。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = list.set(<span class="number">2</span>,<span class="number">5</span>);<span class="comment">//将第三个元素值设置为 5，并返回原先第三个元素的值，x = 3</span></span><br><span class="line">System.out.println(list);<span class="comment">//输出 [1,2,5,4]</span></span><br></pre></td></tr></table></figure>
+
+</br>
+**add(int index, E element)**：将给定的元素插入到指定位置，原位置及后续元素后移。**无返回值**。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list.add(<span class="number">1</span>,<span class="number">7</span>);<span class="comment">//在第二个位置添加元素 7</span></span><br><span class="line">System.out.println(list);<span class="comment">//输出 [1,7,2,5,4]</span></span><br></pre></td></tr></table></figure>
+
+</br>
+**remove(index)**：删除集合中指定位置的元素，并返回该元素。返回值为泛型。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = list.remove(<span class="number">2</span>);<span class="comment">//删除集合中第三个元素，并将该元素返回 x = 2</span></span><br><span class="line">System.out.println(list);<span class="comment">//输出 [1,7,5,4]</span></span><br></pre></td></tr></table></figure>
+
+</br>
+**subList(int startIndex, int endIndex)**：获取指定范围(含头不含尾)的子集合，返回该子集合。返回值为 List<E>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; subList = list.subList(<span class="number">1</span>,<span class="number">3</span>);</span><br><span class="line">System.out.println(subList);<span class="comment">//输出 [7,5]</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>子集的修改会影响父集</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">subList.set(<span class="number">1</span>,subList.get(<span class="number">1</span>)*<span class="number">10</span>);</span><br><span class="line">System.out.println(subList);<span class="comment">//输出 [7,50]</span></span><br><span class="line">System.out.println(subList);<span class="comment">//输出 [1,7,50,4]，父集合的元素也被修改了</span></span><br></pre></td></tr></table></figure>
+
+</br>
+### List 排序
+Collection**s** 是集合的工具类，它提供了很多便于操作集合的方法，其中就有静态方法 sort() 方法进行排序，**仅能对 List 排序**。
+
+<p><strong>void sort(List<T> list)</strong>方法对给定的集合元素进行自然排序（从小到大），无返回值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">Random r = <span class="keyword">new</span> Random();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">	list.add(r.nextInt(<span class="number">100</span>));</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"排序之前\n"</span> + list);</span><br><span class="line">Collections.sort(list);</span><br><span class="line">System.out.println(<span class="string">"排序之后\n"</span> + list);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>字符串也可以排序（默认按照 ascii 码进行排序）</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strlist = <span class="keyword">new</span> ArraysList&lt;String&gt;();</span><br><span class="line">strlist.add(<span class="string">"猴"</span>);</span><br><span class="line">strlist.add(<span class="string">"鼠"</span>);</span><br><span class="line">strlist.add(<span class="string">"牛"</span>);</span><br><span class="line">strlist.add(<span class="string">"马"</span>);</span><br><span class="line">strlist.add(<span class="string">"猪"</span>);</span><br><span class="line">strlist.add(<span class="string">"狗"</span>);</span><br><span class="line">strlist.add(<span class="string">"你"</span>);</span><br><span class="line">System.out.println(<span class="string">"排序之前\n"</span> + strlist);</span><br><span class="line">Collections.sort(strlist);</span><br><span class="line">System.out.println(<span class="string">"排序之后\n"</span> + strlist);</span><br></pre></td></tr></table></figure>
+</br>
+#### Comparator 比较器
+在实际开发中，往往需要自定义排序规则，需要自定义排序规则时，可以采用实现 Comparator **接口**来自定义排序规则。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该 sort 方法支持一个重载方法，传入一个自定义比较器</span></span><br><span class="line">Mycomparator com = <span class="keyword">new</span> MyComparator();</span><br><span class="line">Collections.sort(list, com);</span><br><span class="line"><span class="comment">//Collections.sort(list, new MyComparator());//这样也可以</span></span><br><span class="line"><span class="comment">//按照字符串长度排序</span></span><br><span class="line">Collections.sort(strlist, <span class="keyword">new</span> Comparator&lt;String&gt;() &#123;<span class="comment">//复习下匿名内部类...</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(String o1, String o2)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> o1.length() - o2.length();</span><br><span class="line">	&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>自定义倒序排列比较器</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Class MyComparator implements Comparator&lt;Integer&gt; &#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	* 重写父类具体比较方法</span></span><br><span class="line"><span class="comment">	* 若 o1 &gt; o2 则返回值&lt;0</span></span><br><span class="line"><span class="comment">	* 若 o1 &lt; o2 则返回值&gt;0</span></span><br><span class="line"><span class="comment">	* 若 o1 = o2 则返回至为 0</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer o1, Integer o2)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> o2 - o1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</br>
+## Set ##
+Set 也是一个接口，是 Collection 的子接口。不包含重复元素，存入和取出的顺序不一致，Set 最多只包含一个 null。
+Set 接口有两个实现类：HashSet 和 TreeSet。
+
+<ul>
+<li>HashSet：底层采用 Hash 表数据结构，HashSet 是通过元素的 HashCode 值相同，才会判断 equlas 是否为 true。若 HashCode 值不同，则不会调用 equals 进行判断。</li>
+<li>TreeSet：底层采用 二叉树算法，TreeSet 存储对象时，可以进行排序，但需要指定排序算法，依赖 complareTo 方法。</li>
+</ul>
+<blockquote>
+<p>自定义的类需要重写 toString 和 equals 方法。<br>如果<strong>重写 equals 方法，一定要重写 [HashCode](/2017/03/19/HashCode 散列码/#散列函数) 方法</strong>。<br>equals 与 hashCode 的定义必须一致：如果 x.queals(y) 返回 true，那么 x.hashCode 就必须与 y.hashCode() 具有相同的值。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自定义一个 Point 类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//无参构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//有参构造器</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.x = x;</span><br><span class="line">		<span class="keyword">this</span>.y = y;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//重写 toString() 方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"["</span> + x + <span class="string">","</span> + y + <span class="string">"]"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//重写 equals() 方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(obj == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (obj == <span class="keyword">this</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Point)&#123;</span><br><span class="line">			Point p = (Point)obj;</span><br><span class="line">			<span class="keyword">return</span> p.x == <span class="keyword">this</span>.x &amp;&amp; p.y == <span class="keyword">this</span>.y;</span><br><span class="line">		&#125;</span><br><span class="line">		ruturn <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//重写 hashCode() 方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">final</span> <span class="keyword">int</span> prime = <span class="number">31</span>;</span><br><span class="line">		<span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">		result = prime * result + x;</span><br><span class="line">		result = prime * result + y;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>测试类中使用：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Point&gt; set = <span class="keyword">new</span> HashSet&lt;Point&gt;();</span><br><span class="line">set.add(<span class="keyword">new</span> Point(<span class="number">1</span>,<span class="number">1</span>));</span><br><span class="line">set.add(<span class="keyword">new</span> Point(<span class="number">2</span>,<span class="number">7</span>));</span><br><span class="line">set.add(<span class="keyword">new</span> Point(<span class="number">3</span>,<span class="number">6</span>));</span><br><span class="line">set.add(<span class="keyword">new</span> Point(<span class="number">1</span>,<span class="number">1</span>));</span><br><span class="line">set.add(<span class="keyword">new</span> Point(<span class="number">3</span>,<span class="number">6</span>));</span><br><span class="line">System.out.println(set);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.crazybunqnq.com/2017/03/17/%E9%9B%86%E5%90%88/" data-id="ck8mqjlyc0078kd3lcdsa6txo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/18/HashCode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hash Code 散列码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/16/%E6%97%A5%E6%9C%9F%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">日期类</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/API/">API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CVS/">CVS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/Web-%E5%9F%BA%E7%A1%80/">Web 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/Web-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/">数据库编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%9C%AA%E5%AE%8C%E6%88%90/">未完成</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python-3/">Python 3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Shell/">Shell</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Some-Fun/">Some Fun</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/">Web 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/%E6%9C%AA%E5%AE%8C%E6%88%90/">未完成</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AF%95%E8%BA%AB%E6%89%8B/">小试身手</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/">开发规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/">杀虫</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/Java/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/">触类旁通</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">项目构建</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX/" rel="tag">AJAX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calendar/" rel="tag">Calendar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caps/" rel="tag">Caps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command/" rel="tag">Command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ctrl/" rel="tag">Ctrl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIV/" rel="tag">DIV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EL-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">EL 表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Error/" rel="tag">Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/" rel="tag">Exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Filter/" rel="tag">Filter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GC/" rel="tag">GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geetest/" rel="tag">Geetest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/I-O-%E6%B5%81/" rel="tag">I/O 流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellJ-IDEA/" rel="tag">IntellJ IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Issues/" rel="tag">Issues</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">Java 开发规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keyboard/" rel="tag">Keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keymap/" rel="tag">Keymap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liferay/" rel="tag">Liferay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/" rel="tag">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POI/" rel="tag">POI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portlet/" rel="tag">Portlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proxy/" rel="tag">Proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/" rel="tag">Reading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regex/" rel="tag">Regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regular-Expression/" rel="tag">Regular Expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SimplaDateFormat/" rel="tag">SimplaDateFormat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuffer/" rel="tag">StringBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuilder/" rel="tag">StringBuilder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struts-2/" rel="tag">Struts 2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-%E6%90%AD%E5%BB%BA/" rel="tag">Web 搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebService/" rel="tag">WebService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XAMPP/" rel="tag">XAMPP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/" rel="tag">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centOS/" rel="tag">centOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/download/" rel="tag">download</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/final/" rel="tag">final</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for/" rel="tag">for</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for-each/" rel="tag">for each</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash-code/" rel="tag">hash code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-%E5%8D%8F%E8%AE%AE/" rel="tag">http 协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if-else/" rel="tag">if/else</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jxl/" rel="tag">jxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scope/" rel="tag">scope</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/" rel="tag">servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struts2/" rel="tag">struts2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/" rel="tag">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synchronized/" rel="tag">synchronized</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upload/" rel="tag">upload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video/" rel="tag">video</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A0%E9%A2%98/" rel="tag">习题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" rel="tag">包装类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%82%E6%95%B0/" rel="tag">参数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" rel="tag">命令行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="tag">块作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%AF%B9%E8%B1%A1/" rel="tag">域对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E9%87%8F/" rel="tag">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/" rel="tag">拦截器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%A3%E5%88%97%E7%A0%81/" rel="tag">散列码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag">数据类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F/" rel="tag">日期</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96/" rel="tag">日期格式化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4/" rel="tag">时间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" rel="tag">未完成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" rel="tag">构造器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" rel="tag">流程控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%B1%BB/" rel="tag">测试类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" rel="tag">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%89%E4%BA%8E/" rel="tag">等于</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB/" rel="tag">类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="tag">类型转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%88%E7%AB%AF/" rel="tag">终端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">网络编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%81%E6%AF%9B%E5%AD%90/" rel="tag">老毛子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A5%E4%BD%8D/" rel="tag">补位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" rel="tag">访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%8B%E5%80%BC/" rel="tag">赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B6%85%E7%B1%BB/" rel="tag">超类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag">路由器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/" rel="tag">输入输出流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" rel="tag">运算符优先级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E5%88%B6/" rel="tag">进制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9A%E4%BF%A1/" rel="tag">通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%99%E8%AF%AF/" rel="tag">错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" rel="tag">验证码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Calendar/" style="font-size: 10px;">Calendar</a> <a href="/tags/Caps/" style="font-size: 10px;">Caps</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Command/" style="font-size: 13.33px;">Command</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Ctrl/" style="font-size: 10px;">Ctrl</a> <a href="/tags/DIV/" style="font-size: 10px;">DIV</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/Date/" style="font-size: 10px;">Date</a> <a href="/tags/Dubbo/" style="font-size: 10px;">Dubbo</a> <a href="/tags/EL-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">EL 表达式</a> <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/Excel/" style="font-size: 13.33px;">Excel</a> <a href="/tags/Exception/" style="font-size: 10px;">Exception</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GC/" style="font-size: 10px;">GC</a> <a href="/tags/Geetest/" style="font-size: 10px;">Geetest</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HashSet/" style="font-size: 10px;">HashSet</a> <a href="/tags/HashTable/" style="font-size: 10px;">HashTable</a> <a href="/tags/I-O-%E6%B5%81/" style="font-size: 13.33px;">I/O 流</a> <a href="/tags/IDEA/" style="font-size: 13.33px;">IDEA</a> <a href="/tags/IntellJ-IDEA/" style="font-size: 10px;">IntellJ IDEA</a> <a href="/tags/Issues/" style="font-size: 10px;">Issues</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/JSP/" style="font-size: 13.33px;">JSP</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" style="font-size: 10px;">Java 开发规范</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/tags/Liferay/" style="font-size: 13.33px;">Liferay</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MySQL/" style="font-size: 16.67px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Oracle/" style="font-size: 13.33px;">Oracle</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/Portlet/" style="font-size: 10px;">Portlet</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Regex/" style="font-size: 10px;">Regex</a> <a href="/tags/Regular-Expression/" style="font-size: 10px;">Regular Expression</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Selenium/" style="font-size: 13.33px;">Selenium</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Set/" style="font-size: 13.33px;">Set</a> <a href="/tags/SimplaDateFormat/" style="font-size: 10px;">SimplaDateFormat</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/StringBuffer/" style="font-size: 10px;">StringBuffer</a> <a href="/tags/StringBuilder/" style="font-size: 10px;">StringBuilder</a> <a href="/tags/Struts-2/" style="font-size: 10px;">Struts 2</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Web-%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">Web 搭建</a> <a href="/tags/WebService/" style="font-size: 10px;">WebService</a> <a href="/tags/XAMPP/" style="font-size: 10px;">XAMPP</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/Zookeeper/" style="font-size: 10px;">Zookeeper</a> <a href="/tags/bash/" style="font-size: 13.33px;">bash</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/centOS/" style="font-size: 10px;">centOS</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/download/" style="font-size: 10px;">download</a> <a href="/tags/final/" style="font-size: 10px;">final</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/for-each/" style="font-size: 10px;">for each</a> <a href="/tags/hash-code/" style="font-size: 10px;">hash code</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http-%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">http 协议</a> <a href="/tags/if-else/" style="font-size: 10px;">if/else</a> <a href="/tags/jxl/" style="font-size: 10px;">jxl</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/servlet/" style="font-size: 10px;">servlet</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/switch/" style="font-size: 10px;">switch</a> <a href="/tags/synchronized/" style="font-size: 10px;">synchronized</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/upload/" style="font-size: 10px;">upload</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/zsh/" style="font-size: 13.33px;">zsh</a> <a href="/tags/%E4%B9%A0%E9%A2%98/" style="font-size: 10px;">习题</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 10px;">修饰符</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%88%B7%E6%9C%BA/" style="font-size: 10px;">刷机</a> <a href="/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" style="font-size: 10px;">包装类</a> <a href="/tags/%E5%8F%82%E6%95%B0/" style="font-size: 13.33px;">参数</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 10px;">变量</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 13.33px;">命令行</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 10px;">哈希表</a> <a href="/tags/%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">块作用域</a> <a href="/tags/%E5%9F%9F%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">域对象</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">基础</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13.33px;">字符串</a> <a href="/tags/%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">对象</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E5%B8%B8%E9%87%8F/" style="font-size: 10px;">常量</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 13.33px;">建站</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/" style="font-size: 10px;">拦截器</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 10px;">效率</a> <a href="/tags/%E6%95%A3%E5%88%97%E7%A0%81/" style="font-size: 10px;">散列码</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 10px;">数据类型</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%97%A5%E6%9C%9F/" style="font-size: 10px;">日期</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96/" style="font-size: 10px;">日期格式化</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 10px;">时间</a> <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" style="font-size: 10px;">未完成</a> <a href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">构建工具</a> <a href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" style="font-size: 10px;">构造器</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13.33px;">正则表达式</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">流程控制</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%B1%BB/" style="font-size: 10px;">测试类</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 13.33px;">爬虫</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">版本控制</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/tags/%E7%AD%89%E4%BA%8E/" style="font-size: 10px;">等于</a> <a href="/tags/%E7%B1%BB/" style="font-size: 10px;">类</a> <a href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">类型转换</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BB%88%E7%AB%AF/" style="font-size: 10px;">终端</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">网络编程</a> <a href="/tags/%E8%80%81%E6%AF%9B%E5%AD%90/" style="font-size: 10px;">老毛子</a> <a href="/tags/%E8%A1%A5%E4%BD%8D/" style="font-size: 10px;">补位</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 10px;">表格</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" style="font-size: 10px;">访问权限</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 13.33px;">调试</a> <a href="/tags/%E8%B5%8B%E5%80%BC/" style="font-size: 10px;">赋值</a> <a href="/tags/%E8%B6%85%E7%B1%BB/" style="font-size: 10px;">超类</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 10px;">路由器</a> <a href="/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/" style="font-size: 10px;">输入输出流</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" style="font-size: 10px;">运算符</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" style="font-size: 10px;">运算符优先级</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 10px;">进制</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">进程</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">通信</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 10px;">配置文件</a> <a href="/tags/%E9%94%99%E8%AF%AF/" style="font-size: 10px;">错误</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 16.67px;">集合</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">面向对象</a> <a href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" style="font-size: 13.33px;">验证码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/29/RaspberryPi4B/">RaspberryPi4B</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/09/SpringJunitTest/">SpringJunitTest</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/04/IDEA_HTTP_Client/">使用 IDEA 自带的 HTTP Client 来测试 API</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/27/JDK7NewFeatures/">JDK 7 新特性</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/18/MarkdownNavigatorCrack/">破解 Markdown Navigator</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 CrazyBunQnQ<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

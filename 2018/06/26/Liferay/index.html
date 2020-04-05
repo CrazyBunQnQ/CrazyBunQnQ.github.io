@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Liferay 学习笔记 | CrazyBunQnQ&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="新项目需要用 Liferay Portal 框架进行开发，之前没接触过，为了不反复查资料，遇到的东西还是记下来比较好…愁…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Liferay 学习笔记">
+<meta property="og:url" content="http://blog.crazybunqnq.com/2018/06/26/Liferay/index.html">
+<meta property="og:site_name" content="CrazyBunQnQ&#39;s Blog">
+<meta property="og:description" content="新项目需要用 Liferay Portal 框架进行开发，之前没接触过，为了不反复查资料，遇到的东西还是记下来比较好…愁…">
+<meta property="article:published_time" content="2018-06-26T14:22:22.000Z">
+<meta property="article:modified_time" content="2020-04-05T03:48:17.199Z">
+<meta property="article:author" content="CrazyBunQnQ">
+<meta property="article:tag" content="Liferay">
+<meta property="article:tag" content="Portlet">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="CrazyBunQnQ&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CrazyBunQnQ&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">The quieter you become, the more you are able to hear!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.crazybunqnq.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Liferay" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/26/Liferay/" class="article-date">
+  <time datetime="2018-06-26T14:22:22.000Z" itemprop="datePublished">2018-06-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/">触类旁通</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Liferay 学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>新项目需要用 Liferay Portal 框架进行开发，之前没接触过，为了不反复查资料，遇到的东西还是记下来比较好…愁…</p>
+<a id="more"></a>
+
+<h2 id="环境及注意事项"><a href="#环境及注意事项" class="headerlink" title="环境及注意事项"></a>环境及注意事项</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
+<li>安装了 Liferay 插件的 IDE</li>
+<li>Liferay SDK</li>
+<li>扩展了了 Liferay 的 Tomcat</li>
+<li>JDK 7</li>
+</ul>
+<br>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>工作空间设置为 <strong>utf-8</strong> 编码</li>
+<li>Ant 编译时会在 SDK dist 目录下打个 war 包，然后复制到 Tomcat deploy 目录下，<strong>部署成功后会将其删除</strong>(判断部署成功的方法)</li>
+<li>整个项目虽然显示在 Eclipse 中，但实际上并不在 Eclipse 空间中，而是在 Liferay SDK 所在目录里…<strong>不在工作空间里…不在工作空间里…不在空间里…</strong></li>
+</ul>
+<br>
+
+<h2 id="开发模式"><a href="#开发模式" class="headerlink" title="开发模式"></a>开发模式</h2><ul>
+<li>Portlet：Liferay 插件，结构与 Web 工程类似</li>
+<li>HOOK：重写 Liferay 框架中的默认方法或页面，避免修改源码</li>
+<li>EXT： 不推荐</li>
+<li>Layout：布局模板</li>
+<li>Theme：主题开发</li>
+</ul>
+<br>
+
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><h3 id="WEB-INF"><a href="#WEB-INF" class="headerlink" title="WEB-INF"></a>WEB-INF</h3><h4 id="portlet-xml"><a href="#portlet-xml" class="headerlink" title="portlet.xml"></a>portlet.xml</h4><p>每新建一个 portlet 都会自动添加一个 <code>&lt;portlet&gt;</code> 标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">portlet</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- portlet id, 存入数据库中的 id --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">portlet-name</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">portlet-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 页面上的显示名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 后台 java 类 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">portlet-class</span>&gt;</span>com.baozi.demo.hello.HelloPortlet<span class="tag">&lt;/<span class="name">portlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 每个模式所对应的 jsp 文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>view-template<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/html/hello/view.jsp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>edit-template<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/html/hello/edit.jsp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>help-template<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/html/hello/help.jsp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>about-template<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>/html/hello/about.jsp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">expiration-cache</span>&gt;</span>0<span class="tag">&lt;/<span class="name">expiration-cache</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 支持的模式：每个模式对应一个上面的 jsp 文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">supports</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mime-type</span>&gt;</span>text/html<span class="tag">&lt;/<span class="name">mime-type</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 显示模式 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">portlet-mode</span>&gt;</span>view<span class="tag">&lt;/<span class="name">portlet-mode</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 编辑模式 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">portlet-mode</span>&gt;</span>edit<span class="tag">&lt;/<span class="name">portlet-mode</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 帮助模式 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">portlet-mode</span>&gt;</span>help<span class="tag">&lt;/<span class="name">portlet-mode</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 显示模式 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">portlet-mode</span>&gt;</span>about<span class="tag">&lt;/<span class="name">portlet-mode</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">supports</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">portlet-info</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">short-title</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">short-title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">keywords</span>&gt;</span><span class="tag">&lt;/<span class="name">keywords</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">portlet-info</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">security-role-ref</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">role-name</span>&gt;</span>administrator<span class="tag">&lt;/<span class="name">role-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">security-role-ref</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">security-role-ref</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">role-name</span>&gt;</span>guest<span class="tag">&lt;/<span class="name">role-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">security-role-ref</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">security-role-ref</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">role-name</span>&gt;</span>power-user<span class="tag">&lt;/<span class="name">role-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">security-role-ref</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">security-role-ref</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">role-name</span>&gt;</span>user<span class="tag">&lt;/<span class="name">role-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">security-role-ref</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">portlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这个东西貌似也可以在你创建的 Portlet.java 文件中用注解的方式表示, 有空试试~</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="meta">@Component</span>(</span><br><span class="line">immediate = <span class="keyword">true</span>,</span><br><span class="line">property = &#123;</span><br><span class="line">	<span class="string">"com.liferay.portlet.display-category=category.sample"</span>,</span><br><span class="line">	<span class="string">"com.liferay.portlet.instanceable=true"</span>,</span><br><span class="line">	<span class="string">"javax.portlet.display-name=HelloPortlet Portlet"</span>,</span><br><span class="line">	<span class="string">"javax.portlet.init-param.template-path=/"</span>,</span><br><span class="line">	<span class="comment">//"javax.portlet.init-param.name=view-template",</span></span><br><span class="line">	<span class="string">"javax.portlet.init-param.view-template=/html/hello/view.jsp"</span>,</span><br><span class="line">	<span class="string">"javax.portlet.name="</span> + HelloPortletKeys.Hello,</span><br><span class="line">	<span class="string">"javax.portlet.resource-bundle=content.Language"</span>,</span><br><span class="line">	<span class="string">"javax.portlet.security-role-ref=power-user,user"</span></span><br><span class="line">&#125;,</span><br><span class="line">service = Portlet<span class="class">.<span class="keyword">class</span></span></span><br><span class="line"><span class="class">&gt;)</span></span><br><span class="line"><span class="class">&gt;<span class="title">public</span> <span class="title">class</span> <span class="title">HelloPortlet</span> <span class="keyword">extends</span> <span class="title">MVCPortlet</span> </span>&#123;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<br>
+
+<h4 id="liferay-portlet-xml"><a href="#liferay-portlet-xml" class="headerlink" title="liferay-portlet.xml"></a>liferay-portlet.xml</h4><h5 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">role-mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">role-name</span>&gt;</span>administrator<span class="tag">&lt;/<span class="name">role-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">role-link</span>&gt;</span>Administrator<span class="tag">&lt;/<span class="name">role-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">role-mapper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">role-mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">role-name</span>&gt;</span>guest<span class="tag">&lt;/<span class="name">role-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">role-link</span>&gt;</span>Guest<span class="tag">&lt;/<span class="name">role-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">role-mapper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">role-mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">role-name</span>&gt;</span>power-user<span class="tag">&lt;/<span class="name">role-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">role-link</span>&gt;</span>Power User<span class="tag">&lt;/<span class="name">role-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">role-mapper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">role-mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">role-name</span>&gt;</span>user<span class="tag">&lt;/<span class="name">role-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">role-link</span>&gt;</span>User<span class="tag">&lt;/<span class="name">role-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">role-mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h5 id="portlet-配置"><a href="#portlet-配置" class="headerlink" title="portlet 配置"></a>portlet 配置</h5><p>同样每创建一个 portlet 也会在此文件里添加一些该 portlet 的相关配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">portlet</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 与 portlet.xml 中的 name 关联 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">portlet-name</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">portlet-name</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 页面标题前面显示的图标 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">icon</span>&gt;</span>/icon.png<span class="tag">&lt;/<span class="name">icon</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 是否可以实例多次，默认 false 只能添加一次 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">instanceable</span>&gt;</span>true<span class="tag">&lt;/<span class="name">instanceable</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- jsp 表单中是否需要填写 namespace，默认 true 必须填写 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">requires-namespaced-parameters</span>&gt;</span>false<span class="tag">&lt;/<span class="name">requires-namespaced-parameters</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入的 css 文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header-portlet-css</span>&gt;</span>/css/main.css<span class="tag">&lt;/<span class="name">header-portlet-css</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入的 js 文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer-portlet-javascript</span>&gt;</span>/js/main.js<span class="tag">&lt;/<span class="name">footer-portlet-javascript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">css-class-wrapper</span>&gt;</span>hello-portlet<span class="tag">&lt;/<span class="name">css-class-wrapper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">portlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="liferay-desplay-xml"><a href="#liferay-desplay-xml" class="headerlink" title="liferay-desplay.xml"></a>liferay-desplay.xml</h4><p>用来设置每个 portlet 的分类，根据 portlet id</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 类别名称 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">category</span> <span class="attr">name</span>=<span class="string">"category.sample"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 对应 portlet.xml 中的 portlet-name 属性--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">portlet</span> <span class="attr">id</span>=<span class="string">"LiferayTest"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 这种写法也可以 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">portlet</span> <span class="attr">id</span>=<span class="string">"portletName"</span>&gt;</span><span class="tag">&lt;/<span class="name">portlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">category</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 当然也可以自定义分类, 若要显示中文可通过国际化配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">category</span> <span class="attr">name</span>=<span class="string">"baozi"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">portlet</span> <span class="attr">id</span>=<span class="string">"hello"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">category</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="常用-API"><a href="#常用-API" class="headerlink" title="常用 API"></a>常用 API</h2><h3 id="MVCPortlet"><a href="#MVCPortlet" class="headerlink" title="MVCPortlet"></a>MVCPortlet</h3><h4 id="doView"><a href="#doView" class="headerlink" title="doView"></a>doView</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doView</span><span class="params">(RenderRequest renderRequest,</span></span></span><br><span class="line"><span class="function"><span class="params">        RenderResponse renderResponse)</span> <span class="keyword">throws</span> IOException, PortletException </span>&#123;</span><br><span class="line">    <span class="comment">//从前台接收数据</span></span><br><span class="line">    String userName = renderRequest.getParameter(<span class="string">"uName"</span>);</span><br><span class="line">    <span class="comment">//向前台传数据</span></span><br><span class="line">    renderRequest.setAttribute(<span class="string">"data"</span>, <span class="string">"后台传回来的数据"</span>);</span><br><span class="line">    <span class="keyword">super</span>.doView(renderRequest, renderResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该方法会在页面显示该 portlet 时执行</p>
+<blockquote>
+<p>页面中的 portlet 显示 “此 portlet 已被卸载。请重新部署或将其从页面删除” 时，一般是因为控件还未部署完成，部署完成后刷新页面即可</p>
+</blockquote>
+<br>
+
+<h4 id="自定义-Action-方法"><a href="#自定义-Action-方法" class="headerlink" title="自定义 Action 方法"></a>自定义 Action 方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(ActionRequest request, ActionResponse response)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 接收参数</span></span><br><span class="line">    String userName = request.getParameter(<span class="string">"uName"</span>);</span><br><span class="line">    <span class="comment">// 重定向</span></span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="comment">// response.sendRedirect("/html/hello/edit.jsp");</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也可以通过注解调用该方法，效果与上面相同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ProcessAction</span>(name=<span class="string">"update)</span></span><br><span class="line"><span class="string">public void updateMethod(ActionRequest request, ActionResponse response) &#123;</span></span><br><span class="line"><span class="string">    String userName = request.getParameter("</span>uName<span class="string">");</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="processAction"><a href="#processAction" class="headerlink" title="processAction"></a>processAction</h4><p>如果 <a href="#actionURL"><code>&lt;portlet:actionURL&gt;</code></a> 没有 name 属性则会进入这个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doView</span><span class="params">(RenderRequest renderRequest,</span></span></span><br><span class="line"><span class="function"><span class="params">		RenderResponse renderResponse)</span> <span class="keyword">throws</span> IOException, PortletException </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	<span class="keyword">super</span>.doView(renderRequest, renderResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="ParamUtil"><a href="#ParamUtil" class="headerlink" title="ParamUtil"></a>ParamUtil</h3><h4 id="getString"><a href="#getString" class="headerlink" title="getString()"></a>getString()</h4><p>该方法可以自动判空：若为空则赋值为默认值，省略默认值则为空字符串</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String userName = ParamUtil.getString(renderRequest, <span class="string">"uName"</span>);</span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line">String userName = ParamUtil.getString(renderRequest, <span class="string">"uName"</span>, <span class="string">"baozi"</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>同样的还有 <code>getInteger()</code>、<code>getBoolean()</code>、<code>getDate()</code> 等等<br>但是注意，Integer 类型会进行类型转换，若<font color="#FF6633">转换失败</font>则赋值为默认值</p>
+</blockquote>
+<br>
+
+<h3 id="PortalUtil"><a href="#PortalUtil" class="headerlink" title="PortalUtil"></a>PortalUtil</h3><p>该类可以去到很多方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*============================对象获取=======================*/</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">//获取用户</span></span><br><span class="line">    User user = PortalUtil.getUser(renderRequest);</span><br><span class="line">    <span class="comment">//获取公司 getCompany</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (PortalException | SystemException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*============================值获取===========================*/</span></span><br><span class="line"><span class="comment">//获取用户 id</span></span><br><span class="line"><span class="keyword">long</span> userId = PortalUtil.getUserId(httpServletRequest);</span><br><span class="line"><span class="keyword">long</span> userId = PortalUtil.getUserId(portletRequest);</span><br><span class="line"><span class="comment">//getScopeGroupId</span></span><br><span class="line"><span class="comment">//getCompanyId</span></span><br><span class="line"><span class="comment">//获取当前端口 getPortalPort</span></span><br><span class="line"><span class="comment">//获取当前地址 getPortalUrl(renderRequest)</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="ThemeDisplay"><a href="#ThemeDisplay" class="headerlink" title="ThemeDisplay"></a>ThemeDisplay</h3><p>该对象可以获取各种显示相关的信息</p>
+<p>获取方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 ThemeDisplay</span></span><br><span class="line">ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(WebKes.THTME_DISPLAY);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="页面显示"><a href="#页面显示" class="headerlink" title="页面显示"></a>页面显示</h2><p>在 portlet.xml 中指定了每个 portlet 对应的 jsp 文件，这里不再赘述</p>
+<h3 id="引用-portlet-对象"><a href="#引用-portlet-对象" class="headerlink" title="引用 portlet 对象"></a>引用 portlet 对象</h3><p>首先要在 jsp 页面中引入 <a href="#defineObjects">portlet 内置对象</a>否则无法调用 portlet 的 java 对象：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;portlet:defineObjects /&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="引用-js-和-css"><a href="#引用-js-和-css" class="headerlink" title="引用 js 和 css"></a>引用 js 和 css</h3><p>因为 liferay 开发实际是在写代码片段，所以必须要写全路径 <code>&lt;%= renderRequest.getContextPath()%&gt;</code></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"&lt;%= renderRequest.getContextPath()%&gt;/js/jquery.js"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>相对路径是绝对无法取到的</p>
+</blockquote>
+<br>
+
+<h3 id="显示数据"><a href="#显示数据" class="headerlink" title="显示数据"></a>显示数据</h3><p>通过 java 代码 <code>(String)renderRequest.getAttribute(&quot;data&quot;);</code> 或 EL 表达式 <code>${data}</code>获取后台传回来的属性值</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- EL 表达式获取数据 --&gt;</span><br><span class="line">这是$&#123;data&#125;.</span><br><span class="line">&lt;!-- java 代码获取数据 --&gt;</span><br><span class="line">&lt;% String data = (String)renderRequest.getAttribute(<span class="string">"data"</span>); %&gt;</span><br><span class="line">&lt;!-- 显示数据 --&gt;</span><br><span class="line">&lt;%=data %&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a>提交表单</h3><p>使用 Liferay 提交表单需要先引用标签 <code>actionURL</code> 或 <code>renderURL</code></p>
+<ol>
+<li><p>actionURL：提交到指定方法中, 例如在后台自定义 [<code>update</code>](#自定义 Action 方法) 方法，则 name 属性为 update</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">portlet:actionURL</span> <span class="attr">var</span>=<span class="string">"updateForm"</span> <span class="attr">name</span>=<span class="string">"update"</span>&gt;</span><span class="tag">&lt;/<span class="name">portlet:actionURL</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 也可以在 action 中添加额外参数 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"&lt;%updateURL%&gt;&amp;otherParm=other"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"uName"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>renderURL：提交到 <a href="#doView"><code>doView</code></a> 方法</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 引用 renderURL 标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">portlet:renderURL</span> <span class="attr">var</span>=<span class="string">"updateURL"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"&lt;%updateURL%&gt;"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--  --&gt;</span></span><br><span class="line">    用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"&lt;portlet:namespace/&gt;uName"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p><a href="#namespace"><font color="#FF6655">注意 name 属性需要添加 namespace 属性</font></a>，否则后台取不到值<br>配置 <a href="#liferay-portlet.xml"><code>&lt;requires-namespaced-parameters&gt;</code></a> 属性为 false，则不需要添加 namespace 属性</p>
+</blockquote>
+<br>
+
+<h2 id="Portlet-标签"><a href="#Portlet-标签" class="headerlink" title="Portlet 标签"></a>Portlet 标签</h2><h3 id="defineObjects"><a href="#defineObjects" class="headerlink" title="defineObjects"></a>defineObjects</h3><p>引入该标签后可以调用 Portlet 中的默认对象</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;portlet:defineObjects&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>renderRequest</li>
+<li>actionRequest</li>
+<li>…</li>
+</ul>
+<br>
+
+<h3 id="请求类标签"><a href="#请求类标签" class="headerlink" title="请求类标签"></a>请求类标签</h3><h4 id="renderURL"><a href="#renderURL" class="headerlink" title="renderURL"></a>renderURL</h4><p>用于提交表单，类似 Get 请求</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;portlet:renderURL <span class="keyword">var</span>=<span class="string">"updateURL"</span>&gt;</span><br><span class="line">    &lt;!-- 添加值为 <span class="string">"sss"</span> 的参数 updateParm --&gt;</span><br><span class="line">    &lt;portlet:param name=<span class="string">"updateParm"</span> value=<span class="string">"sss"</span>/&gt;</span><br><span class="line">    &lt;!-- 跳转页面 --&gt;</span><br><span class="line">    &lt;portlet:param name=<span class="string">"jspPage"</span> value=<span class="string">"/html/hello/edit.jsp"</span>/&gt;</span><br><span class="line">&lt;/portlet:renderURL&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>示例可以参考 <a href="#提交表单">liferay 提交表单</a></p>
+</blockquote>
+<br>
+
+<h4 id="actionURL"><a href="#actionURL" class="headerlink" title="actionURL"></a>actionURL</h4><p>用于提交表单，类似 Post 请求</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;portlet:actionURL <span class="keyword">var</span>=<span class="string">"updateForm"</span> name=<span class="string">"update"</span>&gt;</span><br><span class="line">    &lt;!-- 添加值为 <span class="string">"sss"</span> 的参数 updateParm --&gt;</span><br><span class="line">    &lt;portlet:param name=<span class="string">"updateParm"</span> value=<span class="string">"sss"</span>/&gt;</span><br><span class="line">&lt;/portlet:actionURL&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>示例可以参考 <a href="#提交表单">liferay 提交表单</a></p>
+</blockquote>
+<br>
+
+<h4 id="resourceURL"><a href="#resourceURL" class="headerlink" title="resourceURL"></a>resourceURL</h4><p>用于资源传输类请求</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;portlet:resourceURL&gt;</span><br><span class="line">    &lt;!-- 添加值为 <span class="string">"sss"</span> 的参数 updateParm --&gt;</span><br><span class="line">    &lt;portlet:param name=<span class="string">"updateParm"</span> value=<span class="string">"sss"</span>/&gt;</span><br><span class="line">&lt;portlet:resourceURL&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="param"><a href="#param" class="headerlink" title="param"></a>param</h3><p>该标签无法单独使用，需要配合<a href="#请求类标签">请求类标签</a>使用</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;portlet:param name=<span class="string">""</span> value=<span class="string">""</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;portlet:namespace/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>避免多个相同的 portlet 表单冲突，因为 portlet 可以设置为一个页面显示多个，它会为每个 name 生成一个唯一编码，该编码还可以用到各种地方：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> &lt;<span class="title">portlet</span>:<span class="title">namespace</span>/&gt;<span class="title">save</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=<span class="string">"&lt;portlet:namespace/&gt;save()"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><font color="#FF6633">如果设置了 <a href="#liferay-portlet.xml"><code>&lt;instanceable&gt;true&lt;/instanceable&gt;</code></a> 属性请不要设置 <a href="#liferay-portlet.xml"><code>&lt;requires-namespaced-parameters&gt;</code></a> 为 false</font>, 避免实例化多个 portlet 之后无法取到值</p>
+</blockquote>
+<br>
+
+<h3 id="iferay-theme-defineObjects"><a href="#iferay-theme-defineObjects" class="headerlink" title="iferay-theme:defineObjects"></a>iferay-theme:defineObjects</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;liferay-theme:defineObjects&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="property"><a href="#property" class="headerlink" title="property"></a><del>property</del></h3><p><code>&lt;portlet:property&gt;</code> 标签虽然在 portlet 里有定义但是在 liferay 中没有用到</p>
+<br>
+
+<h2 id="地址参数解析"><a href="#地址参数解析" class="headerlink" title="地址参数解析"></a>地址参数解析</h2><ul>
+<li>p_p_id: portlet id<ul>
+<li>如果该 portlet 允许实例化多次(<code>&lt;instanceable&gt;</code>)则结尾会有实例化 id</li>
+</ul>
+</li>
+<li>p_p_lifecycle: 请求类型<ul>
+<li>0: RenderRequest, 相当于 Get</li>
+<li>1: ActionRequest, 相当于 Post</li>
+</ul>
+</li>
+<li>p_p_state: 状态<ul>
+<li>normal: 正常</li>
+<li>maximized: 最大化</li>
+<li>minimized: 最小化</li>
+<li>pop_up: 不显示头尾模式，用于弹窗</li>
+<li>EXCLUSIVE: </li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="Portlet-之间的通信"><a href="#Portlet-之间的通信" class="headerlink" title="Portlet 之间的通信"></a>Portlet 之间的通信</h2><br>
+
+<h3 id="PortletSession"><a href="#PortletSession" class="headerlink" title="PortletSession"></a>PortletSession</h3><br>
+
+<h3 id="Portlet-URL-调用"><a href="#Portlet-URL-调用" class="headerlink" title="Portlet URL 调用"></a>Portlet URL 调用</h3><br>
+
+<h3 id="Public-render-parameters"><a href="#Public-render-parameters" class="headerlink" title="Public render parameters"></a>Public render parameters</h3><br>
+
+<h3 id="Portlet-events"><a href="#Portlet-events" class="headerlink" title="Portlet events"></a>Portlet events</h3><br>
+
+<h3 id="通过-URL-传参"><a href="#通过-URL-传参" class="headerlink" title="通过 URL 传参"></a>通过 URL 传参</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.crazybunqnq.com/2018/06/26/Liferay/" data-id="ck8mqjlwr002lkd3l4kqne2fu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Liferay/" rel="tag">Liferay</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Portlet/" rel="tag">Portlet</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/08/LiferayWebService/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Liferay Web Service
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/05/GitCommands/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">不常用的 Git 命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/API/">API</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CVS/">CVS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/Web-%E5%9F%BA%E7%A1%80/">Web 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/Web-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A8%8B/">数据库编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E6%9C%AA%E5%AE%8C%E6%88%90/">未完成</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python-3/">Python 3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Shell/">Shell</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Some-Fun/">Some Fun</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/">Web 基础</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/%E6%9C%AA%E5%AE%8C%E6%88%90/">未完成</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AF%95%E8%BA%AB%E6%89%8B/">小试身手</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/">开发规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/">杀虫</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%80%E8%99%AB/Java/%E5%BE%85%E5%AE%8C%E5%96%84/">待完善</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/">触类旁通</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">项目构建</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX/" rel="tag">AJAX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calendar/" rel="tag">Calendar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caps/" rel="tag">Caps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command/" rel="tag">Command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ctrl/" rel="tag">Ctrl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIV/" rel="tag">DIV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EL-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">EL 表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Error/" rel="tag">Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/" rel="tag">Exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Filter/" rel="tag">Filter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GC/" rel="tag">GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geetest/" rel="tag">Geetest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/I-O-%E6%B5%81/" rel="tag">I/O 流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellJ-IDEA/" rel="tag">IntellJ IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Issues/" rel="tag">Issues</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">Java 开发规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keyboard/" rel="tag">Keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keymap/" rel="tag">Keymap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liferay/" rel="tag">Liferay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/" rel="tag">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POI/" rel="tag">POI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portlet/" rel="tag">Portlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proxy/" rel="tag">Proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/" rel="tag">Reading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regex/" rel="tag">Regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regular-Expression/" rel="tag">Regular Expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SimplaDateFormat/" rel="tag">SimplaDateFormat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuffer/" rel="tag">StringBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuilder/" rel="tag">StringBuilder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struts-2/" rel="tag">Struts 2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-%E6%90%AD%E5%BB%BA/" rel="tag">Web 搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebService/" rel="tag">WebService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XAMPP/" rel="tag">XAMPP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/" rel="tag">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centOS/" rel="tag">centOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/download/" rel="tag">download</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/final/" rel="tag">final</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for/" rel="tag">for</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for-each/" rel="tag">for each</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash-code/" rel="tag">hash code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-%E5%8D%8F%E8%AE%AE/" rel="tag">http 协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if-else/" rel="tag">if/else</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jxl/" rel="tag">jxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scope/" rel="tag">scope</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/" rel="tag">servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struts2/" rel="tag">struts2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/" rel="tag">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synchronized/" rel="tag">synchronized</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upload/" rel="tag">upload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video/" rel="tag">video</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A0%E9%A2%98/" rel="tag">习题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" rel="tag">包装类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%82%E6%95%B0/" rel="tag">参数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" rel="tag">命令行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="tag">块作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%AF%B9%E8%B1%A1/" rel="tag">域对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E9%87%8F/" rel="tag">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/" rel="tag">拦截器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%A3%E5%88%97%E7%A0%81/" rel="tag">散列码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag">数据类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F/" rel="tag">日期</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96/" rel="tag">日期格式化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4/" rel="tag">时间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" rel="tag">未完成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" rel="tag">构造器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" rel="tag">流程控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%B1%BB/" rel="tag">测试类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" rel="tag">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%89%E4%BA%8E/" rel="tag">等于</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB/" rel="tag">类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="tag">类型转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%88%E7%AB%AF/" rel="tag">终端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">网络编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%81%E6%AF%9B%E5%AD%90/" rel="tag">老毛子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A5%E4%BD%8D/" rel="tag">补位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" rel="tag">访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%8B%E5%80%BC/" rel="tag">赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B6%85%E7%B1%BB/" rel="tag">超类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag">路由器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/" rel="tag">输入输出流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" rel="tag">运算符优先级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E5%88%B6/" rel="tag">进制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9A%E4%BF%A1/" rel="tag">通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%99%E8%AF%AF/" rel="tag">错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" rel="tag">验证码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Calendar/" style="font-size: 10px;">Calendar</a> <a href="/tags/Caps/" style="font-size: 10px;">Caps</a> <a href="/tags/Collection/" style="font-size: 10px;">Collection</a> <a href="/tags/Command/" style="font-size: 13.33px;">Command</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Ctrl/" style="font-size: 10px;">Ctrl</a> <a href="/tags/DIV/" style="font-size: 10px;">DIV</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/Date/" style="font-size: 10px;">Date</a> <a href="/tags/Dubbo/" style="font-size: 10px;">Dubbo</a> <a href="/tags/EL-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">EL 表达式</a> <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/Excel/" style="font-size: 13.33px;">Excel</a> <a href="/tags/Exception/" style="font-size: 10px;">Exception</a> <a href="/tags/Filter/" style="font-size: 10px;">Filter</a> <a href="/tags/GC/" style="font-size: 10px;">GC</a> <a href="/tags/Geetest/" style="font-size: 10px;">Geetest</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HashSet/" style="font-size: 10px;">HashSet</a> <a href="/tags/HashTable/" style="font-size: 10px;">HashTable</a> <a href="/tags/I-O-%E6%B5%81/" style="font-size: 13.33px;">I/O 流</a> <a href="/tags/IDEA/" style="font-size: 13.33px;">IDEA</a> <a href="/tags/IntellJ-IDEA/" style="font-size: 10px;">IntellJ IDEA</a> <a href="/tags/Issues/" style="font-size: 10px;">Issues</a> <a href="/tags/JDBC/" style="font-size: 10px;">JDBC</a> <a href="/tags/JDK/" style="font-size: 10px;">JDK</a> <a href="/tags/JSP/" style="font-size: 13.33px;">JSP</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" style="font-size: 10px;">Java 开发规范</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Keyboard/" style="font-size: 10px;">Keyboard</a> <a href="/tags/Keymap/" style="font-size: 10px;">Keymap</a> <a href="/tags/Liferay/" style="font-size: 13.33px;">Liferay</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MySQL/" style="font-size: 16.67px;">MySQL</a> <a href="/tags/Mybatis/" style="font-size: 13.33px;">Mybatis</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Oracle/" style="font-size: 13.33px;">Oracle</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/Portlet/" style="font-size: 10px;">Portlet</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Reading/" style="font-size: 10px;">Reading</a> <a href="/tags/Regex/" style="font-size: 10px;">Regex</a> <a href="/tags/Regular-Expression/" style="font-size: 10px;">Regular Expression</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Selenium/" style="font-size: 13.33px;">Selenium</a> <a href="/tags/Servlet/" style="font-size: 13.33px;">Servlet</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Set/" style="font-size: 13.33px;">Set</a> <a href="/tags/SimplaDateFormat/" style="font-size: 10px;">SimplaDateFormat</a> <a href="/tags/Socket/" style="font-size: 10px;">Socket</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/StringBuffer/" style="font-size: 10px;">StringBuffer</a> <a href="/tags/StringBuilder/" style="font-size: 10px;">StringBuilder</a> <a href="/tags/Struts-2/" style="font-size: 10px;">Struts 2</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Web-%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">Web 搭建</a> <a href="/tags/WebService/" style="font-size: 10px;">WebService</a> <a href="/tags/XAMPP/" style="font-size: 10px;">XAMPP</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/Zookeeper/" style="font-size: 10px;">Zookeeper</a> <a href="/tags/bash/" style="font-size: 13.33px;">bash</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/centOS/" style="font-size: 10px;">centOS</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/download/" style="font-size: 10px;">download</a> <a href="/tags/final/" style="font-size: 10px;">final</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/for-each/" style="font-size: 10px;">for each</a> <a href="/tags/hash-code/" style="font-size: 10px;">hash code</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/http-%E5%8D%8F%E8%AE%AE/" style="font-size: 10px;">http 协议</a> <a href="/tags/if-else/" style="font-size: 10px;">if/else</a> <a href="/tags/jxl/" style="font-size: 10px;">jxl</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/servlet/" style="font-size: 10px;">servlet</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/switch/" style="font-size: 10px;">switch</a> <a href="/tags/synchronized/" style="font-size: 10px;">synchronized</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/upload/" style="font-size: 10px;">upload</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/zsh/" style="font-size: 13.33px;">zsh</a> <a href="/tags/%E4%B9%A0%E9%A2%98/" style="font-size: 10px;">习题</a> <a href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 10px;">修饰符</a> <a href="/tags/%E5%87%BD%E6%95%B0/" style="font-size: 10px;">函数</a> <a href="/tags/%E5%88%B7%E6%9C%BA/" style="font-size: 10px;">刷机</a> <a href="/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" style="font-size: 10px;">包装类</a> <a href="/tags/%E5%8F%82%E6%95%B0/" style="font-size: 13.33px;">参数</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 10px;">反射</a> <a href="/tags/%E5%8F%98%E9%87%8F/" style="font-size: 10px;">变量</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 13.33px;">命令行</a> <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" style="font-size: 10px;">哈希表</a> <a href="/tags/%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">块作用域</a> <a href="/tags/%E5%9F%9F%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">域对象</a> <a href="/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">基础</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13.33px;">字符串</a> <a href="/tags/%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">对象</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">工具</a> <a href="/tags/%E5%B8%B8%E9%87%8F/" style="font-size: 10px;">常量</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 13.33px;">建站</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 10px;">异常</a> <a href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/" style="font-size: 10px;">拦截器</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">插件</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 10px;">效率</a> <a href="/tags/%E6%95%A3%E5%88%97%E7%A0%81/" style="font-size: 10px;">散列码</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" style="font-size: 10px;">数据类型</a> <a href="/tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="/tags/%E6%97%A5%E6%9C%9F/" style="font-size: 10px;">日期</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96/" style="font-size: 10px;">日期格式化</a> <a href="/tags/%E6%97%B6%E9%97%B4/" style="font-size: 10px;">时间</a> <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" style="font-size: 10px;">未完成</a> <a href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">构建工具</a> <a href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" style="font-size: 10px;">构造器</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 13.33px;">正则表达式</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">流程控制</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%B1%BB/" style="font-size: 10px;">测试类</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 13.33px;">爬虫</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">版本控制</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/tags/%E7%AD%89%E4%BA%8E/" style="font-size: 10px;">等于</a> <a href="/tags/%E7%B1%BB/" style="font-size: 10px;">类</a> <a href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">类型转换</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BB%88%E7%AB%AF/" style="font-size: 10px;">终端</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">网络编程</a> <a href="/tags/%E8%80%81%E6%AF%9B%E5%AD%90/" style="font-size: 10px;">老毛子</a> <a href="/tags/%E8%A1%A5%E4%BD%8D/" style="font-size: 10px;">补位</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 10px;">表格</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" style="font-size: 10px;">访问权限</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 13.33px;">调试</a> <a href="/tags/%E8%B5%8B%E5%80%BC/" style="font-size: 10px;">赋值</a> <a href="/tags/%E8%B6%85%E7%B1%BB/" style="font-size: 10px;">超类</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 10px;">路由器</a> <a href="/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/" style="font-size: 10px;">输入输出流</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" style="font-size: 10px;">运算符</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" style="font-size: 10px;">运算符优先级</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 10px;">进制</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">进程</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">通信</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 10px;">配置文件</a> <a href="/tags/%E9%94%99%E8%AF%AF/" style="font-size: 10px;">错误</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 16.67px;">集合</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 10px;">面向对象</a> <a href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" style="font-size: 13.33px;">验证码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/29/RaspberryPi4B/">RaspberryPi4B</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/09/SpringJunitTest/">SpringJunitTest</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/04/IDEA_HTTP_Client/">使用 IDEA 自带的 HTTP Client 来测试 API</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/27/JDK7NewFeatures/">JDK 7 新特性</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/18/MarkdownNavigatorCrack/">破解 Markdown Navigator</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 CrazyBunQnQ<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
