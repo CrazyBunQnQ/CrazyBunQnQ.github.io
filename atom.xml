@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CrazyBunQnQ&#39;s Blog</title>
+  
+  <subtitle>The quieter you become, the more you are able to hear!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.crazybunqnq.com/"/>
+  <updated>2020-03-19T08:34:55.098Z</updated>
+  <id>http://blog.crazybunqnq.com/</id>
+  
+  <author>
+    <name>CrazyBunQnQ</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RaspberryPi4B</title>
+    <link href="http://blog.crazybunqnq.com/2020/02/29/raspberrypi4b/"/>
+    <id>http://blog.crazybunqnq.com/2020/02/29/raspberrypi4b/</id>
+    <published>2020-02-29T11:14:16.534Z</published>
+    <updated>2020-03-19T08:34:55.098Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;FRP-内网穿透&quot;&gt;&lt;a href=&quot;#FRP-内网穿透&quot; class=&quot;headerlink&quot; title=&quot;FRP 内网穿透&quot;&gt;&lt;/a&gt;FRP 内网穿透&lt;/h2&gt;&lt;h3 id=&quot;安装-FRP&quot;&gt;&lt;a href=&quot;#安装-FRP&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SpringJunitTest</title>
+    <link href="http://blog.crazybunqnq.com/2019/05/09/springjunittest/"/>
+    <id>http://blog.crazybunqnq.com/2019/05/09/springjunittest/</id>
+    <published>2019-05-09T11:47:04.451Z</published>
+    <updated>2019-05-09T11:47:04.451Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;@resources 改成 @autowarid（required=false）&lt;/p&gt;
+&lt;p&gt;测试类中添加 Junt runner class&lt;/p&gt;
+&lt;script&gt;
+       
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用 IDEA 自带的 HTTP Client 来测试 API</title>
+    <link href="http://blog.crazybunqnq.com/2019/05/04/idea-http-client/"/>
+    <id>http://blog.crazybunqnq.com/2019/05/04/idea-http-client/</id>
+    <published>2019-05-04T14:22:22.000Z</published>
+    <updated>2019-05-09T00:53:42.988Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对于 API 测试，常用的方式大多是通过浏览器发送请求、Postman 等 API 工具来测试 API&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chrome 等浏览器：不方便构造 POST 请求&lt;/li&gt;
+&lt;li&gt;Postman：比较专业，但是需要下载工具&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;之前对于 API 测试我一直使用等 Postman，便捷、可视化、批量测试，登录后还可以很方便的同步，也可以分享接口到组内或网上&lt;/p&gt;
+&lt;p&gt;但是最近才发现原来 IDEA 已经集成了 API 测试工具&lt;/p&gt;
+&lt;p&gt;网上查到的很多资料都是 VS Code 里的 &lt;a href=&quot;https://segmentfault.com/a/1190000016300254&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Editor REST Client&lt;/a&gt;，跟 IDEA 的 &lt;a href=&quot;https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;HTTP Client&lt;/a&gt; 类似但还是有些区别的&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="IDEA" scheme="http://blog.crazybunqnq.com/categories/IDEA/"/>
+    
+    
+      <category term="工具" scheme="http://blog.crazybunqnq.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="效率" scheme="http://blog.crazybunqnq.com/tags/%E6%95%88%E7%8E%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JDK 7 新特性</title>
+    <link href="http://blog.crazybunqnq.com/2019/01/27/jdk7newfeatures/"/>
+    <id>http://blog.crazybunqnq.com/2019/01/27/jdk7newfeatures/</id>
+    <published>2019-01-27T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:17.196Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;面试的时候面试官问我用的哪个 JDK 版本，然后问我有啥新特性，支支吾吾就答了几个…&lt;br&gt;回来赶紧看看都有啥新特性，查完发现我平时还用了不少呢，有些居然不知道是新特性…好尴尬&lt;br&gt;赶紧复习下…&lt;/p&gt;
+&lt;!-- [JDK 8 新特性]()看这里 --&gt;
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://blog.crazybunqnq.com/categories/Java/"/>
+    
+    
+      <category term="JDK" scheme="http://blog.crazybunqnq.com/tags/JDK/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>破解 Markdown Navigator</title>
+    <link href="http://blog.crazybunqnq.com/2018/12/18/markdownnavigatorcrack/"/>
+    <id>http://blog.crazybunqnq.com/2018/12/18/markdownnavigatorcrack/</id>
+    <published>2018-12-18T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:17.202Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;用了好久的 &lt;code&gt;2.3.8&lt;/code&gt; 版本，一直懒得更新，今儿不小心把插件删了…然后发现之前参考的链接失效了…&lt;/p&gt;
+&lt;p&gt;哎，自己重新破解一遍吧…&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="触类旁通" scheme="http://blog.crazybunqnq.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+    
+    
+      <category term="IDEA" scheme="http://blog.crazybunqnq.com/tags/IDEA/"/>
+    
+      <category term="插件" scheme="http://blog.crazybunqnq.com/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+      <category term="Markdown" scheme="http://blog.crazybunqnq.com/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VM 虚拟机(CentOS)搭建 Dubbo、Zookeeper 分布式环境</title>
+    <link href="http://blog.crazybunqnq.com/2018/11/11/buildingdistributedenvironment/"/>
+    <id>http://blog.crazybunqnq.com/2018/11/11/buildingdistributedenvironment/</id>
+    <published>2018-11-11T03:11:11.000Z</published>
+    <updated>2020-04-05T03:48:27.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文记录了我从 VM 安装 CentOS 7 开始到完成 Dubbo 2.6.5 管控台的安装。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://blog.crazybunqnq.com/categories/Java/"/>
+    
+      <category term="分布式" scheme="http://blog.crazybunqnq.com/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+      <category term="微服务" scheme="http://blog.crazybunqnq.com/categories/Java/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+      <category term="Dubbo" scheme="http://blog.crazybunqnq.com/tags/Dubbo/"/>
+    
+      <category term="Zookeeper" scheme="http://blog.crazybunqnq.com/tags/Zookeeper/"/>
+    
+      <category term="centOS" scheme="http://blog.crazybunqnq.com/tags/centOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA 2018.2 及 Mybatis Plugin 破解</title>
+    <link href="http://blog.crazybunqnq.com/2018/10/05/ideamybatisplugincrack/"/>
+    <id>http://blog.crazybunqnq.com/2018/10/05/ideamybatisplugincrack/</id>
+    <published>2018-10-05T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:27.449Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 IntelliJ IDEA 中有一个强大的 Mybatis 收费插件 —— MyBatis Plugin.&lt;br&gt;这篇文章要做的就是…破解它…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;经济条件允许的话推荐使用正版…&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="http://blog.crazybunqnq.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="IDEA" scheme="http://blog.crazybunqnq.com/tags/IDEA/"/>
+    
+      <category term="Mybatis" scheme="http://blog.crazybunqnq.com/tags/Mybatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL 常用 SQL</title>
+    <link href="http://blog.crazybunqnq.com/2018/09/22/mysqlpracticalsql/"/>
+    <id>http://blog.crazybunqnq.com/2018/09/22/mysqlpracticalsql/</id>
+    <published>2018-09-22T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:17.204Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一些不经常用但是需要的时候很有用的查询语句，不定期更新&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="http://blog.crazybunqnq.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="MySQL" scheme="http://blog.crazybunqnq.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python Selenium 破解滑块验证码最新版</title>
+    <link href="http://blog.crazybunqnq.com/2018/09/02/pythonseleniumcrackgeetest/"/>
+    <id>http://blog.crazybunqnq.com/2018/09/02/pythonseleniumcrackgeetest/</id>
+    <published>2018-09-02T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:17.210Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文破解方式截止到 2018 年 9 月 2 日的 GEETEST 有效，本文不定期更新。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有爬虫，自然就有反爬虫，就像病毒和杀毒软件一样，有攻就有防，两者彼此推进发展。为了防止爬虫自动注册，批量生成垃圾账号，几乎所有网站的注册页面都会用到验证码技术。而目前市场占有率很高的反爬技术验证码就是 GEETEST 滑动验证码，本篇博客就是介绍如何破解 GEETEST 验证码。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://blog.crazybunqnq.com/categories/Python/"/>
+    
+    
+      <category term="验证码" scheme="http://blog.crazybunqnq.com/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
+    
+      <category term="爬虫" scheme="http://blog.crazybunqnq.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Selenium" scheme="http://blog.crazybunqnq.com/tags/Selenium/"/>
+    
+      <category term="Geetest" scheme="http://blog.crazybunqnq.com/tags/Geetest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python Selenium 保存 canvas 图片</title>
+    <link href="http://blog.crazybunqnq.com/2018/09/01/pythonseleniumsavecanvas/"/>
+    <id>http://blog.crazybunqnq.com/2018/09/01/pythonseleniumsavecanvas/</id>
+    <published>2018-09-01T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:17.211Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天有个小需求，需要把 GEETEST 验证码图片保存下来，但是 GEETEST 的验证码图片在后台显示是乱序的，而我需要对比正常的图片，如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://wx3.sinaimg.cn/large/a6e9cb00ly1fuvjf3q1gtj208o04g76j.jpg&quot; alt=&quot;乱序图片&quot;&gt;  &lt;img src=&quot;http://wx2.sinaimg.cn/large/a6e9cb00ly1fuvjhc1xjxj207804g0uh.jpg&quot; alt=&quot;正常图片&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://blog.crazybunqnq.com/categories/Python/"/>
+    
+    
+      <category term="爬虫" scheme="http://blog.crazybunqnq.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Selenium" scheme="http://blog.crazybunqnq.com/tags/Selenium/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Oracle 实用 SQL</title>
+    <link href="http://blog.crazybunqnq.com/2018/07/22/oraclepracticalsql/"/>
+    <id>http://blog.crazybunqnq.com/2018/07/22/oraclepracticalsql/</id>
+    <published>2018-07-22T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:17.207Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一些不经常用但是需要的时候很有用的查询语句，不定期更新&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="http://blog.crazybunqnq.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="Oracle" scheme="http://blog.crazybunqnq.com/tags/Oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Liferay Web Service</title>
+    <link href="http://blog.crazybunqnq.com/2018/07/08/liferaywebservice/"/>
+    <id>http://blog.crazybunqnq.com/2018/07/08/liferaywebservice/</id>
+    <published>2018-07-08T02:40:22.000Z</published>
+    <updated>2020-04-05T03:48:17.199Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近项目中需要在移动端（HTML5 页面）中调用 Liferay Portal 接口，奈何网上资料很少而且版本各异，所以就只能硬着头皮啃&lt;a href=&quot;https://dev.liferay.com/zh/develop/tutorials/-/knowledge_base/6-2/soap-web-services&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文档&lt;/a&gt;了…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个东西都烂到没有人愿意翻译么 →_→&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="触类旁通" scheme="http://blog.crazybunqnq.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+    
+    
+      <category term="Liferay" scheme="http://blog.crazybunqnq.com/tags/Liferay/"/>
+    
+      <category term="WebService" scheme="http://blog.crazybunqnq.com/tags/WebService/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Liferay 学习笔记</title>
+    <link href="http://blog.crazybunqnq.com/2018/06/26/liferay/"/>
+    <id>http://blog.crazybunqnq.com/2018/06/26/liferay/</id>
+    <published>2018-06-26T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:17.199Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新项目需要用 Liferay Portal 框架进行开发，之前没接触过，为了不反复查资料，遇到的东西还是记下来比较好…愁…&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="触类旁通" scheme="http://blog.crazybunqnq.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+    
+    
+      <category term="Liferay" scheme="http://blog.crazybunqnq.com/tags/Liferay/"/>
+    
+      <category term="Portlet" scheme="http://blog.crazybunqnq.com/tags/Portlet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不常用的 Git 命令</title>
+    <link href="http://blog.crazybunqnq.com/2018/04/05/gitcommands/"/>
+    <id>http://blog.crazybunqnq.com/2018/04/05/gitcommands/</id>
+    <published>2018-04-05T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:27.448Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;虽然现在有很多 Git 图形化工具，但是它们都有一个共通的缺点：功能不全。&lt;/p&gt;
+&lt;p&gt;所以有时候遇到一些棘手问题，是无法通过图形化工具来解决的，这时候就只能使用命令行来解决了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="CVS" scheme="http://blog.crazybunqnq.com/categories/CVS/"/>
+    
+    
+      <category term="Git" scheme="http://blog.crazybunqnq.com/tags/Git/"/>
+    
+      <category term="版本控制" scheme="http://blog.crazybunqnq.com/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
+    
+      <category term="命令行" scheme="http://blog.crazybunqnq.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
+      <category term="Command" scheme="http://blog.crazybunqnq.com/tags/Command/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bash 常用命令</title>
+    <link href="http://blog.crazybunqnq.com/2018/03/13/shellcommoncommands/"/>
+    <id>http://blog.crazybunqnq.com/2018/03/13/shellcommoncommands/</id>
+    <published>2018-03-13T07:49:50.000Z</published>
+    <updated>2020-04-05T03:48:17.216Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候一些简单的操作用不到复杂的编程语言，只需要几行 Shell 命令就搞定了&lt;/p&gt;
+&lt;p&gt;完全没必要用 Java 写，省时省事，何乐不为呢？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://blog.crazybunqnq.com/categories/Shell/"/>
+    
+    
+      <category term="Command" scheme="http://blog.crazybunqnq.com/tags/Command/"/>
+    
+      <category term="补位" scheme="http://blog.crazybunqnq.com/tags/%E8%A1%A5%E4%BD%8D/"/>
+    
+      <category term="赋值" scheme="http://blog.crazybunqnq.com/tags/%E8%B5%8B%E5%80%BC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>K2 最新版固件刷华硕老毛子</title>
+    <link href="http://blog.crazybunqnq.com/2018/03/02/k2topadvan/"/>
+    <id>http://blog.crazybunqnq.com/2018/03/02/k2topadvan/</id>
+    <published>2018-03-02T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:17.199Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;去年通过斐讯 0 元购入手了 K2 路由器，用着还不错吧，前几天又通过 0 元购入手了 K3 路由器，然后 K2 就打算刷个能翻墙的系统玩了，就算刷成砖了也无所谓啦，反正是白给的，哈哈。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Some Fun" scheme="http://blog.crazybunqnq.com/categories/Some-Fun/"/>
+    
+    
+      <category term="路由器" scheme="http://blog.crazybunqnq.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+      <category term="科学上网" scheme="http://blog.crazybunqnq.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+      <category term="老毛子" scheme="http://blog.crazybunqnq.com/tags/%E8%80%81%E6%AF%9B%E5%AD%90/"/>
+    
+      <category term="刷机" scheme="http://blog.crazybunqnq.com/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac 批量视频转换</title>
+    <link href="http://blog.crazybunqnq.com/2018/02/06/convertvideos/"/>
+    <id>http://blog.crazybunqnq.com/2018/02/06/convertvideos/</id>
+    <published>2018-02-06T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:27.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前几天需要转换一下视频格式，结果网上搜了很多工具都只能一个一个的转换，很耗时。&lt;br&gt;但是其中发现了一个可以用命令行来转化视频格式的命令 &lt;a href=&quot;https://www.ffmpeg.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ffmpeg&lt;/a&gt;，所以就想着干脆利用这个命令自己写一个批量转换的脚本好了~&lt;br&gt;正好练习下 &lt;a href=&quot;https://ohmyz.sh&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;zsh&lt;/a&gt; 脚本~&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="zsh" scheme="http://blog.crazybunqnq.com/tags/zsh/"/>
+    
+      <category term="video" scheme="http://blog.crazybunqnq.com/tags/video/"/>
+    
+      <category term="tool" scheme="http://blog.crazybunqnq.com/tags/tool/"/>
+    
+      <category term="bash" scheme="http://blog.crazybunqnq.com/tags/bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Caps 键与 Ctrl 键互换</title>
+    <link href="http://blog.crazybunqnq.com/2018/01/01/capsctrlswap/"/>
+    <id>http://blog.crazybunqnq.com/2018/01/01/capsctrlswap/</id>
+    <published>2018-01-01T03:11:11.000Z</published>
+    <updated>2020-04-05T03:48:27.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2018-年的第一篇文章&quot;&gt;&lt;a href=&quot;#2018-年的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;2018 年的第一篇文章&quot;&gt;&lt;/a&gt;2018 年的第一篇文章&lt;/h2&gt;&lt;p&gt;如果你经常用到 Ctrl 键，便会为他的位置打抱不平，而 Capslock 键则有种占着茅坑不那啥的感觉，特别是其功能几乎完全可以被 Shift 键所代替。&lt;/p&gt;
+&lt;p&gt;再加上我用了 HHKB 键盘之后，感觉 HHKB 的键位布局很舒服，之后再用普通键盘就很难受，于是，交换这两个键的位置便是明智之举。&lt;/p&gt;
+&lt;p&gt;查找了各种方法之后，感觉修改注册表是最完美的方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="触类旁通" scheme="http://blog.crazybunqnq.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+    
+    
+      <category term="Keyboard" scheme="http://blog.crazybunqnq.com/tags/Keyboard/"/>
+    
+      <category term="Ctrl" scheme="http://blog.crazybunqnq.com/tags/Ctrl/"/>
+    
+      <category term="Caps" scheme="http://blog.crazybunqnq.com/tags/Caps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VS Code 正则表达式查找替换</title>
+    <link href="http://blog.crazybunqnq.com/2017/12/18/regexreplace/"/>
+    <id>http://blog.crazybunqnq.com/2017/12/18/regexreplace/</id>
+    <published>2017-12-17T16:00:00.000Z</published>
+    <updated>2020-04-05T03:48:17.213Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近做的事情经常要处理重复的文本，用了一段时间之后，利用正则表达式来查找字符串基本上是很熟练啦~&lt;br&gt;但是前几天看到 &lt;a href=&quot;https://t.me/drakeets/233&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;drakeet&lt;/a&gt; 大神使用正则表达式把自己项目中所有下划线命名的变量改为驼峰命名法之后我知道，原来正则表达式还可以这么玩！&lt;br&gt;哇塞，之前完全就没想过诶，果然是只有想不到，没有做不到啊。。。&lt;br&gt;所以马上学习了如何使用正则表达式高效的查找替换，哈哈哈，效率提升不是一星半点啊！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;/2017/03/15/RegexGrammar/&quot;&gt;正则表达式基础&lt;/a&gt;就不再赘述了&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="触类旁通" scheme="http://blog.crazybunqnq.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+    
+    
+      <category term="正则表达式" scheme="http://blog.crazybunqnq.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zsh 基础</title>
+    <link href="http://blog.crazybunqnq.com/2017/11/26/zshbasis/"/>
+    <id>http://blog.crazybunqnq.com/2017/11/26/zshbasis/</id>
+    <published>2017-11-26T14:22:22.000Z</published>
+    <updated>2020-04-05T03:48:17.220Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近工作中需要用到 shell 脚本，正好学习 zsh 在我的学习清单里，反正早晚都要学，正好现在用到了，就边学边做了。&lt;/p&gt;
+&lt;p&gt;我将会在这篇博客中整理记录我目前使用到的 shell 脚本知识，应该都是基础知识，哈哈。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux 自带的 shell 是 bash，我这学习的是 zsh（bash 能做的它都能做~），但是基础部分应该都是差不多的。&lt;br&gt;网上关于 zsh 的文章大部分都是介绍如何安装和配置 zsh，所以这里就不介绍 zsh 的安装、使用和配置了。&lt;br&gt;另外至于为什么使用 zsh 也不做过多解释，因为喜欢:)&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Shell" scheme="http://blog.crazybunqnq.com/categories/Shell/"/>
+    
+    
+      <category term="zsh" scheme="http://blog.crazybunqnq.com/tags/zsh/"/>
+    
+      <category term="bash" scheme="http://blog.crazybunqnq.com/tags/bash/"/>
+    
+  </entry>
+  
+</feed>

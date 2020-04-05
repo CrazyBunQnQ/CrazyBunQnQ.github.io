@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="CrazyBunQnQ" />
+
+
+
+<meta name="description" content="CSS(Casading Style Sheet) → 层叠样式表，用来美化网页。DIV(DIVision) → DIV 是层叠样式表中的定位技术。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DIV + CSS">
+<meta property="og:url" content="http://blog.crazybunqnq.com/2017/04/11/css-div/index.html">
+<meta property="og:site_name" content="CrazyBunQnQ&#39;s Blog">
+<meta property="og:description" content="CSS(Casading Style Sheet) → 层叠样式表，用来美化网页。DIV(DIVision) → DIV 是层叠样式表中的定位技术。">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/a6e9cb00ly1feiqdjhq12j205l05qwe9.jpg">
+<meta property="article:published_time" content="2017-04-11T14:22:22.000Z">
+<meta property="article:modified_time" content="2020-04-05T03:48:27.447Z">
+<meta property="article:author" content="CrazyBunQnQ">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="DIV">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://wx4.sinaimg.cn/mw690/a6e9cb00ly1feiqdjhq12j205l05qwe9.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="CrazyBunQnQ&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>DIV + CSS | CrazyBunQnQ&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">CrazyBunQnQ</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">The quieter you become, the more you are able to hear!</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">留言板</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:crazybunqnq@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/CrazyBunQnQ" target="_blank" rel="noopener" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa LinkedIn" href="https://www.linkedin.com/in/%E4%BF%8A%E6%9D%B0-%E5%8C%85-622258142/" target="_blank" rel="noopener" title="LinkedIn"></a>
+                            
+                                <a class="fa StackOverflow" href="https://stackoverflow.com/users/9399272/junjie-bao" target="_blank" rel="noopener" title="StackOverflow"></a>
+                            
+                                <a class="fa LeetCode" href="https://leetcode.com/crazybunqnq/" target="_blank" rel="noopener" title="LeetCode"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX/" rel="tag">AJAX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calendar/" rel="tag">Calendar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caps/" rel="tag">Caps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Command/" rel="tag">Command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ctrl/" rel="tag">Ctrl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIV/" rel="tag">DIV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dubbo/" rel="tag">Dubbo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EL-%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">EL 表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Error/" rel="tag">Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/" rel="tag">Exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Filter/" rel="tag">Filter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GC/" rel="tag">GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Geetest/" rel="tag">Geetest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashSet/" rel="tag">HashSet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/I-O-%E6%B5%81/" rel="tag">I/O 流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellJ-IDEA/" rel="tag">IntellJ IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Issues/" rel="tag">Issues</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="tag">Java 开发规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keyboard/" rel="tag">Keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keymap/" rel="tag">Keymap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Liferay/" rel="tag">Liferay</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/" rel="tag">Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/POI/" rel="tag">POI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portlet/" rel="tag">Portlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proxy/" rel="tag">Proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reading/" rel="tag">Reading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regex/" rel="tag">Regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Regular-Expression/" rel="tag">Regular Expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SimplaDateFormat/" rel="tag">SimplaDateFormat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/" rel="tag">Socket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuffer/" rel="tag">StringBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuilder/" rel="tag">StringBuilder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struts-2/" rel="tag">Struts 2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-%E6%90%AD%E5%BB%BA/" rel="tag">Web 搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebService/" rel="tag">WebService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XAMPP/" rel="tag">XAMPP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash/" rel="tag">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centOS/" rel="tag">centOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/command/" rel="tag">command</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/download/" rel="tag">download</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/final/" rel="tag">final</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for/" rel="tag">for</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for-each/" rel="tag">for each</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash-code/" rel="tag">hash code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-%E5%8D%8F%E8%AE%AE/" rel="tag">http 协议</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if-else/" rel="tag">if/else</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jxl/" rel="tag">jxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scope/" rel="tag">scope</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/" rel="tag">servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struts2/" rel="tag">struts2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/" rel="tag">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synchronized/" rel="tag">synchronized</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool/" rel="tag">tool</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upload/" rel="tag">upload</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video/" rel="tag">video</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zsh/" rel="tag">zsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A0%E9%A2%98/" rel="tag">习题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">修饰符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag">刷机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%85%E8%A3%85%E7%B1%BB/" rel="tag">包装类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%82%E6%95%B0/" rel="tag">参数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" rel="tag">命令行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="tag">块作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%AF%B9%E8%B1%A1/" rel="tag">域对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E9%87%8F/" rel="tag">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/" rel="tag">拦截器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87/" rel="tag">效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%A3%E5%88%97%E7%A0%81/" rel="tag">散列码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag">数据类型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F/" rel="tag">日期</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96/" rel="tag">日期格式化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4/" rel="tag">时间</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" rel="tag">未完成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" rel="tag">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9E%84%E9%80%A0%E5%99%A8/" rel="tag">构造器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" rel="tag">流程控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%B1%BB/" rel="tag">测试类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" rel="tag">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%89%E4%BA%8E/" rel="tag">等于</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB/" rel="tag">类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" rel="tag">类型转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%88%E7%AB%AF/" rel="tag">终端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">网络编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%81%E6%AF%9B%E5%AD%90/" rel="tag">老毛子</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A5%E4%BD%8D/" rel="tag">补位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" rel="tag">访问权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%8B%E5%80%BC/" rel="tag">赋值</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B6%85%E7%B1%BB/" rel="tag">超类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag">路由器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/" rel="tag">输入输出流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="tag">运算符</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" rel="tag">运算符优先级</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E5%88%B6/" rel="tag">进制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="tag">进程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%9A%E4%BF%A1/" rel="tag">通信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%99%E8%AF%AF/" rel="tag">错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%8C%E8%AF%81%E7%A0%81/" rel="tag">验证码</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://lochih.github.io" target="_blank" rel="noopener">HCol</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/" target="_blank" rel="noopener">MOxFIVE</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://adreamstudio.github.io/" target="_blank" rel="noopener">旖梦</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/a5513633/" target="_blank" rel="noopener">天冷吃冰棍儿</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/" target="_blank" rel="noopener">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="/fancyapps.com/fancybox/">fancyBox</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://www.mathjax.org/" target="_blank" rel="noopener">MathJax</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="/ibruce.info">不蒜子</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">业余程序员</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">CrazyBunQnQ</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">CrazyBunQnQ</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">The quieter you become, the more you are able to hear!</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">留言板</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:crazybunqnq@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/CrazyBunQnQ" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa LinkedIn" target="_blank" href="https://www.linkedin.com/in/%E4%BF%8A%E6%9D%B0-%E5%8C%85-622258142/" title="LinkedIn"></a>
+                            
+                                <a class="fa StackOverflow" target="_blank" href="https://stackoverflow.com/users/9399272/junjie-bao" title="StackOverflow"></a>
+                            
+                                <a class="fa LeetCode" target="_blank" href="https://leetcode.com/crazybunqnq/" title="LeetCode"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-CSS+DIV" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/11/css-div/" class="article-date">
+      <time datetime="2017-04-11T14:22:22.000Z" itemprop="datePublished">2017-04-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DIV + CSS
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web-%E5%9F%BA%E7%A1%80/">Web 基础</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIV/" rel="tag">DIV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>CSS(Casading Style Sheet) → 层叠样式表，用来美化网页。<br>DIV(DIVision) → DIV 是层叠样式表中的定位技术。</p>
+<a id="more"></a>
+
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="CSS-的声明和注释"><a href="#CSS-的声明和注释" class="headerlink" title="CSS 的声明和注释"></a>CSS 的声明和注释</h3><p>对指定标签做修饰</p>
+<pre class=" language-CSS"><code class="language-CSS">选择器{
+    声明
+}</code></pre>
+<p>CSS 中只有一种注释方式：</p>
+<pre class=" language-CSS"><code class="language-CSS">/*这里写注释*/</code></pre>
+<br>
+### 选择器
+选择器选中某个或多个特定的标签。
+#### 基本选择器
+**id 选择器：**在标签中加入 id 属性 `id="id 名称"`
+```CSS
+#id 名称{
+    样式声明
+}
+```
+
+<p><strong>标签选择器：</strong></p>
+<pre class=" language-CSS"><code class="language-CSS">标签名{
+    样式声明
+}</code></pre>
+<p><strong>类选择器：</strong>在标签上加入 class 属性 <code>class="类名"</code></p>
+<pre class=" language-CSS"><code class="language-CSS">.类名{
+    样式声明
+}</code></pre>
+<p><strong>属性选择器</strong>在标签中加入 name 属性</p>
+<pre class=" language-CSS"><code class="language-CSS">[name]{
+    样式声明
+}
+
+[name="属性值"]{
+    样式声明
+}</code></pre>
+<p><strong>全局选择器:</strong></p>
+<pre class=" language-CSS"><code class="language-CSS">*{
+    样式声明
+}</code></pre>
+<br>
+#### 复合选择器
+- 交集选择器：同时达到多个选择器条件的选择器。标签名必须在最前，后面可添加其他[基本选择器](/2017/04/11/CSS+DIV/#基本选择器)
+```CSS
+标签名.类名#id 名{
+    样式声明
+}
+```
+- 并集选择器：一次性定义多个选择器，每个选择器都应用该样式，多个选择器之间用英文逗号隔开，没有顺序
+```CSS
+.类名,标签名,id 名{
+    样式声明
+}
+```
+- 后台选择器：定义父选择器中的子选择器样式，父选择器不受影响，严格的顺序，用空格隔开，例如定义标签 c 的样式如下：
+```CSS
+a 标签 a 的子标签 b b 的子标签 c {
+    样式声明
+}
+```
+
+<br>
+#### 选择器优先级
+1. id 选择器
+2. 属性选择器、类选择器
+3. 标签选择器
+4. 全局选择器
+
+<blockquote>
+<p>同优先级的选择器，后面的覆盖前面的</p>
+</blockquote>
+<p> 打完收工，然后扬眉吐气 我觉着没错，但是那些频繁收工频繁扬眉频繁吐气的人是什么情况？<br><br></p>
+<h3 id="CSS-特性"><a href="#CSS-特性" class="headerlink" title="CSS 特性"></a>CSS 特性</h3><ul>
+<li>继承性：子标签若没有定义样式，则会继承父标签的样式</li>
+<li>层叠性：样式不冲突的前提下，所有选择器添加的样式都会展现</li>
+</ul>
+<br>
+### 常用属性
+```CSS
+div{
+    color: purple;/*字体颜色*/
+    width: 200px;/*宽度
+    height: 200px;/*高度
+    background-image: url(img/img1.jpg);/*背景图片*/
+    background-color: yellow;/*背景颜色*/
+    font-size: 30px;/*字体大小*/
+    font-family: 宋体;/*字体*/
+    font-style: italic;/*倾斜*/
+    font-weight: bold;/*加粗*/
+    cursor: pointer;/*光标形态*/
+    line-height: 200px;/*行高，文字在行高内居中*/
+    overflow: hidden;/*处理溢出部分，多出的部分隐藏*/
+    letter-spacint: 2em;/*字符间距，一个 em 等于一个 font-size*/
+}
+```
+
+<br>
+### 引入样式表的四种方式（就近原则）
+#### 行内式引入：
+在标签上添加 style 属性:
+```CSS
+style="样式 1:样式 1 的值; 样式 2:样式 2 的值"
+```
+#### 嵌入式引入
+在 head 标签下添加一个 `<style></style>` 标签，在 `style` 标签下写样式。
+
+<h4 id="导入式引入"><a href="#导入式引入" class="headerlink" title="导入式引入"></a>导入式引入</h4><p>需要编写一个外部 CSS 文件(.css 文件)，在 <code>&lt;style&gt;&lt;/style&gt;</code> 标签下写一个导入指令:</p>
+<pre class=" language-CSS"><code class="language-CSS">@import 文件位置</code></pre>
+<h4 id="链接式引入"><a href="#链接式引入" class="headerlink" title="链接式引入"></a>链接式引入</h4><p>需要编写一个外部 CSS 文件(.css 文件)，在 <code>&lt;head&gt;</code> 标签中写入 <code>&lt;link&gt;</code> 标记引入外部文件:</p>
+<pre class=" language-CSS"><code class="language-CSS"><link rel="stylesheet" href="路径"/></code></pre>
+<blockquote>
+<p>导入式和链接式的区别：<br>导入式是同步加载的，需要等待 html 文档全部加载完毕才能加载该 CSS 样式文件；<br>链接式是异步加载的，和 html 文档同时加载。</p>
+</blockquote>
+<br>
+### 其他
+#### 超级链接的四种状态
+```CSS
+/*链接初始化状态*/
+a:link {
+    color: green;
+    text-decoration: none;
+}
+/*鼠标悬停状态*/
+
+<p>a:hover {<br>    color: red;<br>    text-decoration: underline;<br>}<br>/<em>鼠标点击一瞬间的状态</em>/<br>a:active {<br>    color: yellow;<br>    text-decoration: underline;<br>}<br>/<em>鼠标点击后的状态</em>/<br>a:visited{<br>    color: grey;<br>    text-decoration: none;<br>}</p>
+<pre><code>&lt;br/&gt;
+### 重置样式
+可以将块标签和行标签互换，也可以将加粗变为倾斜，倾斜变为加粗等等。
+```CSS
+b{/*加粗标签*/
+    font-weight: normal;/*取消加粗*/
+    font-style: italic;/*倾斜*/
+}
+i{/*倾斜标签*/
+    font-style: normal;/*取消倾斜*/
+    font-weight: bold;/*加粗*/
+}
+
+div{/*块级标签*/
+    display:inline;/*改为行级标签*/
+}
+span{/*行级标签*/
+    display:block;/*改为块标签*/
+}</code></pre><br>
+## div 布局
+在网页中确定每个模块的位置，也就是每个 div 盒子的位置。
+
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><p>如图所示:<br><img src="http://wx4.sinaimg.cn/mw690/a6e9cb00ly1feiqdjhq12j205l05qwe9.jpg" alt="盒子模型"><br>一个盒子包含<strong>元素（图中蓝色部分）、内边距(padding)、边框(border)和外边距(margin)</strong> 四个元素。</p>
+<ul>
+<li>元素：可以设置元素的大小,width 和 height。</li>
+<li>内边距：元素和边框的距离(padding)<pre class=" language-CSS"><code class="language-CSS">padding: 四周内边距;
+padding: 上下内边距 左右内边距;
+padding: 上内边距 左右内边距 下内边距;
+padding: 上内边距 右内边距 下内边距 左内边距;</code></pre>
+</li>
+<li>边框：盒子的边框宽度(border)，可同时设置边框的类型和颜色。<pre class=" language-CSS"><code class="language-CSS">border: 四周边框的宽度 类型 颜色;
+border-top: 上边框的宽度 类型 颜色;
+border-bottom: 下边框的宽度 类型 颜色;
+border-left: 左边框的宽度 类型 颜色;
+border-right: 有边框的宽度 类型 颜色;</code></pre>
+</li>
+<li>外边距：盒子与盒子之间的距离(margin),<strong>上下相邻的两个盒子间距取两者中的最大外边距，而左右相邻的两个盒子间距为两者外边距的和</strong>。<pre class=" language-CSS"><code class="language-CSS">margin: 四周外边距;
+margin-top: 上外边距;
+margin-bottom: 下外边距;
+margin-left: 左外边距;
+margin-right: 右外边距;</code></pre>
+</li>
+</ul>
+<br>
+### 盒子定位
+通过 position 设置盒子的定位方式，通过 left、top 设置坐标
+1. 标准流定位：就是盒子的默认位置
+```CSS
+position: static;/*默认为 static*/
+```
+2. 绝对定位：相对于整个网页的位置，left 为盒子距网页左侧的距离，top 为盒子距网页顶部的距离。绝对布局有 absolute 和 fixed 两种
+```CSS
+position: absolute;
+```
+```CSS
+position: fixed;
+```
+&gt;absolute 和 fixed 区别：
+&gt;absolute: 相对于页面，会随着滚动条移动。
+&gt;fixed：相对于浏览器窗口，不受滚动条影响，一直显示在浏览器窗口中的固定位置。
+3. 相对布局：相对于标准流定位的位置。
+```CSS
+position: relative;
+```
+
+<br>
+### 盒子浮动
+设置 float 属性，可以设置子元素在父容器中浮动(分层)。
+```CSS
+float: left;/*左浮动，靠左一字排开*/
+float: right;/*右浮动*/
+```
+CSS:
+```CSS
+#father div{
+    float: left;
+}
+#father p{
+    clear: both;/*清楚浮动*/
+}
+```
+HTML:
+```HTML
+<div id="father">
+    <div id="son1>son1</div>
+    <div id=" son2="">son2</div>
+    </div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/04/11/css-div/">DIV + CSS</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">CrazyBunQnQ</a></p>
+        <p><span>发布时间:</span>2017-04-11, 22:22:22</p>
+        <p><span>最后更新:</span>2020-04-05, 11:48:27</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/11/css-div/" title="DIV + CSS">http://blog.crazybunqnq.com/2017/04/11/css-div/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.crazybunqnq.com/2017/04/11/css-div/　　作者: CrazyBunQnQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/04/12/javascript/">
+                    JavaScript
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/04/06/ji-chu-ce-shi-xuan-ze-ti/">
+                    基础测试题
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS"><span class="toc-number">1.</span> <span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-的声明和注释"><span class="toc-number">1.1.</span> <span class="toc-text">CSS 的声明和注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-特性"><span class="toc-number">1.2.</span> <span class="toc-text">CSS 特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#导入式引入"><span class="toc-number">1.2.1.</span> <span class="toc-text">导入式引入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接式引入"><span class="toc-number">1.2.2.</span> <span class="toc-text">链接式引入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#盒子模型"><span class="toc-number">1.3.</span> <span class="toc-text">盒子模型</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-1 i,
+        .toc-level-1 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"DIV + CSS　| CrazyBunQnQ's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <!-- Gitment评论插件通用代码 -->
+<div class="duoshuo" id="comments"></div>
+<link rel="stylesheet" href="https://crazybunqnq.com/about/default.css">
+<script src="https://crazybunqnq.com/about/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'CrazyBunQnQ',//github用户名
+  repo: 'CrazyBunQnQ.github.io',//用户存储评论的github项目名称
+  oauth: {
+    client_id: 'c9231258c7b39e04ae60',//注册OAuth Application时生产的ClinetID
+    client_secret: 'f1cd0b20035a3eb044211feee0d034362a57f54d',//注册OAuth Application时生成的Client Secret
+  },
+})
+gitment.render('comments')
+</script>
+<!-- Gitment代码结束 -->
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/04/12/javascript/" title="上一篇: JavaScript">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/04/06/ji-chu-ce-shi-xuan-ze-ti/" title="下一篇: 基础测试题">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/29/raspberrypi4b/">RaspberryPi4B</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/09/springjunittest/">SpringJunitTest</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/idea-http-client/">使用 IDEA 自带的 HTTP Client 来测试 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/27/jdk7newfeatures/">JDK 7 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/18/markdownnavigatorcrack/">破解 Markdown Navigator</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/11/buildingdistributedenvironment/">VM 虚拟机(CentOS)搭建 Dubbo、Zookeeper 分布式环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/05/ideamybatisplugincrack/">IDEA 2018.2 及 Mybatis Plugin 破解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/22/mysqlpracticalsql/">MySQL 常用 SQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/02/pythonseleniumcrackgeetest/">Python Selenium 破解滑块验证码最新版</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/pythonseleniumsavecanvas/">Python Selenium 保存 canvas 图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/22/oraclepracticalsql/">Oracle 实用 SQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/08/liferaywebservice/">Liferay Web Service</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/liferay/">Liferay 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/05/gitcommands/">不常用的 Git 命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/shellcommoncommands/">bash 常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/02/k2topadvan/">K2 最新版固件刷华硕老毛子</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/06/convertvideos/">Mac 批量视频转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/capsctrlswap/">Caps 键与 Ctrl 键互换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/regexreplace/">VS Code 正则表达式查找替换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/zshbasis/">zsh 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/python3function/">Python 3 的函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/python3string/">Python 3 的字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/04/hellopython3/">初识 Python 3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/22/iopractise/">I/O 流的简单应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/02/machinelearning/">机器学习(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/14/linuxcommoncommands/">Linux Common Commands</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/12/poi-remove/">POI 删除表格的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/18/oracleimportants/">Some Important Points for Oracle</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/jvm/">JVM 工作原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/readingcomprehension/">英语中的阅读理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/07/leetcode-sql/">SQL 练习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/16/alidevelopmentnotebook-1.2.0/">阿里巴巴 Java 开发手册</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/mybatiscache/">Mybatis 缓存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/08/struts2builtininterceptor/">Struts2 内建拦截器简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/ideakeymapformac/">IDEA keymap for Mac</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/threeproxymodel/">Java 的三种代理模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/struts2/">struts2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/13/bankpatrol-xiang-mu-gan-wu/">BankPatrol 项目感悟</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/11/jxl-cao-zuo-excel-biao-ge/">操作 Excel 表格（jxl）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/ajax/">AJAX</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/filter/">过滤器和监听器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/28/jsp-el/">JSP 之 EL 表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/servlet-upload-and-download/">Servlet 文件上传和下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/25/session-cookie/">会话技术之 Session 和 Cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/24/jsp/">初识 JSP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/servlet/">初识 Servlet</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/java-web-basis/">Java Web 基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/18/xml-jie-xi/">XML 解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/javascript-s-bom-and-dom/">JavaScript 之 BOM 和 DOM 对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/javascriptverificationcode/">JavaScript 验证码的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/javascriptoop/">JavaScript 面向对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/javascript-and/">JavaScript 中的 == 与 ===</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/javascript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/css-div/">DIV + CSS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/ji-chu-ce-shi-xuan-ze-ti/">基础测试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/01/jdbc/">JDBC 编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/31/reflect/">反射、debug、Junit 和 properties（待完善）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/mysql/">MySQL 数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/27/ji-suan-ji-wang-luo-bian-cheng/">计算机网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/duo-xian-cheng-bing-fa/">多线程并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/jin-cheng-he-xian-cheng/">进程和线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/io/">I/O 流</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/exception-and-error/">Java 异常和异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/20/map/">Map 映射</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/hashset/">HashSet 散列集</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/hashcode/">Hash Code 散列码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/ji-he/">集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/16/ri-qi-lei/">日期类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/object-he-bao-zhuang-lei/">Object 和包装类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/regexgrammar/">正则表达式基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/issues/">经典 Issues 集锦</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/shen-ru-liao-jie-string/">深入了解 String</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/mac-xi-tong-ji-ge-chang-yong-ming-ling-de-an-zhuang/">Mac 系统几个常用命令的安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/01/fang-fa-ji-xiu-shi-fu/">方法及修饰符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/mian-xiang-dui-xiang-yi/">面向对象（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/liu-cheng-kong-zhi/">流程控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/yun-suan-fu/">运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/bian-liang-yu-chang-liang/">变量与常量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/20/chang-yong-jin-zhi/">常用进制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/20/shu-ju-lei-xing-yu-lei-xing-zhuan-huan/">数据类型与类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/20/xampp-an-zhuang-ji-yu-dao-de-wen-ti/">XAMPP 安装及遇到的问题</a></li></ul>
+
+
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2020 CrazyBunQnQ
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    
+<script src="/js/GithubRepoWidget.js"></script>
+
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-93893895-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+             title: "a.article-title, .article-more-link a", 
+            
+             tags: ".article-tag a", 
+             categories: ".article-category a, a.tag-list-link", 
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
