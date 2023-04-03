@@ -1,0 +1,1338 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="PaddleSpeech">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93893895-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-93893895-1');
+</script>
+
+
+    <title>Windows Docker 中运行 PaddleSpeech | CrazyBun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="CrazyBun" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">CrazyBun</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">CrazyBun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/PaddleSpeech.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Windows Docker 中运行 PaddleSpeech</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/">
+                                <span class="chip bg-color">语音合成</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/">
+                                <span class="chip bg-color">语音识别</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/AI/" class="post-category">
+                                AI
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-01-22
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    14 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="PaddleSpeech"><a href="#PaddleSpeech" class="headerlink" title="PaddleSpeech"></a>PaddleSpeech</h2><p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleSpeech/blob/develop/README_cn.md#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">语音识别、语音合成等示例</a></p>
+<h3 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># docker build -f Dockerfile -t crazybun/ruoyi:20221223 . &amp;&amp; docker run --name ruoyi -d -t -i -v /root/logs/docker-logs/ruoyi:/RuoYi/logs -p 80:80 --restart always crazybun/ruoyi:20221223 </span>
+<span class="token function">docker</span> run <span class="token parameter variable">--name</span> paddlespeech-cpu <span class="token parameter variable">-itd</span> <span class="token parameter variable">-p</span> <span class="token number">8888</span>:8888 <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> /g/Docker/volumes/paddlespeech/mnt:/mnt <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> /d/TensorFlowNotebook:/root/notebook <span class="token punctuation">\</span>
+  <span class="token parameter variable">-v</span> /g/Docker/volumes/paddlespeech_gpu/.jupyter:/root/.jupyter <span class="token punctuation">\</span>
+  paddlecloud/paddlespeech:develop-cpu-478fd2  /bin/bash
+<span class="token comment"># 先执行下面命令将 /root 目录备份出来</span>
+<span class="token comment"># docker run --name paddlespeech-gpu -itd -p 8888:8888 -p 8090:8090 --restart always --gpus all -v /h/MyPrograms/Python/PaddleSpeech:/home/PaddleSpeech -v /g/Docker/volumes/paddlespeech_gpu/mnt:/mnt -v /d/TensorFlowNotebook:/notebook -v /g/Docker/volumes/paddlespeech_gpu/.jupyter:/root/.jupyter paddlecloud/paddlespeech:develop-gpu-cuda11.2-cudnn8-478fd2 /bin/bash</span>
+<span class="token function">docker</span> run <span class="token parameter variable">--name</span> paddlespeech-gpu <span class="token parameter variable">-itd</span> <span class="token parameter variable">-p</span> <span class="token number">8888</span>:8888 <span class="token parameter variable">-p</span> <span class="token number">8090</span>:8090 <span class="token parameter variable">--restart</span> always <span class="token parameter variable">--gpus</span> all <span class="token parameter variable">--ipc</span><span class="token operator">=</span>host <span class="token parameter variable">-v</span> /h/MyPrograms/Python/PaddleSpeech:/home/PaddleSpeech <span class="token parameter variable">-v</span> /g/Docker/volumes/paddlespeech_gpu/mnt:/mnt <span class="token parameter variable">-v</span> /g/Docker/volumes/paddlespeech_gpu/root:/root <span class="token parameter variable">-v</span> /d/TensorFlowNotebook:/notebook <span class="token parameter variable">-v</span> /g/Docker/volumes/paddlespeech_gpu/.jupyter:/root/.jupyter paddlecloud/paddlespeech:develop-gpu-cuda11.2-cudnn8-478fd2 /bin/bash
+<span class="token function">docker</span> run <span class="token parameter variable">--name</span> paddlespeech <span class="token parameter variable">-itd</span> <span class="token parameter variable">-p</span> <span class="token number">8888</span>:8888 <span class="token parameter variable">-p</span> <span class="token number">8090</span>:8090 <span class="token parameter variable">--restart</span> always <span class="token parameter variable">--gpus</span> all <span class="token parameter variable">--ipc</span><span class="token operator">=</span>host <span class="token parameter variable">-v</span> /h/MyPrograms/Python/PaddleSpeech:/home/PaddleSpeech <span class="token parameter variable">-v</span> /g/Docker/volumes/paddlespeech_gpu/mnt:/mnt <span class="token parameter variable">-v</span> /g/Docker/volumes/paddlespeech_gpu/root:/root <span class="token parameter variable">-v</span> /d/TensorFlowNotebook:/notebook <span class="token parameter variable">-v</span> /g/Docker/volumes/paddlespeech_gpu/.jupyter:/root/.jupyter paddlecloud/paddlespeech:develop-gpu-cuda11.2-cudnn8-478fd2 /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>Windows 安装 Docker 后弹出的防火墙提示，一定要选中公共，否则只有本机能访问!!</p>
+</blockquote>
+<h3 id="其他安装项"><a href="#其他安装项" class="headerlink" title="其他安装项"></a>其他安装项</h3><p>根据<a href="#%E9%97%AE%E9%A2%98">我遇到的问题</a>进行的教程以外的安装项</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> libsndfile1 sox libopenblas-dev <span class="token parameter variable">-y</span>
+
+<span class="token comment"># pip install paddlepaddle==2.4.1 -i https://mirror.baidu.com/pypi/simple</span>
+<span class="token comment"># https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html</span>
+pip <span class="token function">install</span> paddlepaddle-gpu<span class="token operator">==</span><span class="token number">2.4</span>.1.post112 <span class="token parameter variable">-f</span> https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
+
+pip <span class="token function">install</span> pytest-runner <span class="token parameter variable">-i</span> https://pypi.tuna.tsinghua.edu.cn/simple
+
+<span class="token builtin class-name">cd</span> <span class="token variable">${<span class="token environment constant">HOME</span>}</span>
+<span class="token function">wget</span> https://paddlespeech.bj.bcebos.com/Parakeet/tools/nltk_data.tar.gz
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> nltk_data.tar.gz
+
+<span class="token builtin class-name">cd</span> /home/PaddleSpeech
+<span class="token comment"># 更新 PaddleSpeech</span>
+<span class="token function">git</span> fetch <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> pull <span class="token operator">&amp;&amp;</span> pip <span class="token function">install</span> <span class="token builtin class-name">.</span>
+
+<span class="token comment"># 安装 Kaldi(http://kaldi-asr.org/),可选</span>
+<span class="token function">pushd</span> tools
+<span class="token comment"># 我这里安装报错，在 make 命令添加 TARGET 参数后安装成功 </span>
+<span class="token comment"># make PREFIX=$(pwd)/OpenBLAS/install USE_LOCKING=1 USE_THREAD=0 TARGET=HASWELL -C OpenBLAS all install</span>
+<span class="token function">bash</span> extras/install_openblas.sh
+<span class="token comment"># 安装过程很长，另外可能需要先执行这个 apt-get install sox -y</span>
+<span class="token function">bash</span> extras/install_kaldi.sh
+<span class="token function">popd</span>
+
+<span class="token comment"># 手动安装 MFA，需要 python 3.8，而且时间也很长...这里直接用自带的了</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="启动-JupyterLab"><a href="#启动-JupyterLab" class="headerlink" title="启动 JupyterLab"></a>启动 JupyterLab</h3><p>镜像中内置 Jupyter Lab, 顺便启动了</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 内置 JupyterLab</span>
+<span class="token comment"># 安装中文包</span>
+pip <span class="token function">install</span> jupyterlab-language-pack-zh-CN
+<span class="token comment"># 设置密码</span>
+jupyter server password
+<span class="token comment"># 启动 JupyterLab</span>
+jupyter-lab <span class="token parameter variable">--ip</span><span class="token operator">=</span><span class="token number">0.0</span>.0.0 <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">8888</span> --allow-root --notebook-dir<span class="token operator">=</span>/notebook
+<span class="token comment"># 后台 </span>
+<span class="token function">nohup</span> jupyter-lab <span class="token parameter variable">--ip</span><span class="token operator">=</span><span class="token number">0.0</span>.0.0 <span class="token parameter variable">--port</span><span class="token operator">=</span><span class="token number">8888</span> --allow-root --notebook-dir<span class="token operator">=</span>/notebook <span class="token operator">&gt;</span> /mnt/jupyterlab.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+<span class="token comment"># 关闭后台</span>
+<span class="token function">ps</span> <span class="token parameter variable">-aux</span> <span class="token operator">|</span> <span class="token function">grep</span> jupyter
+<span class="token function">kill</span> <span class="token parameter variable">-9</span> <span class="token number">9608</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h5><blockquote>
+<p>容器启动后执行一下 <code>nvidia-smi</code> 命令测试能否调用 GPU</p>
+<p>磁盘挂载一定要在 Windows 命令行中执行，否则回挂载到 WSL 虚拟机中的路径，Windows 看不到！</p>
+</blockquote>
+<h3 id="后端服务"><a href="#后端服务" class="headerlink" title="后端服务"></a><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleSpeech/blob/develop/demos/speech_server/README_cn.md">后端服务</a></h3><p>安装完成后，开发者可以通过命令行一键启动语音识别，语音合成，音频分类等多种服务</p>
+<p>它是一个离线语音服务和访问服务的实现。可以通过使用 <code>paddlespeech_server</code> 和 <code>paddlespeech_client</code> 的单个命令或 python 的几行代码来实现</p>
+<p>服务接口定义请参考:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleSpeech/wiki/PaddleSpeech-Server-RESTful-API">PaddleSpeech Server RESTful API</a></li>
+</ul>
+<p>你可以在 AI Studio 中快速体验：<a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/4354592?sUid=2470186&amp;shared=1&amp;ts=1660878208266">SpeechServer 一键部署</a></p>
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># paddlespeech_server start --config_file ./conf/application.yaml</span>
+paddlespeech_server start <span class="token parameter variable">--config_file</span> /root/speech_server/application.yaml
+<span class="token comment"># 后台启动</span>
+<span class="token function">nohup</span> paddlespeech_server start <span class="token parameter variable">--config_file</span> /root/speech_server/application.yaml <span class="token operator">&gt;</span> /mnt/paddlespeech_server.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="访问语音识别服务"><a href="#访问语音识别服务" class="headerlink" title="访问语音识别服务"></a>访问语音识别服务</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">paddlespeech_client asr <span class="token parameter variable">--server_ip</span> <span class="token number">127.0</span>.0.1 <span class="token parameter variable">--port</span> <span class="token number">8090</span> <span class="token parameter variable">--input</span> input_16k.wav<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="OSError-sndfile-library-not-found"><a href="#OSError-sndfile-library-not-found" class="headerlink" title="OSError: sndfile library not found"></a>OSError: sndfile library not found</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> libsndfile1 <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="grep-warning-GREP-OPTIONS-is-deprecated-please-use-an-alias-or-script"><a href="#grep-warning-GREP-OPTIONS-is-deprecated-please-use-an-alias-or-script" class="headerlink" title="grep: warning: GREP_OPTIONS is deprecated; please use an alias or script"></a>grep: warning: GREP_OPTIONS is deprecated; please use an alias or script</h4><p>这一行的打印提示是为了说明grep命令输出高亮字，并不影响程序的运行</p>
+<p>可参考<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/31156517/how-to-get-rid-of-grep-warning-grep-options-is-deprecated-please-use-an-alia">这里</a>关闭高亮</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">unset</span> GREP_OPTIONS<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>可以添加到 <code>.bashrc</code> 中一劳永逸</p>
+</blockquote>
+<h4 id="declarative-got-an-unexpected-keyword-argument-‘property’"><a href="#declarative-got-an-unexpected-keyword-argument-‘property’" class="headerlink" title="declarative() got an unexpected keyword argument ‘property’"></a>declarative() got an unexpected keyword argument ‘property’</h4><p>参考<a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleSpeech/issues/2512">https://github.com/PaddlePaddle/PaddleSpeech/issues/2512</a></p>
+<p>property 是 paddle 2.4rc 中新增的功能，如果用到 paddlespeech develop 的代码的话，需要使用 paddle 的 dev 版本或 &gt;=2.4rc</p>
+<blockquote>
+<p>写此文时，官网要求相关依赖<br></p>
+<ul>
+<li>gcc &gt;= 4.8.5<br></li>
+<li><strong>paddlepaddle &gt;= 2.4.1</strong><br></li>
+<li>python &gt;= 3.7<br></li>
+<li>linux(推荐), mac, windows<br></li>
+</ul>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html">Paddle 详细安装说明</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 原先为 2.3.0.post112</span>
+pip <span class="token function">install</span> paddlepaddle-gpu<span class="token operator">==</span><span class="token number">2.4</span>.1.post112 <span class="token parameter variable">-f</span> https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="nltk-data-Error-loading-averaged-perceptron-tagger-lt-urlopen-error"><a href="#nltk-data-Error-loading-averaged-perceptron-tagger-lt-urlopen-error" class="headerlink" title="[nltk_data] Error loading averaged_perceptron_tagger: <urlopen error"></a>[nltk_data] Error loading averaged_perceptron_tagger: &lt;urlopen error</h3><p>下载 <strong>nltk_data</strong> 时网络不佳，可以提前下载 <a target="_blank" rel="noopener" href="https://paddlespeech.bj.bcebos.com/Parakeet/tools/nltk_data.tar.gz">nltk_data</a> 并解压缩到 <code>${HOME}</code> 目录下。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> <span class="token variable">${<span class="token environment constant">HOME</span>}</span>
+<span class="token function">wget</span> https://paddlespeech.bj.bcebos.com/Parakeet/tools/nltk_data.tar.gz
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> nltk_data.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="cudaErrorNoKernelImageForDevice"><a href="#cudaErrorNoKernelImageForDevice" class="headerlink" title="cudaErrorNoKernelImageForDevice"></a>cudaErrorNoKernelImageForDevice</h4><pre class="line-numbers language-log" data-language="log"><code class="language-log">terminate called after throwing an instance of <span class="token string">'thrust::system::system_error'</span>
+  what<span class="token operator">(</span><span class="token operator">)</span><span class="token operator">:</span>  parallel_for failed<span class="token operator">:</span> cudaErrorNoKernelImageForDevice<span class="token operator">:</span> no kernel image is available for execution on the device
+Aborted<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><code>cudaErrorNoKernelImageForDevice</code> 应该是 paddle 的 cuda 版本和你机器的 cuda 版本不一致导致的（你自己机器的 cuda 有达到 11.6 么），在 paddle 的 issue 区可以搜到</p>
+<p>参考:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleSpeech/issues/991">https://github.com/PaddlePaddle/PaddleSpeech/issues/991</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleSpeech/issues/2506">https://github.com/PaddlePaddle/PaddleSpeech/issues/2506</a></li>
+</ul>
+<h4 id="DeprecationWarning"><a href="#DeprecationWarning" class="headerlink" title="DeprecationWarning"></a>DeprecationWarning</h4><h4 id="The-installed-Paddle-is-compiled-with-CUDNN-8-2-but-CUDNN-version-in-your-machine-is-8-1"><a href="#The-installed-Paddle-is-compiled-with-CUDNN-8-2-but-CUDNN-version-in-your-machine-is-8-1" class="headerlink" title="The installed Paddle is compiled with CUDNN 8.2, but CUDNN version in your machine is 8.1"></a>The installed Paddle is compiled with CUDNN 8.2, but CUDNN version in your machine is 8.1</h4><p>安装 CUDNN 8.2 并替换</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/cuda-11.2 <span class="token function">ls</span> <span class="token parameter variable">-l</span>
+total 40K
+lrwxrwxrwx <span class="token number">1</span> root root   <span class="token number">28</span> Dec  <span class="token number">1</span>  <span class="token number">2020</span> include -<span class="token operator">&gt;</span> targets/x86_64-linux/include
+lrwxrwxrwx <span class="token number">1</span> root root   <span class="token number">24</span> Feb  <span class="token number">5</span>  <span class="token number">2021</span> lib64 -<span class="token operator">&gt;</span> targets/x86_64-linux/lib
+drwxr-xr-x <span class="token number">1</span> root root <span class="token number">4</span>.0K Mar  <span class="token number">8</span>  <span class="token number">2021</span> targets/
+
+<span class="token builtin class-name">cd</span> /usr/local/cuda-11.2
+<span class="token builtin class-name">cd</span> /usr/local/cuda-11.2/targets/x86_64-linux
+<span class="token function">cp</span> /mnt/cuDNN/cuDNN_v8.2.1_for_cuda_11.x/cuda/include/cudnn.h ./include/
+<span class="token function">cp</span> /mnt/cuDNN/cuDNN_v8.2.1_for_cuda_11.x/cuda/lib64/libcudnn* ./lib/
+<span class="token function">chmod</span> a+r /usr/local/cuda*/include/cudnn.h /usr/local/cuda*/lib64/libcudnn*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="No-such-file-or-directory-‘exp-x2F-mfa-train-and-align-x2F-baker-corpus-x2F-train-x2F-mfcc-x2F-raw-mfcc-0-scp’"><a href="#No-such-file-or-directory-‘exp-x2F-mfa-train-and-align-x2F-baker-corpus-x2F-train-x2F-mfcc-x2F-raw-mfcc-0-scp’" class="headerlink" title="No such file or directory: ‘exp/.mfa_train_and_align/baker_corpus/train/mfcc/raw_mfcc.0.scp’"></a>No such file or directory: ‘exp/.mfa_train_and_align/baker_corpus/train/mfcc/raw_mfcc.0.scp’</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> libopenblas-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在安装 libopenblas-dev 后<br>删除 MFA 附带的库将强制 MFA 使用您安装的库, MFA 就应该可以正常工作了</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> <span class="token punctuation">{</span>mfa_dir<span class="token punctuation">}</span>/lib/thirdparty/bin/libopenblas.so.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="AssertionError-This-dataset-has-no-examples"><a href="#AssertionError-This-dataset-has-no-examples" class="headerlink" title="AssertionError: This dataset has no examples"></a>AssertionError: This dataset has no examples</h4><p>问题同上, 安装完成后删除 PaddleSpeech 目录下所有的 <code>libopenblas.so.0</code> 即可</p>
+<h4 id="SystemError-Fatal-DataLoader-process"><a href="#SystemError-Fatal-DataLoader-process" class="headerlink" title="SystemError: (Fatal) DataLoader process"></a>SystemError: (Fatal) DataLoader process</h4><pre class="line-numbers language-none"><code class="language-none">SystemError: (Fatal) DataLoader process (pid
+  1. If run DataLoader by DataLoader.from_generator(...), queue capacity is set by from_generator(..., capacity=xx, ...).
+  2. If run DataLoader by DataLoader(dataset, ...), queue capacity is set as 2 times of the max value of num_workers and len(places).
+  3. If run by DataLoader(dataset, ..., use_shared_memory=True), set use_shared_memory=False for not using shared memory.) exited is killed by signal: 21707.
+  It may be caused by insufficient shared storage space. This problem usually occurs when using docker as a development environment.
+  Please use command `df -h` to check the storage space of `/dev/shm`. Shared storage space needs to be greater than (DataLoader Num * DataLoader queue capacity * 1 batch data size
+).
+  You can solve this problem by increasing the shared storage space or reducing the queue capacity appropriately.
+Bus error (at /paddle/paddle/fluid/imperative/data_loader.cc:183)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这可能是由于共享存储空间不足引起的。使用 docker 作为开发环境时，通常会发生此问题。<br>请使用命令 ‘df -h’ 检查 ‘devshm’ 的存储空间. Shared storage space needs to be greater than (DataLoader Num * DataLoader queue capacity * 1 batch data size</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">λ 60cc7c67bf7f /home/PaddleSpeech/examples/aishell3/tts3 <span class="token function">df</span> <span class="token parameter variable">-h</span>
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         251G   32G  207G  <span class="token number">14</span>% /
+tmpfs            64M     <span class="token number">0</span>   64M   <span class="token number">0</span>% /dev
+tmpfs            16G     <span class="token number">0</span>   16G   <span class="token number">0</span>% /sys/fs/cgroup
+shm              64M   64K   64M   <span class="token number">1</span>% /dev/shm
+drvfs           <span class="token number">4</span>.6T  227G  <span class="token number">4</span>.4T   <span class="token number">5</span>% /mnt
+drvfs           700G  394G  307G  <span class="token number">57</span>% /notebook
+drvfs           <span class="token number">3</span>.7T  <span class="token number">3</span>.6T  116G  <span class="token number">97</span>% /home/PaddleSpeech
+/dev/sdb        251G   32G  207G  <span class="token number">14</span>% /etc/hosts
+drivers         231G  187G   45G  <span class="token number">81</span>% /usr/bin/nvidia-smi
+lib             231G  187G   45G  <span class="token number">81</span>% /usr/lib/x86_64-linux-gnu/libcuda.so.1
+none             16G     <span class="token number">0</span>   16G   <span class="token number">0</span>% /dev/dxg
+tmpfs            16G     <span class="token number">0</span>   16G   <span class="token number">0</span>% /proc/acpi
+tmpfs            16G     <span class="token number">0</span>   16G   <span class="token number">0</span>% /sys/firmware<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>docker run</code> 命令加上 <a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleSpeech/issues/790#issuecomment-906128565"><code>--ipc=host</code></a> 后就可以共享宿主机内存了</p>
+<h5 id="关于-Docker-容器间的-IPC-通信"><a href="#关于-Docker-容器间的-IPC-通信" class="headerlink" title="关于 Docker 容器间的 IPC 通信"></a>关于 Docker 容器间的 IPC 通信</h5><p><code>docker run --ipc=""</code> 可以设置共享内存，ipc 参数有两种使用方式</p>
+<ol>
+<li><p>容器间都共享宿主机的内存</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 所有容器启动时加入该参数</span>
+<span class="token function">docker</span> run <span class="token parameter variable">--ipc</span><span class="token operator">=</span>host<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>共享其中某个容器的内存, 例如使用容器1的内存</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动容器1，将其设置为共享模式. 2fdf93c10b4e 替换为自己的镜像 id</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-it</span> <span class="token parameter variable">--ipc</span><span class="token operator">=</span>shareable <span class="token parameter variable">--name</span> ipc_container1 2fdf93c10b4e /bin/bash
+<span class="token comment"># 启动容器2，连接到容器1的内存</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-it</span> <span class="token parameter variable">--ipc</span><span class="token operator">=</span>container:ipc_container1 <span class="token parameter variable">--name</span> ipc_container2 2fdf93c10b4e /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h4 id="ImportError-libcudart-so-10-2-cannot-open-shared-object-file-No-such-file-or-directory"><a href="#ImportError-libcudart-so-10-2-cannot-open-shared-object-file-No-such-file-or-directory" class="headerlink" title="ImportError: libcudart.so.10.2: cannot open shared object file: No such file or directory"></a>ImportError: libcudart.so.10.2: cannot open shared object file: No such file or directory</h4><p>参考 <a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Paddle/issues/49581">https://github.com/PaddlePaddle/Paddle/issues/49581</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/paddlepaddle-gpu/">paddlepaddle-gpu 依赖库官方说明</a>中先决条件:</p>
+<blockquote>
+<p>得！GPU 版本最高支持 CUDA 10，白搞，再来一遍吧…</p>
+</blockquote>
+<h4 id="OpenBLAS-Detecting-CPU-failed-Please-set-TARGET-explicitly-e-g-make-TARGET-x3D-your-cpu-target"><a href="#OpenBLAS-Detecting-CPU-failed-Please-set-TARGET-explicitly-e-g-make-TARGET-x3D-your-cpu-target" class="headerlink" title="OpenBLAS: Detecting CPU failed. Please set TARGET explicitly, e.g. make TARGET=your_cpu_target"></a>OpenBLAS: Detecting CPU failed. Please set TARGET explicitly, e.g. make TARGET=your_cpu_target</h4><p>安装 Kaldi 时报错</p>
+<p>在自动安装脚本中的 <code>make</code> 命令添加 <code> TARGET=your_cpu_target</code> 参数</p>
+<p>我在这里将</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">make</span> <span class="token assign-left variable">PREFIX</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>/OpenBLAS/install <span class="token assign-left variable">USE_LOCKING</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">USE_THREAD</span><span class="token operator">=</span><span class="token number">0</span> <span class="token parameter variable">-C</span> OpenBLAS all <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>改为</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">make</span> <span class="token assign-left variable">PREFIX</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>/OpenBLAS/install <span class="token assign-left variable">USE_LOCKING</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">USE_THREAD</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">TARGET</span><span class="token operator">=</span>HASWELL <span class="token parameter variable">-C</span> OpenBLAS all <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/xianyi/OpenBLAS/issues/2227">参考1</a><br><a target="_blank" rel="noopener" href="https://github.com/xianyi/OpenBLAS/issues/1204#issuecomment-308457857">参考2</a></p>
+<h5 id="ON-WINDOWS"><a href="#ON-WINDOWS" class="headerlink" title="ON WINDOWS:"></a>ON WINDOWS:</h5><ul>
+<li>Windows 7/8/10 Pro/Enterprise (64bit)<ul>
+<li>GPU version support CUDA 9.0/9.1/9.2/10.0/10.1，only supports single card</li>
+</ul>
+</li>
+<li>Python version 2.7.15+/3.5.1+/3.6/3.7/3.8 (64 bit)</li>
+<li>pip version 9.0.1+ (64 bit)</li>
+</ul>
+<h5 id="ON-LINUX"><a href="#ON-LINUX" class="headerlink" title="ON LINUX:"></a>ON LINUX:</h5><ul>
+<li>Linux Version (64 bit)<ul>
+<li>CentOS 6 (GPU Version Supports CUDA 9.0/9.1/9.2/10.0/10.1, only supports single card)**</li>
+<li>CentOS 7 (GPUVersion Supports CUDA 9.0/9.1/9.2/10.0/10.1, CUDA 9.1 only supports single card)**</li>
+<li>Ubuntu 14.04 (GPUVersion Supports CUDA 10.0/10.1)</li>
+<li>Ubuntu 16.04 (GPUVersion Supports CUDA 9.0/9.1/9.2/10.0/10.1)</li>
+<li>Ubuntu 18.04 (GPUVersion Supports CUDA 10.0/10.1)</li>
+</ul>
+</li>
+<li>Python Version: 2.7.15+/3.5.1+/3.6/3.7/3.8 (64 bit)</li>
+<li>pip or pip3 Version 20.2.2+ (64 bit)</li>
+</ul>
+<h5 id="ON-MACOS"><a href="#ON-MACOS" class="headerlink" title="ON MACOS:"></a>ON MACOS:</h5><ul>
+<li>MacOS version 10.11/10.12/10.13/10.14 (64 bit) (not support GPU version yet)</li>
+<li>Python version 2.7.15+/3.5.1+/3.6/3.7/3.8 (64 bit)</li>
+<li>pip or pip3 version 9.0.1+ (64 bit)</li>
+</ul>
+<h2 id="训练一个自己的-TTS-模型"><a href="#训练一个自己的-TTS-模型" class="headerlink" title="训练一个自己的 TTS 模型"></a><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleSpeech/discussions/1842">训练一个自己的 TTS 模型</a></h2><p>首先看一下效果 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vr4y18738">对 paddlespeech 的拙劣尝试</a> 和 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kU4y1m7aH">对 paddlespeech 的拙劣尝试 2</a></p>
+<p>我们需要走通 <code>other/mfa</code> 和 <code>aishell3/tts3</code> 两个流程</p>
+<blockquote>
+<p>另外 windows 电脑也能搞这个 用 Git Bash 就好了 有的地方要小改一下<br><br>反正我是没搞出来…</p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/kslz">大佬</a>说:<br><br>已经挺细了 可以直接去读一下 shell 代码 基本就知道流程了，因为我不懂 shell 也不怎么懂 python 都能把流程走下来，所以我估计换一个人来走一遍流程也是轻而易举的<br><br>我估计我再写的细点，就要去牢里蹬缝纫机了</p>
+</blockquote>
+<h4 id="收集数据"><a href="#收集数据" class="headerlink" title="收集数据"></a>收集数据</h4><p>数据收集自网上，一种 speaker 大概需要 600 句话。获取到数据后用 <a target="_blank" rel="noopener" href="https://github.com/boy1dr/SpleeterGui">SpleeterGui</a> 进行背景音乐的分离，只取人声。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 视频提取 wav</span>
+ffmpeg <span class="token parameter variable">-i</span> .<span class="token punctuation">\</span><span class="token number">12</span>.mp4 <span class="token parameter variable">-ac</span> <span class="token number">1</span> <span class="token parameter variable">-ar</span> <span class="token number">16000</span> <span class="token parameter variable">-y</span> <span class="token number">12</span>.wav<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="数据标注"><a href="#数据标注" class="headerlink" title="数据标注"></a>数据标注</h4><p><a target="_blank" rel="noopener" href="https://github.com/kslz">大佬</a>写了个小软件, 啪的一下, 很快啊, 就标注完了，然后模仿 <code>aishell3</code> 的格式制作数据集，<strong>记得要排除所有非中文字符</strong></p>
+<p>经过<a target="_blank" rel="noopener" href="https://github.com/kslz">大佬</a>的尝试和读代码, <a target="_blank" rel="noopener" href="https://github.com/kslz">大佬</a>觉得照搬 <code>aishell3</code> 的 <code>speaker</code> 名的方式是最好的，改动少。</p>
+<p>用 <code>pypinyin</code> 制作标注文本，效果不怎么喜人，但是大概够用。记得抽出几句来填进 test 文件夹里。</p>
+<h4 id="获取-mfa-结果"><a href="#获取-mfa-结果" class="headerlink" title="获取 mfa 结果"></a>获取 mfa 结果</h4><p><code>other/mfa</code> 强制对齐(Montreal-Forced-Aligner) 流程走一下</p>
+<blockquote>
+<p>可能需要<a target="_blank" rel="noopener" href="https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner">安装 MFA 命令</a><br><br>需要从其<a target="_blank" rel="noopener" href="https://test.data-baker.com/data/index/source">官方网站</a>下载 BZNSYP 并解压缩。并设置数据集的路径为 <code>~/datasets/BZNSYP</code></p>
+</blockquote>
+<p>流程里下载的是 linux 版本的二进制文件</p>
+<p>如果你是 windows 的电脑记得改成下载 windows 版本的文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># corpus_directory:包含我们的语音文件和文本的文件夹</span>
+<span class="token comment"># dictionary：我们刚刚下载的字典</span>
+<span class="token comment"># acoustic_model：声学模型，pretrained中的english.zip(注意这个文件不能解压）</span>
+<span class="token comment"># output_directory：输出目录文件夹</span>
+mfa_align corpus_directory dictionary acoustic_model output_directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h4><p><code>mfa</code> 结果有了之后去走 <code>aishell3/tts3</code> 的流程</p>
+<p>先<a target="_blank" rel="noopener" href="http://www.aishelltech.com/aishell_3">下载预训练好的那个 <code>aishell3_fastspeech2</code> 模型</a>, 挺大的…</p>
+<p>然后 <strong>??把脚本里的音素对照表指向这里的音素对照表，不要用你自己生成的那个</strong></p>
+<p>运行 <code>run.sh</code> 的时候报错，脚本中用了两块 GPU</p>
+<p>将 <code>gpus</code> <code>0</code>, 将 <code>local/train.sh</code> 中的 <code>ngpu</code> 改成 <code>1</code></p>
+<pre class="line-numbers language-none"><code class="language-none">Invalid CUDAPlace(1), must inside [0, 1), because GPU number on your machine is 1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>or</p>
+<pre class="line-numbers language-none"><code class="language-none">Traceback (most recent call last):
+  File "/home/PaddleSpeech/paddlespeech/t2s/exps/fastspeech2/train.py", line 222, in &lt;module&gt;
+    main()
+  File "/home/PaddleSpeech/paddlespeech/t2s/exps/fastspeech2/train.py", line 216, in main
+    dist.spawn(train_sp, (args, config), nprocs=args.ngpu)
+  File "/usr/local/lib/python3.7/dist-packages/paddle/distributed/spawn.py", line 574, in spawn
+    procs_env_list = _get_subprocess_env_list(nprocs, options)
+  File "/usr/local/lib/python3.7/dist-packages/paddle/distributed/spawn.py", line 187, in _get_subprocess_env_list
+    (len(env_devices_list), nprocs))
+RuntimeError: the number of visible devices(1) is less than the number of spawn processes(2), please ensure that the correct `nprocs` argument is passed or the environment variable `CUDA_VISIBLE_DEVICES` is correctly configured.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h4><p>走流程 练一会 然后停下 进 <code>checkpoints</code> 文件夹，**??把预训练模型复制进来然后编辑那个 jsonl 文件。删的只剩一行然后把那一行里的 <code>pdz</code> 文件指向你刚复制进来的那个模型就可以接着训练了。**</p>
+<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p>你可以走 <code>e2e</code> 那个 <code>step</code> 然后指定好 <code>speaker</code> 如果不出意外的话，你就能听到你的训练结果了。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/kslz">大佬</a>的嘱托<br><br>如果你的训练效果特别好 那我只希望<br><br><img src="https://user-images.githubusercontent.com/54951765/166875062-3ec8e008-483b-4ff3-9f01-ae781613dbc6.jpeg" alt="日后你惹出祸来，不把师傅说出来就行了"></p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com" rel="external nofollow noreferrer">CrazyBunQnQ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com/2023/01/22/paddlespeechinwindowsdocker/">https://blog.crazybunqnq.com/2023/01/22/paddlespeechinwindowsdocker/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.crazybunqnq.com" target="_blank">CrazyBunQnQ</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/">
+                                    <span class="chip bg-color">语音合成</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/">
+                                    <span class="chip bg-color">语音识别</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="weibo,wechat,qq,qzone,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/03/14/learnpythonbyjava-1/">
+                    <div class="card-image">
+                        
+                        <img src="/images/JavaVsPython.png" class="responsive-img" alt="类比 Java 学 Python(1)">
+                        
+                        <span class="card-title">类比 Java 学 Python(1)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            最近想系统性的学习一下 Python 编程, 于是就想到了类比 Java 学 Python, 这样既能学到 Python, 又能巩固 Java 的基础知识。本文是这个系列的第一篇, 主要介绍了 Python 的基本数据类型和 Java 的基本数据类型的对应关系。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/10/22/usenvidiaindocker/">
+                    <div class="card-image">
+                        
+                        <img src="/images/NvidiaInDocker.png" class="responsive-img" alt="Docker 中使用 Nvidia 显卡">
+                        
+                        <span class="card-title">Docker 中使用 Nvidia 显卡</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            很多厉害的机器学习项目对 Windows 兼容比较差，所以就把环境跑在 Docker 里啦，怎么才能让 Docker 使用宿主机的 GPU 训练模型呢，来看看吧！
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%98%BE%E5%8D%A1/">
+                        <span class="chip bg-color">显卡</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%B9%E5%99%A8/">
+                        <span class="chip bg-color">容器</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('40')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: CrazyBun<br />'
+            + '文章作者: CrazyBunQnQ<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归 CrazyBunQnQ 所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2023</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">CrazyBunQnQ</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "10";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CrazyBunQnQ" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:crazybunqnq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=494225231" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 494225231" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2800339712" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2800339712" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?864d5a7534ed5364589f82c39b9c4e07";
+        var baiduSite = document.createElement("meta");
+        baiduSite.name = "baidu-site-verification";
+        baiduSite.content = "codeva-7NYmMaNfam";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(baiduSite, s);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+	    <div style="position:fixed;bottom:125px;right:9px;cursor: pointer;">
+	        <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/498631"><img src="/medias/contact.png"></a>
+	    </div>
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

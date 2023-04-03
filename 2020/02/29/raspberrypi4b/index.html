@@ -1,0 +1,1261 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="树莓派">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93893895-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-93893895-1');
+</script>
+
+
+    <title>树莓派 4B：别让我吃灰~ | CrazyBun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="CrazyBun" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">CrazyBun</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">CrazyBun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/RaspberryPi%204B.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">树莓派 4B：别让我吃灰~</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">
+                                <span class="chip bg-color">树莓派</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                                <span class="chip bg-color">工具</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8A%98%E8%85%BE/">
+                                <span class="chip bg-color">折腾</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/" class="post-category">
+                                触类旁通
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-02-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>树莓派刚出了新版 4B，感觉配置不错，就入手了一个玩玩~然而买回来之后一直在吃灰…赶紧拿出来耍耍~</p>
+<span id="more"></span>
+
+<h2 id="FRP-内网穿透"><a href="#FRP-内网穿透" class="headerlink" title="FRP 内网穿透"></a>FRP 内网穿透</h2><h3 id="安装-FRP"><a href="#安装-FRP" class="headerlink" title="安装 FRP"></a>安装 FRP</h3><p>不得不夸一下 frp, 太简练了, 做的太好了!</p>
+<ol>
+<li>到其 GitHub 的 <a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases">release</a> 页面, 下载 相应操作系统及架构的安装压缩包.<ul>
+<li>我的树莓派系统是官方推荐的 Raspbian, 即 32 位的 debian, CPU 是 ARM 架构, 所以下载的软件包是 <a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases/download/v0.31.2/frp_0.31.2_linux_arm.tar.gz">frp_0.31.2_linux_arm.tar.gz</a></li>
+<li>我的服务器系统是 64 位 CentOS 7,  所以下载的软件包是 <a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases/download/v0.31.2/frp_0.31.2_linux_amd64.tar.gz">frp_0.31.2_linux_amd64.tar.gz</a></li>
+</ul>
+</li>
+<li>解压下载的软件包, 将其中的<ul>
+<li>frps 及 <code>frps.ini</code> 文件放到具有公网IP的机器上,</li>
+<li>frpc 及 <code>frpc.ini</code> 文件放到处于内网环境的机器上(即我的树莓派上).</li>
+</ul>
+</li>
+</ol>
+<p>只要 2 个文件放在相同目录下, 放在什么位置都行, 当然建立个 frp 目录存放更好.</p>
+<p>至此, 安装完成!</p>
+<blockquote>
+<p>这里不得不吐槽一下, GitHub 下载实在是太慢了!!! 建议服务器端直接从服务器去下载…</p>
+</blockquote>
+<h3 id="FRP-配置"><a href="#FRP-配置" class="headerlink" title="FRP 配置"></a>FRP 配置</h3><p>配置是通过编辑ini文件实现. 下面分别说明服务器和客户端的配置.</p>
+<p>由于有多个二级域名，可以用多个二级域名的 A 记录同时指向外网 VPS 地址</p>
+<ul>
+<li>jenkins.skywind.com -&gt; 202.115.8.1</li>
+<li>gitlab.skywind.com -&gt; 202.115.8.1</li>
+</ul>
+<p>配置两个二级域名都指向 VPS 外网地址，对于多个 http/https 转发，在 frps 那里都可以共用同一个端口</p>
+<h4 id="服务端-FRPS-配置"><a href="#服务端-FRPS-配置" class="headerlink" title="服务端 FRPS 配置:"></a>服务端 FRPS 配置:</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># frps.ini</span>
+<span class="token punctuation">[</span>common<span class="token punctuation">]</span>
+bind_port <span class="token operator">=</span> <span class="token number">7000</span>
+token <span class="token operator">=</span> <span class="token number">1234567</span>
+vhost_http_port <span class="token operator">=</span> <span class="token number">80</span>
+vhost_https_port <span class="token operator">=</span> <span class="token number">443</span>
+dashboard_port <span class="token operator">=</span> <span class="token number">7500</span>
+dashboard_user <span class="token operator">=</span> root
+dashboard_pwd <span class="token operator">=</span> *****<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>bind_port</code> 指定了 frp 服务端端口</li>
+<li><code>vhost_http_port</code> 指定了 http 服务的端口, 通过访问服务器此端口就可访问到内网中提供的 web 服务</li>
+<li>服务器端 frp 提供了 <code>dashboard</code> 功能, 可监控 frp 的工作状态, 挺好用的. 端口号可指定, 登陆用户名和密码也在这里配置. <code>dashboard</code> 的配置只出现在服务器端, 和客户端没有关系.</li>
+<li><code>token</code> 提供身份验证功能, 服务端和客户端的 <code>common</code> 配置中的 <code>token</code> 参数一致则身份验证通过</li>
+</ul>
+<blockquote>
+<p>用了一堆端口，别忘了设置防火墙哟<br>CentOS 7 使用 firewall-cmd 设置防火墙，这里不赘述了</p>
+</blockquote>
+<h4 id="内网-FRPC-配置"><a href="#内网-FRPC-配置" class="headerlink" title="内网 FRPC 配置"></a>内网 FRPC 配置</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># frpc.ini</span>
+<span class="token punctuation">[</span>common<span class="token punctuation">]</span>
+admin_addr <span class="token operator">=</span> <span class="token number">127.0</span>.0.1
+admin_port <span class="token operator">=</span> <span class="token number">7400</span>
+server_addr <span class="token operator">=</span> <span class="token number">202.115</span>.8.1 
+server_port <span class="token operator">=</span> <span class="token number">7000</span> 
+token <span class="token operator">=</span> <span class="token number">1234567</span>
+
+<span class="token punctuation">[</span>jenkins<span class="token punctuation">]</span>
+<span class="token builtin class-name">type</span> <span class="token operator">=</span> https
+local_ip <span class="token operator">=</span> <span class="token number">127.0</span>.0.1
+local_port <span class="token operator">=</span> <span class="token number">888</span>
+custom_domains <span class="token operator">=</span> jenkins.skywind.com
+
+<span class="token punctuation">[</span>gitlab<span class="token punctuation">]</span>
+<span class="token builtin class-name">type</span> <span class="token operator">=</span> https
+local_ip <span class="token operator">=</span> <span class="token number">127.0</span>.0.1
+local_port <span class="token operator">=</span> <span class="token number">666</span>
+custom_domains <span class="token operator">=</span> gitlab.skywind.com
+
+<span class="token comment"># 反向代理 ssh</span>
+<span class="token punctuation">[</span>ssh<span class="token punctuation">]</span>
+<span class="token builtin class-name">type</span> <span class="token operator">=</span> tcp
+local_ip <span class="token operator">=</span> <span class="token number">127.0</span>.0.1
+local_port <span class="token operator">=</span> <span class="token number">22</span>
+remote_port <span class="token operator">=</span> <span class="token number">6000</span>
+
+<span class="token comment"># 反向代理数据库</span>
+<span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
+<span class="token builtin class-name">type</span> <span class="token operator">=</span> tcp
+local_ip <span class="token operator">=</span> <span class="token number">127.0</span>.0.1
+local_port <span class="token operator">=</span> <span class="token number">3306</span>
+remote_port <span class="token operator">=</span> <span class="token number">1006</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>common</code> 中的 <code>server_addr</code> 指定了服务器的 IP 地址.</li>
+<li><code>common 中的 </code>server_port<code>必须和服务器端的</code>bind_port` 参数一致.</li>
+<li><code>token</code> 也要一致, 就不赘述了.</li>
+<li><code>ssh</code> 中的 <code>local_port</code> 指定了客户端本机的 ssh 服务端口</li>
+<li><code>ssh</code> 中的 <code>remote_port</code>, 外网可通过访问服务器的此端口来访问客户端的 <code>local_port</code> 端口(上一个参数).</li>
+<li><code>gitlab</code> 和 <code>jenkins</code> 中的 <code>local_ip</code> 为内网某台需要对外开放 web 服务的设备 ip 地址，由于我这两个服务都在树莓派的 docker 里，所以 ip 一样.</li>
+<li><code>gitlab</code> 和 <code>jenkins</code> 中的 <code>local_port</code>, 即内网对外开放的 web 服务端口. 外网访问服务器的 <code>vhost_http_port</code> 端口(见服务器端配置)时, 被映射到内网客户端的此端口, 达到暴漏内网 web 服务的目的.</li>
+<li><code>gitlab</code> 和 <code>jenkins</code> 中的 <code>custom_domains</code> 指定了服务器的域名.</li>
+</ul>
+<p>所以, 整个域名端口映射过程为:</p>
+<ul>
+<li><code>jenkins.skywind.com</code> &lt;—&gt; <code>202.115.8.1</code> &lt;—&gt; <code>树莓派内 docker 容器:888</code></li>
+<li><code>gitlab.skywind.com</code>  &lt;—&gt; <code>202.115.8.1</code> &lt;—&gt; <code>树莓派内 docker 容器:666</code></li>
+<li><code>202.115.8.1:6000</code>  &lt;—&gt;  <code>树莓派 SSH 端口:22</code></li>
+<li><code>202.115.8.1:1006</code>  &lt;—&gt;  <code>树莓派 mysql 端口:3306</code></li>
+</ul>
+<blockquote>
+<p>同样，开了很多端口，如果开了防火墙，记得设置<a href="#%E9%98%B2%E7%81%AB%E5%A2%99%E8%A7%84%E5%88%99%E8%AE%BE%E7%BD%AE">开启端口(见下文: 防火墙规则设置)</a></p>
+</blockquote>
+<h4 id="服务器端运行"><a href="#服务器端运行" class="headerlink" title="服务器端运行"></a>服务器端运行</h4><p>启动运行很简单, 在 <code>frps</code> 文件所在目录下, 运行如下指令:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./frps <span class="token parameter variable">-c</span> ./frps.ini<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>我的服务器端没搞自动运行, 反正服务器难得启动一次.</p>
+<p>搞个后台运行就行了, 我使用的 <code>screen</code>, 也可以用 <code>nohup</code></p>
+<h4 id="客户端运行"><a href="#客户端运行" class="headerlink" title="客户端运行"></a>客户端运行</h4><p>客户端启动运行, 和服务器端类似, 在 <code>frpc</code> 所在目录下, 运行如下指令:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./frpc <span class="token parameter variable">-c</span> ./frpc.ini<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>由于树莓派的掉电不可避免, 还是搞个开机自启动比较好.</p>
+<p>编辑 <code>/etc/rc.local</code> 文件, 在其最后一行 <code>exit 0</code> 之前, 插入如下 2 行:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/bin/sleep <span class="token number">60</span>
+<span class="token function">sudo</span> /root/frp/frpc <span class="token parameter variable">-c</span> /root/frp/frpc.ini <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>我的 <code>frpc</code> 文件所在位置是 root 用户下的 frp 目录下, 在 <code>/etc/rc.local</code> 文件中, 要使用绝对路径, <code>&amp;</code> 也必须带上.</p>
+<p>另外, 我在 <code>frpc</code> 运行前, 加了 60 秒的延时, 不加这个延时自启动就会失败…</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/blob/master/README_zh.md">FRP 官方中文文档</a></p>
+<h2 id="安装-MariaDB-数据库"><a href="#安装-MariaDB-数据库" class="headerlink" title="安装 MariaDB 数据库"></a>安装 MariaDB 数据库</h2><h3 id="安装及登录"><a href="#安装及登录" class="headerlink" title="安装及登录"></a>安装及登录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> mariadb-server <span class="token comment"># 安装</span>
+<span class="token function">sudo</span> mysql_secure_installation <span class="token comment"># 设置 root 密码</span>
+<span class="token function">sudo</span> mysql <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p</span> <span class="token comment"># 登陆</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="查看与修改用户登录权限"><a href="#查看与修改用户登录权限" class="headerlink" title="查看与修改用户登录权限"></a>查看与修改用户登录权限</h3><pre class="line-numbers language-mariadb" data-language="mariadb"><code class="language-mariadb">select User, host from mysql.user;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>修改用户权限。%表示针对所有IP，password表示将用这个密码登录root用户，如果想只让某个IP段的主机连接，可以修改为</p>
+<pre class="line-numbers language-mariadb" data-language="mariadb"><code class="language-mariadb">GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>修改立即生效</p>
+<pre class="line-numbers language-mariadb" data-language="mariadb"><code class="language-mariadb">FLUSH PRIVILEGES;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> mysql restart <span class="token comment"># 重启 mysql</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="安装-Jenkins"><a href="#安装-Jenkins" class="headerlink" title="安装 Jenkins"></a>安装 Jenkins</h2><p>先安装 JDK 和 Maven</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> openjdk-8-jdk
+<span class="token function">apt-get</span> <span class="token function">install</span> maven<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>安装 Jenkins</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-q</span> <span class="token parameter variable">-O</span> - https://pkg.jenkins.io/debian-stable/jenkins.io.key <span class="token operator">|</span> <span class="token function">sudo</span> apt-key <span class="token function">add</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>编辑 <code>/etc/apt/sources.list</code> 文件在结尾添加一行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">deb https://pkg.jenkins.io/debian-stable binary/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> update
+<span class="token function">apt-get</span> <span class="token function">install</span> jenkins
+<span class="token function">sudo</span> ufw allow <span class="token number">8080</span> <span class="token comment"># 开启 8080 端口</span>
+<span class="token function">sudo</span> /etc/init.d/jenkins start <span class="token comment"># 启动 jenkins</span>
+<span class="token function">cat</span> /var/lib/jenkins/secrets/initialAdminPassword <span class="token comment"># 查看 Jenkins 初始密码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="树莓派-4B-的一些相关配置"><a href="#树莓派-4B-的一些相关配置" class="headerlink" title="树莓派 4B 的一些相关配置"></a>树莓派 4B 的一些相关配置</h2><p>由于树莓派的系统架构是 arm 的, 所以很多东西可能跟平时常用的 Linux 有些区别</p>
+<h3 id="防火墙规则设置"><a href="#防火墙规则设置" class="headerlink" title="防火墙规则设置"></a>防火墙规则设置</h3><p>树莓派使用的防火墙与 Ubuntu 一样, 也是 <code>ufw</code>. <code>ufw</code> 是一个主机端的 <code>iptables</code> 类防火墙配置工具，比较容易上手。如果你有一台暴露在外网的树莓派，则可通过这个简单的配置提升安全性。<br>注意开启常用的默认端口 ssh 端口 22，ftp 端口 20, 21, vnc 端口 1.</p>
+<h4 id="推荐设置"><a href="#推荐设置" class="headerlink" title="推荐设置"></a>推荐设置</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ufw <span class="token comment"># 安装防火墙</span>
+<span class="token function">sudo</span> ufw <span class="token builtin class-name">enable</span> <span class="token comment"># 启用防火墙</span>
+<span class="token function">sudo</span> ufw default deny <span class="token comment"># 默认 关闭所有端口，拒绝所有外部对本机的访问（本机访问外部正常）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>这样设置已经很安全，如果有特殊需要，可以使用 <code>sudo ufw allow</code> 开启相应服务</p>
+</blockquote>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><ol>
+<li><code>sudo ufw disable</code> 关闭</li>
+<li><code>sudo ufw status</code> 查看防火墙状态</li>
+<li><code>sudo ufw allow 80</code> # 允许外部访问 80 端口</li>
+<li><code>sudo ufw delete allow 80</code> # 禁止外部访问 80 端口</li>
+<li><code>sudo ufw allow from 192.168.1.1</code> # 允许此IP访问所有的本机端口</li>
+<li><code>sudo ufw deny smtp</code> # 禁止外部访问 smtp 服务</li>
+<li><code>sudo ufw delete allow smtp</code> # 删除上面建立的某条规则</li>
+<li><code>sudo ufw deny proto tcp from 10.0.0.0/8 to 192.168.0.1 port</code> # 要拒绝所有的流量从 TCP 的 10.0.0.0/8 到端口 22 的地址 192.168.0.1</li>
+<li>sudo ufw allow from 10.0.0.0/8 # 可以允许所有 RFC1918 网络（局域网/无线局域网的）访问这个主机（/8,/16,/12是一种网络分级)</li>
+<li>sudo ufw allow from 172.16.0.0/12</li>
+<li>sudo ufw allow from 192.168.0.0/16<br>配置允许的端口范围&nbsp;</li>
+<li><code>sudo ufw allow&nbsp;6000:6007/tcp</code></li>
+<li><code>sudo ufw allow&nbsp;6000:6007/udp</code></li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com" rel="external nofollow noreferrer">CrazyBunQnQ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com/2020/02/29/raspberrypi4b/">https://blog.crazybunqnq.com/2020/02/29/raspberrypi4b/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.crazybunqnq.com" target="_blank">CrazyBunQnQ</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">
+                                    <span class="chip bg-color">树莓派</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                                    <span class="chip bg-color">工具</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8A%98%E8%85%BE/">
+                                    <span class="chip bg-color">折腾</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="weibo,wechat,qq,qzone,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/03/30/dockerinraspberrypi4b/">
+                    <div class="card-image">
+                        
+                        <img src="/images/RaspberryPi%204B.jpg" class="responsive-img" alt="树莓派安装 Docker 与持续集成~">
+                        
+                        <span class="card-title">树莓派安装 Docker 与持续集成~</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            树莓派刚出了新版 4B，感觉配置不错，就入手了一个玩玩~然而买回来之后一直在吃灰...赶紧拿出来耍耍~
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/" class="post-category">
+                                    触类旁通
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%B9%E5%99%A8/">
+                        <span class="chip bg-color">容器</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">
+                        <span class="chip bg-color">树莓派</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/02/29/raspberrypiinstallomv/">
+                    <div class="card-image">
+                        
+                        <img src="/images/OpenMediaVault.png" class="responsive-img" alt="树莓派 4B 搭建 NAS">
+                        
+                        <span class="card-title">树莓派 4B 搭建 NAS</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            树莓派刚出了新版 4B，感觉配置不错，就入手了一个玩玩~然而买回来之后一直在吃灰...赶紧拿出来耍耍~
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/" class="post-category">
+                                    触类旁通
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">
+                        <span class="chip bg-color">树莓派</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8A%98%E8%85%BE/">
+                        <span class="chip bg-color">折腾</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('40')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: CrazyBun<br />'
+            + '文章作者: CrazyBunQnQ<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归 CrazyBunQnQ 所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2023</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">CrazyBunQnQ</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "10";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CrazyBunQnQ" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:crazybunqnq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=494225231" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 494225231" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2800339712" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2800339712" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?864d5a7534ed5364589f82c39b9c4e07";
+        var baiduSite = document.createElement("meta");
+        baiduSite.name = "baidu-site-verification";
+        baiduSite.content = "codeva-7NYmMaNfam";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(baiduSite, s);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+	    <div style="position:fixed;bottom:125px;right:9px;cursor: pointer;">
+	        <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/498631"><img src="/medias/contact.png"></a>
+	    </div>
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

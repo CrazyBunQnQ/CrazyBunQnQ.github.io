@@ -1,0 +1,1457 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java,Python,DataStructure,BasicType">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93893895-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-93893895-1');
+</script>
+
+
+    <title>你还在用 SVN 吗？ | CrazyBun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="CrazyBun" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">CrazyBun</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">CrazyBun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/SvnToGit.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">你还在用 SVN 吗？</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-03-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="搭建-Git-服务器"><a href="#搭建-Git-服务器" class="headerlink" title="搭建 Git 服务器"></a>搭建 Git 服务器</h2><p><a href="../../../ProjectsBak/logs/smplatform_git_commit_push_1680154939.log">smplatform_git_commit_push_1680154939.log</a><br>直接 Docker 拉取 GitLab 镜像，然后运行即可。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动镜像</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-itd</span> <span class="token parameter variable">--name</span> gitlab <span class="token parameter variable">--hostname</span> <span class="token number">192.168</span>.1.58 <span class="token parameter variable">--restart</span> always  <span class="token parameter variable">-p</span> <span class="token number">6443</span>:443 <span class="token parameter variable">-p</span> <span class="token number">6080</span>:80 <span class="token parameter variable">-p</span> <span class="token number">6022</span>:22 <span class="token parameter variable">-v</span> /f/docker/data/gitlab/config:/etc/gitlab <span class="token parameter variable">-v</span> /f/docker/data/gitlab/logs:/var/log/gitlab <span class="token parameter variable">-v</span> /f/docker/data/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce
+<span class="token comment"># 登录后台</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> gitlab /bin/bash
+<span class="token comment"># 查看初始密码</span>
+<span class="token function">cat</span> /etc/gitlab/initial_root_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>关闭用户注册，并创建自己的用户，不要用 root 账户直接提代码哟</p>
+<h3 id="安装一些工具"><a href="#安装一些工具" class="headerlink" title="安装一些工具"></a>安装一些工具</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># apt 设置国内镜像源</span>
+<span class="token comment"># 进入 apt 目录</span>
+<span class="token builtin class-name">cd</span> /etc/apt
+<span class="token comment"># 备份原配置文件</span>
+<span class="token function">mv</span> sources.list sources.list.bak
+<span class="token comment"># 编辑配置文件</span>
+<span class="token function">vim</span> sources.list
+<span class="token comment"># 添加国内镜像源</span>
+deb http://mirrors.aliyun.com/debian/ buster main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib
+deb http://mirrors.aliyun.com/debian-security buster/updates main
+deb-src http://mirrors.aliyun.com/debian-security buster/updates main
+deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib
+deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib
+<span class="token comment"># 保存退出</span>
+<span class="token comment"># 更新源</span>
+<span class="token function">apt</span> update
+
+<span class="token comment"># 安装工具</span>
+<span class="token comment"># apt install -y git git-svn subversion</span>
+<span class="token function">apt</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> <span class="token function">vim</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="GitLab-设置"><a href="#GitLab-设置" class="headerlink" title="GitLab 设置"></a>GitLab 设置</h3><h4 id="IP-设置"><a href="#IP-设置" class="headerlink" title="IP 设置"></a>IP 设置</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 编辑 gitlab.yml 文件</span>
+<span class="token function">vim</span> /opt/gitlab/embedded/service/gitlab-rails/config/gitlab.yml
+<span class="token comment"># 不好使再编辑这个</span>
+<span class="token function">vim</span> /var/opt/gitlab/gitlab-rails/etc/gitlab.yml
+<span class="token comment"># 还不好使...那就只能 docker run 的时候加 --hostname 参数了</span>
+<span class="token comment"># 设置 host</span>
+host: <span class="token number">192.168</span>.1.58
+<span class="token comment"># 设置 port</span>
+port: <span class="token number">6080</span>
+https: <span class="token boolean">false</span>
+<span class="token comment"># 保存退出</span>
+<span class="token comment"># 编辑 gitlab.rb 文件</span>
+<span class="token function">vim</span> /etc/gitlab/gitlab.rb
+<span class="token comment"># 修改 external_url</span>
+registry_external_url <span class="token string">'http://192.168.1.58:6080'</span>
+<span class="token comment"># 保存退出</span>
+<span class="token comment"># 重启 gitlab</span>
+gitlab-ctl restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="发邮件设置"><a href="#发邮件设置" class="headerlink" title="发邮件设置"></a>发邮件设置</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 进入容器</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> gitlab /bin/bash
+<span class="token comment"># 进入配置文件目录</span>
+<span class="token builtin class-name">cd</span> /etc/gitlab
+<span class="token comment"># 编辑配置文件</span>
+<span class="token function">vim</span> gitlab.rb
+<span class="token comment"># 找到下面的配置项，修改为自己的邮箱，这里以配置 QQ 邮箱为发件邮箱为例</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_address'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"smtp.qq.com"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_port'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">465</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_user_name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"你的QQ号@qq.com"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_password'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"QQ邮箱授权码"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_domain'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"qq.com"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_authentication'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"login"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable_starttls_auto'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_tls'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_from'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"你的QQ号@qq.com"</span>
+<span class="token comment"># 重新加载配置</span>
+gitlab-ctl reconfigure
+<span class="token comment"># 重启 gitlab</span>
+<span class="token comment"># gitlab-ctl restart</span>
+<span class="token comment"># 测试邮件, 进入 console 时用时比较久</span>
+gitlab-rails console
+Notify.test_email<span class="token punctuation">(</span><span class="token string">'1064833740@qq.com'</span>, <span class="token string">'邮件主题'</span>, <span class="token string">'邮件内容'</span><span class="token punctuation">)</span>.deliver_now<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h2><h3 id="更新-SVN-仓库"><a href="#更新-SVN-仓库" class="headerlink" title="更新 SVN 仓库"></a>更新 SVN 仓库</h3><p>更新 SVN 代码，并输出更新文件列表</p>
+<p>update_svn.sh</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># sh update_svn.sh /d/ProjectsBak/Singularity /d/ProjectsBak/output.txt</span>
+
+<span class="token comment"># 获取前一天的日期 yyyy-MM-dd</span>
+<span class="token assign-left variable">startday</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> <span class="token parameter variable">-d</span> <span class="token string">"yesterday"</span> +%Y-%m-%d<span class="token variable">)</span></span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$startday</span>
+
+<span class="token comment"># 读取命令行参数中的项目路径</span>
+<span class="token assign-left variable">repodir</span><span class="token operator">=</span><span class="token variable">$1</span>
+<span class="token assign-left variable">outputfile</span><span class="token operator">=</span><span class="token variable">$2</span>
+<span class="token assign-left variable">filename</span><span class="token operator">=</span>/d/tmp.txt
+
+<span class="token comment"># svn 更新代码</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"更新代码: svn update <span class="token variable">$repodir</span>"</span>
+svn update <span class="token variable">$repodir</span>
+
+<span class="token comment"># 命令行中是否有第三个参数</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">"<span class="token variable">$3</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token comment"># 有第三个参数，使用第三个参数作为日期</span>
+  <span class="token assign-left variable">startday</span><span class="token operator">=</span><span class="token variable">$3</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"未指定日期，使用前一天的日期: <span class="token variable">$startday</span>"</span>
+<span class="token keyword">fi</span>
+<span class="token comment"># 一段时间内提交的文件汇总</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"一段时间内提交的文件汇总: svn diff --summarize -r {<span class="token variable">$startday</span>}:HEAD <span class="token variable">$repodir</span> | awk '/^[ADM]/{printf "</span>%s %s<span class="token punctuation">\</span>n<span class="token string">", substr(<span class="token variable">$1</span>,1,1), <span class="token variable">$2</span>}' &gt; <span class="token variable">$filename</span>"</span>
+svn <span class="token function">diff</span> <span class="token parameter variable">--summarize</span> <span class="token parameter variable">-r</span> <span class="token punctuation">{</span><span class="token variable">$startday</span><span class="token punctuation">}</span>:HEAD <span class="token variable">$repodir</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'/^[ADM]/{printf "%s %s\n", substr($1,1,1), $2}'</span> <span class="token operator">&gt;</span> <span class="token variable">$filename</span>
+<span class="token comment"># 将 windows 盘符 替换为 linux 路径</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"将 windows 盘符 替换为 linux 路径: sed -i -E 's/([a-zA-Z]):/\/<span class="token entity" title="\1">\1</span>/g' <span class="token variable">$filename</span>"</span>
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token parameter variable">-E</span> <span class="token string">'s/([a-zA-Z]):/\/\1/g'</span> <span class="token variable">$filename</span>
+<span class="token comment"># 将 windows 路径分隔符替换为 linux 路径分隔符</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"将 windows 路径分隔符替换为 linux 路径分隔符: sed -i -E 's/<span class="token entity" title="\\">\\</span>/\//g' <span class="token variable">$filename</span>"</span>
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token parameter variable">-E</span> <span class="token string">'s/\\/\//g'</span> <span class="token variable">$filename</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token string">"<span class="token variable">$outputfile</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"删除旧文件: <span class="token variable">$outputfile</span>"</span>
+  <span class="token function">rm</span> <span class="token string">"<span class="token variable">$outputfile</span>"</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># 过滤出文件</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'排除所有目录变更...'</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line<span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token comment"># 使用空格分隔行，取第二列作为路径</span>
+  <span class="token assign-left variable">path</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> $line <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2}'</span><span class="token variable">)</span></span>
+  <span class="token comment"># 判断路径是否为文件</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$line</span> <span class="token operator">==</span> D* <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token comment"># 删除的文件不存在，无法判断，直接保留操作记录</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$line</span> <span class="token operator">&gt;&gt;</span> <span class="token variable">$outputfile</span>
+  <span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token variable">$path</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token comment"># 保留文件操作记录</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$line</span> <span class="token operator">&gt;&gt;</span> <span class="token variable">$outputfile</span>
+  <span class="token keyword">fi</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> <span class="token variable">$filename</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"输出文件: <span class="token variable">$outputfile</span>"</span>
+
+<span class="token comment"># 删除临时文件</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token string">"<span class="token variable">$filename</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"删除临时文件: <span class="token variable">$filename</span>"</span>
+  <span class="token function">rm</span> <span class="token string">"<span class="token variable">$filename</span>"</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="准备提交资源"><a href="#准备提交资源" class="headerlink" title="准备提交资源"></a>准备提交资源</h3><p>git_pull_copy_resources.sh</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># sh git_pull_copy_resources.sh /f/CodeRepo/Singularity /d/ProjectsBak/output.txt</span>
+
+<span class="token comment"># 设置git项目目录</span>
+<span class="token assign-left variable">git_project</span><span class="token operator">=</span><span class="token variable">$1</span>
+<span class="token assign-left variable">project_name</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">basename</span> $git_project<span class="token variable">)</span></span>
+<span class="token comment"># 更新文件列表文件路径</span>
+<span class="token assign-left variable">update_list_file</span><span class="token operator">=</span><span class="token variable">$2</span>
+<span class="token comment"># 命令行中是否有第三个参数</span>
+<span class="token assign-left variable">dir_struct</span><span class="token operator">=</span>module_branch
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">"<span class="token variable">$3</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token comment"># 有第三个参数，使用第三个参数作为目录结构</span>
+  <span class="token assign-left variable">dir_struct</span><span class="token operator">=</span><span class="token variable">$3</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"目录结构为: <span class="token variable">$dir_struct</span>"</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"未指定目录结构，默认为: <span class="token variable">$dir_struct</span>"</span>
+<span class="token keyword">fi</span>
+<span class="token comment"># svn 与 git 项目映射文件</span>
+<span class="token assign-left variable">dicfile</span><span class="token operator">=</span><span class="token variable">$git_project</span>/svn_git_map.properties
+<span class="token comment"># 模块数组</span>
+<span class="token assign-left variable">models</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 需要特殊处理的模块数组</span>
+<span class="token assign-left variable">special_models</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment"># 分支文件夹</span>
+<span class="token assign-left variable">branchs_dir</span><span class="token operator">=</span><span class="token variable">$git_project</span>/.branches
+<span class="token comment"># 分支文件夹若存在则删除重建</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-d</span> <span class="token variable">$branchs_dir</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token function">rm</span> <span class="token parameter variable">-rf</span> <span class="token variable">$branchs_dir</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"创建临时分支目录: <span class="token variable">$branchs_dir</span>"</span>
+<span class="token function">mkdir</span> <span class="token variable">$branchs_dir</span>
+
+<span class="token comment"># 切换到项目目录，并更新</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"切换到项目目录，并更新分支信息: cd <span class="token variable">$git_project</span> &amp;&amp; git fetch"</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">$git_project</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> fetch
+
+<span class="token comment"># 切换到 main 分支并更新分支</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"切换到 main 分支并更新分支: git checkout main &amp;&amp; git pull"</span>
+<span class="token function">git</span> checkout main <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> pull
+
+<span class="token comment"># 定义映射字典</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"定义映射字典: declare -A map_dict"</span>
+<span class="token builtin class-name">declare</span> <span class="token parameter variable">-A</span> map_dict
+<span class="token comment"># 读取映射配置到字典, 顺便提取出涉及的分支列表</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"读取映射配置到字典并提取涉及的分支列表"</span>
+<span class="token assign-left variable">start_time</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%s<span class="token variable">)</span></span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line<span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token comment"># 如果以 '#' 开头，就跳过此次循环</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$line</span> <span class="token operator">==</span> <span class="token punctuation">\</span>#* <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">continue</span>
+  <span class="token keyword">fi</span>
+  <span class="token comment"># 将每行按照等号拆分成key和value</span>
+  <span class="token assign-left variable">key</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> $line <span class="token operator">|</span> <span class="token function">cut</span> <span class="token parameter variable">-f1</span> <span class="token parameter variable">-d</span><span class="token operator">=</span><span class="token variable">)</span></span>
+  <span class="token assign-left variable">value</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> $line <span class="token operator">|</span> <span class="token function">cut</span> <span class="token parameter variable">-f2</span> <span class="token parameter variable">-d</span><span class="token operator">=</span><span class="token variable">)</span></span>
+  <span class="token comment"># echo "$key = $value"</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$key</span> <span class="token operator">==</span> *_* <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token assign-left variable">model</span><span class="token operator">=</span><span class="token variable">${key<span class="token operator">%</span>_*}</span>
+    <span class="token comment"># 如果 dir_struct 为 stable 则 model = key</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$dir_struct</span> <span class="token operator">==</span> <span class="token string">"stable"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token assign-left variable">model</span><span class="token operator">=</span><span class="token variable">$key</span>
+    <span class="token keyword">fi</span>
+    <span class="token assign-left variable">svn_branch</span><span class="token operator">=</span><span class="token variable">${key<span class="token operator">/</span>$model<span class="token operator">/</span>}</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$model</span> 模块分支1为 <span class="token variable">$svn_branch</span>"</span>
+    <span class="token assign-left variable">svn_branch</span><span class="token operator">=</span><span class="token variable">${svn_branch<span class="token operator">/</span>_<span class="token operator">/</span>}</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$model</span> 模块分支为 <span class="token variable">$svn_branch</span>"</span>
+    <span class="token comment"># 判断 $branchs_dir/$svn_branch 是否存在，不存在则创建</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> <span class="token variable">$branchs_dir</span>/<span class="token variable">$svn_branch</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"创建目录: <span class="token variable">$branchs_dir</span>/<span class="token variable">$svn_branch</span>"</span>
+      <span class="token function">mkdir</span> <span class="token variable">$branchs_dir</span>/<span class="token variable">$svn_branch</span>
+    <span class="token keyword">fi</span>
+
+    <span class="token comment"># 添加到模块数组中</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token string">" <span class="token variable">${models<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span> "</span> <span class="token operator">=~</span> <span class="token string">" <span class="token variable">${model}</span> "</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"涉及模块: <span class="token variable">$model</span>"</span>
+      <span class="token assign-left variable">models</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token string">"<span class="token variable">${model}</span>"</span><span class="token punctuation">)</span>
+    <span class="token keyword">fi</span>
+    <span class="token comment"># 添加到特殊处理模块数组中</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token string">" <span class="token variable">${special_models<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span> "</span> <span class="token operator">=~</span> <span class="token string">" <span class="token variable">${model}</span> "</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token comment"># 添加元素到数组中</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"特殊处理模块: <span class="token variable">$model</span>"</span>
+      <span class="token assign-left variable">special_models</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token string">"<span class="token variable">${model}</span>"</span><span class="token punctuation">)</span>
+    <span class="token keyword">fi</span>
+    <span class="token comment"># TODO 特殊模块映射处理</span>
+  <span class="token keyword">else</span>
+    <span class="token keyword">while</span> <span class="token builtin class-name">read</span> <span class="token parameter variable">-r</span> line<span class="token punctuation">;</span> <span class="token keyword">do</span>
+      <span class="token assign-left variable">svn_branch</span><span class="token operator">=</span><span class="token variable">${line<span class="token operator">#</span>*<span class="token operator">/</span>}</span>
+      <span class="token assign-left variable">svn_branch</span><span class="token operator">=</span><span class="token variable">${svn_branch<span class="token operator">%</span><span class="token operator">/</span>*}</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$key</span> 模块分支为 <span class="token variable">$svn_branch</span>"</span>
+      <span class="token comment"># 判断 $branchs_dir/$svn_branch 是否存在，不存在则创建</span>
+      <span class="token comment"># echo "判断 $branchs_dir/$svn_branch 是否存在，不存在则创建"</span>
+      <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> <span class="token variable">$branchs_dir</span>/<span class="token variable">$svn_branch</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">"创建目录: <span class="token variable">$branchs_dir</span>/<span class="token variable">$svn_branch</span>"</span>
+        <span class="token function">mkdir</span> <span class="token variable">$branchs_dir</span>/<span class="token variable">$svn_branch</span>
+      <span class="token keyword">fi</span>
+    <span class="token keyword">done</span> <span class="token operator">&lt;</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">grep</span> <span class="token parameter variable">-Eo</span> <span class="token string">"<span class="token variable">$value</span>"</span> <span class="token variable">$update_list_file</span> <span class="token operator">|</span> <span class="token function">sort</span> -u<span class="token punctuation">)</span>
+    <span class="token comment"># 添加到模块数组中</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token string">" <span class="token variable">${models<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span> "</span> <span class="token operator">=~</span> <span class="token string">" <span class="token variable">${key}</span> "</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"涉及模块: <span class="token variable">$key</span>"</span>
+      <span class="token assign-left variable">models</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token string">"<span class="token variable">${key}</span>"</span><span class="token punctuation">)</span>
+    <span class="token keyword">fi</span>
+  <span class="token keyword">fi</span>
+  map_dict<span class="token punctuation">[</span><span class="token string">"<span class="token variable">$key</span>"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$value</span>"</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> <span class="token variable">$dicfile</span>
+<span class="token comment"># 计算耗时</span>
+<span class="token assign-left variable">end_time</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%s<span class="token variable">)</span></span>
+<span class="token builtin class-name">echo</span> <span class="token string">"读取映射、提取分支耗时 <span class="token variable"><span class="token variable">$((</span>end_time <span class="token operator">-</span> start_time<span class="token variable">))</span></span> 秒"</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">""</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"================================================"</span>
+
+<span class="token comment"># 读取文本文件 update_list_file 中的每一行变更</span>
+<span class="token comment"># 获取时间戳, 用来计算耗时</span>
+<span class="token assign-left variable">start_time</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%s<span class="token variable">)</span></span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line<span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token comment"># 截取 line 的第二列，作为文件路径</span>
+  <span class="token assign-left variable">update_path</span><span class="token operator">=</span><span class="token variable">${line<span class="token operator">#</span>* }</span>
+  <span class="token comment"># 根据 project_name 截取出模块路径</span>
+  <span class="token assign-left variable">model_path</span><span class="token operator">=</span><span class="token variable">${update_path<span class="token operator">#</span>*$project_name<span class="token operator">/</span>}</span>
+  <span class="token comment"># 获取第一个 / 之前的内容作为模块名</span>
+  <span class="token assign-left variable">model</span><span class="token operator">=</span><span class="token variable">${model_path<span class="token operator">%%</span><span class="token operator">/</span>*}</span>
+  <span class="token comment"># 如果 special_models 中包含 model, 则跳过</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">" <span class="token variable">${special_models<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span> "</span> <span class="token operator">=~</span> <span class="token string">" <span class="token variable">${model}</span> "</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token comment"># TODO 特殊处理</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"跳过 <span class="token variable">$model</span> 模块"</span>
+    <span class="token builtin class-name">continue</span>
+  <span class="token keyword">fi</span>
+
+  <span class="token comment"># 从 model_path 中截取出分支</span>
+  <span class="token assign-left variable">branch_path</span><span class="token operator">=</span><span class="token variable">${model_path<span class="token operator">#</span>*$model<span class="token operator">/</span>}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$dir_struct</span> <span class="token operator">==</span> <span class="token string">"stable"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token assign-left variable">tmp</span><span class="token operator">=</span><span class="token variable">$branch_path</span>
+    <span class="token assign-left variable">branch_path</span><span class="token operator">=</span><span class="token variable">$model_path</span>
+    <span class="token assign-left variable">model_path</span><span class="token operator">=</span><span class="token variable">$tmp</span>
+    <span class="token assign-left variable">model</span><span class="token operator">=</span><span class="token variable">${model_path<span class="token operator">%%</span><span class="token operator">/</span>*}</span>
+  <span class="token keyword">fi</span>
+  <span class="token comment"># 获取第一个 / 之前的内容作为分支</span>
+  <span class="token assign-left variable">branch</span><span class="token operator">=</span><span class="token variable">${branch_path<span class="token operator">%%</span><span class="token operator">/</span>*}</span>
+  <span class="token comment"># echo "模块路径: $model_path"</span>
+  <span class="token comment"># echo "模块: $model"</span>
+  <span class="token comment"># echo "分支路径: $branch_path"</span>
+  <span class="token comment"># echo "分支: $branch"</span>
+  <span class="token comment"># 从 branch_path 中截取出文件路径</span>
+  <span class="token assign-left variable">file_path</span><span class="token operator">=</span><span class="token variable">${branch_path<span class="token operator">#</span>*$branch<span class="token operator">/</span>}</span>
+  <span class="token comment"># 获取第一个 / 之后的内容作为文件路径</span>
+  <span class="token assign-left variable">file_path</span><span class="token operator">=</span><span class="token variable">${file_path<span class="token operator">#</span>*<span class="token operator">/</span>}</span>
+
+  <span class="token comment"># 如果是否以 D 开头, 则是需要删除的文件或目录</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$line</span> <span class="token operator">==</span> D* <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token comment"># echo "文件路径: $file_path"</span>
+    <span class="token assign-left variable">target_path</span><span class="token operator">=</span><span class="token variable">$git_project</span>/<span class="token variable">$model</span>/<span class="token variable">$file_path</span>
+    <span class="token assign-left variable">delete_list_file</span><span class="token operator">=</span><span class="token variable">$branchs_dir</span>/<span class="token variable">$branch</span>/delete_files.txt
+    <span class="token comment"># 判断 delete_list_file 是否存在，不存在则创建一个</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-f</span> <span class="token variable">$delete_list_file</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"创建文件: <span class="token variable">$delete_list_file</span>"</span>
+      <span class="token function">touch</span> <span class="token variable">$delete_list_file</span>
+    <span class="token keyword">fi</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"添加待删除文件 <span class="token variable">$update_path</span>"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"到 <span class="token variable">$delete_list_file</span>"</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$target_path</span> <span class="token operator">&gt;&gt;</span> <span class="token variable">$delete_list_file</span>
+  <span class="token keyword">else</span>
+    <span class="token comment"># echo "文件路径: $file_path"</span>
+    <span class="token assign-left variable">target_path</span><span class="token operator">=</span><span class="token variable">$branchs_dir</span>/<span class="token variable">$branch</span>/<span class="token variable">$model</span>/<span class="token variable">$file_path</span>
+    <span class="token comment"># 复制到对应分支目录</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"复制文件 <span class="token variable">$update_path</span>"</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"到 <span class="token variable">$target_path</span>"</span>
+    <span class="token assign-left variable">target_dir</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">dirname</span> $target_path<span class="token variable">)</span></span>
+    <span class="token comment"># 如果目录不存在则创建</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-d</span> <span class="token variable">$target_dir</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"创建目录: <span class="token variable">$target_dir</span>"</span>
+      <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token variable">$target_dir</span>
+    <span class="token keyword">fi</span>
+    <span class="token function">cp</span> <span class="token variable">$update_path</span> <span class="token variable">$target_path</span>
+  <span class="token keyword">fi</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> <span class="token variable">$update_list_file</span>
+<span class="token comment"># 计算耗时</span>
+<span class="token assign-left variable">end_time</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%s<span class="token variable">)</span></span>
+<span class="token builtin class-name">echo</span> <span class="token string">"拷贝待提交资源耗时: <span class="token variable"><span class="token variable">$((</span>end_time <span class="token operator">-</span> start_time<span class="token variable">))</span></span> 秒"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="提交变更到-Git-仓库"><a href="#提交变更到-Git-仓库" class="headerlink" title="提交变更到 Git 仓库"></a>提交变更到 Git 仓库</h3><p>git_commit_push.sh</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># sh git_commit_push.sh /f/CodeRepo/Singularity</span>
+
+<span class="token comment"># 设置git项目目录</span>
+<span class="token assign-left variable">git_project</span><span class="token operator">=</span><span class="token variable">$1</span>
+<span class="token assign-left variable">project_name</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">basename</span> $git_project<span class="token variable">)</span></span>
+<span class="token comment"># 命令行中是否有第三个参数</span>
+<span class="token assign-left variable">dir_struct</span><span class="token operator">=</span>module_branch
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">"<span class="token variable">$2</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token comment"># 有第三个参数，使用第三个参数作为目录结构</span>
+  <span class="token assign-left variable">dir_struct</span><span class="token operator">=</span><span class="token variable">$2</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"目录结构为: <span class="token variable">$dir_struct</span>"</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"未指定目录结构，默认为: <span class="token variable">$dir_struct</span>"</span>
+<span class="token keyword">fi</span>
+<span class="token comment"># 分支文件夹</span>
+<span class="token assign-left variable">branchs_dir</span><span class="token operator">=</span><span class="token variable">$git_project</span>/.branches
+<span class="token builtin class-name">echo</span> <span class="token string">"各分支待提交文件夹: <span class="token variable">$branchs_dir</span>"</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">"切换到项目目录: cd <span class="token variable">$git_project</span>"</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">$git_project</span>
+
+<span class="token assign-left variable">start_time</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%s<span class="token variable">)</span></span>
+<span class="token comment"># 遍历 $branchs_dir 目录下的所有分支</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">branch</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">ls</span> $branchs_dir<span class="token variable">)</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token assign-left variable">git_branch_name</span><span class="token operator">=</span><span class="token variable">$branch</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$git_branch_name</span>
+  <span class="token comment"># 如果 $branch 不是 dev 则添加前缀 release_</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$branch</span> <span class="token operator">!=</span> <span class="token string">"dev"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$dir_struct</span> <span class="token operator">!=</span> <span class="token string">"stable"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token assign-left variable">git_branch_name</span><span class="token operator">=</span><span class="token string">"release_<span class="token variable">$branch</span>"</span>
+    <span class="token keyword">fi</span>
+  <span class="token keyword">fi</span>
+  <span class="token comment"># 如果分支不存在则跳过</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-z</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> branch <span class="token parameter variable">-a</span> <span class="token operator">|</span> <span class="token function">grep</span> $git_branch_name<span class="token variable">)</span></span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"跳过不存在的分支: <span class="token variable">$git_branch_name</span>"</span>
+    <span class="token builtin class-name">continue</span>
+  <span class="token keyword">fi</span>
+  <span class="token comment"># 切换到分支并更新</span>
+  <span class="token function">git</span> checkout <span class="token variable">$git_branch_name</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> pull
+  <span class="token comment"># 从 main 分支检出 .gitignore 文件</span>
+  <span class="token function">git</span> checkout main .gitignore
+  <span class="token function">git</span> checkout main svn_git_map.properties
+  <span class="token comment"># 如果 .gitignore 有变更则立刻提交并 push</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-n</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> status <span class="token parameter variable">--porcelain</span><span class="token variable">)</span></span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"更新 .gitignore 文件"</span>
+    <span class="token function">git</span> <span class="token function">add</span> .gitignore <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> <span class="token function">add</span> svn_git_map.properties <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"update .gitignore"</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> push
+  <span class="token keyword">fi</span>
+  <span class="token comment"># 如果存在 delete_files.txt 文件, 则删除文件</span>
+  <span class="token assign-left variable">delete_list_file</span><span class="token operator">=</span><span class="token variable">$branchs_dir</span>/<span class="token variable">$branch</span>/delete_files.txt
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-f</span> <span class="token variable">$delete_list_file</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"删除文件: xargs rm -rf &lt; <span class="token variable">$delete_list_file</span>"</span>
+    <span class="token function">xargs</span> <span class="token function">rm</span> <span class="token parameter variable">-rf</span> <span class="token operator">&lt;</span> <span class="token variable">$delete_list_file</span>
+    <span class="token comment"># 提交并 push</span>
+    <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"从 SVN 同步删除文件"</span>
+    <span class="token comment"># git push</span>
+  <span class="token keyword">fi</span>
+  <span class="token comment"># 变更文件目录</span>
+  <span class="token assign-left variable">update_dir</span><span class="token operator">=</span><span class="token variable">$branchs_dir</span>/<span class="token variable">$branch</span>
+  <span class="token comment"># 遍历 $update_dir 目录下所有文件夹</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"拷贝 <span class="token variable">$update_dir</span> 目录下所有文件夹到 <span class="token variable">$git_project</span> 目录下..."</span>
+  <span class="token keyword">for</span> <span class="token for-or-select variable">model_dir</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">ls</span> $update_dir<span class="token variable">)</span></span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    <span class="token comment"># 如果是 delete_list_file 则跳过</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$model_dir</span> <span class="token operator">==</span> <span class="token string">"delete_files.txt"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"跳过文件: <span class="token variable">$update_dir</span>/<span class="token variable">$model_dir</span>"</span>
+      <span class="token builtin class-name">continue</span>
+    <span class="token keyword">fi</span>
+    <span class="token comment"># 如果 model_dir 是目录则跳过</span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token parameter variable">-d</span> <span class="token variable">$update_dir</span>/<span class="token variable">$model_dir</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+      <span class="token comment"># 拷贝文件夹到 $git_project 目录下</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"拷贝目录: cp -r <span class="token variable">$update_dir</span>/<span class="token variable">$model_dir</span>/* <span class="token variable">$git_project</span>/<span class="token variable">$model_dir</span>/"</span>
+      <span class="token function">cp</span> <span class="token parameter variable">-r</span> <span class="token variable">$update_dir</span>/<span class="token variable">$model_dir</span>/* <span class="token variable">$git_project</span>/<span class="token variable">$model_dir</span>/
+    <span class="token keyword">else</span>
+      <span class="token comment"># 拷贝文件到 $git_project 目录下</span>
+      <span class="token builtin class-name">echo</span> <span class="token string">"拷贝文件: cp <span class="token variable">$update_dir</span>/<span class="token variable">$model_dir</span> <span class="token variable">$git_project</span>/<span class="token variable">$model_dir</span>"</span>
+      <span class="token function">cp</span> <span class="token variable">$update_dir</span>/<span class="token variable">$model_dir</span> <span class="token variable">$git_project</span>/<span class="token variable">$model_dir</span>
+    <span class="token keyword">fi</span>
+  <span class="token keyword">done</span>
+  <span class="token comment"># 提交并 push</span>
+  <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"从 SVN <span class="token variable">$branch</span> 分支同步变更"</span>
+  <span class="token function">git</span> push
+<span class="token keyword">done</span>
+<span class="token assign-left variable">end_time</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%s<span class="token variable">)</span></span>
+<span class="token builtin class-name">echo</span> <span class="token string">"提交到 Git 耗时: <span class="token variable"><span class="token variable">$((</span>end_time <span class="token operator">-</span> start_time<span class="token variable">))</span></span> 秒"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com" rel="external nofollow noreferrer">CrazyBunQnQ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com/2023/03/25/svn2git/">https://blog.crazybunqnq.com/2023/03/25/svn2git/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.crazybunqnq.com" target="_blank">CrazyBunQnQ</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="weibo,wechat,qq,qzone,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/03/25/svn2git/">
+                    <div class="card-image">
+                        
+                        <img src="/images/SvnToGit.png" class="responsive-img" alt="你还在用 SVN 吗？">
+                        
+                        <span class="card-title">你还在用 SVN 吗？</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            公司还在用 SVN 进行代码版本管理，真的是太难用了，而且还不支持分支，所以我决定把 SVN 仓库迁移到 Git 上，这样就可以使用 Git 的各种功能了。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            CrazyBunQnQ
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/03/14/learnpythonbyjava-1/">
+                    <div class="card-image">
+                        
+                        <img src="/images/JavaVsPython.png" class="responsive-img" alt="类比 Java 学 Python(1)">
+                        
+                        <span class="card-title">类比 Java 学 Python(1)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            最近想系统性的学习一下 Python 编程, 于是就想到了类比 Java 学 Python, 这样既能学到 Python, 又能巩固 Java 的基础知识。本文是这个系列的第一篇, 主要介绍了 Python 的基本数据类型和 Java 的基本数据类型的对应关系。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('40')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: CrazyBun<br />'
+            + '文章作者: CrazyBunQnQ<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归 CrazyBunQnQ 所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2023</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">CrazyBunQnQ</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "10";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CrazyBunQnQ" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:crazybunqnq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=494225231" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 494225231" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2800339712" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2800339712" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?864d5a7534ed5364589f82c39b9c4e07";
+        var baiduSite = document.createElement("meta");
+        baiduSite.name = "baidu-site-verification";
+        baiduSite.content = "codeva-7NYmMaNfam";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(baiduSite, s);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+	    <div style="position:fixed;bottom:125px;right:9px;cursor: pointer;">
+	        <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/498631"><img src="/medias/contact.png"></a>
+	    </div>
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

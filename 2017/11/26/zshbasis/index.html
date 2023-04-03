@@ -1,0 +1,1689 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="zsh 基础, CrazyBun">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93893895-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-93893895-1');
+</script>
+
+
+    <title>zsh 基础 | CrazyBun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="CrazyBun" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">CrazyBun</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">CrazyBun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">zsh 基础</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/zsh/">
+                                <span class="chip bg-color">zsh</span>
+                            </a>
+                        
+                            <a href="/tags/bash/">
+                                <span class="chip bg-color">bash</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-11-26
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>最近工作中需要用到 shell 脚本，正好学习 zsh 在我的学习清单里，反正早晚都要学，正好现在用到了，就边学边做了。</p>
+<p>我将会在这篇博客中整理记录我目前使用到的 shell 脚本知识，应该都是基础知识，哈哈。</p>
+<blockquote>
+<p>Linux 自带的 shell 是 bash，我这学习的是 zsh（bash 能做的它都能做~），但是基础部分应该都是差不多的。<br>网上关于 zsh 的文章大部分都是介绍如何安装和配置 zsh，所以这里就不介绍 zsh 的安装、使用和配置了。<br>另外至于为什么使用 zsh 也不做过多解释，因为喜欢:)</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>接触一门新的编程语言，运行完 Hello World 后，首先要了解的基本就是如何定义和使用变量了。有了变量后可以比较变量内容，进而可以解除条件、循环、分支等语句，继而了解函数的用法…</p>
+<p>所以，先来介绍变量和语句。</p>
+<h3 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h3><p>zsh 的变量多数情况不需要提前声明或者指定类型，可以直接赋值和使用（哈希表例外）。</p>
+<blockquote>
+<p><strong>zsh 有 5 中变量：整数、浮点数（bash 不支持）、字符串、数组、哈希表（或者叫关联数组或字典）</strong>，另外还有一些其他语言少有的东西，比如 alias（主要是交互的时候使用，编程基本用不到）。</p>
+</blockquote>
+<h4 id="整数与浮点数"><a href="#整数与浮点数" class="headerlink" title="整数与浮点数"></a>整数与浮点数</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">num1</span><span class="token operator">=</span><span class="token number">123</span>
+<span class="token assign-left variable">num2</span><span class="token operator">=</span><span class="token number">123.456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>等号两端不能有空格</p>
+</blockquote>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">str1</span><span class="token operator">=</span>abcde
+<span class="token assign-left variable">str2</span><span class="token operator">=</span><span class="token string">'abc def'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>如果字符串中包含空格等特殊字符，需要加引号</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">str3</span><span class="token operator">=</span><span class="token string">"abc def <span class="token variable">$num1</span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>也可以用双引号，但和单引号有区别，比如<strong>双引号里可以使用变量</strong><br>使用 <code>$变量</code> 来使用之前定义的 <code>变量</code></p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">str4</span><span class="token operator">=</span><span class="token string">"abc<span class="token entity" title="\t">\t</span>def<span class="token entity" title="\n">\n</span>g"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>在字符串中可以使用转义字符，单双引号均可</p>
+</blockquote>
+<h4 id="输入参数"><a href="#输入参数" class="headerlink" title="输入参数"></a>输入参数</h4><p>输入参数是用户在使用 shell 脚本的时候输入的变量，例如 <code>test.sh</code> 中的代码如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">in1</span><span class="token operator">=</span><span class="token variable">$1</span>
+<span class="token assign-left variable">in2</span><span class="token operator">=</span><span class="token variable">$2</span>
+<span class="token assign-left variable">in3</span><span class="token operator">=</span><span class="token variable">$3</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">"用户输入的内容是：<span class="token variable">$1</span> <span class="token variable">$2</span> <span class="token variable">$3</span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>执行 test.sh 脚本时在终端中输入下面这行代码：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sh</span> test.sh 欢迎阅读 CrazyBunQnQ 的博客<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>该代码将会输出</p>
+<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini">echo "用户输入的内容是：欢迎阅读 CrazyBunQnQ 的博客"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><code>sh</code> 是调用 shell 脚本的命令</li>
+<li><code>test.sh</code> 是需要执行的 shell 脚本文件名，shell 文件类似 Windows 中的 <code>.bat</code> 批处理文件</li>
+<li>再之后的 <code>test.sh</code> 对应的参数，每个参数之间用空格隔开</li>
+</ul>
+<br>
+### 变量操作
+
+<h4 id="输出变量"><a href="#输出变量" class="headerlink" title="输出变量"></a>输出变量</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token variable">$str1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>也可以使用 print，上面这行会输出变量 str1 的值 <code>abcde</code><br>打桩法调试的时候很常用</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token variable">$str3</span> <span class="token operator">&gt;</span> log.log
+<span class="token builtin class-name">echo</span> <span class="token variable">$str4</span> <span class="token operator">&gt;&gt;</span> log.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><code>echo A &gt; B</code> 会将 A 的内容写入 B 文件中<br><code>echo A &gt;&gt; B</code> 也会将 A 的内容写入到 B 文件中<br><br>需要注意的是 <code>&gt;&gt;</code> 与 <code>&gt;</code> 不同：<br><code>&gt;</code> 是重新写入文件<br><code>&gt;&gt;</code> 是在文件中追加内容</p>
+<p>如果 B 不存在，则会创建 B 文件<br>常用于输出日志</p>
+</blockquote>
+<h4 id="简单的数值计算"><a href="#简单的数值计算" class="headerlink" title="简单的数值计算"></a>简单的数值计算</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">num3</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>$num1 <span class="token operator">+</span> $num2<span class="token variable">))</span></span>
+<span class="token assign-left variable">num3</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span>num1 <span class="token operator">+</span> num2<span class="token variable">))</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><code>((</code> 中的变量可以不使用 <code>$</code></p>
+</blockquote>
+<h4 id="截取字符串的几种方法"><a href="#截取字符串的几种方法" class="headerlink" title="截取字符串的几种方法"></a>截取字符串的几种方法</h4><p>定义字符串如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">str</span><span class="token operator">=</span>abcdef<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li><p>zsh 数组截取</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$str</span>[2,4]"</span>
+<span class="token comment"># 这里会输出「bcd」，2 和 4 都是字符在数组的位置，从 1 开始数，逗号两边不能有空格</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$str</span>[4,-1]"</span>
+<span class="token comment"># 这里输出「def」，-1 是最后一个字符</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>bash 数组截取</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">${str<span class="token operator">:</span>0<span class="token operator">:</span>3}</span>"</span>
+<span class="token comment"># 这里输出「abc」，从左边第 1 个字符开始，截取 3 个字符</span>
+<span class="token comment"># 注意这里左边第一个字符从 0 开始，上面是从 1 开始</span>
+echo <span class="token string">"<span class="token variable">${str<span class="token operator">:</span>3}</span>"</span>
+<span class="token comment"># 这里输出「def」，从左边第 4 个字符开始，一直到结束，也是从 0 开始计数</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">${str<span class="token operator">:</span>0-4<span class="token operator">:</span>3}</span>"</span>
+<span class="token comment"># 这里输出「cde」，从右数第 4 个字符开始，截取 3 个字符，不能使用「-4」，必须要有 0</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">${str<span class="token operator">:</span>0-3}</span>"</span>
+<span class="token comment"># 这里输出「def」，从右数第 3 个字符开始，截取到结束</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p># 号截取 —— 删除左边字符，保留右边字符 （可用于 bash)</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">var</span><span class="token operator">=</span>http://crazybunqnq.com/react-tetris
+<span class="token builtin class-name">echo</span> <span class="token variable">${var<span class="token operator">#</span>*<span class="token operator">/</span><span class="token operator">/</span>}</span>
+<span class="token comment"># 这里输出「crazybunqnq.com/react-tetris」</span>
+<span class="token comment"># 其中「var」是变量名，「#」号是运算符，「*//」表示从左边开始删除第一个「//」字符串及左边的所有字符</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${var<span class="token operator">##</span>*<span class="token operator">/</span>}</span>
+<span class="token comment"># 这里输出「react-tetris」</span>
+<span class="token comment"># 其中「##」是运算符，「/*」表示从右边开始删除第一个（即左数最后一个）「/」字符串及左边的所有字符</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>% 号截取 —— 删除右边字符，保留左边字符（可用于 bash）</p>
+<p> 与 # 号截取类似</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">var</span><span class="token operator">=</span>http://crazybunqnq.com/react-tetris
+<span class="token builtin class-name">echo</span> <span class="token variable">${var<span class="token operator">%</span><span class="token operator">/</span>r*}</span>
+<span class="token comment"># 这里输出「http://crazybunqnq.com」</span>
+<span class="token comment"># 其中「%」是运算符，「/r*」表示从左边开始删除第一个「/r」字符串及右边的所有字符</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">${var<span class="token operator">%%</span><span class="token operator">/</span>*}</span>
+<span class="token comment"># 这里输出「http://crazybunqnq.com」</span>
+<span class="token comment"># 其中「%%」是运算符，「/*」表示从右边开始删除第一个 (即左数最后一个)「/」字符串及游遍所有字符</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<blockquote>
+<p># 表示注释，我好像在说废话…一看颜色就知道了，哈哈哈哈哈</p>
+</blockquote>
+<br>
+### 变量比较
+
+<h4 id="比较数值"><a href="#比较数值" class="headerlink" title="比较数值"></a>比较数值</h4><ol>
+<li><p><code>(( ))</code> 用于数值比较等操作，如果为真返回 0，否则返回 1</p>
+</li>
+<li><p><code>&amp;&amp;</code> 后边的语句在前面的语句为真时才会执行</p>
+</li>
+<li><p>必须使用双等号 <code>==</code> 来比较</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">num</span><span class="token operator">=</span><span class="token number">123</span>
+<span class="token variable"><span class="token punctuation">((</span>num <span class="token operator">==</span> <span class="token number">123</span><span class="token punctuation">))</span></span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> good
+<span class="token comment"># 这里会输出「good」</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><code>((</code> 里面可以使用与 <code>&amp;&amp;</code> 或 <code>||</code> 非 <code>!</code> 操作符</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token variable"><span class="token punctuation">((</span>num <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">||</span> num <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">))</span></span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> good
+<span class="token comment"># 这里会输出「good」</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h4 id="比较字符串"><a href="#比较字符串" class="headerlink" title="比较字符串"></a>比较字符串</h4><ol>
+<li><p>比较字符串要用 <code>[[ ]]</code> ，<strong>内侧要有空格</strong></p>
+</li>
+<li><p>这里的双等号 <code>==</code> 可以替换成单等号 <code>=</code></p>
+</li>
+<li><p>$str 两侧不需要加双引号，即使 str 未定义或者 $str 中含有空格和特殊符号</p>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">str</span><span class="token operator">=</span>abc
+<span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$str</span> <span class="token operator">==</span> abc <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> good
+<span class="token comment"># 这里会输出「good」</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>可以和空字符串 <code>""</code> 比较，未定义的字符串和空字符串比较结果为真</p>
+</li>
+<li><p><code>[[</code> 里也可以使用 <code>&amp;&amp;</code> 、 <code>||</code> 和 <code>!</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$str</span> <span class="token operator">==</span> <span class="token string">""</span> <span class="token operator">||</span> <span class="token variable">$str</span> <span class="token operator">==</span> <span class="token number">123</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> good
+<span class="token comment"># 这里会输出「good」</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<br>
+
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>简单的变量使用介绍完了，来说说语句部分。</p>
+<h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><h4 id="用于比较字符串、判断文件等"><a href="#用于比较字符串、判断文件等" class="headerlink" title="[[ ]] 用于比较字符串、判断文件等"></a><code>[[ ]]</code> 用于比较字符串、判断文件等</h4><p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span> <span class="token keyword">elif</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意 <code>elif</code> 不可写作 <code>else if</code><br>尽量不要使用 <code>[[ ]]</code> 比较数值，因为不留神的话，数值会被转化成字符串来比较，没有任何错误提示</p>
+</blockquote>
+<p>例子：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$str</span>"</span> <span class="token operator">==</span> <span class="token string">"name"</span> <span class="token operator">||</span> <span class="token string">"<span class="token variable">$str</span>"</span> <span class="token operator">==</span> <span class="token string">"value"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$str</span>"</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="用于比较数值，里面可以调用各种数值相关的函数，变量前的-可省略。"><a href="#用于比较数值，里面可以调用各种数值相关的函数，变量前的-可省略。" class="headerlink" title="(( )) 用于比较数值，里面可以调用各种数值相关的函数，变量前的 $ 可省略。"></a><code>(( ))</code> 用于比较数值，里面可以调用各种数值相关的函数，变量前的 <code>$</code> 可省略。</h4><p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token variable"><span class="token punctuation">((</span> <span class="token punctuation">))</span></span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>例子：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token variable"><span class="token punctuation">((</span>num <span class="token operator">&gt;</span> <span class="token number">3</span> <span class="token operator">&amp;&amp;</span> num <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">))</span></span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$num</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="用于在当前-sehll-里运行-中的命令并判断运行结果"><a href="#用于在当前-sehll-里运行-中的命令并判断运行结果" class="headerlink" title="{ } 用于在当前 sehll 里运行 { } 中的命令并判断运行结果"></a><code>{ }</code> 用于在<strong>当前 sehll 里</strong>运行 <code>{ }</code> 中的命令并判断运行结果</h4><p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>例子：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">{</span>echo <span class="token string">'执行命令'</span><span class="token punctuation">}</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">'执行成功'</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="用于在子-shell-里运行-中的命令并判断运行结果"><a href="#用于在子-shell-里运行-中的命令并判断运行结果" class="headerlink" title="( ) 用于在子 shell 里运行 ( ) 中的命令并判断运行结果"></a><code>( )</code> 用于在<strong>子 shell 里</strong>运行 <code>( )</code> 中的命令并判断运行结果</h4><p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function-name function">if</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>用法和 <code>{ }</code> 类似。</p>
+<h4 id="混合条件"><a href="#混合条件" class="headerlink" title="混合条件"></a>混合条件</h4><p>以上几种括号可以一起使用，这样可以同时判断字符串、数值、文件、命令结果等。</p>
+<p>但是建议不要混合使用 <code>&amp;&amp;</code> 和 <code>||</code>，会导致可读性变差且容易出错。</p>
+<p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token variable"><span class="token punctuation">((</span> <span class="token punctuation">))</span></span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<br>
+### 循环语句
+
+<p>刚刚已经介绍完条件语句了，所以我就默认大家都大概了解各种括号的使用方法了，循环语句中的括号用法和 <code>if</code> 一样，示例中的 <code>[[ ]]</code> 可以替换成其他几种括号，功能也是一样的，不再依次举例了，大家可以自己试试。</p>
+<h4 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h4><p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">while</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+    break/continue
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>这里的 <code>break</code> 用于结束循环，<code>continue</code> 用于直接进入下一次循环。所有的循环语句中都可以使用 <code>break</code> 和 <code>continue</code>。</p>
+</blockquote>
+<p>死循环：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">while</span> <span class="token variable"><span class="token punctuation">((</span><span class="token number">1</span><span class="token punctuation">))</span></span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> good
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<br>
+#### until 循环
+
+<p><code>until</code> 和 <code>while</code> 相反，不满足条件时运行，一旦满足则停止运行，其他的用法和 <code>while</code> 相同，不再举例。</p>
+<p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">until</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<br>
+#### for 循环
+
+<blockquote>
+<p>格式 1：</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">for</span> <span class="token function-name function">i</span> <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><code>for</code> 循环主要用于枚举，这里的括号是 <code>for</code> 的特有用法，不是在子 shell 执行。括号内是字符串（可放多个，空格隔开）、数组（可放多个）或者哈希表（可放多个，哈希表是枚举值而不是键）。<code>i</code> 是用于枚举内容的变量名，变量名随意取。</p>
+<p>例 1：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">for</span> i <span class="token punctuation">(</span>aa bb cc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># 执行后会输出如下内容</span>
+<span class="token comment"># aa</span>
+<span class="token comment"># bb</span>
+<span class="token comment"># cc</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>例 2：枚举当前目录的 txt 文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">for i (*.txt) {
+    echo $i
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>例 3：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">arr</span><span class="token operator">=</span><span class="token punctuation">(</span>aa bb cc<span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># 执行后会输出如下内容</span>
+<span class="token comment"># aa</span>
+<span class="token comment"># bb</span>
+<span class="token comment"># cc</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>格式 2：</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span> <span class="token punctuation">;</span> <span class="token punctuation">;</span> <span class="token punctuation">))</span></span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这个感觉很熟悉啊，哈哈哈哈</p>
+<p>例子：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">for</span> <span class="token variable"><span class="token punctuation">((</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">))</span></span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># 执行后会依次输出 0~9</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>但是实际上多数情况不需要使用这种 <code>for</code> 循环，可以使用下面的方法。</p>
+<blockquote>
+<p>格式 3：</p>
+</blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">for</span> i <span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">..</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># 执行后会依次输出 1~10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>{1..10}</code> 可以生成一个 1 到 10 的数组</p>
+<br>
+#### repeat 循环
+
+<p><code>repeat</code> 语句用于循环固定次数，<code>n</code> 是一个证书或者内容为整数的变量。</p>
+<p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">repeat n <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>例子：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">repeat <span class="token number">5</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> good
+<span class="token punctuation">}</span>
+<span class="token comment"># 执行后会输出五行「good」</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<br>
+### 分支语句
+
+<p>分支语句用 <code>if</code> 也可以实现，但 <code>case</code> 更适合这种场景，并且功能更强大。</p>
+<p>格式 + 例子：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">i</span><span class="token operator">=</span>a
+<span class="token comment">#i=b</span>
+<span class="token comment">#i=c</span>
+<span class="token comment">#i=d</span>
+<span class="token comment">#i=e</span>
+<span class="token keyword">case</span> <span class="token variable">$i</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token number">1</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token number">2</span>
+    <span class="token comment"># 继续执行下一个</span>
+    <span class="token punctuation">;</span><span class="token operator">&amp;</span>
+
+    <span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token number">3</span>
+    <span class="token comment"># 继续向下匹配</span>
+    <span class="token punctuation">;</span><span class="token operator">|</span>
+
+    <span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token number">33</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token number">4</span>
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">(</span>*<span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> other
+    <span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中：</p>
+<ul>
+<li><code>;;</code> 代表结束 <code>case</code> 语句</li>
+<li><code>;&amp;</code> 代表继续执行紧接着的下一个匹配语句（不再进行匹配）</li>
+<li><code>;|</code> 代表继续往下匹配，看是否还有满足条件的分支。</li>
+</ul>
+<p>大家可以在上面的例子前尝试给 <code>i</code> 赋值不同的字符，看看效果，感觉比 java  简洁了好多啊！！！</p>
+<br>
+#### 用户输入选择语句
+
+<p><code>select</code> 语句是用于根据用户的选择决定分支的语句，语法和 <code>for</code> 语句差不多，如果不 <code>break</code>，会循环让用户选择。</p>
+<p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">select</span> <span class="token function-name function">i</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>例子：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">select</span> i <span class="token punctuation">(</span>aa bb cc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>执行完上面的例子后是这样的：</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/a6e9cb00ly1flx2iu5em5j20ew030wf9.jpg" alt="用户选择语句"></p>
+<br>
+#### 异常处理语句
+
+<p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">{</span>
+    语句 <span class="token number">1</span>
+<span class="token punctuation">}</span> always <span class="token punctuation">{</span>
+    语句 <span class="token number">2</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果语句 1 执行出错，则执行语句 2。</p>
+<br>
+#### 简化的条件语句
+
+<p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在只有一个分支的情况下，可以使用简化的 <code>if</code> 语句，功能和 <code>if</code> 语句类似。就不举例啦！</p>
+<blockquote>
+<p>再次强调，强烈建议不要连续混合使用 <code>&amp;&amp;</code> 和 <code>||</code>，例如：</p>
+   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">aa <span class="token operator">&amp;&amp;</span> bb <span class="token operator">||</span> cc <span class="token operator">&amp;&amp;</span> <span class="token function">dd</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>容易导致逻辑错误或者误解，可以使用 <code>{ }</code> 把语句包含起来。</p>
+   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">aa <span class="token operator">&amp;&amp;</span> <span class="token punctuation">{</span> bb <span class="token operator">||</span> <span class="token punctuation">{</span> cc <span class="token operator">&amp;&amp;</span> <span class="token function">dd</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>比较复杂的判断还是使用 <code>if</code> 可读性更好，<code>&amp;&amp;</code> 和 <code>||</code> 通常只适用于简单的场景。</p>
+</blockquote>
+<br>
+## 一些常用命令
+
+<p>先说下命令如何使用吧</p>
+<ul>
+<li>符号 <code>-</code> 后面是命令选项，多个可以连写，只需要一个 <code>-</code> 即可。<br>  例如下面表格中的 <code>ls -al</code> 命令，<code>-a</code> 表示显示隐藏文件，<code>-l</code> 表示格式化目录列表，同时使用则为 <code>-al</code>。</li>
+<li>命令后面用空格隔开的、没有 <code>-</code> 号的内容为命令的参数</li>
+<li>多个参数之间用空格隔开，并且参数有顺序</li>
+</ul>
+<p>|命令|作用|<br>|:-|:-:|:-|:-:|<br>|ls|查看当前目录内容|<br>|pwd|显示当前目录|<br>|ls -a|查看当前目录所有内容|<br>|ls -al|显示并格式化当前目录所有内容|<br>|rm file|删除文件|<br>|rm -r dir|删除目录|<br>|rm -f|强制删除文件|<br>|rm -rf dir|强制删除目录|<br>|mkdir dir|创建目录|<br>|cp file1 file2|复制 file1 到 file2|<br>|mv file1 file2|移动或重命名 file1 为 file2|<br>|cd dir|改变当前目录为 dir|<br>|cd ..|返回上一级目录|<br>|tr -d str &lt;file1&gt; file2|删除 file1 文件中所有的 str 并保存为 file2 文件|</p>
+<br>
+### chmod 权限命令
+
+<p>这个命令略微复杂，详细说一下吧</p>
+<p>格式：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> 八进制数 需要授权的文件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>其中，八进制数代表以下三个权限对应的数值之和：</p>
+<ul>
+<li>4 - 读权限(r)</li>
+<li>2 - 写权限(w)</li>
+<li>1 - 执行权限(x)</li>
+</ul>
+<p>并且，这个八进制数有三位，按顺序分别对应三种用户的权限：</p>
+<p>拥有者/group/world</p>
+<p>例如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 为 test.txt 文件授予所有用户 rwx 权限（读、写和执行）</span>
+<span class="token function">chmod</span> <span class="token number">777</span> test.txt
+<span class="token comment"># 为 test.txt 文件授予拥有者 rw 权限，授予 group 用户 rx 权限，授予 world 用户 w 权限</span>
+<span class="token function">chmod</span> <span class="token number">754</span> test.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>嗯…暂时用到过的大概就这些，在遇到的之后再补充吧~<br>感谢阅读，有问题可以在下面留言哟~</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com" rel="external nofollow noreferrer">CrazyBunQnQ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com/2017/11/26/zshbasis/">https://blog.crazybunqnq.com/2017/11/26/zshbasis/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.crazybunqnq.com" target="_blank">CrazyBunQnQ</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/zsh/">
+                                    <span class="chip bg-color">zsh</span>
+                                </a>
+                            
+                                <a href="/tags/bash/">
+                                    <span class="chip bg-color">bash</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="weibo,wechat,qq,qzone,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/12/18/regexreplace/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="VS Code 正则表达式查找替换">
+                        
+                        <span class="card-title">VS Code 正则表达式查找替换</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            最近做的事情经常要处理重复的文本，用了一段时间之后，利用正则表达式来查找字符串基本上是很熟练啦~但是前几天看到 drakeet 大神使用正则表达式把自己项目中所有下划线命名的变量改为驼峰命名法之后我知道，原来正则表达式还可以这么玩！哇塞，之
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-12-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/" class="post-category">
+                                    触类旁通
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="chip bg-color">正则表达式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/11/18/python3function/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Python 3 的函数">
+                        
+                        <span class="card-title">Python 3 的函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            字符串是什么？
+其实经过上一篇博客的阅读与训练，你已经掌握了函数的用法：
+print 是一个放入对象就能将结果打印的函数
+
+input 是一个可以让用户输入信息的函数
+
+len 是一个可以测量对象长度的函数
+
+int 是一个可以将字符串类
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-11-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%87%BD%E6%95%B0/">
+                        <span class="chip bg-color">函数</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('40')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: CrazyBun<br />'
+            + '文章作者: CrazyBunQnQ<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归 CrazyBunQnQ 所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2023</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">CrazyBunQnQ</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "10";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CrazyBunQnQ" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:crazybunqnq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=494225231" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 494225231" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2800339712" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2800339712" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?864d5a7534ed5364589f82c39b9c4e07";
+        var baiduSite = document.createElement("meta");
+        baiduSite.name = "baidu-site-verification";
+        baiduSite.content = "codeva-7NYmMaNfam";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(baiduSite, s);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+	    <div style="position:fixed;bottom:125px;right:9px;cursor: pointer;">
+	        <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/498631"><img src="/medias/contact.png"></a>
+	    </div>
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

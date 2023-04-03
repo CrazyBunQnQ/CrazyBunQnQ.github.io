@@ -1,0 +1,1530 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Python 3 的字符串, CrazyBun">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93893895-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-93893895-1');
+</script>
+
+
+    <title>Python 3 的字符串 | CrazyBun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="CrazyBun" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">CrazyBun</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">CrazyBun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Python 3 的字符串</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                                <span class="chip bg-color">字符串</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-11-12
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>字符串是什么？</p>
+<p>在上一篇博客我们已经初步了解到了字符串，简单地说，字符串就是……</p>
+<div style="text-align:center;font-size:20px;color:#d63e63">"<font color="e89648">任何在这双引号之间的文字</font>"</div>
+
+<div style="text-align:center">或者</div>
+
+<div style="text-align:center;font-size:20px;color:#d63e63">'<font color="e89648">单引号其实和双引号完全一样</font>'</div>
+
+<div style="text-align:center">再或者</div>
+
+<div style="text-align:center;font-size:20px;color:#d63e63">'''<font color="e89648">三个引号被用于过长段的文<br>字或者是说明，只要三引号不完<br>你就可以随意换行写下文字</font>'''</div>
+
+<p>这一篇呢，咱详细的讲讲 Python 3 的字符串用法~略微详细的…哈哈哈</p>
+<span id="more"></span>
+
+<h2 id="字符串的基本用法"><a href="#字符串的基本用法" class="headerlink" title="字符串的基本用法"></a>字符串的基本用法</h2><h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>运行下面的代码：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">what_he_does <span class="token operator">=</span> <span class="token string">' plays '</span>
+his_instrument <span class="token operator">=</span> <span class="token string">'guitar'</span>
+his_name <span class="token operator">=</span> <span class="token string">'Robert Johnson'</span>
+artist_intro <span class="token operator">=</span> his_name <span class="token operator">+</span> what_he_does <span class="token operator">+</span> his_instrument
+<span class="token keyword">print</span> <span class="token punctuation">(</span>artist_intro<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>会输出</p>
+<pre class="line-numbers language-ini" data-language="ini"><code class="language-ini">Robert Johnson plays guitar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>感觉好无聊啊，不过这都是基础，以后加上界面一定就好看了^_^</p>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>Python 中不同的数据类型是不能够进行合并的，但是可以通过一些方法进行转换</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">num <span class="token operator">=</span> <span class="token number">1</span>
+string <span class="token operator">=</span> <span class="token string">'1'</span>
+num2 <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span> <span class="token comment"># 字符串转换成数字</span>
+
+<span class="token keyword">print</span> <span class="token punctuation">(</span>num <span class="token operator">+</span> num<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>如果你不知道变量是什么类型，可以通过 <code>type()</code> 函数来查看类型。在编辑器中输入 <code>print (type(xxx))</code> 即可查看 xxx 的数据类型。</p>
+<p>另外，由于中文注释也会导致报错，所以需要在文件开头加一行魔法注释 <code>#coding:utf-8</code></p>
+</blockquote>
+<h3 id="字符串相乘"><a href="#字符串相乘" class="headerlink" title="字符串相乘"></a>字符串相乘</h3><p>既然字符串可以相加，那么字符串之间能不能相乘呢？当然可以！</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">words <span class="token operator">=</span> <span class="token string">'words'</span> <span class="token operator">*</span> <span class="token number">3</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>words<span class="token punctuation">)</span>
+<span class="token comment"># 输出结果</span>
+wordswordswords<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>怎么样，有意思吧？咱再试试更复杂的！</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">word <span class="token operator">=</span> <span class="token string">'a looooong word'</span>
+num <span class="token operator">=</span> <span class="token number">12</span>
+string <span class="token operator">=</span> <span class="token string">'bang!'</span>
+total <span class="token operator">=</span> string <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span> <span class="token operator">-</span> num<span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>total<span class="token punctuation">)</span>
+<span class="token comment"># 输出结果</span>
+bang!bang!bang!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Bang! 恭喜你，掌握了字符串最基本的用法了！</p>
+<h2 id="字符串的分片与索引"><a href="#字符串的分片与索引" class="headerlink" title="字符串的分片与索引"></a>字符串的分片与索引</h2><p>字符串可以通过 <code>string[x]</code> 的方式进行索引、分片。实际上就是从字符串中找出你要截取的东西，复制出来一小段你要的长度，储存在另一个地方，而不会对原字符串改动。分片获得的每个字符串可以看做是原字符串的一个副本。</p>
+<p>类似 Java 中的 <code>substring()</code>，但又有些不同：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">'My name is Bozi'</span>
+
+<span class="token keyword">print</span> <span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 第 0 号字符</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 第 -4 号字符，也就是倒数第 4 个字符</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">:</span><span class="token number">14</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 从第 11 号到第 14 位，第 14 号被排除在外</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">:</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 从第 11 号到第 15 位，第 15 号被排除在外</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 从第 5 号到结束</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># 从第 0 号到第 5 号</span>
+<span class="token comment"># 输出结果</span>
+M
+B
+Boz
+Bozi
+me <span class="token keyword">is</span> Bozi
+My na<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="center">name = “</th>
+<th align="center">M</th>
+<th align="center">y</th>
+<th align="center"></th>
+<th align="center">n</th>
+<th align="center">a</th>
+<th align="center">m</th>
+<th align="center">e</th>
+<th align="center"></th>
+<th align="center">i</th>
+<th align="center">s</th>
+<th align="center"></th>
+<th align="center">B</th>
+<th align="center">o</th>
+<th align="center">z</th>
+<th align="center">i</th>
+<th align="center">“</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">indexing</td>
+<td align="center">0<br>-15</td>
+<td align="center">1<br>-14</td>
+<td align="center">2<br>-13</td>
+<td align="center">3<br>-12</td>
+<td align="center">4<br>-11</td>
+<td align="center">5<br>-10</td>
+<td align="center">6<br>-9</td>
+<td align="center">7<br>-8</td>
+<td align="center">8<br>-7</td>
+<td align="center">9<br>-6</td>
+<td align="center">10<br>-5</td>
+<td align="center">11<br>-4</td>
+<td align="center">12<br>-3</td>
+<td align="center">13<br>-2</td>
+<td align="center">14<br>-1</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="Java-中的字符串截取-substring"><a href="#Java-中的字符串截取-substring" class="headerlink" title="Java 中的字符串截取 substring()"></a>Java 中的字符串截取 substring()</h3><blockquote>
+<p>没学过 Java 直接跳过</p>
+</blockquote>
+<p>顺便复习一下 Java API，哈哈哈</p>
+<ul>
+<li><p>public String substring(int beginIndex)</p>
+<p>  返回一个字符串，它是字符串的子字符串。子字符串以指定索引中的字符开始，并扩展到该字符串的末尾:</p>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> result <span class="token operator">=</span> <span class="token string">"abcdefg"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//输出结果</span>
+defg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>public String substring(int beginIndex, int endIndex)</p>
+<p>  返回一个新字符串，它是字符串的子字符串。子字符串从指定的开始索引开始，并扩展到索引 <code>endIndex - 1</code> 的字符。因此，子字符串的长度为 <code>endindex - beginindex</code>。</p>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> result <span class="token operator">=</span> <span class="token string">"abcdefg"</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//输出结果</span>
+de<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><p>在此之前，我们先做个文字小游戏——「<font color="d63e63">找出你朋友中的魔鬼</font>」：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">word <span class="token operator">=</span> <span class="token string">'friends'</span>
+find_the_evil_in_your_friends <span class="token operator">=</span> word<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> word<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">+</span> word<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>find_the_evil_in_your_friends<span class="token punctuation">)</span>
+<span class="token comment"># 输出结果</span>
+fiend<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>怎么样？你找到了吗？</p>
+<p>下面看一个是项目中的应用：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token string">'http://ww1.site.cn/14d2e8ejw1exjogbxdxhj20ci0kuwex.jpg'</span>
+<span class="token string">'http://ww1.site.cn/85cc87jw1ex23yhwws5j20jg0szmzk.png'</span>
+<span class="token string">'http://ww2.site.cn/185cc87jw1ex23ynr1naj20jg0t60wv.jpg'</span>
+<span class="token string">'http://ww3.site.cn/185cc87jw1ex23yyvq29j20jg0t6gp4.gif'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>假如现在有 500 多张附有这样链接的图片要下载，也就是说我需要给这 500 张不同格式的图片（png,jpg,gif）以一个统一的方式进行命名。</p>
+<p>通过观察规律，决定以链接尾部倒数 10 个字符进行命名，于是可以输入代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">url <span class="token operator">=</span> <span class="token string">'http://ww1.site.cn/14d2e8ejw1exjogbxdxhj20ci0kuwex.jpg'</span>
+file_name <span class="token operator">=</span> url<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>file_name<span class="token punctuation">)</span>
+<span class="token comment"># 输出结果</span>
+0kuwex<span class="token punctuation">.</span>jpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="字符串的常用方法"><a href="#字符串的常用方法" class="headerlink" title="字符串的常用方法"></a>字符串的常用方法</h2><p>Python 是面向对象进行编程的语言，而对象拥有各种功能、特性，专业术语称之为——方法（Method）。</p>
+<p>假如我们生活中的车是「对象」，即 car。</p>
+<p>而车有很多功能，例如「开」就是一个重要功能，于是对于『汽车使用「开」这个功能』，在 Python 中就可以表述成这样：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">car<span class="token punctuation">.</span>drive<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/" alt="车的属性和方法"></p>
+<blockquote>
+<p>这里与 Java 面向对象差不多</p>
+</blockquote>
+<h3 id="替换字符串"><a href="#替换字符串" class="headerlink" title="替换字符串"></a>替换字符串</h3><p>了解了对象的方法后，我们来看这样一个场景：</p>
+<blockquote>
+<p>很多时候我们在网站上查看个人信息的时候，银行账户、身份证和手机号等都会显示部分信息，其余的用「*」来代替。</p>
+</blockquote>
+<p><img src="/" alt="替换字符串"></p>
+<p>下面我们试着用 Python 字符串的方法来实现这一个功能:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">number <span class="token operator">=</span> <span class="token string">'1386-666-0006'</span>
+hiding_nomber <span class="token operator">=</span> number<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>number<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'*'</span> <span class="token operator">*</span> <span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>hiding_number<span class="token punctuation">)</span>
+<span class="token comment"># 输出结果</span>
+<span class="token operator">**</span><span class="token operator">**</span><span class="token operator">**</span><span class="token operator">**</span><span class="token operator">*</span><span class="token number">0006</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中我们使用了 <code>replace()</code> 方法进行「遮挡」。会将原字符串中的某些字符串替换成新的字符串，查看 Python 3 API 文档可以看到：</p>
+<ul>
+<li><p>str.replace(old, new[, count])</p>
+<ol>
+<li>str.replace(old, new)</li>
+<li>str.replace(old, new, count)</li>
+</ol>
+<p>  Return a copy of the string with all occurrences of substring old replaced by new. If the optional argument count is given, only the first count occurrences are replaced.</p>
+</li>
+</ul>
+<p>翻译成中文为：将字符串中的所有子字符串 old 替换成新字符串 new 后返回，返回的字符串是原字符串的副本，并不影响原字符串。如果给出可选参数 count，则只有前 count 个出现的字字符串 old 被替换。</p>
+<h3 id="查找字符串"><a href="#查找字符串" class="headerlink" title="查找字符串"></a>查找字符串</h3><p>我们再试试解决一个更复杂一点的问题，来模拟手机通讯录中的<font color="d63e63">电话号码联想功能</font></p>
+<p><img src="/" alt="电话号码联想"></p>
+<blockquote>
+<p>只是个大概思路，真实情况更为复杂</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">search <span class="token operator">=</span> <span class="token string">'168'</span>
+num1 <span class="token operator">=</span> <span class="token string">'1368-168-0006'</span>
+num2 <span class="token operator">=</span> <span class="token string">'1681-222-0006'</span>
+
+<span class="token keyword">print</span> <span class="token punctuation">(</span>search <span class="token operator">+</span> <span class="token string">' is at '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>num1<span class="token punctuation">.</span>find<span class="token punctuation">(</span>search<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">' to '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>num1<span class="token punctuation">.</span>find<span class="token punctuation">(</span>search<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token builtin">len</span><span class="token punctuation">(</span>search<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">' of num1'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>search <span class="token operator">+</span> <span class="token string">' is at '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>num2<span class="token punctuation">.</span>find<span class="token punctuation">(</span>search<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">' to '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>num2<span class="token punctuation">.</span>find<span class="token punctuation">(</span>search<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token builtin">len</span><span class="token punctuation">(</span>search<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">' of num2'</span><span class="token punctuation">)</span>
+<span class="token comment"># 输出结果</span>
+<span class="token number">168</span> <span class="token keyword">is</span> at <span class="token number">5</span> to <span class="token number">8</span> of num1
+<span class="token number">168</span> <span class="token keyword">is</span> at <span class="token number">0</span> to <span class="token number">3</span> of num2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在上面的代码中，我们使用了 <code>str.find()</code> 方法，我们来看看 Python 3 的 API 文档是怎么说的：</p>
+<ul>
+<li><p>str.find(sub[, start[, end]])</p>
+<ol>
+<li>str.find(sub)</li>
+<li>str.find(sub, start)</li>
+<li>str.find(sub, start, end)</li>
+</ol>
+<p>  Return the lowest index in the string where substring sub is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if sub is not found.</p>
+</li>
+</ul>
+<p>继续秀我的烂英语(翻译不好请指出，最近在学英语，哈哈)</p>
+<p>返回字字符串 <code>sub</code> 在 <code>str</code>（或者字符串片段 <code>str[start:end]</code>）中找到的最低索引位置(整数)。可选参数的开始和结束被解释为片表示法。如果没有在 <code>str</code> 中找到 <code>sub</code> 则返回 <code>-1</code>。</p>
+<blockquote>
+<p><code>find()</code> 方法仅当你需要知道 sub 在 str 中的位置时才使用，若想要检查 sub 是否为 str 的子字符串，请使用 <code>in</code> 运算符:<br>   </p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token string">'Py'</span> <span class="token keyword">in</span> <span class="token string">'Python'</span>
+<span class="token comment"># 输出结果</span>
+<span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p></p>
+</blockquote>
+<p>这里还用到了数据类型转换 <code>str()</code> 将数字转换为字符串</p>
+<p>以及 <code>len()</code> 方法获得字符串的长度</p>
+<ul>
+<li><p>len(s)</p>
+<p>  Return the length (the number of items) of an object. The argument may be a sequence (such as a string, bytes, tuple, list, or range) or a collection (such as a dictionary, set, or frozen set).</p>
+</li>
+</ul>
+<p>翻译：返回对象的长度(项目的个数)。参数可能是一个序列(例如字符串、字节、元组、列表或范围)或集合(如字典、集合或冻结集)。</p>
+<blockquote>
+<p>呃…·<code>len()</code> 方法好像用的地方还很多呢…貌似把 Java 的各种 <code>length</code> 属性、<code>length()</code> 方法以及 <code>size() </code>方法整合到一起啦？以后遇到再说啦！</p>
+</blockquote>
+<h3 id="字符串格式化符"><a href="#字符串格式化符" class="headerlink" title="字符串格式化符"></a>字符串格式化符</h3><blockquote>
+<p>这个名字…嗯，总觉着怪怪的…</p>
+</blockquote>
+<p>来看个填空题</p>
+<p>__ a word she can get what she __ for.</p>
+<p>A.With&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;B.came</p>
+<p>上面这样的填空题大家肯定不陌生，当字符串中有多个这样的「空」需要填写的时候，我们可以使用 <code>.format()</code> 方法进行批处理，它的基本使用方法有下面几种：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">example <span class="token operator">=</span> <span class="token string">'{} a word she can get what she {} for.'</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>example<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">'With'</span><span class="token punctuation">,</span><span class="token string">'came'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># print ('{preposition} a word she can get what she {verb} for.'.format(preposition = 'With', verb = 'came'))</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'{1} a word she can get what she {2} for.'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">'came'</span><span class="token punctuation">,</span><span class="token string">'With'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 输出结果</span>
+With a word she can get what she came <span class="token keyword">for</span><span class="token punctuation">.</span>
+With a word she can get what she came <span class="token keyword">for</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>这个…第二种方式我运行的时候报错啦，有人知道什么原因吗？…</p>
+</blockquote>
+<p>来来来继续看 API 文档秀我的烂翻译…</p>
+<ul>
+<li><p>str.format(*args, **kwargs)</p>
+<p>  Perform a string formatting operation. The string on which this method is called can contain literal text or replacement fields delimited by braces {}. Each replacement field contains either the numeric index of a positional argument, or the name of a keyword argument. Returns a copy of the string where each replacement field is replaced with the string value of the corresponding argument.</p>
+</li>
+</ul>
+<p>这么长啊…硬着头皮翻译：<br>执行字符串格式化操作。调用这个方法的字符串可以包含蚊子文本或由大括号「<code>{}</code>」分隔的替换字段。每个<code>{}</code>都包含一个位置参数的数值索引，或一个关键字参数的名称。该方法返回 str 的副本(不影响原 str 值)，其中每个<code>{}</code>替换为相应参数的字符串值。</p>
+<p>这种字符串天空的方式使用很广泛，例如向下面代码这样填充王志忠空缺的城市数据：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">city <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">'write down the name of city:'</span><span class="token punctuation">)</span>
+url <span class="token operator">=</span> <span class="token string">'http://apistore.baidu.com/microservice/weather?citypinyin={}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>city<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>这是利用百毒提供的天气 API 实现客户端天气插件的开发代码片段</p>
+</blockquote>
+<h2 id="感谢看完"><a href="#感谢看完" class="headerlink" title="感谢看完"></a>感谢看完</h2><p>嗯，以上就是字符串的基本概念和常用方法啦！</p>
+<blockquote>
+<p>如果想更加详细的了解 Python 3 字符串的用法，可以去查看官方的 API 文档，不过初学者不建议哟，比如我…</p>
+<p>因为直接看 API 文档的话太枯燥了，很容易失去兴趣，同样…比如我…</p>
+</blockquote>
+<p>最后！看完有疑问以及有建议的可以留言！！！谢谢！</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com" rel="external nofollow noreferrer">CrazyBunQnQ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com/2017/11/12/python3string/">https://blog.crazybunqnq.com/2017/11/12/python3string/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.crazybunqnq.com" target="_blank">CrazyBunQnQ</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                                    <span class="chip bg-color">字符串</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="weibo,wechat,qq,qzone,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/11/18/python3function/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Python 3 的函数">
+                        
+                        <span class="card-title">Python 3 的函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            字符串是什么？
+其实经过上一篇博客的阅读与训练，你已经掌握了函数的用法：
+print 是一个放入对象就能将结果打印的函数
+
+input 是一个可以让用户输入信息的函数
+
+len 是一个可以测量对象长度的函数
+
+int 是一个可以将字符串类
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-11-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%87%BD%E6%95%B0/">
+                        <span class="chip bg-color">函数</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/11/04/hellopython3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="初识 Python 3">
+                        
+                        <span class="card-title">初识 Python 3</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            为了了解和学习机器学习，我将魔掌！伸向了 Python 3…虽然我编程还菜的抠脚，但也算是有点编程基础了，所以就直接去了解 Python 3 语法基础啦~
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-11-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('40')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: CrazyBun<br />'
+            + '文章作者: CrazyBunQnQ<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归 CrazyBunQnQ 所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2023</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">CrazyBunQnQ</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "10";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CrazyBunQnQ" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:crazybunqnq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=494225231" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 494225231" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2800339712" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2800339712" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?864d5a7534ed5364589f82c39b9c4e07";
+        var baiduSite = document.createElement("meta");
+        baiduSite.name = "baidu-site-verification";
+        baiduSite.content = "codeva-7NYmMaNfam";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(baiduSite, s);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+	    <div style="position:fixed;bottom:125px;right:9px;cursor: pointer;">
+	        <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/498631"><img src="/medias/contact.png"></a>
+	    </div>
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1312 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="插件">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93893895-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-93893895-1');
+</script>
+
+
+    <title>IDEA 插件开发入门 | CrazyBun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="CrazyBun" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">CrazyBun</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">CrazyBun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/IDEALogo.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">IDEA 插件开发入门</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JetBrains-Plugin/">
+                                <span class="chip bg-color">JetBrains Plugin</span>
+                            </a>
+                        
+                            <a href="/tags/Plugin/">
+                                <span class="chip bg-color">Plugin</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-22
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>一直想开发自己的插件来着，正好工作中有机会了，研究研究~</p>
+<span id="more"></span>
+
+<h2 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h2><h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><p>所有 JetBrains 旗下的集成开发工具插件都通过 <a target="_blank" rel="noopener" href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> 进行开发</p>
+<p>IntelliJ IDEA 分为两个版本:</p>
+<ul>
+<li>社区版(Community): 完全免费，代码开源，但是缺少一些旗舰版中的高级特性</li>
+<li>旗舰版(Ultimate): 30 天免费，支持全部功能，代码不开源，学生有打折</li>
+</ul>
+<p>在开发插件的过程中，不管你用的哪个版本的 IDEA，都会自动下载社区版源代码进行调试的</p>
+<h3 id="启用-Plugin-DevKit"><a href="#启用-Plugin-DevKit" class="headerlink" title="启用 Plugin DevKit"></a>启用 Plugin DevKit</h3><p>Plugin DevKit 本身就是 IntelliJ 的一个插件，它使用 IntelliJ IDEA 自己的构建系统来为开发 IDEA 插件提供插件开发的支持, 所以开发 IDEA 插件之前需要先安装并启用 Plugin DevKit</p>
+<p><img src="/images/IDEAEnablePluginDevKit.png" alt="Enable Plugin DevKit"></p>
+<h3 id="配置插件开发工具包"><a href="#配置插件开发工具包" class="headerlink" title="配置插件开发工具包"></a>配置插件开发工具包</h3><blockquote>
+<p>这里默认大家都已经安了 JDK 并且添加到 IDEA 中了…没有的话安装与添加方式与本节一致</p>
+</blockquote>
+<p>IntelliJ Platform Plugin SDK 就是开发 IntelliJ 平台插件的开发工具包, 是基于 JDK 之上运行的, 类似于开发 Java 应用需要 JDK(Java SDK), 开发 Android 应用需要 Android SDK</p>
+<p>这里添加方式跟添加 JDK 一样, 打开项目结构设置，在全局 SDK 中添加 IntelliJ Platform Plugin SDK，就是你本地 IDEA 安装目录，其他设置默认即可</p>
+<p><img src="/images/IDEAAddPluginSDK.png" alt="Add IntelliJ Platform Plugin SDK"></p>
+<p>这里会比添加 JDK 多一个沙盒主页，默认就星，在调试插件时启动的 IDEA 就是运行在这里的，不会影响当前的 IntelliJ IDEA</p>
+<p>但是同一台机器同时开发多个插件时默认使用的同一个沙盒，即在创建 IntelliJ Platform SDK 时默认指定的沙盒主页</p>
+<h2 id="创建插件项目"><a href="#创建插件项目" class="headerlink" title="创建插件项目"></a>创建插件项目</h2><p>搞定开发环境之后，新建项目时选择 IDE 插件，设置项目信息后点击确定就会打开新的项目窗口</p>
+<p><img src="/images/IDEACreatePluginProject.png"></p>
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><p>项目打开后, 项目结构如下，还是我们很熟悉的项目结构</p>
+<p><img src="/images/IDEAPluginProjectStructure.png"></p>
+<p>开发过程中，我们主要关注以下内容:</p>
+<ul>
+<li>src: 源码和资源目录<ul>
+<li>源码在 /main/java 下面</li>
+<li>资源文件在 /main/resources 下面, 其中在 META-INF 中已经创建了两个文件<ul>
+<li>plugin.xml: 插件配置文件，开发过程中各种插件相关配置都在这里面，后面会详细说明</li>
+<li>pluginIcon.svg: 插件图标文件，这是自动创建的默认图标，我们可以自行更改</li>
+</ul>
+</li>
+<li>如果需要写单元测试，跟往常一样，可以在 src 创建 main 的同级目录 /test/java 放入测试代码和测试资源</li>
+</ul>
+</li>
+<li>build.gradle.kts: 类似 Maven 项目的 pom.xml 文件，是项目的依赖与编译等配置</li>
+<li>settings.gradle.kts: 项目属性，例如项目名称和自定义依赖仓库地址设置在这里，一般不需要改动</li>
+</ul>
+<p>其他文件不需要修改</p>
+<h3 id="依赖下载及项目构建"><a href="#依赖下载及项目构建" class="headerlink" title="依赖下载及项目构建"></a>依赖下载及项目构建</h3><p>跟 Maven 项目很像, 侧边栏也会有个 Gradle 栏</p>
+<p><img src="/images/IDEAPluginGradle.png"></p>
+<p>并且会像 Maven 项目一样，点击刷新按钮自动下载依赖，并且包括 IDEA 社区版及其源码, 很方便</p>
+<p><img src="/images/IDEADownloadIC.png"><br><img src="/images/IDEADownloadICSrc.png"><br><img src="/images/IDEAPluginDownloadDependency.png"></p>
+<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><p>下面是 plugin.xml 配置的主要元素</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 插件配置文件。阅读更多: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>idea-plugin</span><span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- 插件唯一id，不能和其他插件项目重复，所以推荐使用 com.xxx.xxx 的格式
+       插件不同版本之间不能更改，若没有指定，则与插件名称相同 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>com.example.demo1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 插件名称，别人在官方插件库搜索你的插件时使用的名称 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>Demo1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 供应商主页和 email, 就是告诉用户作者是谁，万一有人给你打赏呢 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>vendor</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.jetbrains.com<span class="token punctuation">"</span></span> <span class="token attr-name">email</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>support@jetbrains.com<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 插件页面和 IDE 插件管理器上显示的插件说明。可以在 &lt;![CDATA[ ]]&gt; 标记内添加简单的 HTML 元素（文本格式、段落和列表）。
+       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span><span class="token cdata">&lt;![CDATA[
+    在此处输入您的插件的简短描述。&lt;br&gt;
+    &lt;em&gt;大多数 HTML 标签都可以使用&lt;/em&gt;
+  ]]&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 产品和插件兼容性要求, 就是插件所依赖的其他插件的 id. 注意，是插件，不是依赖包
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html --&gt;</span>
+  <span class="token comment">&lt;!-- 请参阅 http:www.jetbrains.orgintellijsdkdocsbasicsgetting_startedplugin_compatibility.html 了解如何针对不同的产品 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>depends</span><span class="token punctuation">&gt;</span></span>com.intellij.modules.platform<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>depends</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 插件定义的扩展点, 声明该插件对 IDEA core 或其他插件的扩展
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>extensions</span> <span class="token attr-name">defaultExtensionNs</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.intellij<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>extensions</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 以上是创建项目时默认创建的配置, 下面时可以额外进行添加的配置 --&gt;</span>
+
+  <span class="token comment">&lt;!-- 插件版本变更信息，支持HTML标签；可以在 &lt;![CDATA[ ]]&gt; 标记内添加简单的 HTML 元素（文本格式、段落和列表）。
+       将展示在 settings | Plugins 对话框和插件仓库的Web页面 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>change-notes</span><span class="token punctuation">&gt;</span></span>Initial release of the plugin.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>change-notes</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 插件版本 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 插件兼容 IDEA 的最大和最小 build 号，两个属性可以任选一个或者同时使用
+       官网详细介绍：http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html--&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>idea-version</span> <span class="token attr-name">since-build</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3000<span class="token punctuation">"</span></span> <span class="token attr-name">until-build</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3999<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 应用级组件声明 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application-components</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span><span class="token punctuation">&gt;</span></span>
+      <span class="token comment">&lt;!-- 组件接口 --&gt;</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>interface-class</span><span class="token punctuation">&gt;</span></span>com.foo.Component1Interface<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>interface-class</span><span class="token punctuation">&gt;</span></span>
+      <span class="token comment">&lt;!-- 组件的实现类 --&gt;</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>implementation-class</span><span class="token punctuation">&gt;</span></span>com.foo.impl.Component1Impl<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>implementation-class</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application-components</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 项目级组件声明 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project-components</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span><span class="token punctuation">&gt;</span></span>
+      <span class="token comment">&lt;!-- 接口和实现类相同 --&gt;</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>interface-class</span><span class="token punctuation">&gt;</span></span>com.foo.Component2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>interface-class</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project-components</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 模块级组件声明 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>module-components</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>interface-class</span><span class="token punctuation">&gt;</span></span>com.foo.Component3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>interface-class</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>implementation-class</span><span class="token punctuation">&gt;</span></span>com.foo.impl.Component3Impl<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>implementation-class</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>module-components</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 定义各种动作 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actions</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 自定义组 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>group</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>TestMenu<span class="token punctuation">"</span></span> <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>测试菜单<span class="token punctuation">"</span></span> <span class="token attr-name">popup</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>group</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actions</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token comment">&lt;!-- 插件定义的扩展点，以供其他插件扩展该插件 --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>extensionPoints</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>extensionPoints</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>idea-plugin</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><p>build.gradle.kts 示例:</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">plugins <span class="token punctuation">{</span>
+  <span class="token comment">// Java support</span>
+  <span class="token function">id</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"java"</span></span><span class="token punctuation">)</span>
+  <span class="token comment">// Gradle IntelliJ Plugin</span>
+  <span class="token function">id</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"org.jetbrains.intellij"</span></span><span class="token punctuation">)</span> version <span class="token string-literal singleline"><span class="token string">"1.11.0"</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 组</span>
+group <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"com.example"</span></span>
+<span class="token comment">// 插件版本号</span>
+version <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"1.0-SNAPSHOT"</span></span>
+
+<span class="token comment">// 依赖仓库，这里使用了默认的 Maven 仓库, 也可以在此处添加自定义仓库, 比如网络不好可以设置国内仓库</span>
+repositories <span class="token punctuation">{</span>
+  maven <span class="token punctuation">{</span>
+    <span class="token function">setUrl</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"https://maven.aliyun.com/nexus/content/groups/public/"</span></span><span class="token punctuation">)</span>
+    <span class="token function">setUrl</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"https://oss.sonatype.org/content/repositories/snapshots/"</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">mavenCentral</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">gradlePluginPortal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 配置 Gradle IntelliJ 插件, 可以参考: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html</span>
+intellij <span class="token punctuation">{</span>
+  <span class="token comment">// 设置插件名称</span>
+  pluginName<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"CrazyGPT"</span></span><span class="token punctuation">)</span>
+  <span class="token comment">// 开发时沙盒中运行的 IDE 版本号</span>
+  version<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"2021.3.3"</span></span><span class="token punctuation">)</span>
+  <span class="token comment">// 开发时沙盒中运行的 IDE 版本, 使用社区版可以根据源码更方便的调试插件</span>
+  type<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"IC"</span></span><span class="token punctuation">)</span>
+
+  <span class="token comment">// 插件依赖</span>
+  plugins<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token function">listOf</span><span class="token punctuation">(</span><span class="token comment">/* Plugin Dependencies */</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+tasks <span class="token punctuation">{</span>
+  <span class="token comment">// 设置 JVM 兼容版本</span>
+  withType<span class="token operator">&lt;</span>JavaCompile<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    sourceCompatibility <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"11"</span></span>
+    targetCompatibility <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"11"</span></span>
+    options<span class="token punctuation">.</span>encoding <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"UTF-8"</span></span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 设置 Kotlin 兼容版本</span>
+  withType<span class="token operator">&lt;</span>KotlinCompile<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    kotlinOptions<span class="token punctuation">.</span>jvmTarget <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"11"</span></span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 设置 Gradle 版本</span>
+  wrapper <span class="token punctuation">{</span>
+    gradleVersion <span class="token operator">=</span> <span class="token string-literal singleline"><span class="token string">"7.6"</span></span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 设置插件兼容版本</span>
+  patchPluginXml <span class="token punctuation">{</span>
+    <span class="token comment">// 插件版本</span>
+    version<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"1.0-SNAPSHOT"</span></span><span class="token punctuation">)</span>
+    <span class="token comment">// 支持的最早 IDE 版本</span>
+    sinceBuild<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"222.2680.4"</span></span><span class="token punctuation">)</span>
+    <span class="token comment">// 支持的最新 IDE 版本</span>
+    untilBuild<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"223.*"</span></span><span class="token punctuation">)</span>
+    changeNotes<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"init."</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  signPlugin <span class="token punctuation">{</span>
+    certificateChain<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"CERTIFICATE_CHAIN"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    privateKey<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"PRIVATE_KEY"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    password<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"PRIVATE_KEY_PASSWORD"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  publishPlugin <span class="token punctuation">{</span>
+    token<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"PUBLISH_TOKEN"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>build.gradle.kts 配置与 plugin.xml 配置中有一些重复的配置项，如果两边都设置了，则以 build.gradle.kts 为准</p>
+<h3 id="添加操作"><a href="#添加操作" class="headerlink" title="添加操作"></a>添加操作</h3><p><img src="/images/IDEAPluginAddAction1.png"></p>
+<p>新建操作之后就会自动在 plugin.xml 中添加一个 action 标签，并且绑定该操作对应的类</p>
+<p><img src="/images/IDEAPluginAddAction2.png"></p>
+<p>在这个操作类中可以添加该操作的业务逻辑</p>
+<h3 id="添加窗体"><a href="#添加窗体" class="headerlink" title="添加窗体"></a>添加窗体</h3><p><img src="/images/IDEAPluginAddWindow1.png"><br><img src="/images/IDEAPluginAddWindow2.png"></p>
+<p>创建完窗体后，会自动创建窗体类(.java)以及一个同名的窗体设计文件(.form), 窗体设计文件打开之后就长这样，可以理解为 Web 开发的一个前端页面, 只不过是用 Java 写的</p>
+<p><img src="/images/IDEAPluginAddWindow3.png"></p>
+<p>在设计文件中可以拖拽需要的控件到窗体中，会自动在窗体类中添加该变量，在控件上可以创建侦听器，来添加对应控件的各种业务逻辑</p>
+<h2 id="运行与调试项目"><a href="#运行与调试项目" class="headerlink" title="运行与调试项目"></a>运行与调试项目</h2><p>在 Gradle 中，运行 Tasks → intellij → runIde 就可以在沙盒中运行安装了此插件的 IDEA 了，版本为上面指定的 2021.3.3 社区版</p>
+<p><img src="/images/IDEARunIDE.png"></p>
+<p>运行一次之后，会自动添加运行配置，之后再想运行/调试就跟平时我们启动 Spring 项目一样，点上面的运行/调试按钮就可以了</p>
+<p>在运行的插件 IDEA 中，可以看到插件已经安装上了</p>
+<p><img src="/images/IDEAShowPluginInfo.png"></p>
+<blockquote>
+<p>为啥是英文的呢? 因为我本地 IDEA 安了很多插件，沙盒里的 IDEA 除了内置插件以外，只安装了此插件，没有中文插件</p>
+</blockquote>
+<h2 id="插件打包及发布"><a href="#插件打包及发布" class="headerlink" title="插件打包及发布"></a>插件打包及发布</h2><p>与 Maven 类似，这里运行 Gradle buildPlugin 就可以打包了，会将所有依赖包一起打一个可以手动从磁盘安装的压缩包</p>
+<p><img src="/images/IDEABuildPlugin.png"></p>
+<p>打包好的插件安装包会存放在项目的 /build/distributions/ 目录下</p>
+<p><img src="/images/IDEAPluginZip.png"></p>
+<p>把压缩包发给你的朋友就可以让他们体验以下你写的插件了</p>
+<p>如果你想要发布你的插件到 JetBrains 插件仓库的话，执行 Gradle publishPlugin 就可以发布了，但是这需要你配置好你的 JetBrains 账号及 Token</p>
+<blockquote>
+<p>我水平比较菜，还没到发布插件的成都，想了解的可以自行研究研究…</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com" rel="external nofollow noreferrer">CrazyBunQnQ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com/2022/07/22/ideaplugindevelop/">https://blog.crazybunqnq.com/2022/07/22/ideaplugindevelop/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.crazybunqnq.com" target="_blank">CrazyBunQnQ</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JetBrains-Plugin/">
+                                    <span class="chip bg-color">JetBrains Plugin</span>
+                                </a>
+                            
+                                <a href="/tags/Plugin/">
+                                    <span class="chip bg-color">Plugin</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="weibo,wechat,qq,qzone,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/08/22/dockercontainerpath/">
+                    <div class="card-image">
+                        
+                        <img src="/images/DockerInWindows.png" class="responsive-img" alt="Windows 下修改 Docker 镜像路径">
+                        
+                        <span class="card-title">Windows 下修改 Docker 镜像路径</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            最近发现 Docker 镜像占用的空间太多了，尤其是 Python 相关的镜像，分分钟把 C 盘 D 盘占满了...单独搞了个大硬盘专门装镜像、依赖、数据集
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%98%BE%E5%8D%A1/">
+                        <span class="chip bg-color">显卡</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%B9%E5%99%A8/">
+                        <span class="chip bg-color">容器</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/17/macosunablefullscreen/">
+                    <div class="card-image">
+                        
+                        <img src="/images/MacOSEasyconnectRemoteDesktop.png" class="responsive-img" alt="MacOS 使用 Easyconnect 远程桌面无法全屏显示">
+                        
+                        <span class="card-title">MacOS 使用 Easyconnect 远程桌面无法全屏显示</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            疫情原因，需要远程办公，但是办公环境涉密，不能连外网，所以要用**指定版本**的 Easyconnect 软件连接远程桌面进行远程办公，然后，使用 Mac 客户端的我就出现了神器的界面...
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/" class="post-category">
+                                    触类旁通
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Easyconnect/">
+                        <span class="chip bg-color">Easyconnect</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/">
+                        <span class="chip bg-color">远程桌面</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%A8%E5%B1%8F/">
+                        <span class="chip bg-color">全屏</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('40')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: CrazyBun<br />'
+            + '文章作者: CrazyBunQnQ<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归 CrazyBunQnQ 所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2023</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">CrazyBunQnQ</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "10";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CrazyBunQnQ" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:crazybunqnq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=494225231" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 494225231" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2800339712" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2800339712" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?864d5a7534ed5364589f82c39b9c4e07";
+        var baiduSite = document.createElement("meta");
+        baiduSite.name = "baidu-site-verification";
+        baiduSite.content = "codeva-7NYmMaNfam";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(baiduSite, s);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+	    <div style="position:fixed;bottom:125px;right:9px;cursor: pointer;">
+	        <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/498631"><img src="/medias/contact.png"></a>
+	    </div>
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

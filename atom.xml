@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CrazyBun</title>
+  
+  <subtitle> </subtitle>
+  <link href="https://blog.crazybunqnq.com/atom.xml" rel="self"/>
+  
+  <link href="https://blog.crazybunqnq.com/"/>
+  <updated>2023-04-03T13:56:38.917Z</updated>
+  <id>https://blog.crazybunqnq.com/</id>
+  
+  <author>
+    <name>CrazyBunQnQ</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>你还在用 SVN 吗？</title>
+    <link href="https://blog.crazybunqnq.com/2023/03/25/svn2git/"/>
+    <id>https://blog.crazybunqnq.com/2023/03/25/svn2git/</id>
+    <published>2023-03-25T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.917Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;搭建-Git-服务器&quot;&gt;&lt;a href=&quot;#搭建-Git-服务器&quot; class=&quot;headerlink&quot; title=&quot;搭建 Git 服务器&quot;&gt;&lt;/a&gt;搭建 Git 服务器&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Python" scheme="https://blog.crazybunqnq.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>类比 Java 学 Python(1)</title>
+    <link href="https://blog.crazybunqnq.com/2023/03/14/learnpythonbyjava-1/"/>
+    <id>https://blog.crazybunqnq.com/2023/03/14/learnpythonbyjava-1/</id>
+    <published>2023-03-14T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.909Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Python-基本数据类型&quot;&gt;&lt;a href=&quot;#Python-基本数据类型&quot; class=&quot;headerlink&quot; title=&quot;Python 基本数据类型&quot;&gt;&lt;/a&gt;Python 基本数据类型&lt;/h1&gt;&lt;h2 id=&quot;基本类型&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="https://blog.crazybunqnq.com/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="https://blog.crazybunqnq.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows Docker 中运行 PaddleSpeech</title>
+    <link href="https://blog.crazybunqnq.com/2023/01/22/paddlespeechinwindowsdocker/"/>
+    <id>https://blog.crazybunqnq.com/2023/01/22/paddlespeechinwindowsdocker/</id>
+    <published>2023-01-22T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.913Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;PaddleSpeech&quot;&gt;&lt;a href=&quot;#PaddleSpeech&quot; class=&quot;headerlink&quot; title=&quot;PaddleSpeech&quot;&gt;&lt;/a&gt;PaddleSpeech&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="AI" scheme="https://blog.crazybunqnq.com/categories/AI/"/>
+    
+    
+    <category term="语音合成" scheme="https://blog.crazybunqnq.com/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/"/>
+    
+    <category term="语音识别" scheme="https://blog.crazybunqnq.com/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker 中使用 Nvidia 显卡</title>
+    <link href="https://blog.crazybunqnq.com/2022/10/22/usenvidiaindocker/"/>
+    <id>https://blog.crazybunqnq.com/2022/10/22/usenvidiaindocker/</id>
+    <published>2022-10-22T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.917Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;安装-nvidia-docker&quot;&gt;&lt;a href=&quot;#安装-nvidia-docker&quot; class=&quot;headerlink&quot; title=&quot;安装 nvidia-docker&quot;&gt;&lt;/a&gt;安装 nvidia-docker&lt;/h2&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="Docker" scheme="https://blog.crazybunqnq.com/categories/Docker/"/>
+    
+    
+    <category term="显卡" scheme="https://blog.crazybunqnq.com/tags/%E6%98%BE%E5%8D%A1/"/>
+    
+    <category term="容器" scheme="https://blog.crazybunqnq.com/tags/%E5%AE%B9%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多版本 CUDA 及 cuDNN 管理</title>
+    <link href="https://blog.crazybunqnq.com/2022/09/22/multipleversionsnivdiamanage/"/>
+    <id>https://blog.crazybunqnq.com/2022/09/22/multipleversionsnivdiamanage/</id>
+    <published>2022-09-22T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.909Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;多版本-CUDA-及-cuDNN-管理&quot;&gt;&lt;a href=&quot;#多版本-CUDA-及-cuDNN-管理&quot; class=&quot;headerlink&quot; title=&quot;多版本 CUDA 及 cuDNN 管理&quot;&gt;&lt;/a&gt;多版本 CUDA 及 cuDNN 管理&lt;/h2&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://blog.crazybunqnq.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Nvidia" scheme="https://blog.crazybunqnq.com/tags/Nvidia/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 下修改 Docker 镜像路径</title>
+    <link href="https://blog.crazybunqnq.com/2022/08/22/dockercontainerpath/"/>
+    <id>https://blog.crazybunqnq.com/2022/08/22/dockercontainerpath/</id>
+    <published>2022-08-22T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.901Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Windows-下修改使用-WSL-的-Docker-镜像路径&quot;&gt;&lt;a href=&quot;#Windows-下修改使用-WSL-的-Docker-镜像路径&quot; class=&quot;headerlink&quot; title=&quot;Windows 下修改使用 WSL 的 Docker</summary>
+        
+      
+    
+    
+    
+    <category term="Docker" scheme="https://blog.crazybunqnq.com/categories/Docker/"/>
+    
+    
+    <category term="显卡" scheme="https://blog.crazybunqnq.com/tags/%E6%98%BE%E5%8D%A1/"/>
+    
+    <category term="容器" scheme="https://blog.crazybunqnq.com/tags/%E5%AE%B9%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA 插件开发入门</title>
+    <link href="https://blog.crazybunqnq.com/2022/07/22/ideaplugindevelop/"/>
+    <id>https://blog.crazybunqnq.com/2022/07/22/ideaplugindevelop/</id>
+    <published>2022-07-22T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.901Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一直想开发自己的插件来着，正好工作中有机会了，研究研究~&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://blog.crazybunqnq.com/categories/Java/"/>
+    
+    
+    <category term="JetBrains Plugin" scheme="https://blog.crazybunqnq.com/tags/JetBrains-Plugin/"/>
+    
+    <category term="Plugin" scheme="https://blog.crazybunqnq.com/tags/Plugin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MacOS 使用 Easyconnect 远程桌面无法全屏显示</title>
+    <link href="https://blog.crazybunqnq.com/2022/06/17/macosunablefullscreen/"/>
+    <id>https://blog.crazybunqnq.com/2022/06/17/macosunablefullscreen/</id>
+    <published>2022-06-17T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.909Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;疫情原因，需要远程办公，但是办公环境涉密，不能连外网，所以要用&lt;strong&gt;指定版本&lt;/strong&gt;的 Easyconnect 软件连接远程桌面进行远程办公，然后，使用 Mac 客户端的我就出现了神器的界面…&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="触类旁通" scheme="https://blog.crazybunqnq.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+    
+    
+    <category term="Easyconnect" scheme="https://blog.crazybunqnq.com/tags/Easyconnect/"/>
+    
+    <category term="远程桌面" scheme="https://blog.crazybunqnq.com/tags/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/"/>
+    
+    <category term="全屏" scheme="https://blog.crazybunqnq.com/tags/%E5%85%A8%E5%B1%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins 构建并运行 Docker 镜像</title>
+    <link href="https://blog.crazybunqnq.com/2022/06/06/jenkinsdocker/"/>
+    <id>https://blog.crazybunqnq.com/2022/06/06/jenkinsdocker/</id>
+    <published>2022-06-06T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.905Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Jenkins 环境&lt;/li&gt;
+&lt;li&gt;Jenkins 服务器能够连接的 Docker</summary>
+        
+      
+    
+    
+    
+    <category term="Jenkins" scheme="https://blog.crazybunqnq.com/categories/Jenkins/"/>
+    
+    
+    <category term="Docker" scheme="https://blog.crazybunqnq.com/tags/Docker/"/>
+    
+    <category term="Jenkins" scheme="https://blog.crazybunqnq.com/tags/Jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TensorFlow 机器学习环境搭建</title>
+    <link href="https://blog.crazybunqnq.com/2022/04/06/mlenvironment/"/>
+    <id>https://blog.crazybunqnq.com/2022/04/06/mlenvironment/</id>
+    <published>2022-04-06T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.909Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;基础环境&quot;&gt;&lt;a href=&quot;#基础环境&quot; class=&quot;headerlink&quot; title=&quot;基础环境&quot;&gt;&lt;/a&gt;基础环境&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;系统: Windows 10 64位&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Machine Learning" scheme="https://blog.crazybunqnq.com/categories/Machine-Learning/"/>
+    
+    
+    <category term="Python" scheme="https://blog.crazybunqnq.com/tags/Python/"/>
+    
+    <category term="TensorFlow" scheme="https://blog.crazybunqnq.com/tags/TensorFlow/"/>
+    
+    <category term="Windows" scheme="https://blog.crazybunqnq.com/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 FRP 内网穿透支持 Docker 容器 HTTPS 访问</title>
+    <link href="https://blog.crazybunqnq.com/2022/03/10/frpdockercontainerhttps/"/>
+    <id>https://blog.crazybunqnq.com/2022/03/10/frpdockercontainerhttps/</id>
+    <published>2022-03-10T00:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.901Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;创建证书&quot;&gt;&lt;a href=&quot;#创建证书&quot; class=&quot;headerlink&quot; title=&quot;创建证书&quot;&gt;&lt;/a&gt;创建证书&lt;/h2&gt;&lt;p&gt;这里我们通过 &lt;a href=&quot;https://certbot.eff.org/&quot;&gt;CertBot&lt;/a&gt; 从 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="触类旁通" scheme="https://blog.crazybunqnq.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+    
+    
+    <category term="FRP" scheme="https://blog.crazybunqnq.com/tags/FRP/"/>
+    
+    <category term="内网穿透" scheme="https://blog.crazybunqnq.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    
+    <category term="HTTPS" scheme="https://blog.crazybunqnq.com/tags/HTTPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FTX 量化空间马丁格尔策略</title>
+    <link href="https://blog.crazybunqnq.com/2021/11/05/ftxquantzonemartingale/"/>
+    <id>https://blog.crazybunqnq.com/2021/11/05/ftxquantzonemartingale/</id>
+    <published>2021-11-05T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.901Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;之前介绍了 FTX 交易所量化空间的功能和函数以及简单的网格策略，这次说下如何利用量化空间创建马丁格尔机器人: 分批买入，一次卖出&lt;/p&gt;
+&lt;p&gt;该策略运气好的话，在&lt;strong&gt;最终卖出时，保证期望收益的情况下还能剩下一些币&lt;/strong&gt; ^_^&lt;/p&gt;
+&lt;p&gt;派网最近出了个新的交易机器人: 马丁格尔机器人，那为啥我不直接用派网机器人呢？&lt;/p&gt;
+&lt;p&gt;原因很简单: 派网的&lt;strong&gt;资金利用率低&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;例如开一个机器人用到 1000U, 但是没到下限之前，就会有些 U 没有用到，但是被冻结了，尤其是接近上限时，会有很多 U 没有用到但是没法用在别的地方&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/FTXCreateStrategy.jpg&quot; alt=&quot;创建策略&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用 &lt;a href=&quot;https://twitter.com/FTX_Benson&quot;&gt;&lt;strong&gt;Benson Sun&lt;/strong&gt;&lt;/a&gt; 的 &lt;a href=&quot;https://ftx.com/#a=BensonTW&quot;&gt;推荐码&lt;/a&gt; 注册 FTX 账号，&lt;strong&gt;可以获得 &lt;font color=&quot;#FF6666&quot;&gt;5%&lt;/font&gt; 的手续费折扣&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="虚拟货币" scheme="https://blog.crazybunqnq.com/categories/%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81/"/>
+    
+    
+    <category term="自动交易" scheme="https://blog.crazybunqnq.com/tags/%E8%87%AA%E5%8A%A8%E4%BA%A4%E6%98%93/"/>
+    
+    <category term="FTX" scheme="https://blog.crazybunqnq.com/tags/FTX/"/>
+    
+    <category term="量化空间" scheme="https://blog.crazybunqnq.com/tags/%E9%87%8F%E5%8C%96%E7%A9%BA%E9%97%B4/"/>
+    
+    <category term="马丁格尔" scheme="https://blog.crazybunqnq.com/tags/%E9%A9%AC%E4%B8%81%E6%A0%BC%E5%B0%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FTX 量化空间网格策略</title>
+    <link href="https://blog.crazybunqnq.com/2021/10/07/ftxquantzonegird/"/>
+    <id>https://blog.crazybunqnq.com/2021/10/07/ftxquantzonegird/</id>
+    <published>2021-10-07T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.901Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;之前介绍了 FTX 交易所量化空间的功能和函数，这次说下如何利用量化空间创建自动网格交易的策略&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/FTXCreateStrategy.jpg&quot; alt=&quot;创建策略&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用 &lt;a href=&quot;https://twitter.com/FTX_Benson&quot;&gt;&lt;strong&gt;Benson Sun&lt;/strong&gt;&lt;/a&gt; 的 &lt;a href=&quot;https://ftx.com/#a=BensonTW&quot;&gt;推荐码&lt;/a&gt; 注册 FTX 账号，&lt;strong&gt;可以获得 &lt;font color=&quot;#FF6666&quot;&gt;5%&lt;/font&gt; 的手续费折扣&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="虚拟货币" scheme="https://blog.crazybunqnq.com/categories/%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81/"/>
+    
+    
+    <category term="自动交易" scheme="https://blog.crazybunqnq.com/tags/%E8%87%AA%E5%8A%A8%E4%BA%A4%E6%98%93/"/>
+    
+    <category term="FTX" scheme="https://blog.crazybunqnq.com/tags/FTX/"/>
+    
+    <category term="量化空间" scheme="https://blog.crazybunqnq.com/tags/%E9%87%8F%E5%8C%96%E7%A9%BA%E9%97%B4/"/>
+    
+    <category term="网格交易" scheme="https://blog.crazybunqnq.com/tags/%E7%BD%91%E6%A0%BC%E4%BA%A4%E6%98%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FTX 量化空间</title>
+    <link href="https://blog.crazybunqnq.com/2021/09/29/ftxquantzone/"/>
+    <id>https://blog.crazybunqnq.com/2021/09/29/ftxquantzone/</id>
+    <published>2021-09-29T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.901Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;FTX 交易所是一家排名前 5 的、非常适合做对冲交易的交易所. 并且它有一个非常棒的功能: 量化空间. 即使你没有服务器，没有交易系统，不会编程，也可以用它来创建你的自动交易机器人.&lt;/p&gt;
+&lt;p&gt;进入 FTX 网页版后按下面操作即可创建量化策略&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/FTXCreateStrategy.jpg&quot; alt=&quot;创建策略&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用 &lt;a href=&quot;https://twitter.com/FTX_Benson&quot;&gt;&lt;strong&gt;Benson Sun&lt;/strong&gt;&lt;/a&gt; 的 &lt;a href=&quot;https://ftx.com/#a=BensonTW&quot;&gt;推荐码&lt;/a&gt; 注册 FTX 账号，&lt;strong&gt;可以获得 &lt;font color=&quot;#FF6666&quot;&gt;5%&lt;/font&gt; 的手续费折扣&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="虚拟货币" scheme="https://blog.crazybunqnq.com/categories/%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81/"/>
+    
+    
+    <category term="自动交易" scheme="https://blog.crazybunqnq.com/tags/%E8%87%AA%E5%8A%A8%E4%BA%A4%E6%98%93/"/>
+    
+    <category term="FTX" scheme="https://blog.crazybunqnq.com/tags/FTX/"/>
+    
+    <category term="量化空间" scheme="https://blog.crazybunqnq.com/tags/%E9%87%8F%E5%8C%96%E7%A9%BA%E9%97%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 死锁原因及排查</title>
+    <link href="https://blog.crazybunqnq.com/2021/08/05/javadeadlock/"/>
+    <id>https://blog.crazybunqnq.com/2021/08/05/javadeadlock/</id>
+    <published>2021-08-05T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.905Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在高并发多线程的应用里，很可能就会遇到死锁问题，来看看死锁的原因，遇到了要怎么解决呢？&lt;/p&gt;
+&lt;h2 id=&quot;死锁的原因&quot;&gt;&lt;a href=&quot;#死锁的原因&quot; class=&quot;headerlink&quot; title=&quot;死锁的原因&quot;&gt;&lt;/a&gt;死锁的原因&lt;/h2&gt;&lt;p&gt;Java</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://blog.crazybunqnq.com/categories/Java/"/>
+    
+    
+    <category term="Java 基础" scheme="https://blog.crazybunqnq.com/tags/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 注解</title>
+    <link href="https://blog.crazybunqnq.com/2021/06/01/javaannotation/"/>
+    <id>https://blog.crazybunqnq.com/2021/06/01/javaannotation/</id>
+    <published>2021-06-01T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.905Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;写代码的时候经常能见到各种注解，可能因为太常见，所以忽略了它的存在&lt;/p&gt;
+&lt;p&gt;今天点进去几个注解看了下源码注释, 了解下官方说明各个注解是干啥的, 结果发现每个注解类里面的方法都跳转不到实现类, 哎哟我的好奇心呐, 研究研究！&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://blog.crazybunqnq.com/categories/Java/"/>
+    
+    
+    <category term="Java 基础" scheme="https://blog.crazybunqnq.com/tags/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Resource And Autowired 注解的区别</title>
+    <link href="https://blog.crazybunqnq.com/2021/03/06/resourceandautowired/"/>
+    <id>https://blog.crazybunqnq.com/2021/03/06/resourceandautowired/</id>
+    <published>2021-03-06T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.913Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天项目上线后出现一个生产问题, &lt;code&gt;@Resource&lt;/code&gt; 注解注入 &lt;code&gt;systemTaskService&lt;/code&gt; 对象失败, 导致对象空指针了&lt;/p&gt;
+&lt;p&gt;但是本次修改内容修改了很多地方, 都使用</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://blog.crazybunqnq.com/categories/Java/"/>
+    
+    
+    <category term="框架" scheme="https://blog.crazybunqnq.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+    <category term="Spring" scheme="https://blog.crazybunqnq.com/tags/Spring/"/>
+    
+    <category term="注解" scheme="https://blog.crazybunqnq.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MyBatis mapper 文件中 $ 和</title>
+    <link href="https://blog.crazybunqnq.com/2021/02/22/mybatismapper-and/"/>
+    <id>https://blog.crazybunqnq.com/2021/02/22/mybatismapper-and/</id>
+    <published>2021-02-22T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.909Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一般来说，我们使用 &lt;code&gt;MyBatis Generator&lt;/code&gt; 来生成 &lt;code&gt;mapper.xml&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://blog.crazybunqnq.com/categories/Java/"/>
+    
+    
+    <category term="数据库" scheme="https://blog.crazybunqnq.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="框架" scheme="https://blog.crazybunqnq.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+    <category term="MyBatis" scheme="https://blog.crazybunqnq.com/tags/MyBatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次树莓派被黑后紧急恢复系统和应用的经历</title>
+    <link href="https://blog.crazybunqnq.com/2020/11/28/thepiwashacked/"/>
+    <id>https://blog.crazybunqnq.com/2020/11/28/thepiwashacked/</id>
+    <published>2020-11-28T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.917Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;记一次树莓派被黑后紧急恢复系统和应用的经历&quot;&gt;&lt;a href=&quot;#记一次树莓派被黑后紧急恢复系统和应用的经历&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="触类旁通" scheme="https://blog.crazybunqnq.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+    
+    
+    <category term="树莓派" scheme="https://blog.crazybunqnq.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    <category term="恢复" scheme="https://blog.crazybunqnq.com/tags/%E6%81%A2%E5%A4%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派安装 Docker 与持续集成~</title>
+    <link href="https://blog.crazybunqnq.com/2020/03/30/dockerinraspberrypi4b/"/>
+    <id>https://blog.crazybunqnq.com/2020/03/30/dockerinraspberrypi4b/</id>
+    <published>2020-03-30T22:22:22.000Z</published>
+    <updated>2023-04-03T13:56:38.901Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;树莓派 4B 的性能还是很好的，又入手了 8G 版的 4B，性能真么好，当然要好好利用啦！Docker 走起！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="触类旁通" scheme="https://blog.crazybunqnq.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+    
+    
+    <category term="容器" scheme="https://blog.crazybunqnq.com/tags/%E5%AE%B9%E5%99%A8/"/>
+    
+    <category term="树莓派" scheme="https://blog.crazybunqnq.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+  </entry>
+  
+</feed>

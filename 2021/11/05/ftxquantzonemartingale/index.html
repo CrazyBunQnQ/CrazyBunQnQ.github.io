@@ -1,0 +1,1223 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="FTX">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93893895-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-93893895-1');
+</script>
+
+
+    <title>FTX 量化空间马丁格尔策略 | CrazyBun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="CrazyBun" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">CrazyBun</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">CrazyBun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/FTXQuantZone.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">FTX 量化空间马丁格尔策略</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%87%AA%E5%8A%A8%E4%BA%A4%E6%98%93/">
+                                <span class="chip bg-color">自动交易</span>
+                            </a>
+                        
+                            <a href="/tags/FTX/">
+                                <span class="chip bg-color">FTX</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%87%8F%E5%8C%96%E7%A9%BA%E9%97%B4/">
+                                <span class="chip bg-color">量化空间</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%A9%AC%E4%B8%81%E6%A0%BC%E5%B0%94/">
+                                <span class="chip bg-color">马丁格尔</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81/" class="post-category">
+                                虚拟货币
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-11-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    5 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>之前介绍了 FTX 交易所量化空间的功能和函数以及简单的网格策略，这次说下如何利用量化空间创建马丁格尔机器人: 分批买入，一次卖出</p>
+<p>该策略运气好的话，在<strong>最终卖出时，保证期望收益的情况下还能剩下一些币</strong> ^_^</p>
+<p>派网最近出了个新的交易机器人: 马丁格尔机器人，那为啥我不直接用派网机器人呢？</p>
+<p>原因很简单: 派网的<strong>资金利用率低</strong></p>
+<p>例如开一个机器人用到 1000U, 但是没到下限之前，就会有些 U 没有用到，但是被冻结了，尤其是接近上限时，会有很多 U 没有用到但是没法用在别的地方</p>
+<p><img src="/images/FTXCreateStrategy.jpg" alt="创建策略"></p>
+<blockquote>
+<p>使用 <a target="_blank" rel="noopener" href="https://twitter.com/FTX_Benson"><strong>Benson Sun</strong></a> 的 <a target="_blank" rel="noopener" href="https://ftx.com/#a=BensonTW">推荐码</a> 注册 FTX 账号，<strong>可以获得 <font color="#FF6666">5%</font> 的手续费折扣</strong></p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="设定全局变量策略"><a href="#设定全局变量策略" class="headerlink" title="设定全局变量策略"></a>设定全局变量策略</h2><h3 id="触发条件"><a href="#触发条件" class="headerlink" title="触发条件"></a>触发条件</h3><p><code>true</code></p>
+<h3 id="执行逻辑-仅设置变量"><a href="#执行逻辑-仅设置变量" class="headerlink" title="执行逻辑-仅设置变量"></a>执行逻辑-仅设置变量</h3><h4 id="设置策略触发价格"><a href="#设置策略触发价格" class="headerlink" title="设置策略触发价格"></a>设置策略触发价格</h4><p><code>girdStartPrice=60</code></p>
+<p>价格低于这个值才正式开始执行整个策略</p>
+<h4 id="补仓次数"><a href="#补仓次数" class="headerlink" title="补仓次数"></a>补仓次数</h4><blockquote>
+<p>不建议补仓太多次</p>
+</blockquote>
+<p><code>coverCount=5</code></p>
+<h4 id="设置买入百分比"><a href="#设置买入百分比" class="headerlink" title="设置买入百分比"></a>设置买入百分比</h4><p><code>buyPercent=0.1</code></p>
+<p>策略开始后，价格每跌多少进行补仓, 这里我设置的每跌 10% 买一次</p>
+<h4 id="设置期望收益百分比"><a href="#设置期望收益百分比" class="headerlink" title="设置期望收益百分比"></a>设置期望收益百分比</h4><p><code>sellPercent=0.5</code></p>
+<p>涨到 <code>持仓均价 * (1 + sellPercent)</code> 时再卖出所有, 这里我设置的涨 50% 全部卖出</p>
+<h4 id="计算最后一次补仓的价格"><a href="#计算最后一次补仓的价格" class="headerlink" title="计算最后一次补仓的价格"></a>计算最后一次补仓的价格</h4><p>通过补仓次数、起始价格和每次买入百分比计算购买下限</p>
+<blockquote>
+<p>该变量不会用到，也就看一下，了解下网格区间，手动算也行: <code>起始价格 * (1 - 买入百分比)^补仓次数</code></p>
+</blockquote>
+<p><code>startPrice=get_variable("girdStartPrice") * (1 - get_variable("buyPercent")) ** get_variable("coverCount")</code></p>
+<h4 id="设置每次买入额"><a href="#设置每次买入额" class="headerlink" title="设置每次买入额"></a>设置每次买入额</h4><p><code>cost=500</code></p>
+<p>我喜欢每次以固定额度买入，有的人喜欢每次买入固定数量，区别不大，逻辑自己稍微调整一下即可</p>
+<h2 id="第一单策略"><a href="#第一单策略" class="headerlink" title="第一单策略"></a>第一单策略</h2><blockquote>
+<p>没有特殊需求的话买入策略可以合并为一个</p>
+</blockquote>
+<h3 id="触发条件-1"><a href="#触发条件-1" class="headerlink" title="触发条件"></a>触发条件</h3><ul>
+<li>触发价格不为 0</li>
+<li>购买数量为 0</li>
+<li>当前价格低于<a href="#%E8%AE%BE%E7%BD%AE%E7%AD%96%E7%95%A5%E8%A7%A6%E5%8F%91%E4%BB%B7%E6%A0%BC">网格触发价格</a></li>
+<li>其他你认为合适的触发条件，用来提高收益</li>
+</ul>
+<p><code>get_variable("girdStartPrice") != 0 and get_variable("buyCount") == 0 and price("FTT/USD") &lt; get_variable("girdStartPrice")</code></p>
+<p>建议再加上其他你觉得合适的触发条件, 不加也可以，启动后会立即执行</p>
+<p>例如我想在当前价小于 30 天均价的时候再购买, 就可以填加这个条件: <code>and price("FTT/USD") &lt; average_price("FTT/USD", 60 * 24 * 30)</code></p>
+<h3 id="执行逻辑"><a href="#执行逻辑" class="headerlink" title="执行逻辑"></a>执行逻辑</h3><h4 id="购买"><a href="#购买" class="headerlink" title="购买"></a>购买</h4><ul>
+<li>订单数量: <code>get_variable("cost") / price("FTT/USD")</code></li>
+<li>限价: <code>get_variable("girdStartPrice")</code></li>
+</ul>
+<blockquote>
+<p>不要勾选 <code>Post Only</code>, 因为触发条件肯定低于这个价格，所以会以更低的价格购买到</p>
+</blockquote>
+<h4 id="设置变量"><a href="#设置变量" class="headerlink" title="设置变量"></a>设置变量</h4><ul>
+<li>买入次数: <code>buyCount = 1</code></li>
+<li>持仓数量: <code>positionAmount = get_variable("cost") / get_variable("girdStartPrice")</code></li>
+</ul>
+<blockquote>
+<p><code>buyCount</code> 每次购买 +1, 每次出售 -1</p>
+</blockquote>
+<h2 id="后续购买策略"><a href="#后续购买策略" class="headerlink" title="后续购买策略"></a>后续购买策略</h2><h3 id="触发条件-2"><a href="#触发条件-2" class="headerlink" title="触发条件"></a>触发条件</h3><ul>
+<li>触发价格不为 0: <code>get_variable("girdStartPrice") != 0</code></li>
+<li>购买次数大于 0: <code>get_variable("buyCount") &gt; 0</code></li>
+<li>当前挂的买单数量小于等于购买次数: <code>get_variable("buyCount") &lt;= get_variable("coverCount")</code></li>
+<li>当前价格低于上一次补仓价格的 <a href="#%E8%AE%BE%E7%BD%AE%E4%B9%B0%E5%85%A5%E7%99%BE%E5%88%86%E6%AF%94">90%</a>: <code>price("FTT/USD") &lt; get_variable("girdStartPrice") * (1 - get_variable("buyPercent")) ** get_variable("buyCount")</code><ul>
+<li>最后一次期望的购买价格: <code>get_variable("girdStartPrice") * (1 - get_variable("buyPercent")) ** get_variable("buyCount")</code></li>
+</ul>
+</li>
+<li>可用 USD 大于每次购买所需的 USD: <code>balance_free("USD") &gt; get_variable("cost")</code></li>
+<li>之前下的买单已完全成交: <code>balance_free("USD") == balance("USD")</code></li>
+<li>其你认为合适的条件，用来增加抄底效果，例如当前价小于日均线的 95%: <code>price("FTT/USD") &lt; average_price("BTC/USD", 60 * 24) * 0.95</code></li>
+</ul>
+<blockquote>
+<p><code>get_variable("girdStartPrice") * (1 - get_variable("buyPercent")) ** get_variable("buyCount")</code> 表示<strong>预期的</strong>上次购买价格，即通过买入次数和买入百分比计算出的最后一次的买入价格，并不是实际最后一次购买价格</p>
+<p>例如策略触发价格设置的很低，那么就会连续低价购买很多次，也就是比网格预期的购买价格低很多，涨上去的时候根据预期网格去卖(一点一点分批卖)</p>
+</blockquote>
+<p>综上:</p>
+<p><code>get_variable("girdStartPrice") != 0 and get_variable("buyCount") &gt; 0 and get_variable("buyCount") &gt; 0 and get_variable("buyCount") &lt;= get_variable("coverCount") and price("FTT/USD") &lt; get_variable("girdStartPrice") * (1 - get_variable("buyPercent")) ** get_variable("buyCount") and balance_free("USD") &gt; get_variable("cost") and balance_free("USD") == balance("USD") and price("FTT/USD") &lt; average_price("BTC/USD", 60 * 24) * 0.95</code></p>
+<h3 id="执行逻辑-1"><a href="#执行逻辑-1" class="headerlink" title="执行逻辑"></a>执行逻辑</h3><h4 id="购买-1"><a href="#购买-1" class="headerlink" title="购买"></a>购买</h4><ul>
+<li>订单数量: <code>get_variable("cost") / price("FTT/USD")</code></li>
+<li>限价: <code>get_variable("girdStartPrice") * (1 - get_variable("buyPercent")) ** get_variable("buyCount")</code></li>
+</ul>
+<blockquote>
+<p>不要勾选 <code>Post Only</code>, 因为触发条件肯定低于这个价格，所以会以更低的价格购买到</p>
+</blockquote>
+<h4 id="设置变量-1"><a href="#设置变量-1" class="headerlink" title="设置变量"></a>设置变量</h4><ul>
+<li>买入次数: <code>buyCount=get_variable("buyCount") + 1</code></li>
+<li>持仓数量: <code>positionAmount = get_variable("positionAmount") + get_variable("cost") / (get_variable("girdStartPrice") * (1 - get_variable("buyPercent")) ** get_variable("buyCount"))</code></li>
+</ul>
+<h2 id="出售策略"><a href="#出售策略" class="headerlink" title="出售策略"></a>出售策略</h2><h3 id="触发条件-3"><a href="#触发条件-3" class="headerlink" title="触发条件"></a>触发条件</h3><ul>
+<li>触发价格不为 0: <code>get_variable("girdStartPrice") != 0</code></li>
+<li>当前挂的买单数大于 0: <code>get_variable("buyCount") &gt; 0</code></li>
+<li>当前价格高于持仓平均价格的 <a href="#%E8%AE%BE%E7%BD%AE%E6%9C%9F%E6%9C%9B%E6%94%B6%E7%9B%8A%E7%99%BE%E5%88%86%E6%AF%94">150%</a>: <code>price("FTT/USD") &gt; (get_variable("cost") * get_variable("buyCount") / get_variable("positionAmount")) * (1 + get_variable("sellPercent"))</code><ul>
+<li>总花费: <code>get_variable("cost") * get_variable("buyCount")</code></li>
+<li>持仓均价: <code>get_variable("cost") * get_variable("buyCount") / get_variable("positionAmount")</code></li>
+</ul>
+</li>
+<li>其他你认为合适的条件，用来增加收益</li>
+</ul>
+<blockquote>
+<p>最后一次购买价通过买入次数和买入百分比计算所得</p>
+<p>因为下买单后，购买次数加 1 了, 所以要 <code>get_variable("buyCount") - 1</code> 表示上一次</p>
+</blockquote>
+<p>综上:</p>
+<p><code>get_variable("girdStartPrice") != 0 and get_variable("buyCount") &gt; 0 and price("FTT/USD") &gt; (get_variable("cost") * get_variable("buyCount") / get_variable("positionAmount")) * (1 + get_variable("sellPercent"))</code></p>
+<h3 id="执行逻辑-2"><a href="#执行逻辑-2" class="headerlink" title="执行逻辑"></a>执行逻辑</h3><h4 id="出售"><a href="#出售" class="headerlink" title="出售"></a>出售</h4><ul>
+<li>订单数量: <code>get_variable("positionAmount")</code></li>
+<li>限价: <code>(get_variable("cost") * get_variable("buyCount") / get_variable("positionAmount")) * (1 + get_variable("sellPercent"))</code></li>
+</ul>
+<p>勾选上<strong>如果已经有一个委托存在，则保留现有订单</strong>, 按照期望挂上单了，坐等交易成功就好</p>
+<blockquote>
+<p>买入时的价格只会比预期更低，所以能买更多的币，这里卖出时按照预期买入的币卖出，未卖出的就一直拿着吧, 行情好手动卖出</p>
+<p>如果想全部卖出，则订单数量设置为可用余额 <code>balance_free("FTT")</code></p>
+</blockquote>
+<h4 id="设置变量-2"><a href="#设置变量-2" class="headerlink" title="设置变量"></a>设置变量</h4><p>重置变量</p>
+<ul>
+<li><code>buyCount = 0</code></li>
+<li><code>positionAmount = 0</code></li>
+</ul>
+<h4 id="停止策略-可选"><a href="#停止策略-可选" class="headerlink" title="停止策略(可选)"></a>停止策略(可选)</h4><p>停止所有策略</p>
+<h3 id="使用-Benson-Sun-的-推荐码-注册-FTX-账号，可以获得-5-的手续费折扣"><a href="#使用-Benson-Sun-的-推荐码-注册-FTX-账号，可以获得-5-的手续费折扣" class="headerlink" title="使用 Benson Sun 的 推荐码 注册 FTX 账号，可以获得 5% 的手续费折扣"></a>使用 <a target="_blank" rel="noopener" href="https://twitter.com/FTX_Benson"><strong>Benson Sun</strong></a> 的 <a target="_blank" rel="noopener" href="https://ftx.com/#a=BensonTW">推荐码</a> 注册 FTX 账号，<strong>可以获得 <font color="#FF6666">5%</font> 的手续费折扣</strong></h3>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com" rel="external nofollow noreferrer">CrazyBunQnQ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com/2021/11/05/ftxquantzonemartingale/">https://blog.crazybunqnq.com/2021/11/05/ftxquantzonemartingale/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.crazybunqnq.com" target="_blank">CrazyBunQnQ</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%87%AA%E5%8A%A8%E4%BA%A4%E6%98%93/">
+                                    <span class="chip bg-color">自动交易</span>
+                                </a>
+                            
+                                <a href="/tags/FTX/">
+                                    <span class="chip bg-color">FTX</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%87%8F%E5%8C%96%E7%A9%BA%E9%97%B4/">
+                                    <span class="chip bg-color">量化空间</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%A9%AC%E4%B8%81%E6%A0%BC%E5%B0%94/">
+                                    <span class="chip bg-color">马丁格尔</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="weibo,wechat,qq,qzone,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/03/10/frpdockercontainerhttps/">
+                    <div class="card-image">
+                        
+                        <img src="/images/RaspberryPi%204B.jpg" class="responsive-img" alt="使用 FRP 内网穿透支持 Docker 容器 HTTPS 访问">
+                        
+                        <span class="card-title">使用 FRP 内网穿透支持 Docker 容器 HTTPS 访问</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            之前在树莓派上搭了 FRP 内网穿透，并且将博客系统部署在其中一台设备的一个 Docker 容器中，导致原先直接部署到服务器中的博客系统现在不支持 HTTPS 访问了. 最近心血来潮搞一下，支持一下 HTTPS 访问，不再显示`不安全`啦！
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/" class="post-category">
+                                    触类旁通
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/FRP/">
+                        <span class="chip bg-color">FRP</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+                        <span class="chip bg-color">内网穿透</span>
+                    </a>
+                    
+                    <a href="/tags/HTTPS/">
+                        <span class="chip bg-color">HTTPS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/10/07/ftxquantzonegird/">
+                    <div class="card-image">
+                        
+                        <img src="/images/FTXQuantZone.png" class="responsive-img" alt="FTX 量化空间网格策略">
+                        
+                        <span class="card-title">FTX 量化空间网格策略</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            之前介绍了 FTX 交易所量化空间的功能和函数，这次说下如何利用量化空间创建自动网格交易的策略
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81/" class="post-category">
+                                    虚拟货币
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%87%AA%E5%8A%A8%E4%BA%A4%E6%98%93/">
+                        <span class="chip bg-color">自动交易</span>
+                    </a>
+                    
+                    <a href="/tags/FTX/">
+                        <span class="chip bg-color">FTX</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%87%8F%E5%8C%96%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">量化空间</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E6%A0%BC%E4%BA%A4%E6%98%93/">
+                        <span class="chip bg-color">网格交易</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('40')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: CrazyBun<br />'
+            + '文章作者: CrazyBunQnQ<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归 CrazyBunQnQ 所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2023</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">CrazyBunQnQ</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "10";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CrazyBunQnQ" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:crazybunqnq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=494225231" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 494225231" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2800339712" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2800339712" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?864d5a7534ed5364589f82c39b9c4e07";
+        var baiduSite = document.createElement("meta");
+        baiduSite.name = "baidu-site-verification";
+        baiduSite.content = "codeva-7NYmMaNfam";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(baiduSite, s);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+	    <div style="position:fixed;bottom:125px;right:9px;cursor: pointer;">
+	        <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/498631"><img src="/medias/contact.png"></a>
+	    </div>
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

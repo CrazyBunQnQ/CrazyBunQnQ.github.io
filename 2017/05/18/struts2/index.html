@@ -1,0 +1,1634 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="struts2, CrazyBun">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93893895-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-93893895-1');
+</script>
+
+
+    <title>struts2 | CrazyBun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="CrazyBun" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">CrazyBun</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">CrazyBun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">struts2</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%A1%86%E6%9E%B6/">
+                                <span class="chip bg-color">框架</span>
+                            </a>
+                        
+                            <a href="/tags/struts2/">
+                                <span class="chip bg-color">struts2</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-05-18
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Struts2 前身是 weborek 框架，优点是封装、重用、代码简洁、编码速度快、准确度高。</p>
+<span id="more"></span>
+
+<h2 id="Struts2"><a href="#Struts2" class="headerlink" title="Struts2"></a>Struts2</h2><p>Struts2 是个 Web MVC 框架</p>
+<h3 id="MVC："><a href="#MVC：" class="headerlink" title="MVC："></a>MVC：</h3><ul>
+<li>Controller 控制层<ul>
+<li>DispatcherServlet 总控制器（继承 HttpServlet），分发请求。</li>
+<li>XXXController 分控制器，接受请求数据、调用业务模型、页面跳转（转发重定向）。</li>
+</ul>
+</li>
+<li>Model 业务模型层<ul>
+<li>Service 业务逻辑，处理棘突业务逻辑的。</li>
+<li>DAO（数据持久层）</li>
+</ul>
+</li>
+<li>View 视图层<ul>
+<li>呈现数据，用户交互</li>
+</ul>
+</li>
+</ul>
+<p>View → 发出请求 → 总控制器 → 分发请求 → 分控制器 → 接收数据 ←→ 调用 Service ←→ 调用 DAO （CRUD）→ DB<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;↓<br>                                    页面跳转</p>
+<h2 id="Struts2-入门开发"><a href="#Struts2-入门开发" class="headerlink" title="Struts2 入门开发"></a><strong>Struts2 入门开发</strong></h2><p>首先要<a href="">下载 struets2 资源包</a>（jar 包、源码、示例代码）</p>
+<ol>
+<li><p>创建 web 项目</p>
+</li>
+<li><p>引入 jar 包 </p>
+<ol>
+<li>commons-fileupload 上传</li>
+<li>commons-io 下载</li>
+<li>commons-lang </li>
+<li>freemarker 模板</li>
+<li>javassist 改变字节码</li>
+<li>ognl 一种表达式</li>
+<li>struts2-core 核心包</li>
+<li>xwork-core webwork 核心包</li>
+</ol>
+</li>
+<li><p>配置 Struts2 的总控制器</p>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;filter&gt;
+	&lt;filter-name&gt;StrutsFilter&lt;/filter-name&gt;
+	&lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+&lt;/filter
+&lt;filter-mapping&gt;
+	&lt;filter-name&gt;StrutsFilter&lt;/filter-name&gt;
+&lt;!-- 默认后缀名为 .action 或者无后缀 --&gt;
+	&lt;url-pattern&gt;/*&lt;url-pattern&gt;
+&lt;/filter-mapping&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>编写处理请求的 Action 类（分控制器）<strong>继承 ActionSupport 类</strong><br><strong>方法一定是无参的，并且返回 String 类型</strong> 返回的字符串和页面是一一对应的.</p>
+</li>
+<li><p>在类路径创建一个 <strong>struts.xml</strong> 文件<br>配置请求 url 地址和 Action 的对应关系</p>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">配置文件头从 struts2-core 包中拷贝 struts-default.xml 过来即可
+&lt;struts&gt;
+	&lt;!-- 配置包
+	name:包名
+	extends:继承
+	 --&gt;
+	&lt;package name="com.crazybunqnq.action" extends="struts-default" namespace="/"&gt;
+		&lt;!-- 配置 url 请求和哪个 Action 对应
+		name:配置的请求 url
+		class:action 类的全路径
+		method:方法名，默认为 execute
+		--&gt;
+		&lt;action name="login" class="com.crazybunqnq.LoginAction" method="doLogin"&gt;
+			&lt;!-- 配置 Action 类返回的结果对应的页面
+			name:方法返回的字符串
+			type:响应类型，默认为转发 "dispatcher"，改为 "redirect" 则变为重定向跳转，
+改为 redirectAction 则重定向到另一个 Action ...
+			--&gt;
+			&lt;result name="success"&gt;/main.jsp&lt;/result&gt;
+		&lt;/action&gt;
+	&lt;/package&gt;	
+&lt;/struts&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><!--全局 result-->
+<global-results>
+    <result name="error">/error.jsp</result>
+</global-results>
+<!--全局异常-->
+<global-exception-mappings>
+    <exception-mapping result="error" exception="java.lang"></exception-mapping>
+</global-exception-mappings>
+
+
+
+<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><p>url-发出请求-  action-方法-result-jsp</p>
+<h3 id="页面到-action-的传值和-action-到页面的传值"><a href="#页面到-action-的传值和-action-到页面的传值" class="headerlink" title="页面到 action 的传值和 action 到页面的传值"></a>页面到 action 的传值和 action 到页面的传值</h3><p>Action 中的属性与页面请求的参数名相同，并设置好 get 和 set 方法即可。</p>
+<p>发送请求时会先获取请求参数值并调用 set 方法，再调用 action 的方法。</p>
+<p>//底层请求参数 设置给 set 方法的形参，再给属性赋值</p>
+<pre class="line-numbers language-none"><code class="language-none">http://...../login?name=xxx&amp;age=5&amp;interest=eat&amp;interest=play<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private String name;
+private int age
+private String[] interest;
+private User user;
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public void setAge(int age){
+	this.age = age;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>el 表达式 一次从 pageContext request action session application 中取值</p>
+<p>表单中若要传递对象，则需要这样写：</p>
+<pre class="line-numbers language-HTML" data-language="HTML"><code class="language-HTML">&lt;input name="user.username"/&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h2 id="namespace-命名空间"><a href="#namespace-命名空间" class="headerlink" title="namespace 命名空间"></a>namespace 命名空间</h2><p>分门别类,区分不同包的同名请求，当多个 package 的 action 冲突的时候，可以根据 namespace 区分</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;package name="com.crazybunqnq.action" extends="struts-default" namespace="/emp"&gt;
+&lt;/package&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>默认值是”/“，但不建议用默认值</p>
+</blockquote>
+<h2 id="struts2-访问-request-response-session"><a href="#struts2-访问-request-response-session" class="headerlink" title="struts2 访问 request response session"></a>struts2 访问 request response session</h2><ol>
+<li><p>不推荐</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">//获取原始类型的 request 和 response 对象一次请求 一次响应期间
+HttpServletRequest request = ServletActionContext.getRequest();
+HttpServletRequest response = ServletActionContext.getResponse();
+//获取 session
+HttpSession session = request.getSession();
+//获取 Servlet 上下文，对于一个应用，它是唯一的
+ServletContext application = ServletActionContext.getServletContext();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+<li><p>ActionContext<br>返回 Map 类型的 request response session 对象</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Map&lt;String, Object&gt; request = (Map&lt;String, Object&gt;)ActionContext.getContext().get("request");
+Map&lt;String, Object&gt; session = ActionContext.getContext.getSession();
+Map&lt;String, Object&gt; application = (Map&lt;String, Object&gt;)ActionContext.getContext().getApplication();
+
+requset.put("r", "requset");
+session.put("s", "session");
+application.put("a", "application");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>注入式(推荐)<br>以上两种访问方式都是侵入式编程<br>实现接口<br>Action … implements RequestAware,SessionAware,ApplicationAware<br>实现接口方法后，参数就是 request session application 对象</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private Map&lt;String , Object&gt; appliacation;
+setApplication(Map&lt;String, Object&gt; application) {
+	this.application = application;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<p>推荐将获取 session 等对象封装到一个基类中，例如 BaseAction.java:</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class BaseAction extends ActionSupport implements RequestAware, SessionAware, ApplicationAware {
+
+	protected Map&lt;String, Object&gt; appliacation;
+	protected Map&lt;String, Object&gt; request;
+	protected Map&lt;String, Object&gt; session;
+
+	@Override
+	public void setApplication(Map&lt;String, Object&gt; appliacation) {
+		this.application = application;
+	}
+
+	@Override
+	public void setApplication(Map&lt;String, Object&gt; request) {
+		this.session = request;
+	}
+
+	@Override
+	public void setApplication(Map&lt;String, Object&gt; session) {
+		this.session = session;
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="result-type"><a href="#result-type" class="headerlink" title="result type"></a>result type</h2><pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;result type="..."&gt;&lt;/result&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>result name 默认为 success<br>配置文件可以使用 el 表达式</p>
+</blockquote>
+<h3 id="dispatcher"><a href="#dispatcher" class="headerlink" title="dispatcher"></a>dispatcher</h3><p>转发到页面<br><result type="dispatcher"></result></p>
+<h3 id="freemaker"><a href="#freemaker" class="headerlink" title="freemaker"></a>freemaker</h3><h3 id="stream"><a href="#stream" class="headerlink" title="stream"></a>stream</h3><p>流响应，服务器发送给浏览器的是 流格式的数据(byet 序列)，可以用来下载</p>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;result name="success" type="stream"&gt;
+	&lt;param name="inputName"&gt;is&lt;/parm&gt;
+	&lt;!--
+	contentDisposition
+	attachment:保存 另存 提示
+	inline ： 直接在浏览器打开【默认】
+	--&gt;
+	&lt;param name="contentDisposition"&gt;attachment;filename=${filename}&lt;/param&gt;
+	&lt;param name="bufferSize"&gt;5*1024&lt;/param&gt;&lt;!--5K 缓冲区，默认 1024--&gt;
+	&lt;param name="contentType"&gt;text/pl..&lt;/param&gt;
+&lt;/result&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class DownloadAction{
+	private String filename;//下载文件名
+	private InputStream is;//用来接收下载的文件内容	
+
+	set...
+	getFilename() {
+		return urlencoder.encode(filename, "utf-8");
+	}
+
+	public String execute() {
+		filename="1.png";
+		//根据逻辑路径“download”获取实际发布到服务器上的文件物理路径
+		String realPath = ServletActionContext.getServletContext().getRealPath("/download");
+		String downPath = realPath + "/" + filename;
+		//将要下载的文件内容 转换为 byte by byte
+		is = new FileInputStream(new File(downPath));
+		return "success";
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>没有保存的下载（如验证码）：</p>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;result type="stream"&gt;
+	inputName&gt;inputStream
+	bufferSize&gt;5*1024
+&lt;/result&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">Map&lt;string, bufferedImage&gt; map = ImageUtil.getImage();
+String code = map.keySet().iterator().next();
+BufferedImage img = map.get(code);
+//将 image 对象 转换成 InputStream 格式 发送给浏览器
+ByteArrayoutputStream baos = new ByteArrayOutputStream(inputStream);
+JPEGCodec jp = JPEGCodec.createJPEGEncoder(baos);
+jp.encode(image);
+//转化流
+inputStream = new ByteArrayInputStream(baos.toByteArray());
+return SUCCESS;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="json"><a href="#json" class="headerlink" title="json"></a>json</h3><p>服务器发送给浏览器的是 json 数据</p>
+<ul>
+<li><strong>需要引入 struts-json-plugin.jar（中间件）</strong></li>
+<li><strong>需要改配置文件继承 json-default</strong></li>
+</ul>
+<result type="json" class="org.apache.struts2.json.JSONResult">
+1.如果这里什么都不写，会将 action 中所有的属性，转换成 json 格式 发送给浏览器
+2.通过 incluDEProperties 将制定的属性以 json 格式发送给浏览器
+3.如果返回的是 list，则需要加上.*
+    <param name="includeProperties">flag,sfdf<!--要返回的数据-->
+</result>
+
+<h3 id="jfreechart-、highchart"><a href="#jfreechart-、highchart" class="headerlink" title="jfreechart 、highchart"></a>jfreechart 、highchart</h3><p>图表响应，需要导入 jfreechart 或 highchart 包</p>
+<blockquote>
+<p>工厂设计模式<br>(20 多种涉及模式)</p>
+</blockquote>
+<h3 id="chain"><a href="#chain" class="headerlink" title="chain"></a>chain</h3><p>转发到 Action</p>
+<h3 id="redirect"><a href="#redirect" class="headerlink" title="redirect"></a>redirect</h3><p>重定向到 jsp 页面</p>
+<blockquote>
+<p>jsp 无法渠道 action 属性的值</p>
+</blockquote>
+<h3 id="redirectAction"><a href="#redirectAction" class="headerlink" title="redirectAction"></a>redirectAction</h3><p>重定向到另外一个 Action 类</p>
+<h3 id="chain-与-redirectAction-区别"><a href="#chain-与-redirectAction-区别" class="headerlink" title="chain 与 redirectAction 区别"></a>chain 与 redirectAction 区别</h3><ul>
+<li>chain 两个 Action 可以共享值</li>
+<li>redirectAction 两个 Action 无法共享值</li>
+</ul>
+<p>示例：</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private String name;
+
+setName()
+
+getName
+
+public String excute() {
+sysout( "action1 name" + name);
+return SUCCESS;
+}
+
+
+
+private String name;
+
+setName()
+
+getName
+
+public String excute() {
+sysout( "action2 name" + name);
+return SUCCESS;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>chain01.jsp:</p>
+<pre class="line-numbers language-JSP" data-language="JSP"><code class="language-JSP">form action chain01.action
+name="name"
+submit
+/form<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>struts.xml:</p>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">action name= chain01
+result type = chain
+chain02
+
+action name=chain02
+result type dispatcher
+index.jsp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>访问 chain01.jsp<br>action01 获取值<br>chain 转发到 action02<br>action02 也能获取 chain01.jsp 提交的值</p>
+<p>若使用 重定向 则 action02 拿不到 chain01.jsp 提交的值</p>
+<blockquote>
+<p>跨包调用 action</p>
+</blockquote>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;result&gt;
+	&lt;param name="namespace"&gt;/aaa&lt;/param&gt;
+	&lt;param name="actionName"&gt;/chain02&lt;/param&gt;
+&lt;/result&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>Two to two,too two to two.Two two,too two to two,too1. 决定是否可以访问 action 对象<br>将 action 的共同逻辑编写在拦截器中</p>
+<h2 id="拦截器-Interceptor"><a href="#拦截器-Interceptor" class="headerlink" title="拦截器 Interceptor"></a>拦截器 Interceptor</h2><p>拦截 action 对象，其你去过来不立即走 action 二十先走 拦截器</p>
+<ol>
+<li>决定是否可以访问 action 对象</li>
+<li>将 action 的共同逻辑编写在拦截器中</li>
+<li></li>
+</ol>
+<h3 id="自定义拦截器"><a href="#自定义拦截器" class="headerlink" title="自定义拦截器"></a>自定义拦截器</h3><ol>
+<li><p>定义拦截器，实现 Interceptor 或 继承 MethodFilterInterceptor 或 AbstractInterceptor</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">//public  class TimeInterceptor implements Interceptor {
+//public class TimeInterceptor extends MethodFilterInterceptor {
+public  class TimeInterceptor extends AbstractInterceptor {
+	//ActionInvocation 是 action 对象的执行者
+	@Override
+	public String interept(ActionInvocation invocation) thorws ... {
+		long start = System.currentTimeMillis();
+		String result = invocation.invoke();//调用后续的拦截器或者 action 对象
+		long end = System.currentTimeMillis();
+		long time = end - start;
+		String className = invocation.getAction().getClass().getSimpleName();
+		//代理模式
+		String methodName = invocation.getProxy().getMethod();
+		String msg = "在" + className + "类的" + methodName + "方法上花费了" + tiom "毫秒"；
+		log.info(msg);
+		FileWriter fw = new FileWriter(new File("D:\\2a.txt"), true);
+		fw.write(msg)
+		return result;
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>在 struts.xml 中声明拦截器（多个包则每个包都需要声明）</p>
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;package&gt;
+	&lt;interceptor name="timeInterceptor" class="..."&gt;&lt;/interceptor&gt;
+	&lt;!--
+	1. 如果一个没有配置任何的拦截器 struts 会默认提供一个 defaultStack （默认拦截器栈）
+	2. 一旦配置了一个拦截器，则不再提供 defaultStack 拦截器
+	3. defaultStack 是个很重要的拦截器，所以若手动配置了其他拦截器一定要加上这个默认拦截器--&gt;
+	&lt;interceptor name="defaultStack"&gt;&lt;/interceptor&gt;
+	&lt;!--若配置了 default 则所有 action 都会用默认的拦截器，action 中不再需要配置--&gt;
+	&lt;default-interceptor-ref name="timeInterceptor"&gt;&lt;/default-interceptor-ref&gt;
+	&lt;action ...&gt;
+		&lt;interceptor-ref name="timeInterceptor"&gt;&lt;/interceptor-ref&gt;
+		...
+	&lt;/action&gt;
+&lt;/package&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>如果一个没有配置任何的拦截器 struts 会默认提供一个 defaultStack （默认拦截器栈）</p>
+</li>
+<li><p>一旦配置了一个拦截器，则不再提供 defaultStack 拦截器</p>
+</li>
+<li><p>defaultStack 是个很重要的拦截器，所以若手动配置了其他拦截器一定要加上这个默认拦截器</p>
+</li>
+</ol>
+<p>定义拦截器栈<br>参考 defaultStack</p>
+<br>
+### 内置拦截器
+fileUpload 上传拦截器
+<pre class="line-numbers language-XML" data-language="XML"><code class="language-XML">&lt;interceptor-ref name="fileUpload"&gt;
+	&lt;param name="maximumSize"&gt;1024&lt;/param&gt;&lt;!-- 最大大小（字节） --&gt;
+	&lt;param name="allowedTypes"&gt;image/jpeg, image/png,image/gif&lt;/param&gt;&lt;!-- 允许类型 --&gt;
+	&lt;!-- &lt;param name="allowedExtensions"&gt;.jpg, .png,.gif&lt;/param&gt;允许的后缀类型 --&gt;
+&lt;/interceptor-ref&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>token/tokenSession:组织表单重复提交</p>
+<h3 id="国际化"><a href="#国际化" class="headerlink" title="国际化"></a>国际化</h3><p>图片服务器分离技术</p>
+<p>虚拟目录</p>
+<h2 id="ognl-表达式"><a href="#ognl-表达式" class="headerlink" title="ognl 表达式"></a>ognl 表达式</h2><p>对象图导航语言，提供一个对象，获取这个对象属性值，或者对属性参与加工。</p>
+<ul>
+<li>表达式没有 # 号，就去 root 区查找对应的值</li>
+<li>表达式有 # 号，就去 context 区查找对应的值</li>
+</ul>
+<p>ognl 表达式要结合 struts 标签使用</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com" rel="external nofollow noreferrer">CrazyBunQnQ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com/2017/05/18/struts2/">https://blog.crazybunqnq.com/2017/05/18/struts2/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.crazybunqnq.com" target="_blank">CrazyBunQnQ</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%A1%86%E6%9E%B6/">
+                                    <span class="chip bg-color">框架</span>
+                                </a>
+                            
+                                <a href="/tags/struts2/">
+                                    <span class="chip bg-color">struts2</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="weibo,wechat,qq,qzone,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/05/27/threeproxymodel/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Java 的三种代理模式">
+                        
+                        <span class="card-title">Java 的三种代理模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            代理（Proxy）是一种设计模式，提供了对目标对象另外的访问方式，即通过代理对象访问目标对象，这样做的好处是：可以在目标对象实现的基础上，增强额外的功能操作，即扩展目标对象的功能。这里使用到编程中的一个思想：不要随意去修改别人已经写好的代码
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-05-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                    <a href="/tags/Proxy/">
+                        <span class="chip bg-color">Proxy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/05/13/bankpatrol-xiang-mu-gan-wu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="BankPatrol 项目感悟">
+                        
+                        <span class="card-title">BankPatrol 项目感悟</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            最近几天和朋友两人模拟做了个银行巡检的项目，由于时间紧促，我们只做了部分功能。为了能让自己更快的成长，我们是把它当做一个真正的项目来做的。在该项目中，我们用到了 JUnit 测试类和 Git 版本管理工具。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-05-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web-%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Web 基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web-%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">Web 搭建</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('40')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: CrazyBun<br />'
+            + '文章作者: CrazyBunQnQ<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归 CrazyBunQnQ 所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2023</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">CrazyBunQnQ</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "10";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CrazyBunQnQ" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:crazybunqnq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=494225231" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 494225231" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2800339712" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2800339712" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?864d5a7534ed5364589f82c39b9c4e07";
+        var baiduSite = document.createElement("meta");
+        baiduSite.name = "baidu-site-verification";
+        baiduSite.content = "codeva-7NYmMaNfam";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(baiduSite, s);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+	    <div style="position:fixed;bottom:125px;right:9px;cursor: pointer;">
+	        <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/498631"><img src="/medias/contact.png"></a>
+	    </div>
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,2057 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JDK 7 新特性, CrazyBun">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93893895-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-93893895-1');
+</script>
+
+
+    <title>JDK 7 新特性 | CrazyBun</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="CrazyBun" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">CrazyBun</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">CrazyBun</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JDK 7 新特性</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JDK/">
+                                <span class="chip bg-color">JDK</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-01-27
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-04-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    11k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    43 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>面试的时候面试官问我用的哪个 JDK 版本，然后问我有啥新特性，支支吾吾就答了几个…<br>回来赶紧看看都有啥新特性，查完发现我平时还用了不少呢，有些居然不知道是新特性…好尴尬<br>赶紧复习下…</p>
+<!-- [JDK 8 新特性]()看这里 -->
+
+<span id="more"></span>
+
+<h2 id="Switch-语句允许使用-String-类型"><a href="#Switch-语句允许使用-String-类型" class="headerlink" title="Switch 语句允许使用 String 类型"></a>Switch 语句允许使用 String 类型</h2><p>这大概是最直观的修改了，我是挺常用的…</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> test <span class="token operator">=</span> <span class="token string">"a"</span><span class="token punctuation">;</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>test<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">"a"</span><span class="token operator">:</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"这是字母 a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">"b"</span><span class="token operator">:</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"这是字母 b"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">"c"</span><span class="token operator">:</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"这是字母 c"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"不知道这是什么"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="catch-可以一次处理多个异常：将多个异常用同一个-catch-捕获，减少重复代码"><a href="#catch-可以一次处理多个异常：将多个异常用同一个-catch-捕获，减少重复代码" class="headerlink" title="catch 可以一次处理多个异常：将多个异常用同一个 catch 捕获，减少重复代码"></a>catch 可以一次处理多个异常：将多个异常用同一个 catch 捕获，减少重复代码</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token comment">// 捕获多个异常</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> <span class="token operator">|</span> <span class="token class-name">SQLException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="try-可以自动关闭资源"><a href="#try-可以自动关闭资源" class="headerlink" title="try 可以自动关闭资源"></a>try 可以自动关闭资源</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">try</span> <span class="token punctuation">(</span><span class="token class-name">BufferedReader</span> br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> br<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>以上代码等同于：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">BufferedReader</span> br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> br<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>br <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+        br<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>只有实现了 <code>java.lang.AutoCloseable</code> 接口，或者 <code>java.io.Closable</code>（实际上继随自 <code>java.lang.AutoCloseable</code>）接口的对象，才会自动调用其 <code>close()</code> 函数。</p>
+</blockquote>
+<p>关于 <code>java.lang.AutoCloseable</code> 与 <code>java.io.Closable</code> 的官方解释如下：</p>
+<ul>
+<li>AutoClosable:<ul>
+<li>关闭此资源，放弃任何基础资源。这个方法在 <code>try-with-resources</code> 语句管理的对象上自动调用。</li>
+<li>虽然声明此接口方法抛出异常，但强烈建议实现者声明 <code>close</code> 方法的具体实现以抛出更具体的异常，或者如果关闭操作不能失败则不抛出任何异常。</li>
+<li>强烈建议此接口的实现者不要使用 <code>close</code> 方法抛出 <code>InterruptedException</code>。此异常与线程的中断状态交互，如果抑制 <code>InterruptedException</code>，则可能发生运行时错误行为。更一般地说，如果它会导致异常被抑制的问题，<code>AutoCloseable.close</code> 方法不应该抛出它。</li>
+<li>请注意，与 <code>Closeable</code> 的 <code>close</code> 方法不同，此 <code>close</code> 方法不需要是<strong>幂等</strong>的。换句话说，不止一次调用此 <code>close</code> 方法可能会产生一些可见的副作用，这与 <code>Closeable.close</code> 不同，如果多次调用则需要它无效。但是，强烈建议强制使用此接口的实现者使其 <code>close</code> 方法具有幂等性。</li>
+<li>Exception - if this resource cannot be closed</li>
+</ul>
+</li>
+<li>Closable:<ul>
+<li>关闭此流并释放与之关联的任何系统资源。如果流已经关闭，则调用此方法无效。</li>
+<li>IOException - if an I/O error occurs</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>幂等：同样的请求被执行一次与连续执行多次的效果是一样的 <code>f(f(x)) = f(x)</code></p>
+</blockquote>
+<h2 id="支持数字常量和二进制常量中使用下划线"><a href="#支持数字常量和二进制常量中使用下划线" class="headerlink" title="支持数字常量和二进制常量中使用下划线"></a>支持数字常量和二进制常量中使用下划线</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">long</span> creditCardNumber <span class="token operator">=</span> <span class="token number">1234_5678_9012_3456L</span><span class="token punctuation">;</span><span class="token comment">// 等同于 long creditCardNumber = 1234567890123456L;</span>
+<span class="token keyword">long</span> socialSecurityNumber <span class="token operator">=</span> <span class="token number">999_99_9999L</span><span class="token punctuation">;</span><span class="token comment">// 等同于 long socialSecurityNumber = 999999999L;</span>
+<span class="token keyword">float</span> pi <span class="token operator">=</span> <span class="token number">3.14_15F</span><span class="token punctuation">;</span><span class="token comment">// 等同于 float pi = 3.1415F;</span>
+<span class="token keyword">long</span> hexBytes <span class="token operator">=</span> <span class="token number">0xFF_EC_DE_5E</span><span class="token punctuation">;</span><span class="token comment">// 等同于 long hexBytes = 0xFFECDE5E; 或 long hexBytes = 4293713502L;</span>
+<span class="token keyword">long</span> hexWords <span class="token operator">=</span> <span class="token number">0xCAFE_BABE</span><span class="token punctuation">;</span><span class="token comment">// 同上</span>
+<span class="token keyword">long</span> maxLong <span class="token operator">=</span> <span class="token number">0</span>x7fff_ffff_ffff_ffffL<span class="token punctuation">;</span><span class="token comment">//同上</span>
+<span class="token keyword">byte</span> nybbles <span class="token operator">=</span> <span class="token number">0b0010_0101</span><span class="token punctuation">;</span><span class="token comment">// 等同于 byte nybbles = ob0010_0101; 或 byte nybbles = 37;</span>
+<span class="token keyword">long</span> bytes <span class="token operator">=</span> <span class="token number">0b11010010_01101001_10010100_10010010</span><span class="token punctuation">;</span>
+<span class="token comment">//float pi1 = 3_.1415F;// 无效;不能将下划线放在小数点附近  </span>
+<span class="token comment">//float pi2 = 3._1415F;// 无效;不能将下划线放在小数点附近 </span>
+<span class="token comment">//long socialSecurityNumber1= 999_99_9999_L;// 无效;在 L 后缀之前不能加下划线</span>
+<span class="token comment">//int x1 = _52;// 这是一个标识符，而不是数字文字  </span>
+<span class="token keyword">int</span> x2 <span class="token operator">=</span> <span class="token number">5_2</span><span class="token punctuation">;</span><span class="token comment">// 等同于 int x2 = 52;</span>
+<span class="token comment">//int x3 = 52_;// 无效;不能将下划线放在文字的末尾</span>
+<span class="token keyword">int</span> x4 <span class="token operator">=</span> <span class="token number">5_______2</span><span class="token punctuation">;</span><span class="token comment">// 等同于 innt x4 = 52</span>
+<span class="token comment">//int x5 = 0_x52;// 无效;不能将下划线放在 0x 基数前缀中</span>
+<span class="token comment">//int x6 = 0x_52;// 无效;不能将下划线放在数字的开头</span>
+<span class="token keyword">int</span> x7 <span class="token operator">=</span> <span class="token number">0x5_2</span><span class="token punctuation">;</span><span class="token comment">// 等同于 int x7 = 0x52; 或 int x7 = 82;</span>
+<span class="token comment">//int x8 = 0x52_;// 无效;不能将下划线放在数字的末尾</span>
+<span class="token keyword">int</span> x9 <span class="token operator">=</span> <span class="token number">0_52</span><span class="token punctuation">;</span><span class="token comment">// 等同于 int x9 = 52;</span>
+<span class="token keyword">int</span> x10 <span class="token operator">=</span> <span class="token number">05_2</span><span class="token punctuation">;</span><span class="token comment">// 等同于 int x10 = 52</span>
+<span class="token comment">//int x11 = 052_;// 无效;不能将下划线放在数字的末尾</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="支持将整数类型用二进制表示，用-0b-或-0B-开头"><a href="#支持将整数类型用二进制表示，用-0b-或-0B-开头" class="headerlink" title="支持将整数类型用二进制表示，用 0b 或 0B 开头"></a>支持将整数类型用二进制表示，<strong>用 <code>0b</code> 或 <code>0B</code> 开头</strong></h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">byte</span> b <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">)</span><span class="token number">0b0010_0010</span><span class="token punctuation">;</span><span class="token comment">// 等同于 byte b = 34;</span>
+<span class="token keyword">short</span> s <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">short</span><span class="token punctuation">)</span>ob1010_0001_0100_0101<span class="token punctuation">;</span><span class="token comment">// 等同于 short s = 41285;</span>
+<span class="token keyword">int</span> i1 <span class="token operator">=</span> <span class="token number">0b1010_0001_0100_0101_1010_0001_0100_0101</span><span class="token punctuation">;</span><span class="token comment">// 等同于 int i1 = 2705695045;</span>
+<span class="token keyword">int</span> i2 <span class="token operator">=</span> <span class="token number">0B101</span><span class="token punctuation">;</span><span class="token comment">// 等同于 int i2 = 5;</span>
+<span class="token comment">// 注意 long 类型要以 'L' 结尾，不推荐使用 'l'</span>
+<span class="token keyword">long</span> l <span class="token operator">=</span> <span class="token number">0b1010_0001_0100_0101_1010_0001L</span><span class="token punctuation">;</span><span class="token comment">// 等同于 long l = 10569121L;</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0b10</span><span class="token punctuation">,</span> <span class="token number">0B101</span><span class="token punctuation">,</span> <span class="token number">0b110</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">// 等同于 int[] arr = {2, 5, 6};</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="简化泛型实例的创建代码"><a href="#简化泛型实例的创建代码" class="headerlink" title="简化泛型实例的创建代码"></a>简化泛型实例的创建代码</h2><p>创建泛型实例时可以去掉后面 new 部分的泛型类型</p>
+<h3 id="JDK-7-优化前"><a href="#JDK-7-优化前" class="headerlink" title="JDK 7 优化前"></a>JDK 7 优化前</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span> strList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> strList4 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> strList5 <span class="token operator">=</span>  <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="JDK-7-优化后——编译器使用尖括号-lt-gt-推断类型"><a href="#JDK-7-优化后——编译器使用尖括号-lt-gt-推断类型" class="headerlink" title="JDK 7 优化后——编译器使用尖括号 <> 推断类型"></a>JDK 7 优化后——编译器使用尖括号 <code>&lt;&gt;</code> 推断类型</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> strList0 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> strList1 <span class="token operator">=</span>  <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> strList2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> strList3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//list.addAll(new ArrayList&lt;&gt;());// 这里需要添加泛型类型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="改进编译警告和错误"><a href="#改进编译警告和错误" class="headerlink" title="改进编译警告和错误"></a>改进编译警告和错误</h2><h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">List</span> l <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Number</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> ls <span class="token operator">=</span> l<span class="token punctuation">;</span><span class="token comment">// 未经检查的警告</span>
+l<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 另一个未经检查的警告</span>
+<span class="token class-name">String</span> s <span class="token operator">=</span> ls<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 抛出 ClassCastException 异常</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> <span class="token keyword">void</span> addToList <span class="token punctuation">(</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span> listArg<span class="token punctuation">,</span> <span class="token class-name">T</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> elements<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">T</span> x <span class="token operator">:</span> elements<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     listArg<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在可变参数方法中传递非具体化参数，你会得到一个警告：</p>
+<blockquote>
+<p>warning: [varargs] Possible heap pollution from parameterized vararg type.</p>
+</blockquote>
+<p>要消除警告，可以有三种方式:</p>
+<ol>
+<li>加 annotation <code>@SafeVarargs</code></li>
+<li>加 annotation <code>@SuppressWarnings({"unchecked", "varargs"})</code></li>
+<li>使用编译器参数 <code>–Xlint:varargs;</code></li>
+</ol>
+<h2 id="新增-ThreadLocalRandom-类"><a href="#新增-ThreadLocalRandom-类" class="headerlink" title="新增 ThreadLocalRandom 类"></a>新增 ThreadLocalRandom 类</h2><p>ThreadLocalRandom 继承自 Random</p>
+<blockquote>
+<p>A random number generator isolated to the current thread. Like the global Random generator used by the Math class, a ThreadLocalRandom is initialized with an internally generated seed that may not otherwise be modified. When applicable, use of ThreadLocalRandom rather than shared Random objects in concurrent programs will typically encounter much less overhead and contention. Use of ThreadLocalRandom is particularly appropriate when multiple tasks (for example, each a ForkJoinTask) use random numbers in parallel in thread pools.</p>
+<p>Usages of this class should typically be of the form: ThreadLocalRandom.current().nextX(…) (where X is Int, Long, etc). When all usages are of this form, it is never possible to accidently share a ThreadLocalRandom across multiple threads.</p>
+<p>This class also provides additional commonly used bounded random generation methods.</p>
+</blockquote>
+<p>随机数生成器被隔离到当前线程。与 Math 类使用的全局 Random 生成器一样，ThreadLocalRandom 使用内部生成的种子进行初始化，否则可能无法修改。适用时，在并发程序中使用 ThreadLocalRandom 而不是共享 Random 对象通常会遇到更少的开销和争用。当多个任务（例如，每个 ForkJoinTask）在线程池中并行使用随机数时，使用 ThreadLocalRandom 是特别合适的。</p>
+<p>此类的用法通常应为以下形式: <code>ThreadLocalRandom.current().nextX(...)</code>(其中 X 为 Int, Long 等)。当所有用法都是这种形式时，永远不可能在多个线程中意外地共享 ThreadLocalRandom。</p>
+<p>该类还提供了其他常用的有界随机生成方法。</p>
+<blockquote>
+<p>实际上就是使用 threadlocal 保证并发下的随机数生成的线程安全</p>
+</blockquote>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>current<ul>
+<li>public static ThreadLocalRandom current()</li>
+<li>Returns: 当前线程的 ThreadLocalRandom</li>
+</ul>
+</li>
+<li>setSeed<ul>
+<li>public void setSeed(long seed)</li>
+<li>Overrides: Random 类的 setSeed 方法</li>
+<li>Parameters: seed - 最初的种子</li>
+<li>Throws: UnsupportedOperationException - always</li>
+</ul>
+</li>
+<li>next<ul>
+<li>protected int next(int bits)</li>
+<li>Description (从 Random 类中复制过来的):<ul>
+<li>生成下一个伪随机数。子类应该覆盖它，因为所有其他方法都使用它</li>
+<li><code>next</code> 的一般约定是它返回一个 int 值，如果参数位在 1 和 32 之间(包括)，那么返回值的许多低位将是(近似)独立选择的位值，每个位值都是(大约)同样可能是 0 或 1。<code>next</code> 方法由类 <code>Random</code> 实现，通过原子方式将种子更新为 <code>(seed * 0x5DEECE66DL + 0xBL) &amp; ((1L &lt;&lt; 48) - 1)</code> 并返回 <code>(int)(seed &gt;&gt;&gt; (48 - bits))</code>.<blockquote>
+<p>The general contract of next is that it returns an int value and if the argument bits is between 1 and 32 (inclusive), then that many low-order bits of the returned value will be (approximately) independently chosen bit values, each of which is (approximately) equally likely to be 0 or 1.</p>
+<p>The method next is implemented by class Random by atomically updating the seed to <code>(seed * 0x5DEECE66DL + 0xBL) &amp; ((1L &lt;&lt; 48) - 1)</code> and returning <code>(int)(seed &gt;&gt;&gt; (48 - bits))</code>.</p>
+</blockquote>
+</li>
+<li>这是<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36301602">线性同余伪随机数</a>生成器，由 D.H.Lehmer 所定义并由 Donald E.Knuth 在《The Computer of Computer Programming，Volume 3：Seminumerical Algorithms，section 3.2.1》中描述。<blockquote>
+<p>This is a linear congruential pseudorandom number generator, as defined by D. H. Lehmer and described by Donald E. Knuth in The Art of Computer Programming, Volume 3: Seminumerical Algorithms, section 3.2.1.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>Overrides: Random 类的 next 方法</li>
+<li>Parameters: bits - 随机位</li>
+<li>Returns: 来自此随机数生成器序列的下一个伪随机值</li>
+</ul>
+</li>
+<li>nextInt<ul>
+<li>public int nextInt(int least, int bound)</li>
+<li>Parameters:<ul>
+<li>least - 下限</li>
+<li>bound - 上限(不包括)</li>
+</ul>
+</li>
+<li>Returns: 伪随机，在给定的最小值(包括)和绑定(不包括)之间均匀分布的值。</li>
+<li>Throws: IllegalArgumentException - 如果最小值大于或等于上限</li>
+</ul>
+</li>
+<li>nextLong<ul>
+<li>public long nextLong(long n)</li>
+<li>Parameters: n - 要返回的随机数的界限。必须是正数。</li>
+<li>Returns: 伪随机，在 0(包括)和指定值(不包括)之间均匀分布的值。</li>
+<li>Throws: IllegalArgumentException - 如果 n 不为正数</li>
+</ul>
+</li>
+<li>nextLong<ul>
+<li>public long nextLong(long least, long bound)</li>
+<li>Parameters:<ul>
+<li>least - 下限</li>
+<li>bound - 上限(不包括)</li>
+</ul>
+</li>
+<li>Returns: 伪随机，在给定的最小值(包括)和绑定(不包括)之间均匀分布的值。</li>
+<li>Throws: IllegalArgumentException - 如果最小值大于或等于上限</li>
+</ul>
+</li>
+<li>nextDouble<ul>
+<li>public double nextDouble(double n)</li>
+<li>Parameters: n - 要返回的随机数的界限。必须是正数。</li>
+<li>Returns: 伪随机，在 0(包括)和指定值(不包括)之间均匀分布的值。</li>
+<li>Throws: IllegalArgumentException - 如果 n 不为正数</li>
+</ul>
+</li>
+<li>nextDouble<ul>
+<li>public double nextDouble(double least, double bound)</li>
+<li>Parameters:<ul>
+<li>least - 下限</li>
+<li>bound - 上限(不包括)</li>
+</ul>
+</li>
+<li>Returns: 伪随机，在给定的最小值(包括)和绑定(不包括)之间均匀分布的值。</li>
+<li>Throws: IllegalArgumentException - 如果最小值大于或等于上限</li>
+</ul>
+</li>
+</ul>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token constant">MAX</span> <span class="token operator">=</span> <span class="token number">100000</span><span class="token punctuation">;</span>
+<span class="token class-name">ThreadLocalRandom</span> threadLocalRandom <span class="token operator">=</span> <span class="token class-name">ThreadLocalRandom</span><span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span> start <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">nanoTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token constant">MAX</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    threadLocalRandom<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">long</span> end <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">nanoTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start<span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"use time1 : "</span> <span class="token operator">+</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span> start2 <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">nanoTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token constant">MAX</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">long</span> end2 <span class="token operator">=</span> <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">nanoTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start2<span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"use time2 : "</span> <span class="token operator">+</span> end2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="URLClassLoader-类新增-close-方法"><a href="#URLClassLoader-类新增-close-方法" class="headerlink" title="URLClassLoader 类新增 close 方法"></a>URLClassLoader 类新增 close 方法</h2><p>它实现了 <a href="#try-%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E5%85%B3%E9%97%AD%E8%B5%84%E6%BA%90">Closeable</a> 接口，可以及时关闭资源，后续重新加载 class 文件时不会导致资源被占用或者无法释放问</p>
+<h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档:"></a>官方文档:</h3><blockquote>
+<p>Closes this URLClassLoader, so that it can no longer be used to load new classes or resources that are defined by this loader. Classes and resources defined by any of this loader’s parents in the delegation hierarchy are still accessible. Also, any classes or resources that are already loaded, are still accessible.</p>
+<p>In the case of jar: and file: URLs, it also closes any files that were opened by it. If another thread is loading a class when the close method is invoked, then the result of that load is undefined.</p>
+<p>The method makes a best effort attempt to close all opened files, by catching IOExceptions internally. Unchecked exceptions and errors are not caught. Calling close on an already closed loader has no effect.</p>
+</blockquote>
+<p>关闭此 <code>URLClassLoader</code>，以便它不再可用于加载此加载程序定义的新类或资源。由委托层次结构中的任何加载程序父项定义的类和资源仍可访问。此外，仍可访问已加载的任何类或资源。</p>
+<p>对于 <code>jar:</code> 和 <code>file:</code> 的 URL，它还会关闭由它打开的所有文件。如果在调用 <code>close</code> 方法时另一个线程正在加载类，则该加载的结果是未定义的。</p>
+<p>该方法通过在内部捕获 <code>IOExceptions</code>，尽最大努力尝试关闭所有打开的文件。未捕获未经检查的异常和错误。在已经关闭的加载器上调用 <code>close</code> 无效。</p>
+<h3 id="可能抛出的异常"><a href="#可能抛出的异常" class="headerlink" title="可能抛出的异常"></a>可能抛出的异常</h3><ul>
+<li>IOException - if closing any file opened by this class loader resulted in an IOException. Any such exceptions are caught internally. If only one is caught, then it is re-thrown. If more than one exception is caught, then the second and following exceptions are added as suppressed exceptions of the first one caught, which is then re-thrown.</li>
+<li>SecurityException - if a security manager is set, and it denies RuntimePermission(“closeClassLoader”)</li>
+</ul>
+<h2 id="套接字直接协议"><a href="#套接字直接协议" class="headerlink" title="套接字直接协议"></a>套接字直接协议</h2><p><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/Java-7-Sockets-Direct-Protocol?useSponsorshipSuggestions=true">套接字直接协议(Sockets Direct Protocol, SDP)</a>。</p>
+<p>绕过操作系统的数据拷贝，将数据从一台机器的内存数据通过网络直接传输到另外一台机器的内存中。</p>
+<blockquote>
+<p>em…实际上我还没看懂，详细内容等我看懂了再补充</p>
+</blockquote>
+<h2 id="解决并发下加载-class-可能导致的死锁问题"><a href="#解决并发下加载-class-可能导致的死锁问题" class="headerlink" title="解决并发下加载 class 可能导致的死锁问题"></a>解决并发下加载 class 可能导致的死锁问题</h2><blockquote>
+<p>这个是 JDK 1.6 的一些新版本就解决了，JDK 7 也做了一些优化。</p>
+<p>详细参考<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/7/docs/technotes/guides/lang/cl-mt.html">官方文档 Multithreaded Custom Class Loaders in Java SE 7</a></p>
+</blockquote>
+<h3 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h3><ul>
+<li>类层次结构：<ul>
+<li>A 类继承于 B 类</li>
+<li>C 类继承于 D 类</li>
+</ul>
+</li>
+<li>ClassLoader 委派层次结构:<ul>
+<li>自定义类加载器 CL1:<ol>
+<li>直接加载类 A</li>
+<li>将 B 类委托给自定义类加载器 CL2</li>
+</ol>
+</li>
+<li>自定义类加载器 CL2:<ol>
+<li>直接加载类 C</li>
+<li>将 D 类委托给自定义类加载器 CL1</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>JDK 7 之前: 多线程自定义类加载器在没有非循环委托模型时可能会死锁<ul>
+<li>Thread 1:<ol>
+<li>使用 CL1 加载 A 类 (锁定 CL1)</li>
+<li>定义 A 类触发器</li>
+<li>加载 B 类 (尝试锁定 CL2)</li>
+</ol>
+</li>
+<li>Thread 2:<ol>
+<li>使用 CL2 加载 C 类 (锁住 CL2)</li>
+<li>定义 C 类触发器</li>
+<li>加载 D 类 (尝试锁定 CL1)<blockquote>
+<p>ClassLoader 类中的同步以前是严厉的，或者在技术方面，不够精细。在整个 ClassLoader 对象上加载同步的类的请求，这使得它容易出现死锁。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>JDK 7: 线程不再处于死锁状态，并且所有类都已成功加载<ul>
+<li>Thread 1:<ol>
+<li>使用 CL1 加载 A 类 (锁定 CL1 和 A 类)</li>
+<li>定义 A 类触发器</li>
+<li>加载 B 类 (锁定 CL2 和 B 类)</li>
+</ol>
+</li>
+<li>Thread 2:<ol>
+<li>使用 CL2 加载 C 类 (锁住 CL2 和 C 类)</li>
+<li>定义 C 类触发器</li>
+<li>加载 D 类 (锁定 CL1 和 D 类)</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="新增-Objects-类"><a href="#新增-Objects-类" class="headerlink" title="新增 Objects 类"></a>新增 Objects 类</h2><p>此类包含用于对对象进行操作的 9 静态实用方法。这些实用程序包括 null-safe 或 null-tolerant 方法，用于计算对象的哈希代码，返回对象的字符串以及比较两个对象。</p>
+<p><strong>Objects 继承于 Object</strong></p>
+<h3 id="Objects-equals"><a href="#Objects-equals" class="headerlink" title="Objects.equals"></a>Objects.equals</h3><ul>
+<li>public static boolean equals(Object a, Object b)</li>
+<li>Parameters:<ul>
+<li>a - 一个对象</li>
+<li>b - 要与 a 对象进行比较的对象</li>
+</ul>
+</li>
+<li>Returns: 如果参数彼此相等则为true，否则为false。因此，如果两个参数都为null，则返回true，如果只有一个参数为null，则返回false。否则，通过使用第一个参数的 equals 方法(Object.equals)确定相等性。</li>
+<li>参见 Object.equals(Object)</li>
+</ul>
+<h3 id="Objects-deepEquals"><a href="#Objects-deepEquals" class="headerlink" title="Objects.deepEquals"></a>Objects.deepEquals</h3><ul>
+<li>public static boolean deepEquals(Object a, Object b)</li>
+<li>Parameters:<ul>
+<li>a - 一个对象</li>
+<li>b - 要与 a 对象进行深度比较的对象</li>
+</ul>
+</li>
+<li>Returns: 如果参数彼此非常相等则为 true，否则为 false。两个 null 值深度相等。如果两个参数都是数组，则使用 <code>Arrays.deepEquals</code> 中的算法确定相等性。否则，通过使用第一个参数的 equals 方法(Object.equals)确定相等性。</li>
+<li>参见:<ul>
+<li>Arrays.deepEquals(Object[], Object[])</li>
+<li><a href="#Objects-equals">Objects.equals(Object, Object)</a></li>
+<li>Object.equals(Object)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Objects-hashCode"><a href="#Objects-hashCode" class="headerlink" title="Objects.hashCode"></a>Objects.hashCode</h3><ul>
+<li>public static int hashCode(Object o)</li>
+<li>Parameters: o - 一个对象</li>
+<li>Returns: 非 null 参数的哈希码，参数是 null 则为 0</li>
+<li>参见:<ul>
+<li>Object.hashCode()</li>
+</ul>
+</li>
+</ul>
+<h3 id="Objects-hash"><a href="#Objects-hash" class="headerlink" title="Objects.hash"></a>Objects.hash</h3><ul>
+<li>public static int hash(Object… values)</li>
+<li>Parameters: values - 要散列的对象序列</li>
+<li>Returns: 输入对象序列的哈希值</li>
+<li>参见:<ul>
+<li>Arrays.hashCode(Object[])</li>
+<li>List.hashCode()</li>
+</ul>
+</li>
+</ul>
+<p>为一系列输入值生成哈希码。生成的哈希代码就好像所有输入值都放在一个数组中一样，并且通过调用 <code>Arrays.hashCode(Object [])</code> 对该数组进行哈希处理。</p>
+<p>此方法对于在包含多个字段的对象上实现 <code>Object.hashCode()</code> 非常有用。例如，如果一个对象有三个字段 x，y 和 z，则可以写：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">hash</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>警告：提供单个对象引用时，返回的值不等于该对象引用的哈希码。可以通过调用 <code>hashCode(Object)</code> 来计算此值</strong></p>
+</blockquote>
+<h3 id="Objects-toString"><a href="#Objects-toString" class="headerlink" title="Objects.toString"></a>Objects.toString</h3><ul>
+<li>public static String toString(Object o)</li>
+<li>Parameters: o - 一个对象</li>
+<li>Returns: 调用 toString 获取非 null 参数的结果，参数为 null 则返回 “null”。</li>
+<li>参见:<ul>
+<li>Object.toString()</li>
+<li>String.valueOf(Object)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Objects-toString-1"><a href="#Objects-toString-1" class="headerlink" title="Objects.toString"></a>Objects.toString</h3><ul>
+<li>public static String toString(Object o, String nullDefault)</li>
+<li>Parameters:<ul>
+<li>o - 一个对象</li>
+<li>nullDefault - 如果第一个参数为 null，则返回此值。即默认值</li>
+</ul>
+</li>
+<li>Returns: 如果第一个参数不为 null，则在第一个参数上调用 toString，否则返回第二个参数。</li>
+<li>参见: toString(Object)</li>
+</ul>
+<h3 id="Objects-compare"><a href="#Objects-compare" class="headerlink" title="Objects.compare"></a>Objects.compare</h3><ul>
+<li>public static <t> int compare(T a, T b, Comparator&lt;? super T&gt; c)</t></li>
+<li>Type Parameters: T - 被比较对象的类型</li>
+<li>Parameters:<ul>
+<li>a - 一个对象</li>
+<li>b - 要与 a 进行比较的对象</li>
+<li>c - 用来比较前两个参数的比较器</li>
+</ul>
+</li>
+<li>Returns: 如果参数相同则为 0，否则为 <code>c.compare(a，b)</code>。因此，如果两个参数都为 null ，则返回 0</li>
+<li>参见:<ul>
+<li>Comparable</li>
+<li>Comparator</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>请注意，如果其中一个参数为 null，则可能会也可能不会抛出 NullPointerException，具体取决于 Comparator 选择具有空值的排序策略(如果有的话)。</p>
+</blockquote>
+<h3 id="Objects-requireNonNull"><a href="#Objects-requireNonNull" class="headerlink" title="Objects.requireNonNull"></a>Objects.requireNonNull</h3><ul>
+<li>public static <t> T requireNonNull(T obj)</t></li>
+<li>Type Parameters: T - 被引用的类型</li>
+<li>Parameters: obj - 被检查的对象引用</li>
+<li>Returns: 如果 obj 不为 null 就返回 obj</li>
+<li>Throws: NullPointerException - 如果 obj 为 null</li>
+</ul>
+<p>检查指定的对象引用是否为 null。此方法主要用于在方法和构造函数中进行参数验证，如下所示:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token class-name">Bar</span> bar<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>bar <span class="token operator">=</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Objects-requireNonNull-1"><a href="#Objects-requireNonNull-1" class="headerlink" title="Objects.requireNonNull"></a>Objects.requireNonNull</h3><ul>
+<li>public static <t> T requireNonNull(T obj, String message)</t></li>
+<li>Type Parameters: T - 被引用的类型</li>
+<li>Parameters:<ul>
+<li>obj - 被检查的对象引用</li>
+<li>message - 在抛出 NullPointerException 时使用的详细消息</li>
+</ul>
+</li>
+<li>Returns: 如果 obj 不为 null 就返回 obj</li>
+<li>Throws: NullPointerException - 如果 obj 为 null</li>
+</ul>
+<p>检查指定的对象引用是否为 null，如果是，则抛出自定义的 NullPointerException。此方法主要用于在具有多个参数的方法和构造函数中进行参数验证，如下所示:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token class-name">Bar</span> bar<span class="token punctuation">,</span> <span class="token class-name">Baz</span> baz<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>bar <span class="token operator">=</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>bar<span class="token punctuation">,</span> <span class="token string">"bar must not be null"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>baz <span class="token operator">=</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>baz<span class="token punctuation">,</span> <span class="token string">"baz must not be null"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="增强的文件系统"><a href="#增强的文件系统" class="headerlink" title="增强的文件系统"></a>增强的文件系统</h2><p>JDK 7 推出了全新的 NIO2.0 API 以此改变针对文件管理的不便，使得在 <code>java.nio.file</code> 包下使用 <code>Path</code>、<code>Paths</code>、<code>Files</code>、<code>WatchService</code>、<code>FileSystem</code> 等常用类型可以很好的简化开发人员对文件管理的编码工作。</p>
+<h3 id="Path-接口和-Paths-类"><a href="#Path-接口和-Paths-类" class="headerlink" title="Path 接口和 Paths 类"></a>Path 接口和 Paths 类</h3><p>Path 接口的某些功能其实可以和 <code>java.io</code> 包下的 File 类等价，当然这些功能仅限于<strong>只读</strong>操作。在实际开发过程中，开发人员可以联用 Path 接口和 Paths 类，从而获取文件的一系列上下文信息。</p>
+<p>Paths 类仅包含通过转换路径字符串或 URI 返回 Path 的静态方法。</p>
+<h4 id="Paths-get"><a href="#Paths-get" class="headerlink" title="Paths.get"></a>Paths.get</h4><p>将路径字符串或在连接时形成路径字符串的字符串序列转换为 Path。如果 more 没有指定任何元素，那么第一个参数的值就是要转换的路径字符串。如果 more 指定了一个或多个元素，那么每个非空字符串(包括first)都被认为是名称元素的序列(参见 Path 接口)，并被连接起来形成一个路径字符串。有关如何联接字符串的详细信息是提供程序指定的，但通常使用名称分隔符作为分隔符联接字符串。例如，如果名称分隔符是“/”，并调用 <code>getPath("/foo", "bar", "gus")</code>，则路径字符串 <code>"/foo/bar/gus"</code> 将转换为路径。如果 first 是空字符串， more 不包含任何非空字符串，则返回表示空路径的路径。</p>
+<p>该路径是通过调用 <code>FileSystem.getPath</code> 方法获得的</p>
+<p>注意，虽然这个方法非常方便，但是使用它将意味着假定对默认 <code>FileSystem</code>(<code>FileSystem.getDefault</code>) 的引用，并限制调用代码的实用程序。因此，不应该在旨在灵活重用的库代码中使用它。一个更灵活的选择是使用现有的 <code>Path</code> 实例作为锚，例如:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Path</span> dir <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token class-name">Path</span> path <span class="token operator">=</span> dir<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">"file"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>public static Path get(String first, String… more)</li>
+<li>Parameters:<ul>
+<li>first - 路径字符串或路径字符串的初始部分</li>
+<li>more - 要连接以形成路径字符串的其他字符串</li>
+</ul>
+</li>
+<li>Returns: 结果 Path</li>
+<li>Throws: InvalidPathException - 如果路径字符串无法转换为 Path</li>
+<li>参见: FileSystem.getPath(java.lang.String, java.lang.String…)</li>
+</ul>
+<h4 id="Pahts-get"><a href="#Pahts-get" class="headerlink" title="Pahts.get"></a>Pahts.get</h4><p>将给定的 URI 转换为 Path 对象。</p>
+<p>此方法在已安装的提供程序上迭代，以定位由给定 URI 的 URI 模式标识的提供程序。URI 方案的比较不考虑大小写。如果找到提供者，则调用其 <code>getPath</code> 方法来转换 URI。</p>
+<p>对于由 URI 模式 “file” 标识的默认提供程序，给定 URI 有一个非空路径组件，以及未定义的查询和片段组件。是否存在权限组件是取决于平台的。返回的 Path 与默认文件系统(<code>FileSystem.getDefault</code>)相关联。</p>
+<p>默认提供程序为 File 类提供了类似的往返保证。对于给定的 Path p，它保证</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Paths</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">toUri</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span><span class="token function">toAbsolutePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>所以只要原始 Path、URI 和新 Path 都是在同一个 Java 虚拟机(可能是不同的调用)中创建的。其他提供者是否提供任何担保是取决于提供者的，因此未指定。</p>
+<ul>
+<li>public static Path get(URI uri)</li>
+<li>Parameters: uri - 要转换的 URI</li>
+<li>Returns: 结果 Path</li>
+<li>Throws:<ul>
+<li>IllegalArgumentException - 如果 uri 参数的前提条件不成立则抛出此异常。URI 的格式是取决于提供者的。</li>
+<li>FileSystemNotFoundException - 由 URI 标识的文件系统不存在并且无法自动创建，或者未安装由 URI 的方案组件标识的提供程序</li>
+<li>SecurityException - 如果安装了安全管理器并且它拒绝访问文件系统的未指定权限</li>
+</ul>
+</li>
+</ul>
+<h4 id="getNameCount"><a href="#getNameCount" class="headerlink" title="getNameCount"></a>getNameCount</h4><ul>
+<li>int getNameCount()</li>
+<li>Returns: 路径中元素的数量，如果此路径仅表示根组件，则为 0</li>
+</ul>
+<h4 id="getFileName"><a href="#getFileName" class="headerlink" title="getFileName"></a>getFileName</h4><p>此路径作为 Path 对象表示的文件或目录的名称。文件名是目录层次结构中离根目录最远的元素。</p>
+<ul>
+<li>public String getFileName()</li>
+<li>Returns: 表示文件或目录名称的路径，如果此路径具有零个元素，则为 null</li>
+</ul>
+<h4 id="getRoot"><a href="#getRoot" class="headerlink" title="getRoot"></a>getRoot</h4><ul>
+<li>Path getRoot()</li>
+<li>Returns: 此路径的根组件作为 Path 对象，如果此路径没有根组件，则为 null</li>
+</ul>
+<h4 id="getParent"><a href="#getParent" class="headerlink" title="getParent"></a>getParent</h4><p>The parent of this path object consists of this path’s root component, if any, and each element in the path except for the farthest from the root in the directory hierarchy. This method does not access the file system; the path or its parent may not exist. Furthermore, this method does not eliminate special names such as “.” and “..” that may be used in some implementations. On UNIX for example, the parent of “/a/b/c” is “/a/b”, and the parent of “x/y/.” is “x/y”. This method may be used with the normalize method, to eliminate redundant names, for cases where shell-like navigation is required.<br>这个 Path 对象的父对象由这个路径的根组件(如果有的话)和路径中的每个元素(目录层次结构中离根最远的元素除外)组成。此方法不访问文件系统; 路径或其父路径可能不存在。此外，此方法不排除可能在某些实现中使用的特殊名称，如“.”和“..”。例如，在UNIX上，“/a/b/c”的父节点是“/a/b”，“x/y/.”的父节点是“x/y”。此方法可与normalize方法一起使用，以便在需要类shell导航的情况下消除冗余名称。</p>
+<ul>
+<li>Path getParent()</li>
+<li>Returns: 父路径，如果此路径没有父路径，则返回 null</li>
+</ul>
+<p>获取当前文件上级关联目录</p>
+<blockquote>
+<p>其他 Path 接口方法请看 JDK 7 文档，太多了，哈哈哈</p>
+</blockquote>
+<h3 id="Files-类"><a href="#Files-类" class="headerlink" title="Files 类"></a>Files 类</h3><p>联用 Path 接口和 Paths 类可以很方便的访问到目标文件的上下文信息。当然这些操作全都是只读的，如果开发人员想对文件进行其它非只读操作，比如文件的创建、修改、删除等操作，则可以使用 Files 类型进行操作。</p>
+<p>Files 类只包含对文件、目录或其他类型的文件进行操作的<strong>静态</strong>方法。在大多数情况下，这里定义的方法将委托给相关的文件系统提供程序来执行文件操作。</p>
+<p>Files 类型常用方法如下：</p>
+<h4 id="Files-createFile"><a href="#Files-createFile" class="headerlink" title="Files.createFile"></a>Files.createFile</h4><p>在指定的目标目录创建一个新的空文件，如果该文件已存在则失败。检查文件是否存在以及创建新文件（如果不存在）是针对可能影响目录的所有其他文件系统活动的原子操作。<br>attrs 参数是可选的文件属性，可在创建文件时以原子方式设置。每个属性都由其名称标识。如果数组中包含多个同名属性，则忽略除最后一次出现的所有属性。</p>
+<ul>
+<li>public static Path createFile(Path path, FileAttribute&lt;?&gt;… attrs) throws IOException</li>
+<li>Parameters:<ul>
+<li>path - 要创建的文件的路径</li>
+<li>attrs - 创建文件时要自动设置的文件属性的可选列表</li>
+</ul>
+</li>
+<li>Returns: the file</li>
+<li>Throws:<ul>
+<li>UnsupportedOperationException - if the array contains an attribute that cannot be set atomically when creating the file</li>
+<li>FileAlreadyExistsException - 如果该名称的文件已存在(可选的特定异常)</li>
+<li>IOException - 如果发生 I/O 错误或父目录不存在</li>
+<li>SecurityException - 对于默认提供程序，并且安装了安全管理器，将调用 <code>checkWrite</code> 方法以检查对新文件的写访问权。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Files-delete"><a href="#Files-delete" class="headerlink" title="Files.delete"></a>Files.delete</h4><p>删除指定目标路径的文件或文件夹</p>
+<p>使用时可能需要检查文件以确定文件是否是目录。因此，该方法相对于其他文件系统操作可能不是原子的。如果文件是符号链接(快捷方式？)，则删除符号链接本身，而不是原文件。</p>
+<p>如果文件是目录，则该目录必须为空。在一些实现中，目录具有用于创建目录时创建的特殊文件或链接的条目。在这样的实现中，当仅存在特殊条目时，目录被认为是空的。此方法可与 <code>walkFileTree</code> 方法一起使用，以删除目录和目录中的所有条目，或者删除所需的整个文件树。</p>
+<p>在某些操作系统上，可能无法删除正在被 Java 虚拟机或其他程序打开和使用的文件。</p>
+<ul>
+<li>public static void delete(Path path) throws IOException</li>
+<li>Parameters: path - 要删除的文件的路径</li>
+<li>Throws:<ul>
+<li>NoSuchFileException - 如果文件不存在(可选的特定异常)</li>
+<li>DirectoryNotEmptyException - 如果该文件是一个目录，否则无法删除，因为该目录不为空(可选的特定异常)</li>
+<li>IOException - 如果发生 I/O 错误</li>
+<li>SecurityException - 对于默认提供程序，并且安装了安全管理器，将调用 <code>SecurityManager.checkDelete(String)</code> 方法以检查对文件的删除访问权限</li>
+</ul>
+</li>
+</ul>
+<h4 id="Files-copy"><a href="#Files-copy" class="headerlink" title="Files.copy"></a>Files.copy</h4><p>复制操作，总共有三个重载</p>
+<h5 id="public-static-long-copy-InputStream-in-Path-target-CopyOption…-options-throws-IOException"><a href="#public-static-long-copy-InputStream-in-Path-target-CopyOption…-options-throws-IOException" class="headerlink" title="public static long copy(InputStream in, Path target, CopyOption… options) throws IOException"></a>public static long copy(InputStream in, Path target, CopyOption… options) throws IOException</h5><p>将<strong>输入流中的</strong>所有字节复制到文件。返回时，输入流将位于流的末尾。</p>
+<p>默认情况下，如果目标文件已存在或者是符号链接，则复制将失败。如果指定了 <code>REPLACE_EXISTING</code> 选项，并且目标文件已存在，则如果它不是非空目录，则替换它。如果目标文件存在且是符号链接，则替换符号链接。在此版本中，<code>REPLACE_EXISTING</code> 选项是此方法必须支持的唯一选项。未来版本可能支持其他选项。</p>
+<p>如果从输入流读取或写入文件时发生 I/O 错误，则可以在创建目标文件之后以及在读取或写入某些字节之后执行此操作。因此，输入流可能不在流的末尾并且可能处于不一致状态。如果发生 I/O 错误，强烈建议立即关闭输入流。</p>
+<p>此方法可能会无限期地阻止从输入流中读取（或写入文件）。在复制期间输入流异步关闭或线程中断的行为是由输入流和文件系统提供程序指定的，因此未指定。</p>
+<p>示例: 假设我们想捕获一个网页并将其保存到文件中:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Path</span> path <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token class-name">URI</span> u <span class="token operator">=</span> <span class="token constant">URI</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"http://java.sun.com/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span><span class="token class-name">InputStream</span> in <span class="token operator">=</span> u<span class="token punctuation">.</span><span class="token function">toURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">openStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Files</span><span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span>in<span class="token punctuation">,</span> path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Parameters:<ul>
+<li>in - 要读取的输入流</li>
+<li>target - 文件的路径(拷贝到那里)</li>
+<li>options - 指定副本应如何完成的选项</li>
+</ul>
+</li>
+<li>Returns: 读取或写入的字节数</li>
+<li>Throws:<ul>
+<li>IOException - 如果读取或写入时发生 I/O 错误</li>
+<li>FileAlreadyExistsException - 如果目标文件存在但由于未指定 <code>REPLACE_EXISTING</code> 选项而无法替换(可选的特定异常)</li>
+<li>DirectoryNotEmptyException - 指定了 <code>REPLACE_EXISTING</code> 选项，但无法替换该文件，因为它是非空目录(可选的特定异常) *</li>
+<li>UnsupportedOperationException - 如果选项包含不受支持的复制选项</li>
+<li>SecurityException - 对于默认提供程序，并且安装了安全管理器，将调用 <code>checkWrite</code> 方法以检查对该文件的写访问权。如果指定了 <code>REPLACE_EXISTING</code> 选项，则会调用安全管理器的 <code>checkDelete</code> 方法来检查是否可以删除现有文件。</li>
+</ul>
+</li>
+</ul>
+<h5 id="public-static-long-copy-Path-source-OutputStream-out-throws-IOException"><a href="#public-static-long-copy-Path-source-OutputStream-out-throws-IOException" class="headerlink" title="public static long copy(Path source, OutputStream out) throws IOException"></a>public static long copy(Path source, OutputStream out) throws IOException</h5><p>将<strong>文件中的</strong>所有字节复制到输出流。</p>
+<p>如果从文件读取或写入输出流时发生 I/O 错误，则可能在读取或写入某些字节后执行此操作。因此，输出流可能处于不一致状态。如果发生I / O错误，强烈建议立即关闭输出流。</p>
+<p>此方法可能会无限期地阻止写入输出流(或从文件中读取)。在复制期间输出流异步关闭或线程中断的行为是由输出流和文件系统提供程序指定的，因此未指定。</p>
+<p>请注意，如果给定的输出流是 <code>Flushable</code>，则在此方法完成后可能需要调用其 <code>flush</code>方法，以便刷新任何缓冲的输出。</p>
+<ul>
+<li>Parameters:<ul>
+<li>source - 原文件的路径</li>
+<li>out - 要写入的输出流</li>
+</ul>
+</li>
+<li>Returns: 读取或写入的字节数</li>
+<li>Throws:<ul>
+<li>IOException - 如果读取或写入时发生 I/O 错误</li>
+<li>SecurityException - 对于默认提供程序，并且安装了安全管理器，将调用 <code>checkRead</code> 方法以检查对该文件的读访问权。</li>
+</ul>
+</li>
+</ul>
+<h5 id="public-static-Path-copy-Path-source-Path-target-CopyOption…-options-throws-IOException"><a href="#public-static-Path-copy-Path-source-Path-target-CopyOption…-options-throws-IOException" class="headerlink" title="public static Path copy(Path source, Path target, CopyOption… options) throws IOException"></a>public static Path copy(Path source, Path target, CopyOption… options) throws IOException</h5><p>将文件复制到目标文件。</p>
+<p>此方法使用 <code>options</code> 参数将文件复制到目标文件，该参数指定如何执行复制。默认情况下，如果目标文件已存在或者是符号链接，则复制将失败，除非源和目标是同一文件，在这种情况下，方法完成但不是复制文件。</p>
+<p>不需要将文件属性复制到目标文件。 如果支持符号链接，并且文件是符号链接，则复制链接的原始目标。如果文件是目录，则它在目标位置创建一个空目录（不复制目录中的条目）。此方法可与 <code>walkFileTree</code> 方法一起使用，以复制目录和目录中的所有条目，或者复制所需的整个文件树。</p>
+<p>options 参数可以包括以下任何一项：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Option</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">REPLACE_EXISTING</td>
+<td align="left">如果目标文件存在，则如果目标文件不是非空目录，则替换目标文件。如果目标文件存在且是符号链接，则替换符号链接本身而不是链接的目标。</td>
+</tr>
+<tr>
+<td align="center">COPY_ATTRIBUTES</td>
+<td align="left">尝试将与此文件关联的文件属性复制到目标文件。复制的确切文件属性是与平台和文件系统相关的，因此未指定。最小化，如果源文件存储和目标文件存储都支持，则将最后修改时间复制到目标文件。复制文件时间戳可能会导致精度损失。</td>
+</tr>
+<tr>
+<td align="center">NOFOLLOW_LINKS</td>
+<td align="left">不遵循符号链接。如果文件是符号链接，则复制符号链接本身，而不是链接的目标。如果可以将文件属性复制到新链接，则它是特定于实现的。换句话说，复制符号链接时可以忽略 <code>COPY_ATTRIBUTES</code> 选项。</td>
+</tr>
+</tbody></table>
+<p>此接口的实现可以支持其他特定于实现的选项。</p>
+<p>复制文件不是原子操作。如果抛出 IOException，则可能是目标文件不完整或者某些文件属性尚未从源文件复制。如果指定了 <code>REPLACE_EXISTING</code> 选项且目标文件存在，则替换目标文件。对于其他文件系统活动，检查文件是否存在以及创建新文件可能不是原子的。</p>
+<p>示例：假设我们要将文件复制到目录中，并为其提供与源文件相同的文件名:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Path</span> source <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token class-name">Path</span> newdir <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token class-name">Files</span><span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> newdir<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>source<span class="token punctuation">.</span><span class="token function">getFileName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Parameters:<ul>
+<li>source - 要复制的文件的路径</li>
+<li>target - 目标文件的路径(可能与源路径的不同提供者相关联)</li>
+<li>options - 指定副本应如何完成的选项</li>
+</ul>
+</li>
+<li>Returns: 目标文件的路径</li>
+<li>Throws:<ul>
+<li>UnsupportedOperationException - 如果数组包含不受支持的副本选项</li>
+<li>FileAlreadyExistsException - 如果目标文件存在但由于未指定 <code>REPLACE_EXISTING</code> 选项而无法替换(可选的特定异常)</li>
+<li>DirectoryNotEmptyException - 指定了 <code>REPLACE_EXISTING</code> 选项，但无法替换该文件，因为它是非空目录(可选的特定异常)</li>
+<li>IOException - 如果发生 I/O 错误</li>
+<li>SecurityException - 对于默认提供程序，并且安装了安全管理器，调用 <code>checkRead</code> 方法以检查对源文件的读访问权，调用 <code>checkWrite</code> 以检查对目标文件的写访问权。如果复制了符号链接，则调用安全管理器以检查 <code>java.nio.file.LinkPermission</code>（用于链接创建操作的权限类。）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Files-move"><a href="#Files-move" class="headerlink" title="Files.move"></a>Files.move</h4><p>将文件移动或重命名为目标文件。</p>
+<p>默认情况下，此方法尝试将文件移动到目标文件，如果目标文件存在则失败，除非源文件和目标是同一文件，在这种情况下此方法实际上是无效的。如果文件是符号链接，则移动符号链接本身而不是原文件。可以调用此方法来移动空目录。在一些实现中，目录具有用于创建目录时创建的特殊文件或链接的条目。在这样的实现中，当仅存在特殊条目时，目录被认为是空的。</p>
+<p>当调用移动非空目录时，如果不需要移动目录中的条目，则移动目录。例如，重命名同一 FileStore 上的目录通常不需要移动目录中的条目。</p>
+<p>若移动目录时需要移动其条目，则此方法失败(通过抛出 IOException)。移动文件树可能涉及复制而不是移动目录，这可以使用 <a href="#Files-copy"><code>Files.copy</code> 方法</a>与 <code>Files.walkFileTree</code> 实用程序方法一起完成。</p>
+<p>options 参数可以包括以下任何一项：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Option</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">REPLACE_EXISTING</td>
+<td align="left">如果目标文件存在，则如果目标文件不是非空目录，则替换目标文件。 如果目标文件存在且是符号链接，则替换符号链接本身而不是原文件。</td>
+</tr>
+<tr>
+<td align="center">ATOMIC_MOVE</td>
+<td align="left">移动作为原子文件系统操作执行，并忽略所有其他选项。如果目标文件已存在，则它成功与否取决于是否已替换已存在的文件或由于该方法抛出 IOException 而失败。如果移动无法作为原子文件系统操作执行，则抛出 AtomicMoveNotSupportedException。例如，当目标位置位于不同的 FileStore 上并且需要复制文件，或者目标位置与该对象的不同提供者相关联时，可能会出现这种情况。</td>
+</tr>
+</tbody></table>
+<p>此接口的实现可以支持其他特定于实现的选项。</p>
+<p>如果移动要求复制文件，则将最后修改时间复制到新文件。该实现还会尝试复制其他文件属性，但如果无法复制文件属性，则并不会失败。当移动作为非原子操作执行并且抛出 IOException 时，则文件的状态不确定。原始文件和目标文件都可能存在，目标文件可能不完整或者某些文件属性可能未从原始文件中复制。</p>
+<p>示例：假设我们要将文件重命名为 “newname”，将文件保留在同一目录中:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Path</span> source <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token class-name">Files</span><span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> source<span class="token punctuation">.</span><span class="token function">resolveSibling</span><span class="token punctuation">(</span><span class="token string">"newname"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>或者，假设我们要将文件移动到新目录，保留相同的文件名，并替换目录中该名称的任何现有文件:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Path</span> source <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token class-name">Path</span> newdir <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token class-name">Files</span><span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> newdir<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>source<span class="token punctuation">.</span><span class="token function">getFileName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant">REPLACE_EXISTING</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>public static Path move(Path source, Path target, CopyOption… options) throws IOException</li>
+<li>Parameters:<ul>
+<li>source - 要移动的文件的路径</li>
+<li>target - 目标文件的路径(可能与源路径的不同提供者相关联)</li>
+<li>options - 指定应如何进行移动的选项</li>
+</ul>
+</li>
+<li>Returns: 目标文件的路径</li>
+<li>Throws:<ul>
+<li>UnsupportedOperationException - 如果数组包含不受支持的副本选项</li>
+<li>FileAlreadyExistsException - 如果目标文件存在但由于未指定 <code>REPLACE_EXISTING</code> 选项而无法替换(可选的特定异常)</li>
+<li>DirectoryNotEmptyException - 指定了 <code>REPLACE_EXISTING</code> 选项，但无法替换该文件，因为它是非空目录(可选的特定异常)</li>
+<li>AtomicMoveNotSupportedException - 如果 <code>options</code> 数组包含 <code>ATOMIC_MOVE</code> 选项但该文件不能作为原子文件系统操作移动。</li>
+<li>IOException - 如果发生 I/O 错误</li>
+<li>SecurityException - 对于默认提供程序，并且安装了安全管理器，将调用 <code>checkWrite</code> 方法以检查对源文件和目标文件的写访问权。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>使用 Files 类型来管理文件，相对于传统的 I/O 方式来说更加方便和简单。因为具体的操作实现将全部移交给 NIO 2.0 API，开发人员则无需关注。</p>
+<p>这里只介绍几个常用方法，其他 Files 接口方法请看 JDK 7 文档</p>
+</blockquote>
+<h3 id="WatchService-接口"><a href="#WatchService-接口" class="headerlink" title="WatchService 接口"></a>WatchService 接口</h3><p>监视已注册对象的更改和事件的监视服务。例如，文件管理器可以使用监视服务来监视目录以进行更改，以便在创建或删除文件时它可以更新其文件列表的显示。</p>
+<p><code>java.nio.file.Watchable</code> 对象通过调用其 <code>register</code> 方法向 watch 服务注册，返回 WatchKey 来表示注册。当检测到某个对象的事件时，就会发出密钥的信号，如果当前没有发出信号，则将其排队到 watch 服务，以便被<a href="#poll">调用 <code>poll</code></a> 或 <a href="#take"><code>take</code> 方法</a>的消费者检索到并处理该事件。一旦事件被处理完毕，消费者就会调用关键字的 <code>reset</code> 方法来重置关键字，该密钥允许向密钥发出信号，并通过进一步的事件重新排队。</p>
+<p>通过调用密钥的 <code>cancel</code> 方法取消注册监视服务。取消时排队的密钥将保留在队列中，直到被检索为止。根据对象，秘钥可能会自动取消。例如，假设监视目录并且监视服务检测到它已被删除或其文件系统不再可访问。当以这种方式取消密钥时，如果当前未发出信号，则发信号通知并排队。为了确保通知消费者，<code>reset</code> 方法的返回值指示密钥是否有效。</p>
+<p>多个并发消费者可以安全地使用监视服务。要确保只有一个使用者可以随时处理特定对象的事件，那么应该注意确保仅在处理事件之后调用密钥的 <code>cancel</code> 方法。可以随时调用 <code>close</code> 方法来关闭服务，但是会导致任何等待检索键的线程抛出 ClosedWatchServiceException。</p>
+<p>文件系统可以比检索或处理事件更快地报告事件，并且该实现可以对其可能累积的事件的数量施加未指定的限制。如果该实现有意丢弃事件，那么它会安排密钥的 <code>pollEvents</code> 方法返回事件类型为 <code>OVERFLOW</code> 的元素。消费者可以将此事件用作重新检查对象状态的触发器。</p>
+<p>当报告事件以指示已监视目录中的文件已被修改时，则无法保证已修改该文件的程序(或多个程序)已完成。应注意协调与可能正在更新文件的其他程序的访问。FileChannel 类定义了锁定文件区域以防其他程序访问的方法。</p>
+<blockquote>
+<p>平台依赖</p>
+<p>观察来自文件系统的事件的实现旨在直接映射到可用的本机文件事件通知工具，或者在本机工具不可用时使用原始机制(例如轮询)。因此，关于如何检测事件，及时性以及是否保留其排序的许多细节都是高度取决于实现的。例如，当修改监视目录中的文件时，它可能在某些实现中导致单个 <code>ENTRY_MODIFY</code> 事件，但在其他实现中会导致多个事件。短期文件(意味着在创建文件后很快删除的文件)可能无法被定期轮询文件系统以检测更改的原始实现检测到。</p>
+<p>如果监视文件不在本地存储设备上，则如果可以检测到对文件的更改，则它是取决于实现的。特别是，不需要检测对远程系统上执行的文件的更改。</p>
+</blockquote>
+<h4 id="close"><a href="#close" class="headerlink" title="close"></a>close</h4><p>关闭此监视服务</p>
+<p>如果某个线程当前在 <a href="#take"><code>take</code></a> 或 <a href="#poll"><code>poll</code> 方法</a>中被阻塞，等待一个键排队，那么它会立即收到一个 ClosedWatchServiceException。与此监视服务关联的任何有效密钥均无效。</p>
+<p>关闭监视服务后，任何进一步尝试调用它的操作都将抛出 ClosedWatchServiceException。如果此监视服务已关闭，则调用此方法无效。</p>
+<ul>
+<li>void close() throws IOException</li>
+<li>参见：<a href="#try-%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%8A%A8%E5%85%B3%E9%97%AD%E8%B5%84%E6%BA%90"><code>AutoCloseable.close</code> 和 <code>Closeable.close</code></a></li>
+<li>Throws: IOException - 如果发生 I/O 错误</li>
+</ul>
+<h4 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h4><p>检索并删除下一个监视密钥，如果不存在，则返回 null</p>
+<ul>
+<li>WatchKey poll()</li>
+<li>Returns: 下一个监视键，或 null</li>
+<li>Throws: ClosedWatchServiceException - 如果此监视服务已关闭</li>
+</ul>
+<h4 id="poll-1"><a href="#poll-1" class="headerlink" title="poll"></a>poll</h4><p>检索并删除下一个监视密钥，必要时等待指定的等待时间(如果尚未存在)。</p>
+<ul>
+<li>WatchKey poll(long timeout, TimeUnit unit) throws InterruptedException</li>
+<li>Parameters:<ul>
+<li>timeout - 放弃之前的等待时间，单位以 unit 参数为准</li>
+<li>unit - TimeUnit 设置超时参数</li>
+</ul>
+</li>
+<li>Returns: 下一个监视键，或 null</li>
+<li>Throws:<ul>
+<li>ClosedWatchServiceException - 如果此监视服务已关闭，或在等待下一个键时关闭</li>
+<li>InterruptedException - 如果在等待时被打断</li>
+</ul>
+</li>
+</ul>
+<h4 id="take"><a href="#take" class="headerlink" title="take"></a>take</h4><p>检索并删除下一个监视密钥，如果还没有，则等待</p>
+<ul>
+<li>WatchKey take() throws InterruptedException</li>
+<li>Returns: 下一个监视秘钥</li>
+<li>Throws:<ul>
+<li>ClosedWatchServiceException - 如果此监视服务已关闭，或在等待下一个键时关闭</li>
+<li>InterruptedException - 如果在等待时被打断</li>
+</ul>
+</li>
+</ul>
+<p>在此或许有很多朋友并不知晓文件监测有何意义及目，那么请大家回想下调试成热发布功能后的 Web 容器。当项目迭代后并重新部署时，开发人员无需对其进行手动重启，因为 Web 容器一旦监测到文件发生改变后，便会自动去适应这些“变化”并重新进行内部装载。Web 容器的热发布功能同样也是基于文件监测功能，所以不得不承认，文件监测功能的出现对于 Java 文件系统来说是具有重大意义的。</p>
+<p>文件监测是基于事件驱动的，事件触发是作为监测的先决条件。开发人员可以使用 <code>java.nio.file.StandardWatchEventKinds</code> 类提供的 3 种字面常量来定义监测事件类型，值得注意的是监测事件需要和 WatchService 实例一起进行注册。</p>
+<p>StandardWatchEventKinds 类提供的监测事件：</p>
+<ul>
+<li>ENTRY_CREATE：文件或文件夹新建事件；</li>
+<li>ENTRY_DELETE：文件或文件夹删除事件；</li>
+<li>ENTRY_MODIFY：文件或文件夹粘贴事件；</li>
+</ul>
+<p>使用 WatchService 类实现文件监控示例：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>file<span class="token punctuation">.</span></span><span class="token class-name">FileSystems</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>file<span class="token punctuation">.</span></span><span class="token class-name">Path</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>file<span class="token punctuation">.</span></span><span class="token class-name">Paths</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>file<span class="token punctuation">.</span></span><span class="token class-name">StandardWatchEventKinds</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>file<span class="token punctuation">.</span></span><span class="token class-name">WatchEvent</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>file<span class="token punctuation">.</span></span><span class="token class-name">WatchKey</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>file<span class="token punctuation">.</span></span><span class="token class-name">WatchService</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+* 文件监控系统
+* @author huangjiawei
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WatchViewTest</span> <span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">testWatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">/* 监控目标路径 */</span>
+      <span class="token class-name">Path</span> path <span class="token operator">=</span> <span class="token class-name">Paths</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"C:\\Users\\huangjiawei\\Desktop"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          <span class="token comment">/* 创建文件监控对象. */</span>
+          <span class="token class-name">WatchService</span> watchService <span class="token operator">=</span> <span class="token class-name">FileSystems</span><span class="token punctuation">.</span><span class="token function">getDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newWatchService</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token comment">/* 注册文件监控的所有事件类型. */</span>
+          path<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span>watchService<span class="token punctuation">,</span> <span class="token class-name">StandardWatchEventKinds</span><span class="token punctuation">.</span><span class="token constant">ENTRY_CREATE</span><span class="token punctuation">,</span> <span class="token class-name">StandardWatchEventKinds</span><span class="token punctuation">.</span><span class="token constant">ENTRY_DELETE</span><span class="token punctuation">,</span>
+                  <span class="token class-name">StandardWatchEventKinds</span><span class="token punctuation">.</span><span class="token constant">ENTRY_MODIFY</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token comment">/* 循环监测文件. */</span>
+          <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token class-name">WatchKey</span> watchKey <span class="token operator">=</span> watchService<span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+              <span class="token comment">/* 迭代触发事件的所有文件 */</span>
+              <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">WatchEvent</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> event <span class="token operator">:</span> watchKey<span class="token punctuation">.</span><span class="token function">pollEvents</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token function">context</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" 事件类型："</span> <span class="token operator">+</span> event<span class="token punctuation">.</span><span class="token function">kind</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
+
+              <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>watchKey<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                  <span class="token keyword">return</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">testWatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过上述程序示例我们可以看出，使用 WatchService 接口进行文件监控非常简单和方便。首先我们需要定义好目标监控路径，然后调用 FileSystems 类型的 <code>newWatchService()</code> 方法创建 WatchService 对象。接下来我们还需使用 Path 接口的 <code>register()</code> 方法注册 WatchService 实例及监控事件。当这些基础作业层全部准备好后，我们再编写外围实时监测循环。最后迭代 WatchKey 来获取所有触发监控事件的文件即可。</p>
+<!--现在我终于知道，spring boot 中那个所谓的 dev-tools 热更新的基本原理啦！原来 JDK 都有提供这样的 API。-->
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com" rel="external nofollow noreferrer">CrazyBunQnQ</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://blog.crazybunqnq.com/2019/01/27/jdk7newfeatures/">https://blog.crazybunqnq.com/2019/01/27/jdk7newfeatures/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY-NC 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://blog.crazybunqnq.com" target="_blank">CrazyBunQnQ</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JDK/">
+                                    <span class="chip bg-color">JDK</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="weibo,wechat,qq,qzone,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/05/04/idea-http-client/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="使用 IDEA 自带的 HTTP Client 来测试 API">
+                        
+                        <span class="card-title">使用 IDEA 自带的 HTTP Client 来测试 API</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            对于 API 测试，常用的方式大多是通过浏览器发送请求、Postman 等 API 工具来测试 API
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-05-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    开发工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%88%E7%8E%87/">
+                        <span class="chip bg-color">效率</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/12/18/markdownnavigatorcrack/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="破解 Markdown Navigator">
+                        
+                        <span class="card-title">破解 Markdown Navigator</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            用了好久的 2.3.8 版本，一直懒得更新，今儿不小心把插件删了…然后发现之前参考的链接失效了…
+哎，自己重新破解一遍吧…
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-12-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/IDEA/">
+                        <span class="chip bg-color">IDEA</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8F%92%E4%BB%B6/">
+                        <span class="chip bg-color">插件</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('40')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: CrazyBun<br />'
+            + '文章作者: CrazyBunQnQ<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归 CrazyBunQnQ 所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2016-2023</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">CrazyBunQnQ</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2016";
+                    var startMonth = "10";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CrazyBunQnQ" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:crazybunqnq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=494225231" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 494225231" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/2800339712" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/2800339712" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?864d5a7534ed5364589f82c39b9c4e07";
+        var baiduSite = document.createElement("meta");
+        baiduSite.name = "baidu-site-verification";
+        baiduSite.content = "codeva-7NYmMaNfam";
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(baiduSite, s);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+	    <div style="position:fixed;bottom:125px;right:9px;cursor: pointer;">
+	        <a title="兔小巢" target="_blank" rel="noopener" href="https://support.qq.com/products/498631"><img src="/medias/contact.png"></a>
+	    </div>
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
